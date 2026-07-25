@@ -4,6 +4,8 @@
 
 持续更新主流大模型的 Intelligence Index 跑分、完整 Token 消耗、API 单位任务成本和套餐优先单位任务成本。
 
+**中英文数据页：** https://biocanse.github.io/llm-efficiency-cost-charts/
+
 最新快照：**2026-07-24**  
 评测：**Artificial Analysis Intelligence Index v4.1**  
 当前覆盖：**73 个 Token 消耗配置 / 68 个 API 成本配置 / 46 个套餐优先配置**
@@ -43,6 +45,8 @@
 - 模型跑分、价格、套餐与额度行为都可能变化。每次更新均以 [`data/`](data/) 中的日期快照为准。
 
 每张图的完整解释见[图片详细说明](docs/CHART_GUIDE.md)，具体计算方法见[方法说明](docs/METHODOLOGY.md)和[排名方法](docs/RANKING_METHOD.md)，完整链接见[数据来源](docs/SOURCES.md)，当前数据见 [2026-07-24 快照](data/2026-07-24/)。
+
+数值下载：[综合 Token 效率](rankings/2026-07-24/token_efficiency_ranking.csv) · [API 成本](rankings/2026-07-24/api_cost_ranking.csv) · [套餐优先成本](rankings/2026-07-24/subscription_cost_ranking.csv) · [分数门槛最低成本](rankings/2026-07-24/score_threshold_leaders.csv)
 
 ## 更新规则
 

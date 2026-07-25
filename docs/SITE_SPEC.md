@@ -1,5 +1,7 @@
 # GitHub Pages specification
 
+Published page: https://biocanse.github.io/llm-efficiency-cost-charts/
+
 ## Purpose
 
 Publish the current bilingual charts, detailed chart explanations, and numerical rankings on one GitHub Pages URL.
@@ -47,3 +49,12 @@ The site must not contain manually duplicated ranking numbers. A snapshot update
 - GitHub Pages deployment through the official Pages Actions.
 - No account, analytics, cookies, remote fonts, or third-party runtime dependency.
 - The Pages workflow publishes `site/` together with the current chart assets and ranking data.
+
+## Published result
+
+- The page switches Chinese and English in place without navigating to a second document.
+- Subscription-first ranking is the default numerical view; all 46 rows can be expanded.
+- API ranking contains all 68 comparable rows.
+- Aggregate Token efficiency contains five core full-curve models and four limited-evidence models.
+- Each chart includes visible axis, formula, inclusion, exclusion, and interpretation notes.
+- GitHub Pages deployment is automatically updated from `main`.

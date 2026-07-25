@@ -4,6 +4,8 @@
 
 Continuously maintained charts comparing LLM intelligence scores with total Token consumption, API task cost, and subscription-first task cost.
 
+**Live bilingual data page:** https://biocanse.github.io/llm-efficiency-cost-charts/
+
 Latest snapshot: **2026-07-24**  
 Benchmark: **Artificial Analysis Intelligence Index v4.1**  
 Current coverage: **73 Token-consumption configurations / 68 API-cost configurations / 46 subscription-first configurations**
@@ -43,6 +45,8 @@ The best-value applicable subscription is used when both a plan and a usable quo
 - Pricing, plans, benchmark results, and quota behavior can change. Every release is tied to a dated snapshot under [`data/`](data/).
 
 See the [detailed chart guide](docs/CHART_GUIDE.md), [methodology](docs/METHODOLOGY.md), [ranking methodology](docs/RANKING_METHOD.md), [sources](docs/SOURCES.md), and the [current data snapshot](data/2026-07-24/).
+
+Numerical downloads: [aggregate Token efficiency](rankings/2026-07-24/token_efficiency_ranking.csv) · [API cost](rankings/2026-07-24/api_cost_ranking.csv) · [subscription-first cost](rankings/2026-07-24/subscription_cost_ranking.csv) · [score-threshold leaders](rankings/2026-07-24/score_threshold_leaders.csv)
 
 ## Update policy
 
