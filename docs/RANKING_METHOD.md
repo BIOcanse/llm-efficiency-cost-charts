@@ -11,7 +11,9 @@ The published rankings therefore separate:
 1. aggregate Token efficiency across a model's observed reasoning levels;
 2. raw API cost per task;
 3. raw subscription-first cost per task;
-4. the lowest-cost configuration that reaches selected score thresholds.
+4. the lowest-cost configuration that reaches selected score thresholds;
+5. an explicitly heuristic cost-performance index recalculated inside a
+   user-selected score interval.
 
 ## Aggregate Token-efficiency index
 
@@ -84,3 +86,24 @@ separate reference from the API ranking, and exact USD per task remains visible.
 Raw cheapest rankings are naturally dominated by low-score configurations. To answer the more useful question, "What is the cheapest way to reach at least this score?", separate tables select the lowest-cost configuration meeting each score threshold.
 
 Current thresholds: 40, 45, 50, 55, 58, and 60.
+
+## Filtered cost-performance index
+
+The interactive page can restrict either cost table to an inclusive
+Intelligence Index interval and recalculate a simple within-interval value
+index:
+
+```text
+Raw value = Intelligence Index score / USD per task
+Displayed value index = raw value / highest filtered raw value × 100
+```
+
+The current filtered leader is therefore always `100%`. The same calculation
+is applied separately to API cost and subscription-first cost.
+
+This is a practical sorting aid, not a claim that Intelligence Index is a
+strict ratio scale with a meaningful absolute zero. It is most useful after
+restricting the table to the capability band relevant to the workload. A
+`100%` result from one score interval is not directly comparable with `100%`
+from another interval. Raw score and exact USD per task remain visible in every
+row.

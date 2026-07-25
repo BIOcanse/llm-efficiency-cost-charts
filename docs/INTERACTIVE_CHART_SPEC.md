@@ -41,8 +41,14 @@ The site must not manually duplicate plotted values.
   - owns SVG axes, points, same-model lines, permanent point labels,
     collision-aware label layout, frontier marks, tooltip, selection, pan, and
     zoom;
+  - owns vendor and model-scope filtering, but delegates visible point and line
+    rasterization to the rendering backend;
   - accepts localized labels and number formatters from the page application;
   - contains no snapshot-specific model values.
+- `site/assets/webgpu-scatter-layer.js`
+  - renders visible same-model lines and point discs through WebGPU;
+  - exposes an explicit `webgpu` or `svg-fallback` backend state;
+  - contains no chart filtering, localization, tooltip, or label-layout logic.
 - `site/assets/app.js`
   - loads the static JSON payload;
   - provides the three metric configurations;
@@ -59,17 +65,25 @@ Each chart provides:
 1. pointer and keyboard inspection of every point;
 2. a tooltip and persistent readout containing model, reasoning level, score,
    horizontal value, and provider or access method when applicable;
-3. click or Enter to pin a point;
-4. a model selector that highlights one model without deleting the comparison
-   context;
-5. wheel zoom, drag pan, explicit zoom buttons, and reset view;
-6. same-model lines ordered by reasoning level;
-7. a full model-and-reasoning-level label next to every point in the overview;
-8. label placement recalculated after zoom, pan, language changes, and model
-   highlighting, with labels kept close to their points while avoiding points,
-   lines, axes, and one another;
-9. Pareto-frontier points with a distinct outline;
-10. immediate Chinese/English updates on the same URL.
+3. click or Enter to pin a point; clicking the same point again, clicking empty
+   plot space, pressing Escape, changing a filter, or resetting the chart clears
+   the pinned emphasis;
+4. a vendor filter based on the model `developer` field;
+5. a model-scope filter with exactly two choices:
+   - all models;
+   - the frontier model from every visible vendor.
+6. a vendor's frontier model is the model whose observed configurations reach
+   that vendor's highest score in the current chart dataset; ties use more
+   observed reasoning levels, then the model name for deterministic ordering.
+   All observed reasoning levels of each selected frontier model remain visible;
+7. wheel zoom, drag pan, explicit zoom buttons, and reset view;
+8. same-model lines ordered by reasoning level;
+9. a full model-and-reasoning-level label next to every point in the overview;
+10. label placement recalculated after zoom, pan, language changes, and filter
+    changes, with labels kept close to their points while avoiding points,
+    lines, axes, and one another;
+11. Pareto-frontier points with a distinct outline;
+12. immediate Chinese/English updates on the same URL.
 
 The horizontal scales remain linear. Interactivity provides close inspection
 without changing the cost comparison to a logarithmic axis.
@@ -77,6 +91,8 @@ without changing the cost comparison to a logarithmic axis.
 ## Desktop layout and accessibility
 
 - Every SVG has a localized accessible name and description.
+- The WebGPU canvas is presentation-only; SVG point hit targets and accessible
+  labels remain available to pointer and keyboard users.
 - Points are keyboard focusable and expose localized accessible labels.
 - The selected-point readout mirrors tooltip information.
 - Controls use native buttons and select elements.
@@ -93,11 +109,20 @@ without changing the cost comparison to a logarithmic axis.
 - All 73 / 68 / 46 expected configurations render from JSON.
 - Chinese and English update chart titles, axes, controls, tooltips, and
   accessibility text in place.
-- Selecting a model changes point and line emphasis.
+- Selecting a vendor removes other vendors from the plotted dataset and resets
+  the axes to the filtered data.
+- Frontier-model scope shows one highest-scoring model curve per visible vendor,
+  including every observed reasoning level of that model.
 - The default overview shows all full point labels without overlap; highlighting
   or zooming must not remove labels for visible points.
 - Labels remain visibly associated with their points and must not cover points,
   same-model lines, axes, or each other.
+- A pointer click cannot leave the chart permanently emphasized: the same point,
+  empty plot space, Escape, filter changes, and reset all provide deterministic
+  clear paths.
+- WebGPU is used for visible point and line rasterization when available. The
+  chart exposes `data-renderer="webgpu"` or
+  `data-renderer="svg-fallback"` and remains fully functional in either state.
 - Zoom, pan, reset, pointer inspection, click pinning, and keyboard inspection
   work.
 - Existing PNG/SVG download links remain valid.

@@ -11,12 +11,14 @@ Benchmark / 评测：**Artificial Analysis Intelligence Index v4.1**<br>
 Coverage / 当前覆盖：**73 Token configurations / 68 API-cost configurations / 46 subscription-first configurations**
 
 The live data page renders all three analysis plots interactively from the
-current JSON snapshot and switches Chinese and English instantly on one URL.
-The static images below remain downloadable, citable release artifacts. On
-this repository page, expand the language you want below; no separate README is
-required.
+current JSON snapshot, supports developer and frontier-model filters, and
+recalculates API or subscription value rankings inside any selected score
+interval. Chinese and English switch instantly on one URL. The static images
+below remain downloadable, citable release artifacts. On this repository page,
+expand the language you want below; no separate README is required.
 
-数据页会根据当前 JSON 快照交互式绘制三张分析图，并可在同一个 URL 内即时切换
+数据页会根据当前 JSON 快照交互式绘制三张分析图，支持按厂商或各厂商最前沿模型
+筛选，也可以限定分数区间后重算套餐或 API 性价比，并可在同一个 URL 内即时切换
 中英文。下方静态成图仍保留为可下载、可引用的发布资产。仓库首页直接展开对应
 语言即可，不再跳转到另一份 README。
 

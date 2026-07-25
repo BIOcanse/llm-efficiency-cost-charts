@@ -146,11 +146,17 @@
             <button type="button" role="tab" data-tab="subscription" aria-selected="true" data-i18n="tabSubscription">
               Subscription cost
             </button>
+            <button type="button" role="tab" data-tab="subscription-value" aria-selected="false" data-i18n="tabSubscriptionValue">
+              Subscription value
+            </button>
             <button type="button" role="tab" data-tab="token" aria-selected="false" data-i18n="tabToken">
               Aggregate Token efficiency
             </button>
             <button type="button" role="tab" data-tab="api" aria-selected="false" data-i18n="tabApi">
               API cost
+            </button>
+            <button type="button" role="tab" data-tab="api-value" aria-selected="false" data-i18n="tabApiValue">
+              API value
             </button>
           </div>
 
@@ -183,6 +189,57 @@
                 </table>
               </div>
             </div>
+          </div>
+
+          <div class="ranking-panel" data-panel="subscription-value" hidden>
+            <div class="ranking-intro">
+              <div>
+                <h3 data-i18n="subscriptionValueTitle">Filtered subscription cost-performance</h3>
+                <p data-i18n="subscriptionValueCopy">
+                  Choose an inclusive score interval, then rank the included configurations by score per USD. The interval leader is 100%.
+                </p>
+              </div>
+            </div>
+            <div class="value-filter">
+              <div class="value-filter-fields">
+                <label>
+                  <span data-i18n="minimumScore">Minimum score</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.5"
+                    value="0"
+                    data-value-metric="subscription"
+                    data-value-bound="minimum"
+                  >
+                </label>
+                <label>
+                  <span data-i18n="maximumScore">Maximum score</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.5"
+                    value="100"
+                    data-value-metric="subscription"
+                    data-value-bound="maximum"
+                  >
+                </label>
+              </div>
+              <p data-i18n="valueMethod">
+                Value index = (score ÷ USD per task) ÷ the best filtered result × 100%.
+              </p>
+              <p class="value-filter-message" id="subscription-value-message" aria-live="polite"></p>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only" data-i18n="subscriptionValueTitle">Filtered subscription cost-performance</caption>
+                <thead id="subscription-value-head"></thead>
+                <tbody id="subscription-value-body"></tbody>
+              </table>
+            </div>
+            <button class="show-all" type="button" data-table-toggle="subscriptionValue"></button>
           </div>
 
           <div class="ranking-panel" data-panel="token" hidden>
@@ -244,6 +301,57 @@
                 </table>
               </div>
             </div>
+          </div>
+
+          <div class="ranking-panel" data-panel="api-value" hidden>
+            <div class="ranking-intro">
+              <div>
+                <h3 data-i18n="apiValueTitle">Filtered API cost-performance</h3>
+                <p data-i18n="apiValueCopy">
+                  Choose an inclusive score interval for the workload, then recalculate score per USD within that interval.
+                </p>
+              </div>
+            </div>
+            <div class="value-filter">
+              <div class="value-filter-fields">
+                <label>
+                  <span data-i18n="minimumScore">Minimum score</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.5"
+                    value="0"
+                    data-value-metric="api"
+                    data-value-bound="minimum"
+                  >
+                </label>
+                <label>
+                  <span data-i18n="maximumScore">Maximum score</span>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.5"
+                    value="100"
+                    data-value-metric="api"
+                    data-value-bound="maximum"
+                  >
+                </label>
+              </div>
+              <p data-i18n="valueMethod">
+                Value index = (score ÷ USD per task) ÷ the best filtered result × 100%.
+              </p>
+              <p class="value-filter-message" id="api-value-message" aria-live="polite"></p>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only" data-i18n="apiValueTitle">Filtered API cost-performance</caption>
+                <thead id="api-value-head"></thead>
+                <tbody id="api-value-body"></tbody>
+              </table>
+            </div>
+            <button class="show-all" type="button" data-table-toggle="apiValue"></button>
           </div>
         </div>
       </section>

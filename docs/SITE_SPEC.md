@@ -30,7 +30,9 @@ Publish the current bilingual charts, detailed chart explanations, and numerical
 4. Numerical rankings:
    - aggregate full-curve Token efficiency;
    - subscription-first cost per task;
+   - filtered subscription-first cost-performance;
    - API cost per task;
+   - filtered API cost-performance;
    - lowest cost at selected score thresholds.
 5. Methodology, limitations, source, data, and repository links.
 6. A visible link to the latest downloadable snapshot Release.
@@ -63,9 +65,14 @@ The site must not contain manually duplicated ranking numbers. A snapshot update
 - API ranking contains all 68 comparable rows.
 - Aggregate Token efficiency contains five core full-curve models and four limited-evidence models.
 - API and subscription-first views show exact USD per task and relative cost, with the most expensive included configuration in each ranking set to 100%.
+- Cost-performance views accept inclusive minimum and maximum score filters,
+  recompute score per USD inside that interval, and normalize the interval
+  leader to 100%.
 - Each interactive chart preserves the static chart's complete point labeling
-  while supporting point inspection, model highlighting, pan, zoom, reset,
-  pointer pinning, and keyboard inspection.
+  while supporting point inspection, vendor filtering, all-model/frontier-model
+  scope, pan, zoom, reset, pointer pinning, and keyboard inspection.
+- Point and line paint uses WebGPU when available, with an explicit SVG fallback;
+  axes, labels, hit targets, and accessibility remain SVG/HTML.
 - The analysis page targets desktop screens and keeps a fixed desktop chart
   width and 16:9 plot ratio instead of compressing the visualization for mobile.
 - Each chart includes visible axes, formula, inclusion, exclusion, and interpretation notes.

@@ -268,6 +268,8 @@ def api_chart_rows(model_rows: list[dict[str, str]]) -> list[dict[str, object]]:
                 "total_tokens_million": round(
                     float(row["total_tokens_million"]), 6
                 ),
+                "developer": row["developer"],
+                "country_code": row["country_code"],
                 "provider": row["api_provider"],
                 "precision": row["api_precision"],
                 "is_historical": row["is_historical"].lower() == "true",
@@ -290,6 +292,8 @@ def subscription_chart_rows(
                 "cost_usd_per_task": round(
                     float(row["effective_cost_per_task_usd"]), 9
                 ),
+                "developer": row["developer"],
+                "country_code": row["country_code"],
                 "access_mode": row["access_mode"],
                 "plan_name": row["plan_name"],
                 "provider": row["provider"],

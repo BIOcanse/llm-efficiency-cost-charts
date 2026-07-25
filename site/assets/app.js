@@ -34,14 +34,19 @@ const translations = {
     rankingCopy:
       "Cost rankings show exact USD per task and relative cost, with the most expensive included configuration set to 100%. Token efficiency aggregates the full observed reasoning-level curve.",
     tabSubscription: "Subscription cost",
+    tabSubscriptionValue: "Subscription value",
     tabToken: "Aggregate Token efficiency",
     tabApi: "API cost",
+    tabApiValue: "API value",
     subscriptionRankingTitle: "Subscription-first cost ranking",
     subscriptionRankingCopy:
       "All 46 included configurations, sorted by effective USD per Intelligence Index task. Exact cost, relative cost, and score are shown separately.",
     downloadCsv: "Download CSV",
     subscriptionThresholdTitle:
       "Lowest subscription-first cost at each score threshold",
+    subscriptionValueTitle: "Filtered subscription cost-performance",
+    subscriptionValueCopy:
+      "Choose an inclusive score interval, then rank the included configurations by score per USD. The interval leader is 100%.",
     thresholdCopy:
       "This avoids calling the cheapest low-score configuration the best overall value.",
     tokenRankingTitle: "Aggregate full-curve Token efficiency",
@@ -54,6 +59,16 @@ const translations = {
     apiRankingCopy:
       "All 68 configurations with comparable API prices, sorted by USD per task.",
     apiThresholdTitle: "Lowest API cost at each score threshold",
+    apiValueTitle: "Filtered API cost-performance",
+    apiValueCopy:
+      "Choose an inclusive score interval for the workload, then recalculate score per USD within that interval.",
+    minimumScore: "Minimum score",
+    maximumScore: "Maximum score",
+    valueMethod:
+      "Value index = (score ÷ USD per task) ÷ the best filtered result × 100%.",
+    invalidScoreRange:
+      "Minimum score must not be greater than maximum score.",
+    noValueResults: "No configurations fall inside this score interval.",
     methodEyebrow: "Scope and evidence",
     methodTitle: "What these rankings do and do not mean",
     chartGuideLink: "Detailed chart guide",
@@ -66,13 +81,16 @@ const translations = {
     showTop: "Show top 15",
     statusLanguage: "Language changed to English",
     interactive: {
-      modelControl: "Highlight model",
-      allModels: "All models",
+      vendorControl: "Developer",
+      allVendors: "All developers",
+      modelScopeControl: "Model scope",
+      allModelsScope: "All models",
+      frontierModelsScope: "Frontier model from each developer",
       zoomIn: "Zoom in",
       zoomOut: "Zoom out",
       reset: "Reset view",
       interactionHint:
-        "Hover or focus a point for details · click to pin · drag to pan · wheel to zoom",
+        "Hover or focus for details · click to pin · click empty space to clear · drag to pan · wheel to zoom",
       readoutHint:
         "Inspect a point to see its model, reasoning level, score, and exact horizontal value.",
       scoreAxis: "Intelligence Index v4.1 score",
@@ -99,6 +117,7 @@ const translations = {
     table: {
       rank: "Rank",
       model: "Model",
+      modelAndLevel: "Model / reasoning level",
       level: "Reasoning level",
       score: "Score",
       cost: "USD / task",
@@ -112,6 +131,7 @@ const translations = {
       provider: "Provider",
       totalTokens: "Total Tokens",
       threshold: "Minimum score",
+      valueIndex: "Value index",
     },
     tokenMethod:
       "<strong>Method:</strong> compare each model’s interpolated full-level curve with the observed global Token frontier at the same scores. The index is 100 divided by the score-range-weighted geometric mean Token overhead. Core ranking requires at least four levels and an eight-point score span.",
@@ -216,13 +236,18 @@ const translations = {
     rankingCopy:
       "成本排名同时列出美元/任务和相对成本，各榜最贵的纳入配置为 100%。Token 效率综合同一模型的完整档位曲线。",
     tabSubscription: "套餐成本",
+    tabSubscriptionValue: "套餐性价比",
     tabToken: "综合 Token 效率",
     tabApi: "API 成本",
+    tabApiValue: "API 性价比",
     subscriptionRankingTitle: "套餐优先单位任务成本排名",
     subscriptionRankingCopy:
       "列出全部 46 个纳入配置，按每个 Intelligence Index 任务的有效成本从低到高排序，并分别展示实际成本、相对成本和分数。",
     downloadCsv: "下载 CSV",
     subscriptionThresholdTitle: "达到不同分数门槛的最低套餐优先成本",
+    subscriptionValueTitle: "按分数区间重算套餐性价比",
+    subscriptionValueCopy:
+      "先筛选可接受的分数区间，再按区间内每美元对应的分数排序；当前区间第一名为 100%。",
     thresholdCopy: "避免把分数很低但最便宜的配置直接称为整体性价比最高。",
     tokenRankingTitle: "综合全档位 Token 效率",
     tokenRankingCopy:
@@ -233,6 +258,15 @@ const translations = {
     apiRankingTitle: "API 单位任务成本排名",
     apiRankingCopy: "列出 68 个存在可比 API 价格的配置，按单位任务成本排序。",
     apiThresholdTitle: "达到不同分数门槛的最低 API 成本",
+    apiValueTitle: "按分数区间重算 API 性价比",
+    apiValueCopy:
+      "根据任务需要限制分数上下限，再在该区间内重新计算每美元对应的分数。",
+    minimumScore: "最低分数",
+    maximumScore: "最高分数",
+    valueMethod:
+      "性价比指数 =（分数 ÷ 美元/任务）÷ 当前筛选结果最高值 × 100%。",
+    invalidScoreRange: "最低分数不能高于最高分数。",
+    noValueResults: "该分数区间内没有可用配置。",
     methodEyebrow: "范围与证据",
     methodTitle: "排名能够说明什么，不能说明什么",
     chartGuideLink: "图片详细说明",
@@ -245,12 +279,16 @@ const translations = {
     showTop: "只显示前 15 项",
     statusLanguage: "已切换为中文",
     interactive: {
-      modelControl: "重点显示模型",
-      allModels: "全部模型",
+      vendorControl: "厂商",
+      allVendors: "全部厂商",
+      modelScopeControl: "模型范围",
+      allModelsScope: "全部模型",
+      frontierModelsScope: "各厂商最前沿模型",
       zoomIn: "放大",
       zoomOut: "缩小",
       reset: "恢复完整视图",
-      interactionHint: "悬停或聚焦查看数值 · 点击固定 · 拖动平移 · 滚轮缩放",
+      interactionHint:
+        "悬停或聚焦查看数值 · 点击固定 · 点击空白取消 · 拖动平移 · 滚轮缩放",
       readoutHint: "检查任意点即可查看模型、思考档位、分数和横轴准确数值。",
       scoreAxis: "Intelligence Index v4.1 分数",
       xAxis: {
@@ -275,6 +313,7 @@ const translations = {
     table: {
       rank: "排名",
       model: "模型",
+      modelAndLevel: "模型 / 思考档位",
       level: "思考档位",
       score: "分数",
       cost: "美元 / 任务",
@@ -288,6 +327,7 @@ const translations = {
       provider: "供应商",
       totalTokens: "完整 Token",
       threshold: "最低分数",
+      valueIndex: "性价比指数",
     },
     tokenMethod:
       "<strong>计算方法：</strong>将每个模型的完整档位曲线与同分数下的全局最省 Token 前沿比较，在覆盖分数区间内计算几何平均额外 Token。效率指数等于 100 除以该倍率。核心榜至少需要 4 个档位并覆盖 8 分。",
@@ -410,7 +450,13 @@ const state = {
   rankings: null,
   expanded: {
     subscription: false,
+    subscriptionValue: false,
     api: false,
+    apiValue: false,
+  },
+  valueRanges: {
+    subscription: { minimum: 0, maximum: 100 },
+    api: { minimum: 0, maximum: 100 },
   },
 };
 
@@ -593,8 +639,11 @@ function interactiveChartConfig(spec, pointCount) {
   return {
     metric: spec.metric,
     xKey: spec.xKey,
-    modelControlLabel: text.modelControl,
-    allModelsLabel: text.allModels,
+    vendorControlLabel: text.vendorControl,
+    allVendorsLabel: text.allVendors,
+    modelScopeControlLabel: text.modelScopeControl,
+    allModelsScopeLabel: text.allModelsScope,
+    frontierModelsScopeLabel: text.frontierModelsScope,
     zoomInLabel: text.zoomIn,
     zoomOutLabel: text.zoomOut,
     resetLabel: text.reset,
@@ -641,6 +690,13 @@ function tableHeader(targetId, columns) {
     .join("")}</tr>`;
 }
 
+function modelLevelCell(row) {
+  return `<span class="model-level-wrap">
+    <strong>${escapeHtml(row.model)}</strong>
+    <span>${escapeHtml(effortLabel(row.effort))}</span>
+  </span>`;
+}
+
 function renderSubscriptionRanking() {
   const rows = state.rankings.subscription_cost;
   const visibleRows = state.expanded.subscription ? rows : rows.slice(0, 15);
@@ -649,8 +705,7 @@ function renderSubscriptionRanking() {
   );
   tableHeader("subscription-head", [
     "rank",
-    "model",
-    "level",
+    "modelAndLevel",
     "score",
     "cost",
     "costPercent",
@@ -661,8 +716,7 @@ function renderSubscriptionRanking() {
     .map(
       (row) => `<tr>
         <td class="rank-cell">${row.rank}</td>
-        <td class="model-cell">${escapeHtml(row.model)}</td>
-        <td>${escapeHtml(effortLabel(row.effort))}</td>
+        <td class="model-level-cell">${modelLevelCell(row)}</td>
         <td>${formatScore(row.score)}</td>
         <td>${formatUsd(row.cost_usd_per_task)}</td>
         <td>${formatCostPercent(row.cost_usd_per_task, referenceCost)}</td>
@@ -720,8 +774,7 @@ function renderApiRanking() {
   );
   tableHeader("api-head", [
     "rank",
-    "model",
-    "level",
+    "modelAndLevel",
     "score",
     "cost",
     "costPercent",
@@ -732,8 +785,7 @@ function renderApiRanking() {
     .map(
       (row) => `<tr>
         <td class="rank-cell">${row.rank}</td>
-        <td class="model-cell">${escapeHtml(row.model)}</td>
-        <td>${escapeHtml(effortLabel(row.effort))}</td>
+        <td class="model-level-cell">${modelLevelCell(row)}</td>
         <td>${formatScore(row.score)}</td>
         <td>${formatUsd(row.cost_usd_per_task)}</td>
         <td>${formatCostPercent(row.cost_usd_per_task, referenceCost)}</td>
@@ -751,8 +803,7 @@ function renderApiRanking() {
 function renderThresholdTable(rows, headId, bodyId, referenceCost) {
   tableHeader(headId, [
     "threshold",
-    "model",
-    "level",
+    "modelAndLevel",
     "score",
     "cost",
     "costPercent",
@@ -762,8 +813,7 @@ function renderThresholdTable(rows, headId, bodyId, referenceCost) {
     .map(
       (row) => `<tr>
         <td>≥ ${row.score_threshold}</td>
-        <td class="model-cell">${escapeHtml(row.model)}</td>
-        <td>${escapeHtml(effortLabel(row.effort))}</td>
+        <td class="model-level-cell">${modelLevelCell(row)}</td>
         <td>${formatScore(row.score)}</td>
         <td>${formatUsd(row.cost_usd_per_task)}</td>
         <td>${formatCostPercent(row.cost_usd_per_task, referenceCost)}</td>
@@ -771,6 +821,122 @@ function renderThresholdTable(rows, headId, bodyId, referenceCost) {
       </tr>`,
     )
     .join("");
+}
+
+function calculateValueRanking(metric) {
+  const sourceRows =
+    metric === "subscription"
+      ? state.rankings.subscription_cost
+      : state.rankings.api_cost;
+  const range = state.valueRanges[metric];
+  if (
+    !Number.isFinite(range.minimum) ||
+    !Number.isFinite(range.maximum) ||
+    range.minimum > range.maximum
+  ) {
+    return { valid: false, rows: [] };
+  }
+  const rows = sourceRows
+    .filter((row) => {
+      const score = Number(row.score);
+      return score >= range.minimum && score <= range.maximum;
+    })
+    .map((row) => ({
+      ...row,
+      raw_value:
+        Number(row.cost_usd_per_task) > 0
+          ? Number(row.score) / Number(row.cost_usd_per_task)
+          : 0,
+    }))
+    .sort(
+      (left, right) =>
+        right.raw_value - left.raw_value ||
+        Number(left.cost_usd_per_task) - Number(right.cost_usd_per_task) ||
+        Number(right.score) - Number(left.score) ||
+        left.model.localeCompare(right.model),
+    );
+  const bestValue = rows.length ? rows[0].raw_value : 0;
+  return {
+    valid: true,
+    rows: rows.map((row, index) => ({
+      ...row,
+      rank: index + 1,
+      value_index: bestValue > 0 ? (row.raw_value / bestValue) * 100 : 0,
+    })),
+  };
+}
+
+function renderValueRanking(metric) {
+  const isSubscription = metric === "subscription";
+  const idPrefix = isSubscription ? "subscription-value" : "api-value";
+  const expandedKey = isSubscription ? "subscriptionValue" : "apiValue";
+  const result = calculateValueRanking(metric);
+  const text = translations[state.language];
+  const message = document.getElementById(`${idPrefix}-message`);
+  const body = document.getElementById(`${idPrefix}-body`);
+  tableHeader(
+    `${idPrefix}-head`,
+    isSubscription
+      ? [
+          "rank",
+          "modelAndLevel",
+          "score",
+          "cost",
+          "valueIndex",
+          "access",
+          "confidence",
+        ]
+      : [
+          "rank",
+          "modelAndLevel",
+          "score",
+          "cost",
+          "valueIndex",
+          "provider",
+          "totalTokens",
+        ],
+  );
+
+  if (!result.valid) {
+    message.textContent = text.invalidScoreRange;
+    body.innerHTML = `<tr><td colspan="7">${text.invalidScoreRange}</td></tr>`;
+  } else if (!result.rows.length) {
+    message.textContent = text.noValueResults;
+    body.innerHTML = `<tr><td colspan="7">${text.noValueResults}</td></tr>`;
+  } else {
+    message.textContent = "";
+    const visibleRows = state.expanded[expandedKey]
+      ? result.rows
+      : result.rows.slice(0, 15);
+    body.innerHTML = visibleRows
+      .map(
+        (row) => `<tr>
+          <td class="rank-cell">${row.rank}</td>
+          <td class="model-level-cell">${modelLevelCell(row)}</td>
+          <td>${formatScore(row.score)}</td>
+          <td>${formatUsd(row.cost_usd_per_task)}</td>
+          <td class="value-index-cell">${Number(row.value_index).toFixed(2)}%</td>
+          <td>${escapeHtml(isSubscription ? accessLabel(row) : row.provider)}</td>
+          <td>${
+            isSubscription
+              ? escapeHtml(
+                  confidenceLabels[state.language][row.confidence] ||
+                    row.confidence,
+                )
+              : formatTokens(row.total_tokens_million)
+          }</td>
+        </tr>`,
+      )
+      .join("");
+  }
+
+  const toggle = document.querySelector(
+    `[data-table-toggle="${expandedKey}"]`,
+  );
+  toggle.hidden = !result.valid || result.rows.length <= 15;
+  toggle.textContent = state.expanded[expandedKey]
+    ? text.showTop
+    : text.showAll(result.rows.length);
 }
 
 function renderRankings() {
@@ -785,8 +951,10 @@ function renderRankings() {
   document.getElementById("subscription-count").textContent =
     counts.subscription_first_configurations;
   renderSubscriptionRanking();
+  renderValueRanking("subscription");
   renderTokenRanking();
   renderApiRanking();
+  renderValueRanking("api");
   renderThresholdTable(
     state.rankings.thresholds.subscription_first,
     "subscription-threshold-head",
@@ -873,6 +1041,24 @@ function bindControls() {
       state.expanded[key] = !state.expanded[key];
       renderRankings();
     });
+  });
+  document.querySelectorAll("[data-value-metric]").forEach((input) => {
+    const updateValueRange = () => {
+      const metric = input.dataset.valueMetric;
+      const bound = input.dataset.valueBound;
+      const value = Number(input.value);
+      if (
+        (metric !== "subscription" && metric !== "api") ||
+        (bound !== "minimum" && bound !== "maximum") ||
+        !Number.isFinite(value)
+      ) {
+        return;
+      }
+      state.valueRanges[metric][bound] = value;
+      renderValueRanking(metric);
+    };
+    input.addEventListener("input", updateValueRange);
+    input.addEventListener("change", updateValueRange);
   });
 }
 

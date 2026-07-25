@@ -1,3 +1,5 @@
+import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js";
+
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
 const SERIES_COLORS = [
@@ -39,6 +41,13 @@ function modelColor(model) {
   return SERIES_COLORS[hash % SERIES_COLORS.length];
 }
 
+function colorWithOpacity(color, opacity) {
+  const red = Number.parseInt(color.slice(1, 3), 16) / 255;
+  const green = Number.parseInt(color.slice(3, 5), 16) / 255;
+  const blue = Number.parseInt(color.slice(5, 7), 16) / 255;
+  return [red, green, blue, opacity];
+}
+
 function rowKey(row) {
   return `${row.model}\u0000${row.effort}`;
 }
@@ -59,6 +68,43 @@ function groupByModel(rows) {
     );
   });
   return groups;
+}
+
+function frontierModelsByVendor(rows) {
+  const vendors = new Map();
+  rows.forEach((row) => {
+    const vendor = row.developer || "";
+    if (!vendors.has(vendor)) {
+      vendors.set(vendor, new Map());
+    }
+    const models = vendors.get(vendor);
+    if (!models.has(row.model)) {
+      models.set(row.model, {
+        model: row.model,
+        maximumScore: Number.NEGATIVE_INFINITY,
+        levels: 0,
+      });
+    }
+    const candidate = models.get(row.model);
+    candidate.maximumScore = Math.max(
+      candidate.maximumScore,
+      Number(row.score),
+    );
+    candidate.levels += 1;
+  });
+  const result = new Map();
+  vendors.forEach((models, vendor) => {
+    const ordered = [...models.values()].sort(
+      (left, right) =>
+        right.maximumScore - left.maximumScore ||
+        right.levels - left.levels ||
+        left.model.localeCompare(right.model),
+    );
+    if (ordered.length) {
+      result.set(vendor, ordered[0].model);
+    }
+  });
+  return result;
 }
 
 function paretoKeys(rows, xKey) {
@@ -185,12 +231,15 @@ export class InteractiveScatterChart {
     this.container = container;
     this.chartId = nextChartId;
     nextChartId += 1;
+    this.sourceData = [];
     this.data = [];
     this.config = null;
     this.metric = "";
     this.fullBounds = null;
     this.view = null;
-    this.selectedModel = "";
+    this.selectedVendor = "";
+    this.modelScope = "all";
+    this.frontierModels = new Map();
     this.hoveredRow = null;
     this.pinnedRow = null;
     this.dragState = null;
@@ -201,6 +250,15 @@ export class InteractiveScatterChart {
     this.dimensions = null;
     this.buildStructure();
     this.bindControls();
+    this.gpuLayer = new WebGpuScatterLayer(this.gpuCanvas, {
+      onBackendChange: (backend) => {
+        this.container.dataset.renderer = backend;
+        this.container.classList.toggle("uses-webgpu", backend === "webgpu");
+        if (this.gpuScene) {
+          this.gpuLayer?.render(this.gpuScene);
+        }
+      },
+    });
     this.resizeObserver = new ResizeObserver(() => this.render());
     this.resizeObserver.observe(this.plot);
   }
@@ -211,12 +269,23 @@ export class InteractiveScatterChart {
     this.toolbar = document.createElement("div");
     this.toolbar.className = "interactive-chart-toolbar";
 
-    this.modelLabel = document.createElement("label");
-    this.modelLabel.className = "interactive-model-control";
-    this.modelLabelText = document.createElement("span");
-    this.modelSelect = document.createElement("select");
-    this.modelSelect.className = "interactive-model-select";
-    this.modelLabel.append(this.modelLabelText, this.modelSelect);
+    this.filterControls = document.createElement("div");
+    this.filterControls.className = "interactive-filter-controls";
+
+    this.vendorLabel = document.createElement("label");
+    this.vendorLabel.className = "interactive-filter-control";
+    this.vendorLabelText = document.createElement("span");
+    this.vendorSelect = document.createElement("select");
+    this.vendorSelect.className = "interactive-filter-select";
+    this.vendorLabel.append(this.vendorLabelText, this.vendorSelect);
+
+    this.scopeLabel = document.createElement("label");
+    this.scopeLabel.className = "interactive-filter-control";
+    this.scopeLabelText = document.createElement("span");
+    this.scopeSelect = document.createElement("select");
+    this.scopeSelect.className = "interactive-filter-select";
+    this.scopeLabel.append(this.scopeLabelText, this.scopeSelect);
+    this.filterControls.append(this.vendorLabel, this.scopeLabel);
 
     this.zoomControls = document.createElement("div");
     this.zoomControls.className = "interactive-zoom-controls";
@@ -230,10 +299,14 @@ export class InteractiveScatterChart {
       this.zoomInButton,
       this.resetButton,
     );
-    this.toolbar.append(this.modelLabel, this.zoomControls);
+    this.toolbar.append(this.filterControls, this.zoomControls);
 
     this.plot = document.createElement("div");
     this.plot.className = "interactive-chart-plot";
+    this.gpuCanvas = document.createElement("canvas");
+    this.gpuCanvas.className = "interactive-chart-gpu";
+    this.gpuCanvas.setAttribute("aria-hidden", "true");
+    this.gpuCanvas.hidden = true;
     this.svg = svgElement("svg", {
       class: "interactive-chart-svg",
       role: "group",
@@ -242,7 +315,7 @@ export class InteractiveScatterChart {
     this.tooltip.className = "interactive-chart-tooltip";
     this.tooltip.setAttribute("role", "tooltip");
     this.tooltip.hidden = true;
-    this.plot.append(this.svg, this.tooltip);
+    this.plot.append(this.gpuCanvas, this.svg, this.tooltip);
 
     this.hint = document.createElement("p");
     this.hint.className = "interactive-chart-hint";
@@ -256,12 +329,17 @@ export class InteractiveScatterChart {
       this.hint,
       this.readout,
     );
+    this.container.dataset.renderer = "initializing";
   }
 
   bindControls() {
-    this.modelSelect.addEventListener("change", () => {
-      this.selectedModel = this.modelSelect.value;
-      this.renderPlot();
+    this.vendorSelect.addEventListener("change", () => {
+      this.selectedVendor = this.vendorSelect.value;
+      this.applyFilters(true);
+    });
+    this.scopeSelect.addEventListener("change", () => {
+      this.modelScope = this.scopeSelect.value;
+      this.applyFilters(true);
     });
     this.zoomInButton.addEventListener("click", () => this.zoom(0.72));
     this.zoomOutButton.addEventListener("click", () => this.zoom(1.38));
@@ -341,33 +419,40 @@ export class InteractiveScatterChart {
     };
     this.plot.addEventListener("pointerup", finishPan);
     this.plot.addEventListener("pointercancel", finishPan);
+    this.plot.addEventListener("click", (event) => {
+      if (event.target.closest(".interactive-point")) {
+        return;
+      }
+      this.clearPinnedRow();
+    });
   }
 
   update(rows, config) {
     const metricChanged = this.metric !== config.metric;
     this.metric = config.metric;
     this.config = config;
-    this.data = rows.map((row) => ({
+    this.sourceData = rows.map((row) => ({
       ...row,
       score: Number(row.score),
       [config.xKey]: Number(row[config.xKey]),
       effort_order: Number(row.effort_order ?? 0),
     }));
-    this.groups = groupByModel(this.data);
-    this.frontier = paretoKeys(this.data, config.xKey);
-    this.fullBounds = this.calculateBounds();
-    if (metricChanged || !this.view) {
-      this.view = { ...this.fullBounds };
-      this.selectedModel = "";
+    this.frontierModels = frontierModelsByVendor(this.sourceData);
+    if (metricChanged) {
+      this.selectedVendor = "";
+      this.modelScope = "all";
       this.hoveredRow = null;
       this.pinnedRow = null;
     }
-    this.populateModelSelect();
+    this.populateFilterControls();
     this.updateLocalizedControls();
-    this.render();
+    this.applyFilters(metricChanged || !this.view);
   }
 
   calculateBounds() {
+    if (!this.data.length) {
+      return { xMin: 0, xMax: 1, yMin: 0, yMax: 1 };
+    }
     const xValues = this.data.map((row) => Number(row[this.config.xKey]));
     const yValues = this.data.map((row) => Number(row.score));
     const xMaximum = Math.max(...xValues);
@@ -381,28 +466,45 @@ export class InteractiveScatterChart {
     };
   }
 
-  populateModelSelect() {
-    const current = this.selectedModel;
-    const models = [...this.groups.keys()].sort((left, right) =>
+  populateFilterControls() {
+    const currentVendor = this.selectedVendor;
+    const vendors = [
+      ...new Set(this.sourceData.map((row) => row.developer || "")),
+    ].sort((left, right) =>
       left.localeCompare(right),
     );
-    this.modelSelect.replaceChildren();
-    const allOption = document.createElement("option");
-    allOption.value = "";
-    allOption.textContent = this.config.allModelsLabel;
-    this.modelSelect.append(allOption);
-    models.forEach((model) => {
+    this.vendorSelect.replaceChildren();
+    const allVendorsOption = document.createElement("option");
+    allVendorsOption.value = "";
+    allVendorsOption.textContent = this.config.allVendorsLabel;
+    this.vendorSelect.append(allVendorsOption);
+    vendors.forEach((vendor) => {
       const option = document.createElement("option");
-      option.value = model;
-      option.textContent = model;
-      this.modelSelect.append(option);
+      option.value = vendor;
+      option.textContent = vendor;
+      this.vendorSelect.append(option);
     });
-    this.selectedModel = models.includes(current) ? current : "";
-    this.modelSelect.value = this.selectedModel;
+    this.selectedVendor = vendors.includes(currentVendor) ? currentVendor : "";
+    this.vendorSelect.value = this.selectedVendor;
+
+    this.scopeSelect.replaceChildren();
+    [
+      ["all", this.config.allModelsScopeLabel],
+      ["frontier", this.config.frontierModelsScopeLabel],
+    ].forEach(([value, label]) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      this.scopeSelect.append(option);
+    });
+    this.modelScope =
+      this.modelScope === "frontier" ? "frontier" : "all";
+    this.scopeSelect.value = this.modelScope;
   }
 
   updateLocalizedControls() {
-    this.modelLabelText.textContent = this.config.modelControlLabel;
+    this.vendorLabelText.textContent = this.config.vendorControlLabel;
+    this.scopeLabelText.textContent = this.config.modelScopeControlLabel;
     this.zoomOutButton.setAttribute("aria-label", this.config.zoomOutLabel);
     this.zoomInButton.setAttribute("aria-label", this.config.zoomInLabel);
     this.resetButton.textContent = this.config.resetLabel;
@@ -411,6 +513,30 @@ export class InteractiveScatterChart {
     if (!this.hoveredRow && !this.pinnedRow) {
       this.readout.textContent = this.config.readoutHint;
     }
+  }
+
+  applyFilters(resetView) {
+    this.data = this.sourceData.filter((row) => {
+      if (this.selectedVendor && row.developer !== this.selectedVendor) {
+        return false;
+      }
+      if (this.modelScope !== "frontier") {
+        return true;
+      }
+      return this.frontierModels.get(row.developer || "") === row.model;
+    });
+    this.groups = groupByModel(this.data);
+    this.frontier = paretoKeys(this.data, this.config.xKey);
+    this.fullBounds = this.calculateBounds();
+    if (resetView || !this.view) {
+      this.view = { ...this.fullBounds };
+    } else {
+      this.clampView();
+    }
+    this.hoveredRow = null;
+    this.pinnedRow = null;
+    this.hideTooltip();
+    this.render();
   }
 
   resetView() {
@@ -487,6 +613,7 @@ export class InteractiveScatterChart {
     };
     this.svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     this.svg.style.height = `${height}px`;
+    this.gpuLayer?.resize(width, height);
     this.renderPlot();
   }
 
@@ -671,16 +798,17 @@ export class InteractiveScatterChart {
         }
         this.refreshEmphasis();
       });
-      point.addEventListener("click", () => this.togglePinnedRow(row));
+      point.addEventListener("click", () => {
+        this.togglePinnedRow(row);
+        point.blur();
+      });
       point.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           this.togglePinnedRow(row);
         }
         if (event.key === "Escape") {
-          this.pinnedRow = null;
-          this.hideTooltip();
-          this.refreshEmphasis();
+          this.clearPinnedRow();
         }
       });
       this.pointElements.push(point);
@@ -765,10 +893,11 @@ export class InteractiveScatterChart {
       };
     });
 
+    const priorityModel = (this.hoveredRow || this.pinnedRow)?.model || "";
     measured.sort(
       (left, right) =>
-        Number(right.row.model === this.selectedModel) -
-          Number(left.row.model === this.selectedModel) ||
+        Number(right.row.model === priorityModel) -
+          Number(left.row.model === priorityModel) ||
         right.density - left.density ||
         right.y - left.y ||
         left.x - right.x,
@@ -939,12 +1068,74 @@ export class InteractiveScatterChart {
     this.refreshEmphasis();
   }
 
+  clearPinnedRow() {
+    this.pinnedRow = null;
+    this.hoveredRow = null;
+    this.hideTooltip();
+    this.refreshEmphasis();
+  }
+
+  renderGpuMarks(activeRow) {
+    if (!this.scales || !this.dimensions) {
+      return;
+    }
+    const activeModel = activeRow?.model || "";
+    const activeKey = activeRow ? rowKey(activeRow) : "";
+    const lines = [];
+    this.groups.forEach((rows, model) => {
+      if (rows.length < 2) {
+        return;
+      }
+      const isActive = !activeModel || model === activeModel;
+      const opacity = activeModel ? (isActive ? 0.95 : 0.055) : 0.52;
+      const width = activeModel && isActive ? 3 : 1.8;
+      let index = 1;
+      while (index < rows.length) {
+        const previous = rows[index - 1];
+        const current = rows[index];
+        lines.push({
+          x1: this.scales.x(previous[this.config.xKey]),
+          y1: this.scales.y(previous.score),
+          x2: this.scales.x(current[this.config.xKey]),
+          y2: this.scales.y(current.score),
+          width,
+          color: colorWithOpacity(modelColor(model), opacity),
+        });
+        index += 1;
+      }
+    });
+
+    const points = this.data.map((row) => {
+      const key = rowKey(row);
+      const isModelActive = !activeModel || row.model === activeModel;
+      const isPointActive = Boolean(activeKey) && key === activeKey;
+      const opacity = activeModel ? (isModelActive ? 1 : 0.12) : 0.86;
+      const radius = isPointActive ? 7 : activeModel && isModelActive ? 6 : 5;
+      return {
+        x: this.scales.x(row[this.config.xKey]),
+        y: this.scales.y(row.score),
+        radius,
+        color: colorWithOpacity(modelColor(row.model), opacity),
+        outlineColor: this.frontier.has(key)
+          ? colorWithOpacity("#172033", opacity)
+          : null,
+        outlineWidth: this.frontier.has(key) ? 2.4 : 0,
+      };
+    });
+    this.gpuScene = {
+      lines,
+      points,
+      clip: { ...this.dimensions.plot },
+    };
+    this.gpuLayer?.render(this.gpuScene);
+  }
+
   refreshEmphasis() {
     if (!this.config) {
       return;
     }
     const activeRow = this.hoveredRow || this.pinnedRow;
-    const activeModel = activeRow?.model || this.selectedModel;
+    const activeModel = activeRow?.model || "";
     const activeKey = activeRow ? rowKey(activeRow) : "";
 
     this.lineElements.forEach((line) => {
@@ -995,6 +1186,7 @@ export class InteractiveScatterChart {
     this.readout.textContent = displayRow
       ? this.config.readoutText(displayRow)
       : this.config.readoutHint;
+    this.renderGpuMarks(activeRow);
   }
 
   showTooltip(row) {

@@ -309,7 +309,13 @@ h1 {
   background: white;
 }
 
-.interactive-model-control {
+.interactive-filter-controls {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+}
+
+.interactive-filter-control {
   display: grid;
   gap: 4px;
   color: var(--muted);
@@ -317,8 +323,8 @@ h1 {
   font-weight: 700;
 }
 
-.interactive-model-select {
-  min-width: 320px;
+.interactive-filter-select {
+  min-width: 250px;
   padding: 8px 34px 8px 10px;
   border: 1px solid #cbd2dc;
   border-radius: 9px;
@@ -356,6 +362,7 @@ h1 {
 
 .interactive-chart-plot {
   position: relative;
+  background: #fbfbfa;
   cursor: grab;
   touch-action: none;
 }
@@ -364,11 +371,32 @@ h1 {
   cursor: grabbing;
 }
 
+.interactive-chart-gpu {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+
 .interactive-chart-svg {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
-  background: #fbfbfa;
+  background: transparent;
   user-select: none;
+}
+
+.uses-webgpu .interactive-series-line {
+  visibility: hidden;
+}
+
+.uses-webgpu .interactive-point {
+  fill: transparent !important;
+  stroke: transparent !important;
+  opacity: 0.001 !important;
+  pointer-events: all;
 }
 
 .interactive-grid line {
@@ -694,6 +722,74 @@ tbody tr:hover td {
 
 .model-cell {
   font-weight: 720;
+}
+
+.model-level-cell {
+  min-width: 310px;
+}
+
+.model-level-wrap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.model-level-wrap strong {
+  font-weight: 760;
+}
+
+.model-level-wrap span {
+  color: var(--ranking-muted);
+}
+
+.value-index-cell {
+  color: #b7c9ff;
+  font-weight: 800;
+}
+
+.value-filter {
+  display: flex;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 18px;
+  padding: 14px 0;
+  border-top: 1px solid var(--ranking-line);
+  border-bottom: 1px solid var(--ranking-line);
+}
+
+.value-filter-fields {
+  display: flex;
+  gap: 12px;
+}
+
+.value-filter label {
+  display: grid;
+  gap: 5px;
+  color: var(--ranking-muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.value-filter input {
+  width: 128px;
+  padding: 8px 10px;
+  border: 1px solid #40516c;
+  border-radius: 9px;
+  background: #202c40;
+  color: var(--ranking-text);
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+}
+
+.value-filter > p {
+  margin: 0 0 7px;
+  color: var(--ranking-muted);
+  font-size: 13px;
+}
+
+.value-filter-message {
+  color: #fecaca !important;
+  font-weight: 700;
 }
 
 .show-all {
