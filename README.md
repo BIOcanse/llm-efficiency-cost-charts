@@ -42,7 +42,7 @@ The best-value applicable subscription is used when both a plan and a usable quo
 - OpenAI and Claude subscription API-equivalent values are third-party estimates based on exhausting usage limits. They are not fixed Token quotas promised by the providers.
 - Pricing, plans, benchmark results, and quota behavior can change. Every release is tied to a dated snapshot under [`data/`](data/).
 
-See [methodology](docs/METHODOLOGY.md), [sources](docs/SOURCES.md), and the [current data snapshot](data/2026-07-24/).
+See the [detailed chart guide](docs/CHART_GUIDE.md), [methodology](docs/METHODOLOGY.md), [ranking methodology](docs/RANKING_METHOD.md), [sources](docs/SOURCES.md), and the [current data snapshot](data/2026-07-24/).
 
 ## Update policy
 

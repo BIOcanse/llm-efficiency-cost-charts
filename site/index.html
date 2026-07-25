@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta
+      name="description"
+      content="Bilingual LLM Token-efficiency, API-cost, and subscription-first cost charts and rankings."
+    >
+    <title>LLM Efficiency & Cost Charts</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="LLM Efficiency and Cost Charts">
+        <span class="brand-mark">E/C</span>
+        <span data-i18n="brand">LLM Efficiency & Cost</span>
+      </a>
+      <nav class="topnav" aria-label="Primary navigation">
+        <a href="#charts" data-i18n="navCharts">Charts</a>
+        <a href="#rankings" data-i18n="navRankings">Rankings</a>
+        <a href="#method" data-i18n="navMethod">Method</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Language">
+        <button type="button" data-language="zh-CN">中文</button>
+        <button type="button" data-language="en">EN</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero page-shell">
+        <div class="eyebrow" data-i18n="snapshotLabel">Snapshot · 2026-07-24</div>
+        <h1 data-i18n="heroTitle">LLM efficiency and task cost, with the numbers shown</h1>
+        <p class="hero-copy" data-i18n="heroCopy">
+          Three matched-benchmark charts plus full numerical rankings. Every point is one model and reasoning level; upper left is better.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#rankings" data-i18n="viewRankings">View rankings</a>
+          <a
+            class="button secondary"
+            href="https://github.com/BIOcanse/llm-efficiency-cost-charts"
+            target="_blank"
+            rel="noreferrer"
+            data-i18n="openRepository"
+          >Open repository</a>
+        </div>
+        <div class="metric-strip" aria-label="Current data coverage">
+          <div>
+            <strong id="token-count">73</strong>
+            <span data-i18n="tokenConfigurations">Token configurations</span>
+          </div>
+          <div>
+            <strong id="api-count">68</strong>
+            <span data-i18n="apiConfigurations">API-cost configurations</span>
+          </div>
+          <div>
+            <strong id="subscription-count">46</strong>
+            <span data-i18n="subscriptionConfigurations">Subscription-first configurations</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="charts" class="section page-shell">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow" data-i18n="chartSectionEyebrow">Matched benchmark · three views</span>
+            <h2 data-i18n="chartSectionTitle">Charts and detailed explanations</h2>
+          </div>
+          <p data-i18n="chartSectionCopy">
+            All three charts use the same Intelligence Index v4.1 score. The horizontal metric changes, so the conclusions must remain separate.
+          </p>
+        </div>
+
+        <article class="chart-card">
+          <div class="chart-heading">
+            <span class="chart-number">01</span>
+            <div>
+              <h3 data-i18n="chart1Title">Total Token consumption vs. score</h3>
+              <p data-i18n="chart1Lead">How many input, reasoning, and final-answer Tokens are needed to complete the same suite.</p>
+            </div>
+          </div>
+          <a class="chart-frame" id="chart1-link" href="charts/en/01_total_token_consumption_vs_score.png">
+            <img
+              id="chart1-image"
+              src="charts/en/01_total_token_consumption_vs_score.png"
+              alt="Total Token consumption versus Intelligence Index score"
+              loading="lazy"
+            >
+          </a>
+          <div class="chart-details" id="chart1-details"></div>
+          <div class="asset-links">
+            <a id="chart1-png" href="charts/en/01_total_token_consumption_vs_score.png">PNG</a>
+            <a id="chart1-svg" href="charts/en/01_total_token_consumption_vs_score.svg">SVG</a>
+          </div>
+        </article>
+
+        <article class="chart-card">
+          <div class="chart-heading">
+            <span class="chart-number">02</span>
+            <div>
+              <h3 data-i18n="chart2Title">API cost per task vs. score</h3>
+              <p data-i18n="chart2Lead">Fixed-provider prices combined with the actual Token composition of one benchmark task.</p>
+            </div>
+          </div>
+          <a class="chart-frame" id="chart2-link" href="charts/en/02_api_task_cost_vs_score.png">
+            <img
+              id="chart2-image"
+              src="charts/en/02_api_task_cost_vs_score.png"
+              alt="API cost per task versus Intelligence Index score"
+              loading="lazy"
+            >
+          </a>
+          <div class="chart-details" id="chart2-details"></div>
+          <div class="asset-links">
+            <a id="chart2-png" href="charts/en/02_api_task_cost_vs_score.png">PNG</a>
+            <a id="chart2-svg" href="charts/en/02_api_task_cost_vs_score.svg">SVG</a>
+          </div>
+        </article>
+
+        <article class="chart-card featured-chart">
+          <div class="chart-heading">
+            <span class="chart-number">03</span>
+            <div>
+              <h3 data-i18n="chart3Title">Subscription-first cost per task vs. score</h3>
+              <p data-i18n="chart3Lead">The best quantifiable plan is used first; API is used only when no applicable plan exists.</p>
+            </div>
+          </div>
+          <a class="chart-frame" id="chart3-link" href="charts/en/03_subscription_first_task_cost_vs_score.png">
+            <img
+              id="chart3-image"
+              src="charts/en/03_subscription_first_task_cost_vs_score.png"
+              alt="Subscription-first cost per task versus Intelligence Index score"
+              loading="lazy"
+            >
+          </a>
+          <div class="chart-details" id="chart3-details"></div>
+          <div class="asset-links">
+            <a id="chart3-png" href="charts/en/03_subscription_first_task_cost_vs_score.png">PNG</a>
+            <a id="chart3-svg" href="charts/en/03_subscription_first_task_cost_vs_score.svg">SVG</a>
+          </div>
+        </article>
+      </section>
+
+      <section id="rankings" class="section ranking-section">
+        <div class="page-shell">
+          <div class="section-heading light-heading">
+            <div>
+              <span class="eyebrow" data-i18n="rankingEyebrow">Actual values · not estimated from plot positions</span>
+              <h2 data-i18n="rankingTitle">Numerical rankings</h2>
+            </div>
+            <p data-i18n="rankingCopy">
+              Cost tables show exact USD per task. Token efficiency aggregates the full observed reasoning-level curve instead of selecting one favorable point.
+            </p>
+          </div>
+
+          <div class="ranking-tabs" role="tablist" aria-label="Ranking metric">
+            <button type="button" role="tab" data-tab="subscription" aria-selected="true" data-i18n="tabSubscription">
+              Subscription cost
+            </button>
+            <button type="button" role="tab" data-tab="token" aria-selected="false" data-i18n="tabToken">
+              Aggregate Token efficiency
+            </button>
+            <button type="button" role="tab" data-tab="api" aria-selected="false" data-i18n="tabApi">
+              API cost
+            </button>
+          </div>
+
+          <div class="ranking-panel" data-panel="subscription">
+            <div class="ranking-intro">
+              <div>
+                <h3 data-i18n="subscriptionRankingTitle">Subscription-first cost ranking</h3>
+                <p data-i18n="subscriptionRankingCopy">
+                  All 46 included configurations, sorted by effective USD per Intelligence Index task. Score is shown separately.
+                </p>
+              </div>
+              <a href="rankings/2026-07-24/subscription_cost_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only" data-i18n="subscriptionRankingTitle">Subscription-first cost ranking</caption>
+                <thead id="subscription-head"></thead>
+                <tbody id="subscription-body"></tbody>
+              </table>
+            </div>
+            <button class="show-all" type="button" data-table-toggle="subscription"></button>
+
+            <div class="threshold-block">
+              <h4 data-i18n="subscriptionThresholdTitle">Lowest subscription-first cost at each score threshold</h4>
+              <p data-i18n="thresholdCopy">This avoids calling the cheapest low-score configuration the best overall value.</p>
+              <div class="table-wrap compact-table">
+                <table>
+                  <thead id="subscription-threshold-head"></thead>
+                  <tbody id="subscription-threshold-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="ranking-panel" data-panel="token" hidden>
+            <div class="ranking-intro">
+              <div>
+                <h3 data-i18n="tokenRankingTitle">Aggregate full-curve Token efficiency</h3>
+                <p data-i18n="tokenRankingCopy">
+                  100 means the model curve matches the observed same-score Token frontier. Lower values mean more Token overhead.
+                </p>
+              </div>
+              <a href="rankings/2026-07-24/token_efficiency_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
+            </div>
+            <div class="method-callout" id="token-method-callout"></div>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only" data-i18n="tokenRankingTitle">Aggregate full-curve Token efficiency</caption>
+                <thead id="token-head"></thead>
+                <tbody id="token-body"></tbody>
+              </table>
+            </div>
+            <h4 class="limited-title" data-i18n="limitedEvidenceTitle">Limited-evidence models</h4>
+            <p class="limited-copy" data-i18n="limitedEvidenceCopy">
+              These models have only two or three observed levels, or cover less than eight score points. They are listed separately.
+            </p>
+            <div class="table-wrap compact-table">
+              <table>
+                <thead id="token-limited-head"></thead>
+                <tbody id="token-limited-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="ranking-panel" data-panel="api" hidden>
+            <div class="ranking-intro">
+              <div>
+                <h3 data-i18n="apiRankingTitle">API cost ranking</h3>
+                <p data-i18n="apiRankingCopy">
+                  All 68 configurations with comparable API prices, sorted by recalculated USD per task.
+                </p>
+              </div>
+              <a href="rankings/2026-07-24/api_cost_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only" data-i18n="apiRankingTitle">API cost ranking</caption>
+                <thead id="api-head"></thead>
+                <tbody id="api-body"></tbody>
+              </table>
+            </div>
+            <button class="show-all" type="button" data-table-toggle="api"></button>
+
+            <div class="threshold-block">
+              <h4 data-i18n="apiThresholdTitle">Lowest API cost at each score threshold</h4>
+              <p data-i18n="thresholdCopy">This avoids calling the cheapest low-score configuration the best overall value.</p>
+              <div class="table-wrap compact-table">
+                <table>
+                  <thead id="api-threshold-head"></thead>
+                  <tbody id="api-threshold-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="section page-shell method-section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow" data-i18n="methodEyebrow">Scope and evidence</span>
+            <h2 data-i18n="methodTitle">What these rankings do and do not mean</h2>
+          </div>
+        </div>
+        <div class="method-grid" id="method-grid"></div>
+        <div class="resource-links">
+          <a
+            href="https://github.com/BIOcanse/llm-efficiency-cost-charts/blob/main/docs/CHART_GUIDE.md"
+            data-i18n="chartGuideLink"
+          >Detailed chart guide</a>
+          <a
+            href="https://github.com/BIOcanse/llm-efficiency-cost-charts/blob/main/docs/RANKING_METHOD.md"
+            data-i18n="rankingMethodLink"
+          >Ranking methodology</a>
+          <a
+            href="https://github.com/BIOcanse/llm-efficiency-cost-charts/blob/main/docs/SOURCES.md"
+            data-i18n="sourcesLink"
+          >Sources</a>
+          <a href="data/2026-07-24/model_efficiency.csv" data-i18n="dataLink">Current data</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="page-shell footer-inner">
+        <p data-i18n="footerNote">
+          Personal data compilation based on public benchmark and pricing information. Snapshot results do not represent every workload.
+        </p>
+        <a href="https://github.com/BIOcanse/llm-efficiency-cost-charts" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      </div>
+    </footer>
+    <div id="status" class="sr-only" aria-live="polite"></div>
+  </body>
+</html>

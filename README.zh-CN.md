@@ -42,7 +42,7 @@
 - OpenAI 和 Claude 的套餐 API 等价值来自第三方跑满限额的估算，不是厂商承诺的固定 Token 配额。
 - 模型跑分、价格、套餐与额度行为都可能变化。每次更新均以 [`data/`](data/) 中的日期快照为准。
 
-具体计算方法见[方法说明](docs/METHODOLOGY.md)，完整链接见[数据来源](docs/SOURCES.md)，当前数据见 [2026-07-24 快照](data/2026-07-24/)。
+每张图的完整解释见[图片详细说明](docs/CHART_GUIDE.md)，具体计算方法见[方法说明](docs/METHODOLOGY.md)和[排名方法](docs/RANKING_METHOD.md)，完整链接见[数据来源](docs/SOURCES.md)，当前数据见 [2026-07-24 快照](data/2026-07-24/)。
 
 ## 更新规则
 

@@ -1,0 +1,47 @@
+﻿rank,model,effort,score,cost_usd_per_task,api_cost_usd_per_task,access_mode,quota_scenario,plan_name,plan_price_usd_per_month,provider,confidence
+1,GPT-5.6 Luna,low,33.2639,0.000577935,0.040455416,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+2,GPT-5.6 Luna,medium,38.0506,0.000720242,0.050416974,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+3,GPT-5.6 Luna,non-reasoning,26.5601,0.000781465,0.054702536,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+4,GPT-5.6 Luna,high,46.059,0.00135378,0.094764593,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+5,GPT-5.6 Luna,xhigh,49.0677,0.001985211,0.138964788,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+6,GPT-5.6 Terra,low,40.4657,0.002202454,0.154171795,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+7,GPT-5.5,non-reasoning,35.3827,0.002443052,0.171013647,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+8,GPT-5.6 Terra,medium,45.5742,0.002502835,0.175198458,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+9,GPT-5.6 Terra,non-reasoning,33.9672,0.002551353,0.178594689,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+10,GPT-5.6 Sol,low,49.444,0.002820946,0.197466244,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+11,GPT-5.6 Sol,non-reasoning,41.2034,0.002863494,0.200444615,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+12,GPT-5.6 Luna,max,51.2359,0.002991619,0.209413324,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+13,GPT-5.5,low,43.4605,0.003012462,0.210872345,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+14,GPT-5.6 Sol,medium,53.5888,0.004485493,0.313984498,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+15,GPT-5.6 Terra,high,48.9549,0.004804707,0.336329491,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+16,GPT-5.5,medium,50.409,0.005801668,0.40611679,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+17,GPT-5.6 Sol,high,55.8665,0.006471563,0.453009427,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+18,GPT-5.6 Terra,xhigh,51.6046,0.006812493,0.47687448,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+19,GPT-5.5 Instant (June 2026),instant,28.8603,0.00769949,0.53896428,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+20,GPT-5.5,high,53.1275,0.009543683,0.668057792,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+21,GPT-5.6 Sol,xhigh,57.6538,0.009749669,0.682476859,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+22,GLM-5.2,max,51.0858,0.010689925,0.318739992,subscription_reconstructed,current,Coding Plan Max,160.0,Zhipu AI,medium
+23,GPT-5.6 Terra,max,54.9529,0.011780167,0.824611656,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+24,Claude Opus 5,low,50.6137,0.013527079,0.360722115,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+25,Claude Sonnet 5,non-reasoning,41.7305,0.014044803,0.374528087,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+26,GPT-5.5,xhigh,54.8376,0.014178054,0.992463778,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+27,GPT-5.6 Sol,max,58.8898,0.014819002,1.037330157,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+28,HyperNova 60B 2605,default,17.8041,0.01928939,0.01928939,open_weight_no_first_party_subscription,current,None,,Multiverse Computing,medium
+29,DeepSeek V4 Flash,max,40.2825,0.022281834,0.022281834,api_no_first_party_subscription,current,None,,DeepSeek,high
+30,Claude Opus 5,medium,56.2806,0.023188469,0.618359184,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+31,MiMo-V2.5-Pro,default,42.2394,0.026412511,0.031395287,subscription_official,current,Token Plan Max,100.0,Xiaomi MiMo,high
+32,DeepSeek V4 Flash,high,37.4635,0.026463603,0.026463603,api_no_first_party_subscription,current,None,,DeepSeek,high
+33,Claude Opus 5,high,58.8642,0.039641633,1.057110227,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+34,DeepSeek V4 Pro,high,43.1117,0.040479987,0.040479987,api_no_first_party_subscription,current,None,,DeepSeek,high
+35,DeepSeek V4 Pro,max,44.2736,0.04485219,0.04485219,api_no_first_party_subscription,current,None,,DeepSeek,high
+36,Claude Sonnet 5,max,53.35,0.057203454,1.525425448,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+37,Claude Opus 5,xhigh,60.0682,0.058543512,1.561160318,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+38,Claude Opus 4.8,max,55.692,0.067395807,1.797221526,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+39,Claude Opus 5,max,60.6919,0.076038035,2.02768093,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+40,Amazon Nova 2.0 Lite,high,18.1684,0.139369329,0.139369329,api_on_demand_no_subscription_plan,current,None,,Amazon,high
+41,Nemotron 3 Ultra 550B A55B (NVFP4),default,37.762,0.198174616,0.198174616,api_or_open_weight_no_model_token_plan,current,None,,NVIDIA,medium
+42,Claude Fable 5 (with fallback),max,59.8606,0.206236793,2.749823901,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+43,Amazon Nova 2.0 Pro,low,19.6059,0.21277261,0.21277261,api_on_demand_no_subscription_plan,current,None,,Amazon,high
+44,Amazon Nova 2.0 Pro,non-reasoning,14.3557,0.24556414,0.24556414,api_on_demand_no_subscription_plan,current,None,,Amazon,high
+45,Amazon Nova 2.0 Pro,medium,21.7655,0.252645642,0.252645642,api_on_demand_no_subscription_plan,current,None,,Amazon,high
+46,Muse Spark 1.1,xhigh,50.623,0.26102207,0.26102207,api_public_preview_no_paid_token_plan,current,None,,Meta,medium
