@@ -31,11 +31,15 @@ Primary asset:
 
 The archive contains:
 
-- all three English charts as 4K PNG and editable SVG;
-- all three Simplified Chinese charts as 4K PNG and editable SVG;
+- all three English analysis charts plus five ranking graphics as 4K PNG and editable SVG;
+- all three Simplified Chinese analysis charts plus five ranking graphics as 4K PNG and editable SVG;
 - the dated model, subscription-cost, and access-evidence CSV snapshots;
 - all four numerical ranking CSV files;
 - chart, methodology, ranking, source, and language-access documentation.
+
+The API and subscription-first ranking graphics show exact USD per task and
+relative cost percentages, with the most expensive included configuration in
+each ranking normalized to 100%.
 
 The release also attaches `SHA256SUMS.txt`. It records the SHA-256 digest of
 the complete archive.

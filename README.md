@@ -59,6 +59,36 @@ excluded. API pricing is used only when no applicable subscription exists.
 
 ![Subscription-first task cost versus Intelligence Index score](charts/en/03_subscription_first_task_cost_vs_score.png)
 
+## Numerical ranking graphics
+
+Token efficiency is normalized to the current core-ranking leader = **100%**.
+API and subscription-first rankings show both exact **USD per task** and the
+cost percentage relative to the most expensive included configuration in the
+same ranking = **100%**.
+
+### 4. Aggregate full-curve Token efficiency
+
+[PNG](charts/en/04_token_efficiency_ranking.png) ·
+[SVG](charts/en/04_token_efficiency_ranking.svg)
+
+![Aggregate full-curve Token-efficiency ranking](charts/en/04_token_efficiency_ranking.png)
+
+### 5. API cost ranking
+
+[PNG](charts/en/05_api_cost_ranking.png) ·
+[SVG](charts/en/05_api_cost_ranking.svg) ·
+[Complete 68-entry ranking](charts/en/05_api_cost_ranking_full.png)
+
+![API cost-per-task ranking with exact USD and relative cost](charts/en/05_api_cost_ranking.png)
+
+### 6. Subscription-first cost ranking
+
+[PNG](charts/en/06_subscription_cost_ranking.png) ·
+[SVG](charts/en/06_subscription_cost_ranking.svg) ·
+[Complete 46-entry ranking](charts/en/06_subscription_cost_ranking_full.png)
+
+![Subscription-first cost-per-task ranking with exact USD and relative cost](charts/en/06_subscription_cost_ranking.png)
+
 ## Important limitations
 
 - Results apply only to the same Intelligence Index v4.1 benchmark suite,
@@ -124,6 +154,34 @@ Numerical downloads:
 
 ![套餐优先单位任务成本与 Intelligence Index 跑分](charts/zh-CN/03_subscription_first_task_cost_vs_score.png)
 
+## 数值排名图
+
+综合 Token 效率以当前核心榜第一名为 **100%**。API 和套餐优先成本同时标出
+**美元/任务**和相对成本百分比；各自排名中最贵的纳入配置为 **100%**。
+
+## 4. 综合全档位 Token 效率排名
+
+[PNG](charts/zh-CN/04_token_efficiency_ranking.png) ·
+[SVG](charts/zh-CN/04_token_efficiency_ranking.svg)
+
+![综合全档位 Token 效率排名](charts/zh-CN/04_token_efficiency_ranking.png)
+
+## 5. API 单位任务成本排名
+
+[PNG](charts/zh-CN/05_api_cost_ranking.png) ·
+[SVG](charts/zh-CN/05_api_cost_ranking.svg) ·
+[完整 68 项排名](charts/zh-CN/05_api_cost_ranking_full.png)
+
+![标有美元成本和相对成本百分比的 API 单位任务成本排名](charts/zh-CN/05_api_cost_ranking.png)
+
+## 6. 套餐优先单位任务成本排名
+
+[PNG](charts/zh-CN/06_subscription_cost_ranking.png) ·
+[SVG](charts/zh-CN/06_subscription_cost_ranking.svg) ·
+[完整 46 项排名](charts/zh-CN/06_subscription_cost_ranking_full.png)
+
+![标有美元成本和相对成本百分比的套餐优先单位任务成本排名](charts/zh-CN/06_subscription_cost_ranking.png)
+
 ## 注意事项
 
 - 结果只代表同一套 Intelligence Index v4.1 评测。该评测以较难的编码和科学任务为主，
@@ -152,11 +210,12 @@ Numerical downloads:
 ## Snapshot releases / 快照发布
 
 Every snapshot keeps its own GitHub Release. The complete archive contains
-both language sets as 4K PNG and editable SVG, all ranking CSV files, the dated
-data snapshot, documentation, and a SHA-256 checksum.
+both language sets of analysis and ranking graphics as 4K PNG and editable
+SVG, all ranking CSV files, the dated data snapshot, documentation, and a
+SHA-256 checksum.
 
-每个日期快照都有单独的 GitHub Release。完整压缩包包含中英文 4K PNG、可编辑 SVG、
-全部排名 CSV、日期数据快照、说明文档和 SHA-256 校验值。
+每个日期快照都有单独的 GitHub Release。完整压缩包包含中英文分析图和排名图的
+4K PNG、可编辑 SVG、全部排名 CSV、日期数据快照、说明文档和 SHA-256 校验值。
 
 [Download the latest complete bundle / 下载最新完整套图](https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/latest)
 

@@ -27,6 +27,7 @@ Publish the current bilingual charts, detailed chart explanations, and numerical
    - appropriate conclusions;
    - conclusions the chart does not support.
 4. Numerical rankings:
+   - directly rendered bilingual ranking graphics;
    - aggregate full-curve Token efficiency;
    - subscription-first cost per task;
    - API cost per task;
@@ -50,7 +51,7 @@ The site must not contain manually duplicated ranking numbers. A snapshot update
 - Static HTML, CSS, and JavaScript only.
 - GitHub Pages deployment through the official Pages Actions.
 - No account, analytics, cookies, remote fonts, or third-party runtime dependency.
-- The Pages workflow publishes `site/` together with the current chart assets and ranking data.
+- The Pages workflow publishes `site/` together with the current chart and ranking-image assets and ranking data.
 
 ## Published result
 
@@ -59,6 +60,8 @@ The site must not contain manually duplicated ranking numbers. A snapshot update
 - Subscription-first ranking is the default numerical view; all 46 rows can be expanded.
 - API ranking contains all 68 comparable rows.
 - Aggregate Token efficiency contains five core full-curve models and four limited-evidence models.
+- The three concise ranking graphics appear directly above the numerical tables and switch language in place.
+- API and subscription-first views show exact USD per task and relative cost, with the most expensive included configuration in each ranking set to 100%.
 - Each chart includes visible axis, formula, inclusion, exclusion, and interpretation notes.
 - GitHub Pages deployment is automatically updated from `main`.
 - Every dated snapshot has one GitHub Release containing both chart languages, both image formats, rankings, data, documentation, and a SHA-256 checksum.

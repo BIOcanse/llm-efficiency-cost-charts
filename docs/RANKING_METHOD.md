@@ -37,6 +37,16 @@ Aggregate Token-efficiency index = 100 / Token overhead
 
 An index of 100 means the model curve lies on the observed global frontier throughout its covered score range. An index of 50 means it uses a geometric mean of twice the frontier Tokens at matched scores.
 
+The published ranking image additionally normalizes the highest observed core
+model to `100%` for quick within-snapshot comparison:
+
+```text
+Displayed percentage = model index / highest observed core index × 100
+```
+
+This display percentage is relative to the current snapshot. The CSV retains
+the original frontier-based index and Token-overhead multiplier.
+
 ### Eligibility and confidence
 
 - Core ranking: at least 4 observed reasoning levels and at least an 8-point score span.
@@ -47,7 +57,11 @@ The table always shows level count and covered score range. Models with differen
 
 ## API cost ranking
 
-Sort configurations by the recalculated API cost of one Intelligence Index task. Every original model uses one fixed provider and price schedule across its reasoning levels. The table also reports score, provider, total Tokens, and model configuration.
+Sort configurations by the API cost of one Intelligence Index task. Every original model uses one fixed provider and price schedule across its reasoning levels. The table also reports score, provider, total Tokens, and model configuration.
+
+Ranking images also show each configuration's cost as a percentage of the most
+expensive included API configuration. The most expensive API configuration is
+`100%`; exact USD per task remains visible beside the percentage.
 
 ## Subscription-first cost ranking
 
@@ -60,6 +74,10 @@ Inclusion order:
 3. use API only when no applicable subscription exists.
 
 The table reports the exact effective task cost, score, plan or API access mode, and confidence level.
+
+Ranking images also show each configuration's cost as a percentage of the most
+expensive included subscription-first configuration. This percentage uses a
+separate reference from the API ranking, and exact USD per task remains visible.
 
 ## Score-threshold leaders
 

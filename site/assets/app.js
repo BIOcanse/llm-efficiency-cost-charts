@@ -30,13 +30,23 @@ const translations = {
     rankingEyebrow: "Actual values · not estimated from plot positions",
     rankingTitle: "Numerical rankings",
     rankingCopy:
-      "Cost tables show exact USD per task. Token efficiency aggregates the full observed reasoning-level curve instead of selecting one favorable point.",
+      "Cost rankings show exact USD per task and relative cost, with the most expensive included configuration set to 100%. Token efficiency aggregates the full observed reasoning-level curve.",
+    tokenVisualTitle: "Aggregate Token-efficiency ranking",
+    tokenVisualCopy:
+      "The current core-ranking leader is normalized to 100%; limited-evidence models remain separate.",
+    apiVisualTitle: "API cost-per-task ranking",
+    apiVisualCopy:
+      "Exact USD and relative cost; the most expensive included API configuration is 100%.",
+    subscriptionVisualTitle: "Subscription-first cost-per-task ranking",
+    subscriptionVisualCopy:
+      "Exact USD and relative cost; the most expensive included subscription-first configuration is 100%.",
+    completeRanking: "Complete ranking",
     tabSubscription: "Subscription cost",
     tabToken: "Aggregate Token efficiency",
     tabApi: "API cost",
     subscriptionRankingTitle: "Subscription-first cost ranking",
     subscriptionRankingCopy:
-      "All 46 included configurations, sorted by effective USD per Intelligence Index task. Score is shown separately.",
+      "All 46 included configurations, sorted by effective USD per Intelligence Index task. Exact cost, relative cost, and score are shown separately.",
     downloadCsv: "Download CSV",
     subscriptionThresholdTitle:
       "Lowest subscription-first cost at each score threshold",
@@ -50,7 +60,7 @@ const translations = {
       "These models have only two or three observed levels, or cover less than eight score points. They are listed separately.",
     apiRankingTitle: "API cost ranking",
     apiRankingCopy:
-      "All 68 configurations with comparable API prices, sorted by recalculated USD per task.",
+      "All 68 configurations with comparable API prices, sorted by USD per task.",
     apiThresholdTitle: "Lowest API cost at each score threshold",
     methodEyebrow: "Scope and evidence",
     methodTitle: "What these rankings do and do not mean",
@@ -69,6 +79,7 @@ const translations = {
       level: "Reasoning level",
       score: "Score",
       cost: "USD / task",
+      costPercent: "Cost vs. max",
       access: "Access",
       confidence: "Confidence",
       levels: "Levels",
@@ -180,13 +191,20 @@ const translations = {
     rankingEyebrow: "直接列数值 · 不再从散点位置估算",
     rankingTitle: "数值排名",
     rankingCopy:
-      "成本表直接列出每项任务的美元成本。Token 效率综合同一模型的完整档位曲线，不挑单个最好看的点。",
+      "成本排名同时列出美元/任务和相对成本，各榜最贵的纳入配置为 100%。Token 效率综合同一模型的完整档位曲线。",
+    tokenVisualTitle: "综合全档位 Token 效率排名",
+    tokenVisualCopy: "当前核心榜第一名归一化为 100%，有限样本模型单独列出。",
+    apiVisualTitle: "API 单位任务成本排名",
+    apiVisualCopy: "同时标出实际美元和相对成本，API 榜最贵的纳入配置为 100%。",
+    subscriptionVisualTitle: "套餐优先单位任务成本排名",
+    subscriptionVisualCopy: "同时标出实际美元和相对成本，套餐优先榜最贵的纳入配置为 100%。",
+    completeRanking: "完整排名",
     tabSubscription: "套餐成本",
     tabToken: "综合 Token 效率",
     tabApi: "API 成本",
     subscriptionRankingTitle: "套餐优先单位任务成本排名",
     subscriptionRankingCopy:
-      "列出全部 46 个纳入配置，按每个 Intelligence Index 任务的有效成本从低到高排序，分数单独展示。",
+      "列出全部 46 个纳入配置，按每个 Intelligence Index 任务的有效成本从低到高排序，并分别展示实际成本、相对成本和分数。",
     downloadCsv: "下载 CSV",
     subscriptionThresholdTitle: "达到不同分数门槛的最低套餐优先成本",
     thresholdCopy: "避免把分数很低但最便宜的配置直接称为整体性价比最高。",
@@ -197,7 +215,7 @@ const translations = {
     limitedEvidenceCopy:
       "这些模型只有两至三个已测档位，或覆盖不到 8 个分数点，因此单独列出，不参与核心排名。",
     apiRankingTitle: "API 单位任务成本排名",
-    apiRankingCopy: "列出 68 个存在可比 API 价格的配置，按重算后的任务成本排序。",
+    apiRankingCopy: "列出 68 个存在可比 API 价格的配置，按单位任务成本排序。",
     apiThresholdTitle: "达到不同分数门槛的最低 API 成本",
     methodEyebrow: "范围与证据",
     methodTitle: "排名能够说明什么，不能说明什么",
@@ -216,6 +234,7 @@ const translations = {
       level: "思考档位",
       score: "分数",
       cost: "美元 / 任务",
+      costPercent: "相对最贵",
       access: "获取方式",
       confidence: "置信度",
       levels: "档位数",
@@ -327,6 +346,38 @@ const chartAlt = {
   ],
 };
 
+const rankingVisualAssets = {
+  en: {
+    token: "charts/en/04_token_efficiency_ranking",
+    api: "charts/en/05_api_cost_ranking",
+    apiFull: "charts/en/05_api_cost_ranking_full.png",
+    subscription: "charts/en/06_subscription_cost_ranking",
+    subscriptionFull: "charts/en/06_subscription_cost_ranking_full.png",
+  },
+  "zh-CN": {
+    token: "charts/zh-CN/04_token_efficiency_ranking",
+    api: "charts/zh-CN/05_api_cost_ranking",
+    apiFull: "charts/zh-CN/05_api_cost_ranking_full.png",
+    subscription: "charts/zh-CN/06_subscription_cost_ranking",
+    subscriptionFull: "charts/zh-CN/06_subscription_cost_ranking_full.png",
+  },
+};
+
+const rankingVisualAlt = {
+  en: {
+    token: "Aggregate full-curve Token-efficiency ranking",
+    api: "API cost-per-task ranking with exact USD and relative cost",
+    subscription:
+      "Subscription-first cost-per-task ranking with exact USD and relative cost",
+  },
+  "zh-CN": {
+    token: "综合全档位 Token 效率排名",
+    api: "标有美元成本和相对成本百分比的 API 单位任务成本排名",
+    subscription:
+      "标有美元成本和相对成本百分比的套餐优先单位任务成本排名",
+  },
+};
+
 const effortLabels = {
   en: {
     instant: "Instant",
@@ -425,6 +476,24 @@ function renderChartDetails() {
   });
 }
 
+function renderRankingVisuals() {
+  const assets = rankingVisualAssets[state.language];
+  const alternatives = rankingVisualAlt[state.language];
+  ["token", "api", "subscription"].forEach((metric) => {
+    const base = assets[metric];
+    const png = `${base}.png`;
+    const image = document.getElementById(`ranking-${metric}-image`);
+    image.src = png;
+    image.alt = alternatives[metric];
+    document.getElementById(`ranking-${metric}-link`).href = png;
+    document.getElementById(`ranking-${metric}-png`).href = png;
+    document.getElementById(`ranking-${metric}-svg`).href = `${base}.svg`;
+  });
+  document.getElementById("ranking-api-full").href = assets.apiFull;
+  document.getElementById("ranking-subscription-full").href =
+    assets.subscriptionFull;
+}
+
 function renderMethodCards() {
   const cards = translations[state.language].methodCards;
   document.getElementById("method-grid").innerHTML = cards
@@ -459,6 +528,10 @@ function formatUsd(value) {
   return `$${numeric.toFixed(3)}`;
 }
 
+function formatCostPercent(value, reference) {
+  return `${((Number(value) / Number(reference)) * 100).toFixed(2)}%`;
+}
+
 function formatTokens(value) {
   return `${Number(value).toFixed(1)}M`;
 }
@@ -484,12 +557,16 @@ function tableHeader(targetId, columns) {
 function renderSubscriptionRanking() {
   const rows = state.rankings.subscription_cost;
   const visibleRows = state.expanded.subscription ? rows : rows.slice(0, 15);
+  const referenceCost = Math.max(
+    ...rows.map((row) => Number(row.cost_usd_per_task)),
+  );
   tableHeader("subscription-head", [
     "rank",
     "model",
     "level",
     "score",
     "cost",
+    "costPercent",
     "access",
     "confidence",
   ]);
@@ -501,6 +578,7 @@ function renderSubscriptionRanking() {
         <td>${escapeHtml(effortLabel(row.effort))}</td>
         <td>${formatScore(row.score)}</td>
         <td>${formatUsd(row.cost_usd_per_task)}</td>
+        <td>${formatCostPercent(row.cost_usd_per_task, referenceCost)}</td>
         <td>${escapeHtml(accessLabel(row))}</td>
         <td>${escapeHtml(confidenceLabels[state.language][row.confidence] || row.confidence)}</td>
       </tr>`,
@@ -550,12 +628,16 @@ function renderTokenRanking() {
 function renderApiRanking() {
   const rows = state.rankings.api_cost;
   const visibleRows = state.expanded.api ? rows : rows.slice(0, 15);
+  const referenceCost = Math.max(
+    ...rows.map((row) => Number(row.cost_usd_per_task)),
+  );
   tableHeader("api-head", [
     "rank",
     "model",
     "level",
     "score",
     "cost",
+    "costPercent",
     "provider",
     "totalTokens",
   ]);
@@ -567,6 +649,7 @@ function renderApiRanking() {
         <td>${escapeHtml(effortLabel(row.effort))}</td>
         <td>${formatScore(row.score)}</td>
         <td>${formatUsd(row.cost_usd_per_task)}</td>
+        <td>${formatCostPercent(row.cost_usd_per_task, referenceCost)}</td>
         <td>${escapeHtml(row.provider)}</td>
         <td>${formatTokens(row.total_tokens_million)}</td>
       </tr>`,
@@ -578,8 +661,16 @@ function renderApiRanking() {
     : translations[state.language].showAll(rows.length);
 }
 
-function renderThresholdTable(rows, headId, bodyId) {
-  tableHeader(headId, ["threshold", "model", "level", "score", "cost", "access"]);
+function renderThresholdTable(rows, headId, bodyId, referenceCost) {
+  tableHeader(headId, [
+    "threshold",
+    "model",
+    "level",
+    "score",
+    "cost",
+    "costPercent",
+    "access",
+  ]);
   document.getElementById(bodyId).innerHTML = rows
     .map(
       (row) => `<tr>
@@ -588,6 +679,7 @@ function renderThresholdTable(rows, headId, bodyId) {
         <td>${escapeHtml(effortLabel(row.effort))}</td>
         <td>${formatScore(row.score)}</td>
         <td>${formatUsd(row.cost_usd_per_task)}</td>
+        <td>${formatCostPercent(row.cost_usd_per_task, referenceCost)}</td>
         <td>${escapeHtml(row.plan_name || row.provider)}</td>
       </tr>`,
     )
@@ -612,11 +704,19 @@ function renderRankings() {
     state.rankings.thresholds.subscription_first,
     "subscription-threshold-head",
     "subscription-threshold-body",
+    Math.max(
+      ...state.rankings.subscription_cost.map((row) =>
+        Number(row.cost_usd_per_task),
+      ),
+    ),
   );
   renderThresholdTable(
     state.rankings.thresholds.api,
     "api-threshold-head",
     "api-threshold-body",
+    Math.max(
+      ...state.rankings.api_cost.map((row) => Number(row.cost_usd_per_task)),
+    ),
   );
 }
 
@@ -634,6 +734,7 @@ function setLanguage(language, remember = true) {
   }
   translateStaticText();
   renderChartDetails();
+  renderRankingVisuals();
   renderMethodCards();
   renderRankings();
   document.getElementById("status").textContent =

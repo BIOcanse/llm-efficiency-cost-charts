@@ -7,13 +7,13 @@ Intelligence Index v4.1 snapshot.
 
 ## Included / 包含内容
 
-- 3 English charts: 4K PNG + editable SVG
-- 3 张简体中文图：4K PNG + 可编辑 SVG
+- 8 English analysis and ranking graphics: 4K PNG + editable SVG
+- 8 张简体中文分析图与排名图：4K PNG + 可编辑 SVG
 - 73 total-Token configurations
 - 68 comparable API-cost configurations
 - 46 subscription-first cost configurations
-- aggregate full-curve Token-efficiency ranking
-- API and subscription-first task-cost rankings
+- aggregate full-curve Token-efficiency ranking, normalized to the core leader = 100%
+- API and subscription-first task-cost rankings with exact USD and relative cost percentages
 - score-threshold cost leaders
 - dated source data, access evidence, methodology, detailed chart guide, and sources
 - 日期数据、套餐证据、计算方法、图片详细说明和来源
