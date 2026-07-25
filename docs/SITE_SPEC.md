@@ -18,7 +18,8 @@ Publish the current bilingual charts, detailed chart explanations, and numerical
 ## Information structure
 
 1. Snapshot and metric summary.
-2. Three chart sections.
+2. Three client-rendered interactive chart sections, ordered as total Token
+   consumption, subscription-first task cost, then API task cost.
 3. A detailed explanation under each chart:
    - axes;
    - points and same-model lines;
@@ -27,7 +28,6 @@ Publish the current bilingual charts, detailed chart explanations, and numerical
    - appropriate conclusions;
    - conclusions the chart does not support.
 4. Numerical rankings:
-   - directly rendered bilingual ranking graphics;
    - aggregate full-curve Token efficiency;
    - subscription-first cost per task;
    - API cost per task;
@@ -41,7 +41,7 @@ Publish the current bilingual charts, detailed chart explanations, and numerical
 dated CSV snapshot
   -> scripts/build_rankings.py
   -> rankings/<date>/*.csv + site/data/rankings.json
-  -> static GitHub Pages table rendering
+  -> static GitHub Pages SVG and table rendering
 ```
 
 The site must not contain manually duplicated ranking numbers. A snapshot update regenerates the rankings and both language views from the same machine-readable result.
@@ -49,6 +49,8 @@ The site must not contain manually duplicated ranking numbers. A snapshot update
 ## Hosting
 
 - Static HTML, CSS, and JavaScript only.
+- The visible analysis plots use client-side SVG generated from the dated JSON
+  payload; PNG and SVG snapshots remain download assets.
 - GitHub Pages deployment through the official Pages Actions.
 - No account, analytics, cookies, remote fonts, or third-party runtime dependency.
 - The Pages workflow publishes `site/` together with the current chart and ranking-image assets and ranking data.
@@ -60,8 +62,12 @@ The site must not contain manually duplicated ranking numbers. A snapshot update
 - Subscription-first ranking is the default numerical view; all 46 rows can be expanded.
 - API ranking contains all 68 comparable rows.
 - Aggregate Token efficiency contains five core full-curve models and four limited-evidence models.
-- The three concise ranking graphics appear directly above the numerical tables and switch language in place.
 - API and subscription-first views show exact USD per task and relative cost, with the most expensive included configuration in each ranking set to 100%.
-- Each chart includes visible axis, formula, inclusion, exclusion, and interpretation notes.
+- Each interactive chart preserves the static chart's complete point labeling
+  while supporting point inspection, model highlighting, pan, zoom, reset,
+  pointer pinning, and keyboard inspection.
+- The analysis page targets desktop screens and keeps a fixed desktop chart
+  width and 16:9 plot ratio instead of compressing the visualization for mobile.
+- Each chart includes visible axes, formula, inclusion, exclusion, and interpretation notes.
 - GitHub Pages deployment is automatically updated from `main`.
 - Every dated snapshot has one GitHub Release containing both chart languages, both image formats, rankings, data, documentation, and a SHA-256 checksum.

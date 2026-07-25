@@ -11,7 +11,7 @@
     <title>LLM Efficiency & Cost Charts</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/styles.css">
-    <script src="assets/app.js" defer></script>
+    <script src="assets/app.js" type="module"></script>
   </head>
   <body>
     <header class="topbar">
@@ -89,14 +89,7 @@
               <p data-i18n="chart1Lead">How many input, reasoning, and final-answer Tokens are needed to complete the same suite.</p>
             </div>
           </div>
-          <a class="chart-frame" id="chart1-link" href="charts/en/01_total_token_consumption_vs_score.png">
-            <img
-              id="chart1-image"
-              src="charts/en/01_total_token_consumption_vs_score.png"
-              alt="Total Token consumption versus Intelligence Index score"
-              loading="lazy"
-            >
-          </a>
+          <div class="interactive-chart" id="chart1-interactive"></div>
           <div class="chart-details" id="chart1-details"></div>
           <div class="asset-links">
             <a id="chart1-png" href="charts/en/01_total_token_consumption_vs_score.png">PNG</a>
@@ -104,49 +97,35 @@
           </div>
         </article>
 
-        <article class="chart-card">
+        <article class="chart-card featured-chart">
           <div class="chart-heading">
             <span class="chart-number">02</span>
             <div>
-              <h3 data-i18n="chart2Title">API cost per task vs. score</h3>
-              <p data-i18n="chart2Lead">Fixed-provider prices combined with the actual Token composition of one benchmark task.</p>
+              <h3 data-i18n="chart2Title">Subscription-first cost per task vs. score</h3>
+              <p data-i18n="chart2Lead">The best quantifiable plan is used first; API is used only when no applicable plan exists.</p>
             </div>
           </div>
-          <a class="chart-frame" id="chart2-link" href="charts/en/02_api_task_cost_vs_score.png">
-            <img
-              id="chart2-image"
-              src="charts/en/02_api_task_cost_vs_score.png"
-              alt="API cost per task versus Intelligence Index score"
-              loading="lazy"
-            >
-          </a>
+          <div class="interactive-chart" id="chart2-interactive"></div>
           <div class="chart-details" id="chart2-details"></div>
           <div class="asset-links">
-            <a id="chart2-png" href="charts/en/02_api_task_cost_vs_score.png">PNG</a>
-            <a id="chart2-svg" href="charts/en/02_api_task_cost_vs_score.svg">SVG</a>
+            <a id="chart2-png" href="charts/en/03_subscription_first_task_cost_vs_score.png">PNG</a>
+            <a id="chart2-svg" href="charts/en/03_subscription_first_task_cost_vs_score.svg">SVG</a>
           </div>
         </article>
 
-        <article class="chart-card featured-chart">
+        <article class="chart-card">
           <div class="chart-heading">
             <span class="chart-number">03</span>
             <div>
-              <h3 data-i18n="chart3Title">Subscription-first cost per task vs. score</h3>
-              <p data-i18n="chart3Lead">The best quantifiable plan is used first; API is used only when no applicable plan exists.</p>
+              <h3 data-i18n="chart3Title">API cost per task vs. score</h3>
+              <p data-i18n="chart3Lead">Fixed-provider prices combined with the actual Token composition of one benchmark task.</p>
             </div>
           </div>
-          <a class="chart-frame" id="chart3-link" href="charts/en/03_subscription_first_task_cost_vs_score.png">
-            <img
-              id="chart3-image"
-              src="charts/en/03_subscription_first_task_cost_vs_score.png"
-              alt="Subscription-first cost per task versus Intelligence Index score"
-              loading="lazy"
-            >
-          </a>
+          <div class="interactive-chart" id="chart3-interactive"></div>
           <div class="chart-details" id="chart3-details"></div>
           <div class="asset-links">
-            <a id="chart3-png" href="charts/en/03_subscription_first_task_cost_vs_score.png">PNG</a>
-            <a id="chart3-svg" href="charts/en/03_subscription_first_task_cost_vs_score.svg">SVG</a>
+            <a id="chart3-png" href="charts/en/02_api_task_cost_vs_score.png">PNG</a>
+            <a id="chart3-svg" href="charts/en/02_api_task_cost_vs_score.svg">SVG</a>
           </div>
         </article>
       </section>
@@ -161,67 +140,6 @@
             <p data-i18n="rankingCopy">
               Cost tables show exact USD per task. Token efficiency aggregates the full observed reasoning-level curve instead of selecting one favorable point.
             </p>
-          </div>
-
-          <div class="ranking-visuals">
-            <article class="ranking-visual">
-              <div class="ranking-visual-heading">
-                <h3 data-i18n="tokenVisualTitle">Aggregate Token-efficiency ranking</h3>
-                <p data-i18n="tokenVisualCopy">The current core-ranking leader is 100%.</p>
-              </div>
-              <a class="ranking-visual-frame" id="ranking-token-link" href="charts/en/04_token_efficiency_ranking.png">
-                <img
-                  id="ranking-token-image"
-                  src="charts/en/04_token_efficiency_ranking.png"
-                  alt="Aggregate full-curve Token-efficiency ranking"
-                  loading="lazy"
-                >
-              </a>
-              <div class="ranking-asset-links">
-                <a id="ranking-token-png" href="charts/en/04_token_efficiency_ranking.png">PNG</a>
-                <a id="ranking-token-svg" href="charts/en/04_token_efficiency_ranking.svg">SVG</a>
-              </div>
-            </article>
-
-            <article class="ranking-visual">
-              <div class="ranking-visual-heading">
-                <h3 data-i18n="apiVisualTitle">API cost-per-task ranking</h3>
-                <p data-i18n="apiVisualCopy">Exact USD and relative cost; the most expensive included configuration is 100%.</p>
-              </div>
-              <a class="ranking-visual-frame" id="ranking-api-link" href="charts/en/05_api_cost_ranking.png">
-                <img
-                  id="ranking-api-image"
-                  src="charts/en/05_api_cost_ranking.png"
-                  alt="API cost-per-task ranking with exact USD and relative cost"
-                  loading="lazy"
-                >
-              </a>
-              <div class="ranking-asset-links">
-                <a id="ranking-api-png" href="charts/en/05_api_cost_ranking.png">PNG</a>
-                <a id="ranking-api-svg" href="charts/en/05_api_cost_ranking.svg">SVG</a>
-                <a id="ranking-api-full" href="charts/en/05_api_cost_ranking_full.png" data-i18n="completeRanking">Complete ranking</a>
-              </div>
-            </article>
-
-            <article class="ranking-visual">
-              <div class="ranking-visual-heading">
-                <h3 data-i18n="subscriptionVisualTitle">Subscription-first cost-per-task ranking</h3>
-                <p data-i18n="subscriptionVisualCopy">Exact USD and relative cost; the most expensive included configuration is 100%.</p>
-              </div>
-              <a class="ranking-visual-frame" id="ranking-subscription-link" href="charts/en/06_subscription_cost_ranking.png">
-                <img
-                  id="ranking-subscription-image"
-                  src="charts/en/06_subscription_cost_ranking.png"
-                  alt="Subscription-first cost-per-task ranking with exact USD and relative cost"
-                  loading="lazy"
-                >
-              </a>
-              <div class="ranking-asset-links">
-                <a id="ranking-subscription-png" href="charts/en/06_subscription_cost_ranking.png">PNG</a>
-                <a id="ranking-subscription-svg" href="charts/en/06_subscription_cost_ranking.svg">SVG</a>
-                <a id="ranking-subscription-full" href="charts/en/06_subscription_cost_ranking_full.png" data-i18n="completeRanking">Complete ranking</a>
-              </div>
-            </article>
           </div>
 
           <div class="ranking-tabs" role="tablist" aria-label="Ranking metric">

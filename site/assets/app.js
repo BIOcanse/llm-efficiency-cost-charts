@@ -1,3 +1,5 @@
+import { InteractiveScatterChart } from "./interactive-scatter.js";
+
 const translations = {
   en: {
     brand: "LLM Efficiency & Cost",
@@ -21,26 +23,16 @@ const translations = {
     chart1Title: "Total Token consumption vs. score",
     chart1Lead:
       "How many input, reasoning, and final-answer Tokens are needed to complete the same suite.",
-    chart2Title: "API cost per task vs. score",
+    chart2Title: "Subscription-first cost per task vs. score",
     chart2Lead:
-      "Fixed-provider prices combined with the actual Token composition of one benchmark task.",
-    chart3Title: "Subscription-first cost per task vs. score",
-    chart3Lead:
       "The best quantifiable plan is used first; API is used only when no applicable plan exists.",
+    chart3Title: "API cost per task vs. score",
+    chart3Lead:
+      "Fixed-provider prices combined with the actual Token composition of one benchmark task.",
     rankingEyebrow: "Actual values · not estimated from plot positions",
     rankingTitle: "Numerical rankings",
     rankingCopy:
       "Cost rankings show exact USD per task and relative cost, with the most expensive included configuration set to 100%. Token efficiency aggregates the full observed reasoning-level curve.",
-    tokenVisualTitle: "Aggregate Token-efficiency ranking",
-    tokenVisualCopy:
-      "The current core-ranking leader is normalized to 100%; limited-evidence models remain separate.",
-    apiVisualTitle: "API cost-per-task ranking",
-    apiVisualCopy:
-      "Exact USD and relative cost; the most expensive included API configuration is 100%.",
-    subscriptionVisualTitle: "Subscription-first cost-per-task ranking",
-    subscriptionVisualCopy:
-      "Exact USD and relative cost; the most expensive included subscription-first configuration is 100%.",
-    completeRanking: "Complete ranking",
     tabSubscription: "Subscription cost",
     tabToken: "Aggregate Token efficiency",
     tabApi: "API cost",
@@ -73,6 +65,37 @@ const translations = {
     showAll: (count) => `Show all ${count}`,
     showTop: "Show top 15",
     statusLanguage: "Language changed to English",
+    interactive: {
+      modelControl: "Highlight model",
+      allModels: "All models",
+      zoomIn: "Zoom in",
+      zoomOut: "Zoom out",
+      reset: "Reset view",
+      interactionHint:
+        "Hover or focus a point for details · click to pin · drag to pan · wheel to zoom",
+      readoutHint:
+        "Inspect a point to see its model, reasoning level, score, and exact horizontal value.",
+      scoreAxis: "Intelligence Index v4.1 score",
+      xAxis: {
+        token: "Total Token consumption (million)",
+        api: "API cost per task (USD)",
+        subscription: "Subscription-first cost per task (USD)",
+      },
+      title: {
+        token: "Interactive total Token consumption versus score",
+        api: "Interactive API cost per task versus score",
+        subscription:
+          "Interactive subscription-first cost per task versus score",
+      },
+      score: "Score",
+      totalTokens: "Total Tokens",
+      apiCost: "API cost",
+      subscriptionCost: "Effective cost",
+      developer: "Developer",
+      provider: "Provider",
+      access: "Access",
+      pointAction: "Press Enter to pin this point",
+    },
     table: {
       rank: "Rank",
       model: "Model",
@@ -184,21 +207,14 @@ const translations = {
       "三张图使用同一套 Intelligence Index v4.1 分数，但横轴指标不同，因此 Token 效率、API 成本和套餐成本必须分别解读。",
     chart1Title: "完整 Token 消耗与跑分",
     chart1Lead: "完成同一套评测需要多少输入、推理和最终回答 Token。",
-    chart2Title: "API 单位任务成本与跑分",
-    chart2Lead: "按统一供应商价格和每项任务的实际 Token 构成计算。",
-    chart3Title: "套餐优先单位任务成本与跑分",
-    chart3Lead: "优先使用可核算的最优套餐；只有不存在适用套餐时才使用 API。",
+    chart2Title: "套餐优先单位任务成本与跑分",
+    chart2Lead: "优先使用可核算的最优套餐；只有不存在适用套餐时才使用 API。",
+    chart3Title: "API 单位任务成本与跑分",
+    chart3Lead: "按统一供应商价格和每项任务的实际 Token 构成计算。",
     rankingEyebrow: "直接列数值 · 不再从散点位置估算",
     rankingTitle: "数值排名",
     rankingCopy:
       "成本排名同时列出美元/任务和相对成本，各榜最贵的纳入配置为 100%。Token 效率综合同一模型的完整档位曲线。",
-    tokenVisualTitle: "综合全档位 Token 效率排名",
-    tokenVisualCopy: "当前核心榜第一名归一化为 100%，有限样本模型单独列出。",
-    apiVisualTitle: "API 单位任务成本排名",
-    apiVisualCopy: "同时标出实际美元和相对成本，API 榜最贵的纳入配置为 100%。",
-    subscriptionVisualTitle: "套餐优先单位任务成本排名",
-    subscriptionVisualCopy: "同时标出实际美元和相对成本，套餐优先榜最贵的纳入配置为 100%。",
-    completeRanking: "完整排名",
     tabSubscription: "套餐成本",
     tabToken: "综合 Token 效率",
     tabApi: "API 成本",
@@ -228,6 +244,34 @@ const translations = {
     showAll: (count) => `显示全部 ${count} 项`,
     showTop: "只显示前 15 项",
     statusLanguage: "已切换为中文",
+    interactive: {
+      modelControl: "重点显示模型",
+      allModels: "全部模型",
+      zoomIn: "放大",
+      zoomOut: "缩小",
+      reset: "恢复完整视图",
+      interactionHint: "悬停或聚焦查看数值 · 点击固定 · 拖动平移 · 滚轮缩放",
+      readoutHint: "检查任意点即可查看模型、思考档位、分数和横轴准确数值。",
+      scoreAxis: "Intelligence Index v4.1 分数",
+      xAxis: {
+        token: "完整 Token 消耗（百万）",
+        api: "API 单位任务成本（美元）",
+        subscription: "套餐优先单位任务成本（美元）",
+      },
+      title: {
+        token: "完整 Token 消耗与跑分交互图",
+        api: "API 单位任务成本与跑分交互图",
+        subscription: "套餐优先单位任务成本与跑分交互图",
+      },
+      score: "分数",
+      totalTokens: "完整 Token",
+      apiCost: "API 成本",
+      subscriptionCost: "有效成本",
+      developer: "开发者",
+      provider: "供应商",
+      access: "获取方式",
+      pointAction: "按 Enter 可固定该点",
+    },
     table: {
       rank: "排名",
       model: "模型",
@@ -323,59 +367,14 @@ const translations = {
 const chartAssets = {
   en: [
     "charts/en/01_total_token_consumption_vs_score",
-    "charts/en/02_api_task_cost_vs_score",
     "charts/en/03_subscription_first_task_cost_vs_score",
+    "charts/en/02_api_task_cost_vs_score",
   ],
   "zh-CN": [
     "charts/zh-CN/01_total_token_consumption_vs_score",
-    "charts/zh-CN/02_api_task_cost_vs_score",
     "charts/zh-CN/03_subscription_first_task_cost_vs_score",
+    "charts/zh-CN/02_api_task_cost_vs_score",
   ],
-};
-
-const chartAlt = {
-  en: [
-    "Total Token consumption versus Intelligence Index score",
-    "API cost per task versus Intelligence Index score",
-    "Subscription-first task cost versus Intelligence Index score",
-  ],
-  "zh-CN": [
-    "完整 Token 消耗与 Intelligence Index 跑分",
-    "API 单位任务成本与 Intelligence Index 跑分",
-    "套餐优先单位任务成本与 Intelligence Index 跑分",
-  ],
-};
-
-const rankingVisualAssets = {
-  en: {
-    token: "charts/en/04_token_efficiency_ranking",
-    api: "charts/en/05_api_cost_ranking",
-    apiFull: "charts/en/05_api_cost_ranking_full.png",
-    subscription: "charts/en/06_subscription_cost_ranking",
-    subscriptionFull: "charts/en/06_subscription_cost_ranking_full.png",
-  },
-  "zh-CN": {
-    token: "charts/zh-CN/04_token_efficiency_ranking",
-    api: "charts/zh-CN/05_api_cost_ranking",
-    apiFull: "charts/zh-CN/05_api_cost_ranking_full.png",
-    subscription: "charts/zh-CN/06_subscription_cost_ranking",
-    subscriptionFull: "charts/zh-CN/06_subscription_cost_ranking_full.png",
-  },
-};
-
-const rankingVisualAlt = {
-  en: {
-    token: "Aggregate full-curve Token-efficiency ranking",
-    api: "API cost-per-task ranking with exact USD and relative cost",
-    subscription:
-      "Subscription-first cost-per-task ranking with exact USD and relative cost",
-  },
-  "zh-CN": {
-    token: "综合全档位 Token 效率排名",
-    api: "标有美元成本和相对成本百分比的 API 单位任务成本排名",
-    subscription:
-      "标有美元成本和相对成本百分比的套餐优先单位任务成本排名",
-  },
 };
 
 const effortLabels = {
@@ -415,6 +414,28 @@ const state = {
   },
 };
 
+const chartInstances = new Map();
+const interactiveChartSpecs = [
+  {
+    metric: "token",
+    dataKey: "token",
+    containerId: "chart1-interactive",
+    xKey: "total_tokens_million",
+  },
+  {
+    metric: "subscription",
+    dataKey: "subscription",
+    containerId: "chart2-interactive",
+    xKey: "cost_usd_per_task",
+  },
+  {
+    metric: "api",
+    dataKey: "api",
+    containerId: "chart3-interactive",
+    xKey: "cost_usd_per_task",
+  },
+];
+
 function browserLanguage() {
   try {
     const saved = window.localStorage.getItem("llm-efficiency-language");
@@ -453,7 +474,8 @@ function translateStaticText() {
 
 function renderChartDetails() {
   const text = translations[state.language];
-  text.chartDetails.forEach((blocks, chartIndex) => {
+  [0, 2, 1].forEach((detailIndex, chartIndex) => {
+    const blocks = text.chartDetails[detailIndex];
     const target = document.getElementById(`chart${chartIndex + 1}-details`);
     target.innerHTML = blocks
       .map(
@@ -465,33 +487,9 @@ function renderChartDetails() {
 
   chartAssets[state.language].forEach((base, index) => {
     const chartNumber = index + 1;
-    const png = `${base}.png`;
-    const svg = `${base}.svg`;
-    const image = document.getElementById(`chart${chartNumber}-image`);
-    image.src = png;
-    image.alt = chartAlt[state.language][index];
-    document.getElementById(`chart${chartNumber}-link`).href = png;
-    document.getElementById(`chart${chartNumber}-png`).href = png;
-    document.getElementById(`chart${chartNumber}-svg`).href = svg;
+    document.getElementById(`chart${chartNumber}-png`).href = `${base}.png`;
+    document.getElementById(`chart${chartNumber}-svg`).href = `${base}.svg`;
   });
-}
-
-function renderRankingVisuals() {
-  const assets = rankingVisualAssets[state.language];
-  const alternatives = rankingVisualAlt[state.language];
-  ["token", "api", "subscription"].forEach((metric) => {
-    const base = assets[metric];
-    const png = `${base}.png`;
-    const image = document.getElementById(`ranking-${metric}-image`);
-    image.src = png;
-    image.alt = alternatives[metric];
-    document.getElementById(`ranking-${metric}-link`).href = png;
-    document.getElementById(`ranking-${metric}-png`).href = png;
-    document.getElementById(`ranking-${metric}-svg`).href = `${base}.svg`;
-  });
-  document.getElementById("ranking-api-full").href = assets.apiFull;
-  document.getElementById("ranking-subscription-full").href =
-    assets.subscriptionFull;
 }
 
 function renderMethodCards() {
@@ -545,6 +543,95 @@ function accessLabel(row) {
     return row.plan_name;
   }
   return "API";
+}
+
+function formatInteractiveAxis(metric, value) {
+  const numeric = Number(value);
+  if (metric === "token") {
+    return new Intl.NumberFormat(state.language, {
+      maximumFractionDigits: numeric < 100 ? 1 : 0,
+    }).format(numeric);
+  }
+  if (numeric === 0) {
+    return "$0";
+  }
+  if (numeric < 0.1) {
+    return `$${numeric.toFixed(3)}`;
+  }
+  return `$${numeric.toFixed(2)}`;
+}
+
+function formatInteractiveValue(metric, value) {
+  return metric === "token" ? formatTokens(value) : formatUsd(value);
+}
+
+function interactiveValueLabel(metric, text) {
+  if (metric === "token") {
+    return text.totalTokens;
+  }
+  if (metric === "api") {
+    return text.apiCost;
+  }
+  return text.subscriptionCost;
+}
+
+function interactiveAccess(metric, row, text) {
+  if (metric === "token") {
+    return [text.developer, row.developer];
+  }
+  if (metric === "api") {
+    return [text.provider, row.provider];
+  }
+  return [text.access, accessLabel(row)];
+}
+
+function interactiveChartConfig(spec, pointCount) {
+  const text = translations[state.language].interactive;
+  const valueLabel = interactiveValueLabel(spec.metric, text);
+  const rowSummary = (row) =>
+    `${row.model} · ${effortLabel(row.effort)} · ${text.score} ${formatScore(row.score)} · ${valueLabel} ${formatInteractiveValue(spec.metric, row[spec.xKey])}`;
+  return {
+    metric: spec.metric,
+    xKey: spec.xKey,
+    modelControlLabel: text.modelControl,
+    allModelsLabel: text.allModels,
+    zoomInLabel: text.zoomIn,
+    zoomOutLabel: text.zoomOut,
+    resetLabel: text.reset,
+    interactionHint: text.interactionHint,
+    readoutHint: text.readoutHint,
+    xAxisLabel: text.xAxis[spec.metric],
+    yAxisLabel: text.scoreAxis,
+    accessibleTitle: text.title[spec.metric],
+    accessibleDescription: `${pointCount} points. ${text.interactionHint}.`,
+    effortLabel,
+    formatScoreTick: (value) => Number(value).toFixed(0),
+    formatXAxisTick: (value) => formatInteractiveAxis(spec.metric, value),
+    tooltipRows: (row) => [
+      [text.score, formatScore(row.score)],
+      [valueLabel, formatInteractiveValue(spec.metric, row[spec.xKey])],
+      interactiveAccess(spec.metric, row, text),
+    ],
+    readoutText: rowSummary,
+    pointAriaLabel: (row) => `${rowSummary(row)}. ${text.pointAction}.`,
+  };
+}
+
+function renderInteractiveCharts() {
+  if (!state.rankings?.charts) {
+    return;
+  }
+  interactiveChartSpecs.forEach((spec) => {
+    const rows = state.rankings.charts[spec.dataKey];
+    let chart = chartInstances.get(spec.metric);
+    if (!chart) {
+      chart = new InteractiveScatterChart(
+        document.getElementById(spec.containerId),
+      );
+      chartInstances.set(spec.metric, chart);
+    }
+    chart.update(rows, interactiveChartConfig(spec, rows.length));
+  });
 }
 
 function tableHeader(targetId, columns) {
@@ -734,7 +821,7 @@ function setLanguage(language, remember = true) {
   }
   translateStaticText();
   renderChartDetails();
-  renderRankingVisuals();
+  renderInteractiveCharts();
   renderMethodCards();
   renderRankings();
   document.getElementById("status").textContent =
@@ -757,6 +844,15 @@ async function loadRankings() {
     throw new Error(`Ranking data request failed: ${response.status}`);
   }
   state.rankings = await response.json();
+  if (
+    !state.rankings.charts ||
+    state.rankings.charts.token.length !== 73 ||
+    state.rankings.charts.api.length !== 68 ||
+    state.rankings.charts.subscription.length !== 46
+  ) {
+    throw new Error("Interactive chart data is incomplete");
+  }
+  renderInteractiveCharts();
   renderRankings();
 }
 

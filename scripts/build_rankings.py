@@ -230,6 +230,76 @@ def subscription_cost_ranking(
     return result
 
 
+def token_chart_rows(model_rows: list[dict[str, str]]) -> list[dict[str, object]]:
+    result: list[dict[str, object]] = []
+    for row in model_rows:
+        result.append(
+            {
+                "model": row["model"],
+                "effort": row["effort"],
+                "effort_order": int(row["effort_order"]),
+                "score": round(float(row["intelligence_score_raw"]), 4),
+                "total_tokens_million": round(
+                    float(row["total_tokens_million"]), 6
+                ),
+                "developer": row["developer"],
+                "country_code": row["country_code"],
+                "data_scope": row["data_scope"],
+                "is_historical": row["is_historical"].lower() == "true",
+            }
+        )
+    return result
+
+
+def api_chart_rows(model_rows: list[dict[str, str]]) -> list[dict[str, object]]:
+    result: list[dict[str, object]] = []
+    for row in model_rows:
+        if not row["cost_per_index_task_usd"]:
+            continue
+        result.append(
+            {
+                "model": row["model"],
+                "effort": row["effort"],
+                "effort_order": int(row["effort_order"]),
+                "score": round(float(row["intelligence_score_raw"]), 4),
+                "cost_usd_per_task": round(
+                    float(row["cost_per_index_task_usd"]), 9
+                ),
+                "total_tokens_million": round(
+                    float(row["total_tokens_million"]), 6
+                ),
+                "provider": row["api_provider"],
+                "precision": row["api_precision"],
+                "is_historical": row["is_historical"].lower() == "true",
+            }
+        )
+    return result
+
+
+def subscription_chart_rows(
+    access_rows: list[dict[str, str]],
+) -> list[dict[str, object]]:
+    result: list[dict[str, object]] = []
+    for row in access_rows:
+        result.append(
+            {
+                "model": row["model"],
+                "effort": row["effort"],
+                "effort_order": int(row["effort_order"]),
+                "score": round(float(row["intelligence_score_raw"]), 4),
+                "cost_usd_per_task": round(
+                    float(row["effective_cost_per_task_usd"]), 9
+                ),
+                "access_mode": row["access_mode"],
+                "plan_name": row["plan_name"],
+                "provider": row["provider"],
+                "confidence": row["confidence"],
+                "is_historical": row["is_historical"].lower() == "true",
+            }
+        )
+    return result
+
+
 def threshold_leaders(
     rows: list[dict[str, object]],
     metric: str,
@@ -300,6 +370,18 @@ def main() -> None:
     subscription_thresholds = threshold_leaders(
         subscription_ranking, "subscription_first"
     )
+    token_chart = token_chart_rows(model_rows)
+    api_chart = api_chart_rows(model_rows)
+    subscription_chart = subscription_chart_rows(access_rows)
+    if len(token_chart) != 73:
+        raise ValueError(f"Expected 73 Token chart points, found {len(token_chart)}")
+    if len(api_chart) != 68:
+        raise ValueError(f"Expected 68 API chart points, found {len(api_chart)}")
+    if len(subscription_chart) != 46:
+        raise ValueError(
+            "Expected 46 subscription chart points, "
+            f"found {len(subscription_chart)}"
+        )
 
     rankings_dir = args.repository_root / "rankings" / args.snapshot
     token_rows = token_core + token_limited
@@ -393,6 +475,11 @@ def main() -> None:
         },
         "api_cost": api_ranking,
         "subscription_cost": subscription_ranking,
+        "charts": {
+            "token": token_chart,
+            "api": api_chart,
+            "subscription": subscription_chart,
+        },
         "thresholds": {
             "api": api_thresholds,
             "subscription_first": subscription_thresholds,
