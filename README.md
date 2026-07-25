@@ -3,9 +3,8 @@
 <p align="center">
   <a href="https://biocanse.github.io/llm-efficiency-cost-charts/">
     <img
-      src="https://img.shields.io/badge/OPEN_INTERACTIVE_CHARTS-2563EB?style=for-the-badge&logo=githubpages&logoColor=white"
+      src="site/assets/open-interactive-charts-button.svg"
       alt="打开交互式中英文图表 / Open interactive Chinese and English charts"
-      height="48"
     >
   </a>
 </p>
