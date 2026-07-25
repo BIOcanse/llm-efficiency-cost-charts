@@ -1,0 +1,41 @@
+developer,position,model
+Alibaba,dense-27b,Qwen3.6 27B
+Alibaba,moe-35b-a3b,Qwen3.6 35B A3B
+Alibaba,plus,Qwen3.7 Plus
+Alibaba,max,Qwen3.7 Max
+Amazon,lite,Amazon Nova 2.0 Lite
+Amazon,pro,Amazon Nova 2.0 Pro
+Anthropic,fable,Claude Fable 5 (with fallback)
+Anthropic,opus,Claude Opus 5
+Anthropic,sonnet,Claude Sonnet 5
+Cohere,command-a,Command A+
+DeepSeek,flash,DeepSeek V4 Flash
+DeepSeek,pro,DeepSeek V4 Pro
+Google,pro,Gemini 3.1 Pro Preview
+Google,flash,Gemini 3.6 Flash
+Google,flash-lite,Gemini 3.5 Flash-Lite
+IBM,30b,IBM Granite 4.1 30B
+IBM,3b,IBM Granite 4.1 3B
+InclusionAI,ring,Ring-2.6-1T
+Kimi,flagship,Kimi K3
+MBZUAI Institute of Foundation Models,reasoning,K2 Think V2
+Meta,spark,Muse Spark 1.1
+MiniMax,flagship,MiniMax-M3
+Mistral,magistral-medium,Magistral Medium 1.2
+Mistral,ministral-14b,Ministral 3 14B
+Mistral,ministral-3b,Ministral 3 3B
+Mistral,ministral-8b,Ministral 3 8B
+Mistral,large,Mistral Large 3
+Mistral,medium,Mistral Medium 3.5
+Mistral,small,Mistral Small 4
+Multiverse Computing,hypernova,HyperNova 60B 2605
+NVIDIA,ultra,Nemotron 3 Ultra 550B A55B (NVFP4)
+OpenAI,sol,GPT-5.6 Sol
+OpenAI,terra,GPT-5.6 Terra
+OpenAI,luna,GPT-5.6 Luna
+OpenAI,instant,GPT-5.5 Instant (June 2026)
+SpaceXAI,flagship,Grok 4.5
+Upstage,pro,Solar Pro 3
+Xiaomi,base,MiMo-V2.5
+Xiaomi,pro,MiMo-V2.5-Pro
+Z AI,flagship,GLM-5.2

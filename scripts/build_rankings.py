@@ -21,6 +21,54 @@ def read_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def load_frontier_positions(
+    path: Path,
+    model_rows: list[dict[str, str]],
+) -> dict[tuple[str, str], str]:
+    rows = read_csv(path)
+    known_models = {
+        (row["developer"].strip(), row["model"].strip()) for row in model_rows
+    }
+    known_developers = {developer for developer, _model in known_models}
+    positions: dict[tuple[str, str], str] = {}
+    seen_provider_positions: set[tuple[str, str]] = set()
+    for row_number, row in enumerate(rows, start=2):
+        developer = row.get("developer", "").strip()
+        position = row.get("position", "").strip()
+        model = row.get("model", "").strip()
+        if not developer or not position or not model:
+            raise ValueError(
+                f"{path.name}:{row_number} requires developer, position, and model"
+            )
+        provider_position = (developer, position)
+        if provider_position in seen_provider_positions:
+            raise ValueError(
+                f"{path.name}:{row_number} duplicates {developer}/{position}"
+            )
+        seen_provider_positions.add(provider_position)
+        model_key = (developer, model)
+        if model_key not in known_models:
+            raise ValueError(
+                f"{path.name}:{row_number} references missing model "
+                f"{developer}/{model}"
+            )
+        if model_key in positions:
+            raise ValueError(
+                f"{path.name}:{row_number} assigns {developer}/{model} "
+                "to more than one position"
+            )
+        positions[model_key] = position
+
+    classified_developers = {developer for developer, _model in positions}
+    missing_developers = sorted(known_developers - classified_developers)
+    if missing_developers:
+        raise ValueError(
+            f"{path.name} has no frontier model for: "
+            + ", ".join(missing_developers)
+        )
+    return positions
+
+
 def atomic_text(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
@@ -230,7 +278,10 @@ def subscription_cost_ranking(
     return result
 
 
-def token_chart_rows(model_rows: list[dict[str, str]]) -> list[dict[str, object]]:
+def token_chart_rows(
+    model_rows: list[dict[str, str]],
+    frontier_positions: dict[tuple[str, str], str],
+) -> list[dict[str, object]]:
     result: list[dict[str, object]] = []
     for row in model_rows:
         result.append(
@@ -246,12 +297,18 @@ def token_chart_rows(model_rows: list[dict[str, str]]) -> list[dict[str, object]
                 "country_code": row["country_code"],
                 "data_scope": row["data_scope"],
                 "is_historical": row["is_historical"].lower() == "true",
+                "frontier_position": frontier_positions.get(
+                    (row["developer"], row["model"]), ""
+                ),
             }
         )
     return result
 
 
-def api_chart_rows(model_rows: list[dict[str, str]]) -> list[dict[str, object]]:
+def api_chart_rows(
+    model_rows: list[dict[str, str]],
+    frontier_positions: dict[tuple[str, str], str],
+) -> list[dict[str, object]]:
     result: list[dict[str, object]] = []
     for row in model_rows:
         if not row["cost_per_index_task_usd"]:
@@ -273,6 +330,9 @@ def api_chart_rows(model_rows: list[dict[str, str]]) -> list[dict[str, object]]:
                 "provider": row["api_provider"],
                 "precision": row["api_precision"],
                 "is_historical": row["is_historical"].lower() == "true",
+                "frontier_position": frontier_positions.get(
+                    (row["developer"], row["model"]), ""
+                ),
             }
         )
     return result
@@ -280,6 +340,7 @@ def api_chart_rows(model_rows: list[dict[str, str]]) -> list[dict[str, object]]:
 
 def subscription_chart_rows(
     access_rows: list[dict[str, str]],
+    frontier_positions: dict[tuple[str, str], str],
 ) -> list[dict[str, object]]:
     result: list[dict[str, object]] = []
     for row in access_rows:
@@ -299,6 +360,9 @@ def subscription_chart_rows(
                 "provider": row["provider"],
                 "confidence": row["confidence"],
                 "is_historical": row["is_historical"].lower() == "true",
+                "frontier_position": frontier_positions.get(
+                    (row["developer"], row["model"]), ""
+                ),
             }
         )
     return result
@@ -360,6 +424,10 @@ def main() -> None:
     data_dir = args.repository_root / "data" / args.snapshot
     model_rows = read_csv(data_dir / "model_efficiency.csv")
     access_rows = read_csv(data_dir / "subscription_first_task_cost.csv")
+    frontier_positions = load_frontier_positions(
+        data_dir / "frontier_model_positions.csv",
+        model_rows,
+    )
     if len(model_rows) != 73:
         raise ValueError(f"Expected 73 model configurations, found {len(model_rows)}")
     if len(access_rows) != 46:
@@ -374,9 +442,12 @@ def main() -> None:
     subscription_thresholds = threshold_leaders(
         subscription_ranking, "subscription_first"
     )
-    token_chart = token_chart_rows(model_rows)
-    api_chart = api_chart_rows(model_rows)
-    subscription_chart = subscription_chart_rows(access_rows)
+    token_chart = token_chart_rows(model_rows, frontier_positions)
+    api_chart = api_chart_rows(model_rows, frontier_positions)
+    subscription_chart = subscription_chart_rows(
+        access_rows,
+        frontier_positions,
+    )
     if len(token_chart) != 73:
         raise ValueError(f"Expected 73 Token chart points, found {len(token_chart)}")
     if len(api_chart) != 68:
@@ -463,6 +534,7 @@ def main() -> None:
             "subscription_first_configurations": len(subscription_ranking),
             "token_core_models": len(token_core),
             "token_limited_models": len(token_limited),
+            "frontier_position_models": len(frontier_positions),
         },
         "method": {
             "token_efficiency_index": (
@@ -472,6 +544,10 @@ def main() -> None:
             "core_min_levels": CORE_MIN_LEVELS,
             "core_min_score_span": CORE_MIN_SCORE_SPAN,
             "score_thresholds": list(SCORE_THRESHOLDS),
+            "frontier_model_rule": (
+                "explicit provider-position classification from "
+                "frontier_model_positions.csv"
+            ),
         },
         "token_efficiency": {
             "core": token_core,

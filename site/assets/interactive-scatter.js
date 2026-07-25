@@ -1,4 +1,4 @@
-import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js";
+import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js?v=20260725-frontier-positions";
 
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
@@ -68,43 +68,6 @@ function groupByModel(rows) {
     );
   });
   return groups;
-}
-
-function frontierModelsByVendor(rows) {
-  const vendors = new Map();
-  rows.forEach((row) => {
-    const vendor = row.developer || "";
-    if (!vendors.has(vendor)) {
-      vendors.set(vendor, new Map());
-    }
-    const models = vendors.get(vendor);
-    if (!models.has(row.model)) {
-      models.set(row.model, {
-        model: row.model,
-        maximumScore: Number.NEGATIVE_INFINITY,
-        levels: 0,
-      });
-    }
-    const candidate = models.get(row.model);
-    candidate.maximumScore = Math.max(
-      candidate.maximumScore,
-      Number(row.score),
-    );
-    candidate.levels += 1;
-  });
-  const result = new Map();
-  vendors.forEach((models, vendor) => {
-    const ordered = [...models.values()].sort(
-      (left, right) =>
-        right.maximumScore - left.maximumScore ||
-        right.levels - left.levels ||
-        left.model.localeCompare(right.model),
-    );
-    if (ordered.length) {
-      result.set(vendor, ordered[0].model);
-    }
-  });
-  return result;
 }
 
 function paretoKeys(rows, xKey) {
@@ -237,9 +200,8 @@ export class InteractiveScatterChart {
     this.metric = "";
     this.fullBounds = null;
     this.view = null;
-    this.selectedVendor = "";
+    this.selectedProvider = "";
     this.modelScope = "all";
-    this.frontierModels = new Map();
     this.hoveredRow = null;
     this.pinnedRow = null;
     this.dragState = null;
@@ -272,12 +234,12 @@ export class InteractiveScatterChart {
     this.filterControls = document.createElement("div");
     this.filterControls.className = "interactive-filter-controls";
 
-    this.vendorLabel = document.createElement("label");
-    this.vendorLabel.className = "interactive-filter-control";
-    this.vendorLabelText = document.createElement("span");
-    this.vendorSelect = document.createElement("select");
-    this.vendorSelect.className = "interactive-filter-select";
-    this.vendorLabel.append(this.vendorLabelText, this.vendorSelect);
+    this.providerLabel = document.createElement("label");
+    this.providerLabel.className = "interactive-filter-control";
+    this.providerLabelText = document.createElement("span");
+    this.providerSelect = document.createElement("select");
+    this.providerSelect.className = "interactive-filter-select";
+    this.providerLabel.append(this.providerLabelText, this.providerSelect);
 
     this.scopeLabel = document.createElement("label");
     this.scopeLabel.className = "interactive-filter-control";
@@ -285,7 +247,7 @@ export class InteractiveScatterChart {
     this.scopeSelect = document.createElement("select");
     this.scopeSelect.className = "interactive-filter-select";
     this.scopeLabel.append(this.scopeLabelText, this.scopeSelect);
-    this.filterControls.append(this.vendorLabel, this.scopeLabel);
+    this.filterControls.append(this.providerLabel, this.scopeLabel);
 
     this.zoomControls = document.createElement("div");
     this.zoomControls.className = "interactive-zoom-controls";
@@ -333,8 +295,8 @@ export class InteractiveScatterChart {
   }
 
   bindControls() {
-    this.vendorSelect.addEventListener("change", () => {
-      this.selectedVendor = this.vendorSelect.value;
+    this.providerSelect.addEventListener("change", () => {
+      this.selectedProvider = this.providerSelect.value;
       this.applyFilters(true);
     });
     this.scopeSelect.addEventListener("change", () => {
@@ -437,9 +399,8 @@ export class InteractiveScatterChart {
       [config.xKey]: Number(row[config.xKey]),
       effort_order: Number(row.effort_order ?? 0),
     }));
-    this.frontierModels = frontierModelsByVendor(this.sourceData);
     if (metricChanged) {
-      this.selectedVendor = "";
+      this.selectedProvider = "";
       this.modelScope = "all";
       this.hoveredRow = null;
       this.pinnedRow = null;
@@ -467,25 +428,27 @@ export class InteractiveScatterChart {
   }
 
   populateFilterControls() {
-    const currentVendor = this.selectedVendor;
-    const vendors = [
+    const currentProvider = this.selectedProvider;
+    const providers = [
       ...new Set(this.sourceData.map((row) => row.developer || "")),
     ].sort((left, right) =>
       left.localeCompare(right),
     );
-    this.vendorSelect.replaceChildren();
-    const allVendorsOption = document.createElement("option");
-    allVendorsOption.value = "";
-    allVendorsOption.textContent = this.config.allVendorsLabel;
-    this.vendorSelect.append(allVendorsOption);
-    vendors.forEach((vendor) => {
+    this.providerSelect.replaceChildren();
+    const allProvidersOption = document.createElement("option");
+    allProvidersOption.value = "";
+    allProvidersOption.textContent = this.config.allProvidersLabel;
+    this.providerSelect.append(allProvidersOption);
+    providers.forEach((provider) => {
       const option = document.createElement("option");
-      option.value = vendor;
-      option.textContent = vendor;
-      this.vendorSelect.append(option);
+      option.value = provider;
+      option.textContent = provider;
+      this.providerSelect.append(option);
     });
-    this.selectedVendor = vendors.includes(currentVendor) ? currentVendor : "";
-    this.vendorSelect.value = this.selectedVendor;
+    this.selectedProvider = providers.includes(currentProvider)
+      ? currentProvider
+      : "";
+    this.providerSelect.value = this.selectedProvider;
 
     this.scopeSelect.replaceChildren();
     [
@@ -503,7 +466,7 @@ export class InteractiveScatterChart {
   }
 
   updateLocalizedControls() {
-    this.vendorLabelText.textContent = this.config.vendorControlLabel;
+    this.providerLabelText.textContent = this.config.providerControlLabel;
     this.scopeLabelText.textContent = this.config.modelScopeControlLabel;
     this.zoomOutButton.setAttribute("aria-label", this.config.zoomOutLabel);
     this.zoomInButton.setAttribute("aria-label", this.config.zoomInLabel);
@@ -517,13 +480,16 @@ export class InteractiveScatterChart {
 
   applyFilters(resetView) {
     this.data = this.sourceData.filter((row) => {
-      if (this.selectedVendor && row.developer !== this.selectedVendor) {
+      if (
+        this.selectedProvider &&
+        row.developer !== this.selectedProvider
+      ) {
         return false;
       }
       if (this.modelScope !== "frontier") {
         return true;
       }
-      return this.frontierModels.get(row.developer || "") === row.model;
+      return Boolean(row.frontier_position);
     });
     this.groups = groupByModel(this.data);
     this.frontier = paretoKeys(this.data, this.config.xKey);

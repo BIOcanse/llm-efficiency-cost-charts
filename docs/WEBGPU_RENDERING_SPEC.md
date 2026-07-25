@@ -55,7 +55,7 @@ not depend on GPU readback or hit testing.
 
 - WebGPU and SVG fallback show the same filtered model curves, point colors,
   point radii, Pareto outlines, and emphasis state.
-- Switching vendor, model scope, language, zoom, or pan cannot leave stale GPU
+- Switching model provider, frontier scope, language, zoom, or pan cannot leave stale GPU
   geometry.
 - Device loss switches to the SVG fallback without removing labels or
   interaction.

@@ -69,10 +69,14 @@ The site must not contain manually duplicated ranking numbers. A snapshot update
   recompute score per USD inside that interval, and normalize the interval
   leader to 100%.
 - Each interactive chart preserves the static chart's complete point labeling
-  while supporting point inspection, vendor filtering, all-model/frontier-model
-  scope, pan, zoom, reset, pointer pinning, and keyboard inspection.
+  while supporting point inspection, model-provider filtering,
+  all-model/provider-position-frontier scope, pan, zoom, reset, pointer pinning,
+  and keyboard inspection.
 - Point and line paint uses WebGPU when available, with an explicit SVG fallback;
   axes, labels, hit targets, and accessibility remain SVG/HTML.
+- CSS and JavaScript entry URLs carry an explicit deployment revision. The
+  revision is bumped whenever client assets change so GitHub Pages and browser
+  caches cannot keep an older filter interface after a deployment.
 - The analysis page targets desktop screens and keeps a fixed desktop chart
   width and 16:9 plot ratio instead of compressing the visualization for mobile.
 - Each chart includes visible axes, formula, inclusion, exclusion, and interpretation notes.

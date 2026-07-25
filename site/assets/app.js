@@ -1,4 +1,4 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260725-frontier-positions";
 
 const translations = {
   en: {
@@ -81,11 +81,11 @@ const translations = {
     showTop: "Show top 15",
     statusLanguage: "Language changed to English",
     interactive: {
-      vendorControl: "Developer",
-      allVendors: "All developers",
-      modelScopeControl: "Model scope",
+      providerControl: "Model provider",
+      allProviders: "All providers",
+      modelScopeControl: "Frontier model filter",
       allModelsScope: "All models",
-      frontierModelsScope: "Frontier model from each developer",
+      frontierModelsScope: "Best model in each provider tier",
       zoomIn: "Zoom in",
       zoomOut: "Zoom out",
       reset: "Reset view",
@@ -109,7 +109,7 @@ const translations = {
       totalTokens: "Total Tokens",
       apiCost: "API cost",
       subscriptionCost: "Effective cost",
-      developer: "Developer",
+      developer: "Model provider",
       provider: "Provider",
       access: "Access",
       pointAction: "Press Enter to pin this point",
@@ -279,11 +279,11 @@ const translations = {
     showTop: "只显示前 15 项",
     statusLanguage: "已切换为中文",
     interactive: {
-      vendorControl: "厂商",
-      allVendors: "全部厂商",
-      modelScopeControl: "模型范围",
+      providerControl: "模型提供商",
+      allProviders: "全部提供商",
+      modelScopeControl: "最前沿模型筛选",
       allModelsScope: "全部模型",
-      frontierModelsScope: "各厂商最前沿模型",
+      frontierModelsScope: "各家各定位最强",
       zoomIn: "放大",
       zoomOut: "缩小",
       reset: "恢复完整视图",
@@ -305,7 +305,7 @@ const translations = {
       totalTokens: "完整 Token",
       apiCost: "API 成本",
       subscriptionCost: "有效成本",
-      developer: "开发者",
+      developer: "模型提供商",
       provider: "供应商",
       access: "获取方式",
       pointAction: "按 Enter 可固定该点",
@@ -639,8 +639,8 @@ function interactiveChartConfig(spec, pointCount) {
   return {
     metric: spec.metric,
     xKey: spec.xKey,
-    vendorControlLabel: text.vendorControl,
-    allVendorsLabel: text.allVendors,
+    providerControlLabel: text.providerControl,
+    allProvidersLabel: text.allProviders,
     modelScopeControlLabel: text.modelScopeControl,
     allModelsScopeLabel: text.allModelsScope,
     frontierModelsScopeLabel: text.frontierModelsScope,
@@ -1007,7 +1007,9 @@ function selectRankingTab(tabName) {
 }
 
 async function loadRankings() {
-  const response = await fetch("data/rankings.json");
+  const response = await fetch(
+    "data/rankings.json?v=20260725-frontier-positions",
+  );
   if (!response.ok) {
     throw new Error(`Ranking data request failed: ${response.status}`);
   }
@@ -1016,7 +1018,15 @@ async function loadRankings() {
     !state.rankings.charts ||
     state.rankings.charts.token.length !== 73 ||
     state.rankings.charts.api.length !== 68 ||
-    state.rankings.charts.subscription.length !== 46
+    state.rankings.charts.subscription.length !== 46 ||
+    !Number.isInteger(state.rankings.counts.frontier_position_models) ||
+    state.rankings.counts.frontier_position_models <= 0 ||
+    !Object.hasOwn(state.rankings.charts.token[0], "frontier_position") ||
+    !Object.hasOwn(state.rankings.charts.api[0], "frontier_position") ||
+    !Object.hasOwn(
+      state.rankings.charts.subscription[0],
+      "frontier_position",
+    )
   ) {
     throw new Error("Interactive chart data is incomplete");
   }
