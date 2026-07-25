@@ -52,10 +52,10 @@ Snapshot: **2026-07-24**
 - 核心榜第一名归一化为 100%，其余模型按相对效率显示百分比。
 - 核心榜要求至少 4 个已测档位并覆盖 8 个分数点；数据不足的模型单列为有限样本，不参与核心排名。
 
-[PNG](../charts/zh-CN/04_token_efficiency_ranking.png) ·
-[SVG](../charts/zh-CN/04_token_efficiency_ranking.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/04_token_efficiency_ranking.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/04_token_efficiency_ranking.svg)
 
-![综合全档位 Token 效率排名](../charts/zh-CN/04_token_efficiency_ranking.png)
+[![综合全档位 Token 效率排名](../charts/zh-CN/04_token_efficiency_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/04_token_efficiency_ranking.png)
 
 ### 图5：API 单位任务成本排名
 
@@ -64,14 +64,14 @@ Snapshot: **2026-07-24**
 - 百分比以 API 榜最贵的纳入配置为 100%，因此 20% 表示任务成本为该配置的五分之一。
 - 完整图列出全部 68 个纳入配置，并保留跑分和供应商。
 
-[概览 PNG](../charts/zh-CN/05_api_cost_ranking.png) ·
-[概览 SVG](../charts/zh-CN/05_api_cost_ranking.svg) ·
-[完整排名 PNG](../charts/zh-CN/05_api_cost_ranking_full.png) ·
-[完整排名 SVG](../charts/zh-CN/05_api_cost_ranking_full.svg)
+[概览 PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking.png) ·
+[概览 SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking.svg) ·
+[完整排名 PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking_full.png) ·
+[完整排名 SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking_full.svg)
 
-![API 单位任务成本概览排名](../charts/zh-CN/05_api_cost_ranking.png)
+[![API 单位任务成本概览排名](../charts/zh-CN/05_api_cost_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking.png)
 
-![API 单位任务成本完整排名](../charts/zh-CN/05_api_cost_ranking_full.png)
+[![API 单位任务成本完整排名](../charts/zh-CN/05_api_cost_ranking_full.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking_full.png)
 
 ### 图6：套餐优先单位任务成本排名
 
@@ -80,14 +80,14 @@ Snapshot: **2026-07-24**
 - 百分比以套餐优先榜最贵的纳入配置为 100%，只用于直观比较本榜内部成本。
 - 完整图列出全部 46 个纳入配置，并保留跑分和获取方式。
 
-[概览 PNG](../charts/zh-CN/06_subscription_cost_ranking.png) ·
-[概览 SVG](../charts/zh-CN/06_subscription_cost_ranking.svg) ·
-[完整排名 PNG](../charts/zh-CN/06_subscription_cost_ranking_full.png) ·
-[完整排名 SVG](../charts/zh-CN/06_subscription_cost_ranking_full.svg)
+[概览 PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking.png) ·
+[概览 SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking.svg) ·
+[完整排名 PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking_full.png) ·
+[完整排名 SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking_full.svg)
 
-![套餐优先单位任务成本概览排名](../charts/zh-CN/06_subscription_cost_ranking.png)
+[![套餐优先单位任务成本概览排名](../charts/zh-CN/06_subscription_cost_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking.png)
 
-![套餐优先单位任务成本完整排名](../charts/zh-CN/06_subscription_cost_ranking_full.png)
+[![套餐优先单位任务成本完整排名](../charts/zh-CN/06_subscription_cost_ranking_full.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking_full.png)
 
 ## English
 
@@ -139,10 +139,10 @@ Use this chart to compare effective benchmark-task cost under current plans or A
 - The current core-ranking leader is normalized to 100%; all other models are displayed relative to it.
 - The core ranking requires at least four observed levels and an eight-point score span. Models with less evidence are listed separately.
 
-[PNG](../charts/en/04_token_efficiency_ranking.png) ·
-[SVG](../charts/en/04_token_efficiency_ranking.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/04_token_efficiency_ranking.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/04_token_efficiency_ranking.svg)
 
-![Aggregate full-curve Token-efficiency ranking](../charts/en/04_token_efficiency_ranking.png)
+[![Aggregate full-curve Token-efficiency ranking](../charts/en/04_token_efficiency_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/04_token_efficiency_ranking.png)
 
 ### Chart 5: API cost-per-task ranking
 
@@ -151,14 +151,14 @@ Use this chart to compare effective benchmark-task cost under current plans or A
 - Relative cost is normalized to the most expensive included API configuration = 100%. A value of 20% therefore costs one fifth as much per task.
 - The complete image lists all 68 included configurations with score and provider.
 
-[Overview PNG](../charts/en/05_api_cost_ranking.png) ·
-[Overview SVG](../charts/en/05_api_cost_ranking.svg) ·
-[Complete PNG](../charts/en/05_api_cost_ranking_full.png) ·
-[Complete SVG](../charts/en/05_api_cost_ranking_full.svg)
+[Overview PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking.png) ·
+[Overview SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking.svg) ·
+[Complete PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking_full.png) ·
+[Complete SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking_full.svg)
 
-![API cost-per-task overview ranking](../charts/en/05_api_cost_ranking.png)
+[![API cost-per-task overview ranking](../charts/en/05_api_cost_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking.png)
 
-![Complete API cost-per-task ranking](../charts/en/05_api_cost_ranking_full.png)
+[![Complete API cost-per-task ranking](../charts/en/05_api_cost_ranking_full.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking_full.png)
 
 ### Chart 6: subscription-first cost-per-task ranking
 
@@ -167,11 +167,11 @@ Use this chart to compare effective benchmark-task cost under current plans or A
 - Relative cost is normalized to the most expensive included subscription-first configuration = 100% and is only an internal comparison within this ranking.
 - The complete image lists all 46 included configurations with score and access method.
 
-[Overview PNG](../charts/en/06_subscription_cost_ranking.png) ·
-[Overview SVG](../charts/en/06_subscription_cost_ranking.svg) ·
-[Complete PNG](../charts/en/06_subscription_cost_ranking_full.png) ·
-[Complete SVG](../charts/en/06_subscription_cost_ranking_full.svg)
+[Overview PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking.png) ·
+[Overview SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking.svg) ·
+[Complete PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking_full.png) ·
+[Complete SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking_full.svg)
 
-![Subscription-first cost-per-task overview ranking](../charts/en/06_subscription_cost_ranking.png)
+[![Subscription-first cost-per-task overview ranking](../charts/en/06_subscription_cost_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking.png)
 
-![Complete subscription-first cost-per-task ranking](../charts/en/06_subscription_cost_ranking_full.png)
+[![Complete subscription-first cost-per-task ranking](../charts/en/06_subscription_cost_ranking_full.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking_full.png)

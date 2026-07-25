@@ -1,9 +1,18 @@
 # LLM Efficiency & Cost Charts / 大模型效率与任务成本图
 
 <p align="center">
-  <a href="https://biocanse.github.io/llm-efficiency-cost-charts/"><strong>Interactive 中文 / English page</strong></a>
-  ·
-  <a href="https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/latest"><strong>Download the complete chart set / 下载整套成图</strong></a>
+  <a href="https://biocanse.github.io/llm-efficiency-cost-charts/">
+    <img
+      src="https://img.shields.io/badge/OPEN_INTERACTIVE_CHARTS-2563EB?style=for-the-badge&logo=githubpages&logoColor=white"
+      alt="打开交互式中英文图表 / Open interactive Chinese and English charts"
+      height="48"
+    >
+  </a>
+</p>
+
+<p align="center">
+  <strong>优先使用可筛选、可重算的交互网页 / Start with the filterable interactive page</strong><br>
+  <a href="https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/latest">Download the complete chart set / 下载整套成图</a>
 </p>
 
 Latest snapshot / 最新快照：**2026-07-24**<br>
@@ -37,10 +46,10 @@ consumption or cost are better, so the upper-left region is preferred.
 Total consumption includes input, reasoning, and final-answer Tokens used to
 complete the same benchmark suite.
 
-[PNG](charts/en/01_total_token_consumption_vs_score.png) ·
-[SVG](charts/en/01_total_token_consumption_vs_score.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/01_total_token_consumption_vs_score.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/01_total_token_consumption_vs_score.svg)
 
-![Total Token consumption versus Intelligence Index score](charts/en/01_total_token_consumption_vs_score.png)
+[![Total Token consumption versus Intelligence Index score](charts/en/01_total_token_consumption_vs_score.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/01_total_token_consumption_vs_score.png)
 
 ## 2. Subscription-first cost per task vs. score
 
@@ -48,10 +57,10 @@ The best-value applicable subscription is used when both a plan and a usable
 quota estimate are available. Plans without quantifiable quota data are
 excluded. API pricing is used only when no applicable subscription exists.
 
-[PNG](charts/en/03_subscription_first_task_cost_vs_score.png) ·
-[SVG](charts/en/03_subscription_first_task_cost_vs_score.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/03_subscription_first_task_cost_vs_score.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/03_subscription_first_task_cost_vs_score.svg)
 
-![Subscription-first task cost versus Intelligence Index score](charts/en/03_subscription_first_task_cost_vs_score.png)
+[![Subscription-first task cost versus Intelligence Index score](charts/en/03_subscription_first_task_cost_vs_score.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/03_subscription_first_task_cost_vs_score.png)
 
 ## 3. API cost per task vs. score
 
@@ -59,10 +68,10 @@ Task cost combines the per-task Token composition with one fixed provider
 price for each original model. Quantized variants are treated as separate
 models only when the underlying benchmark data is sufficiently complete.
 
-[PNG](charts/en/02_api_task_cost_vs_score.png) ·
-[SVG](charts/en/02_api_task_cost_vs_score.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/02_api_task_cost_vs_score.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/02_api_task_cost_vs_score.svg)
 
-![API cost per task versus Intelligence Index score](charts/en/02_api_task_cost_vs_score.png)
+[![API cost per task versus Intelligence Index score](charts/en/02_api_task_cost_vs_score.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/02_api_task_cost_vs_score.png)
 
 ## Numerical ranking graphics
 
@@ -73,26 +82,26 @@ same ranking = **100%**.
 
 ### 4. Aggregate full-curve Token efficiency
 
-[PNG](charts/en/04_token_efficiency_ranking.png) ·
-[SVG](charts/en/04_token_efficiency_ranking.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/04_token_efficiency_ranking.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/04_token_efficiency_ranking.svg)
 
-![Aggregate full-curve Token-efficiency ranking](charts/en/04_token_efficiency_ranking.png)
+[![Aggregate full-curve Token-efficiency ranking](charts/en/04_token_efficiency_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/04_token_efficiency_ranking.png)
 
 ### 5. Subscription-first cost ranking
 
-[PNG](charts/en/06_subscription_cost_ranking.png) ·
-[SVG](charts/en/06_subscription_cost_ranking.svg) ·
-[Complete 46-entry ranking](charts/en/06_subscription_cost_ranking_full.png)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking.svg) ·
+[Complete 46-entry ranking](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking_full.png)
 
-![Subscription-first cost-per-task ranking with exact USD and relative cost](charts/en/06_subscription_cost_ranking.png)
+[![Subscription-first cost-per-task ranking with exact USD and relative cost](charts/en/06_subscription_cost_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking.png)
 
 ### 6. API cost ranking
 
-[PNG](charts/en/05_api_cost_ranking.png) ·
-[SVG](charts/en/05_api_cost_ranking.svg) ·
-[Complete 68-entry ranking](charts/en/05_api_cost_ranking_full.png)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking.svg) ·
+[Complete 68-entry ranking](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking_full.png)
 
-![API cost-per-task ranking with exact USD and relative cost](charts/en/05_api_cost_ranking.png)
+[![API cost-per-task ranking with exact USD and relative cost](charts/en/05_api_cost_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking.png)
 
 ## Important limitations
 
@@ -134,30 +143,30 @@ Numerical downloads:
 
 完整 Token 消耗包括完成同一套评测所需的输入、推理和最终回答 Token。
 
-[PNG](charts/zh-CN/01_total_token_consumption_vs_score.png) ·
-[SVG](charts/zh-CN/01_total_token_consumption_vs_score.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/01_total_token_consumption_vs_score.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/01_total_token_consumption_vs_score.svg)
 
-![完整 Token 消耗与 Intelligence Index 跑分](charts/zh-CN/01_total_token_consumption_vs_score.png)
+[![完整 Token 消耗与 Intelligence Index 跑分](charts/zh-CN/01_total_token_consumption_vs_score.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/01_total_token_consumption_vs_score.png)
 
 ## 2. 套餐优先单位任务成本与跑分
 
 有套餐且存在可核算额度时使用性价比最高的适用套餐；有套餐但缺少可用额度数据时
 排除；只有不存在相关套餐时才使用 API。
 
-[PNG](charts/zh-CN/03_subscription_first_task_cost_vs_score.png) ·
-[SVG](charts/zh-CN/03_subscription_first_task_cost_vs_score.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/03_subscription_first_task_cost_vs_score.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/03_subscription_first_task_cost_vs_score.svg)
 
-![套餐优先单位任务成本与 Intelligence Index 跑分](charts/zh-CN/03_subscription_first_task_cost_vs_score.png)
+[![套餐优先单位任务成本与 Intelligence Index 跑分](charts/zh-CN/03_subscription_first_task_cost_vs_score.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/03_subscription_first_task_cost_vs_score.png)
 
 ## 3. API 单位任务成本与跑分
 
 按每项任务的 Token 构成和每个原始模型统一选定的供应商价格计算。量化版本只有在
 评测数据足够完整时才作为单独模型纳入。
 
-[PNG](charts/zh-CN/02_api_task_cost_vs_score.png) ·
-[SVG](charts/zh-CN/02_api_task_cost_vs_score.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/02_api_task_cost_vs_score.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/02_api_task_cost_vs_score.svg)
 
-![API 单位任务成本与 Intelligence Index 跑分](charts/zh-CN/02_api_task_cost_vs_score.png)
+[![API 单位任务成本与 Intelligence Index 跑分](charts/zh-CN/02_api_task_cost_vs_score.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/02_api_task_cost_vs_score.png)
 
 ## 数值排名图
 
@@ -166,26 +175,26 @@ Numerical downloads:
 
 ## 4. 综合全档位 Token 效率排名
 
-[PNG](charts/zh-CN/04_token_efficiency_ranking.png) ·
-[SVG](charts/zh-CN/04_token_efficiency_ranking.svg)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/04_token_efficiency_ranking.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/04_token_efficiency_ranking.svg)
 
-![综合全档位 Token 效率排名](charts/zh-CN/04_token_efficiency_ranking.png)
+[![综合全档位 Token 效率排名](charts/zh-CN/04_token_efficiency_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/04_token_efficiency_ranking.png)
 
 ## 5. 套餐优先单位任务成本排名
 
-[PNG](charts/zh-CN/06_subscription_cost_ranking.png) ·
-[SVG](charts/zh-CN/06_subscription_cost_ranking.svg) ·
-[完整 46 项排名](charts/zh-CN/06_subscription_cost_ranking_full.png)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking.svg) ·
+[完整 46 项排名](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking_full.png)
 
-![标有美元成本和相对成本百分比的套餐优先单位任务成本排名](charts/zh-CN/06_subscription_cost_ranking.png)
+[![标有美元成本和相对成本百分比的套餐优先单位任务成本排名](charts/zh-CN/06_subscription_cost_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking.png)
 
 ## 6. API 单位任务成本排名
 
-[PNG](charts/zh-CN/05_api_cost_ranking.png) ·
-[SVG](charts/zh-CN/05_api_cost_ranking.svg) ·
-[完整 68 项排名](charts/zh-CN/05_api_cost_ranking_full.png)
+[PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking.png) ·
+[SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking.svg) ·
+[完整 68 项排名](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking_full.png)
 
-![标有美元成本和相对成本百分比的 API 单位任务成本排名](charts/zh-CN/05_api_cost_ranking.png)
+[![标有美元成本和相对成本百分比的 API 单位任务成本排名](charts/zh-CN/05_api_cost_ranking.png)](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking.png)
 
 ## 注意事项
 
