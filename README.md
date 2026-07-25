@@ -1,53 +1,170 @@
-# LLM Efficiency & Cost Charts
+# LLM Efficiency & Cost Charts / 大模型效率与任务成本图
 
-[中文说明](README.zh-CN.md)
+<p align="center">
+  <a href="https://biocanse.github.io/llm-efficiency-cost-charts/"><strong>Interactive 中文 / English page</strong></a>
+  ·
+  <a href="https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/latest"><strong>Download the complete chart set / 下载整套成图</strong></a>
+</p>
 
-Continuously maintained charts comparing LLM intelligence scores with total Token consumption, API task cost, and subscription-first task cost.
+Latest snapshot / 最新快照：**2026-07-24**<br>
+Benchmark / 评测：**Artificial Analysis Intelligence Index v4.1**<br>
+Coverage / 当前覆盖：**73 Token configurations / 68 API-cost configurations / 46 subscription-first configurations**
 
-**Live bilingual data page:** https://biocanse.github.io/llm-efficiency-cost-charts/
+The live data page switches Chinese and English instantly on one URL. On this
+repository page, expand the language you want below; no separate README is
+required.
 
-Latest snapshot: **2026-07-24**  
-Benchmark: **Artificial Analysis Intelligence Index v4.1**  
-Current coverage: **73 Token-consumption configurations / 68 API-cost configurations / 46 subscription-first configurations**
+数据页可以在同一个 URL 内即时切换中英文。仓库首页直接展开下方对应语言即可，
+不再跳转到另一份 README。
 
-Each point represents one model and reasoning level. Lines of the same color connect reasoning levels of the same model. Higher scores and lower Token consumption or cost are better, so the upper-left region is preferred.
+<details open>
+<summary><strong>English</strong></summary>
+
+Continuously maintained charts comparing LLM intelligence scores with total
+Token consumption, API task cost, and subscription-first task cost.
+
+Each point represents one model and reasoning level. Lines of the same color
+connect reasoning levels of the same model. Higher scores and lower Token
+consumption or cost are better, so the upper-left region is preferred.
 
 ## 1. Total Token consumption vs. score
 
-Total consumption includes input, reasoning, and final-answer Tokens used to complete the same benchmark suite.
+Total consumption includes input, reasoning, and final-answer Tokens used to
+complete the same benchmark suite.
 
-[PNG](charts/en/01_total_token_consumption_vs_score.png) · [SVG](charts/en/01_total_token_consumption_vs_score.svg)
+[PNG](charts/en/01_total_token_consumption_vs_score.png) ·
+[SVG](charts/en/01_total_token_consumption_vs_score.svg)
 
 ![Total Token consumption versus Intelligence Index score](charts/en/01_total_token_consumption_vs_score.png)
 
 ## 2. API cost per task vs. score
 
-Task cost combines the per-task Token composition with one fixed provider price for each original model. Quantized variants are treated as separate models only when the underlying benchmark data is sufficiently complete.
+Task cost combines the per-task Token composition with one fixed provider
+price for each original model. Quantized variants are treated as separate
+models only when the underlying benchmark data is sufficiently complete.
 
-[PNG](charts/en/02_api_task_cost_vs_score.png) · [SVG](charts/en/02_api_task_cost_vs_score.svg)
+[PNG](charts/en/02_api_task_cost_vs_score.png) ·
+[SVG](charts/en/02_api_task_cost_vs_score.svg)
 
 ![API cost per task versus Intelligence Index score](charts/en/02_api_task_cost_vs_score.png)
 
 ## 3. Subscription-first cost per task vs. score
 
-The best-value applicable subscription is used when both a plan and a usable quota estimate are available. Plans without quantifiable quota data are excluded. API pricing is used only when no applicable subscription exists.
+The best-value applicable subscription is used when both a plan and a usable
+quota estimate are available. Plans without quantifiable quota data are
+excluded. API pricing is used only when no applicable subscription exists.
 
-[PNG](charts/en/03_subscription_first_task_cost_vs_score.png) · [SVG](charts/en/03_subscription_first_task_cost_vs_score.svg)
+[PNG](charts/en/03_subscription_first_task_cost_vs_score.png) ·
+[SVG](charts/en/03_subscription_first_task_cost_vs_score.svg)
 
 ![Subscription-first task cost versus Intelligence Index score](charts/en/03_subscription_first_task_cost_vs_score.png)
 
 ## Important limitations
 
-- Results apply only to the same Intelligence Index v4.1 benchmark suite, which emphasizes relatively difficult coding and scientific tasks.
-- A point measures a **model + reasoning-level configuration**, not a model independently of its inference budget.
-- Intelligence Index scores are treated as a useful continuous comparison, not an exact absolute measure of intelligence.
-- OpenAI and Claude subscription API-equivalent values are third-party estimates based on exhausting usage limits. They are not fixed Token quotas promised by the providers.
-- Pricing, plans, benchmark results, and quota behavior can change. Every release is tied to a dated snapshot under [`data/`](data/).
+- Results apply only to the same Intelligence Index v4.1 benchmark suite,
+  which emphasizes relatively difficult coding and scientific tasks.
+- A point measures a **model + reasoning-level configuration**, not a model
+  independently of its inference budget.
+- Intelligence Index scores are treated as a useful continuous comparison,
+  not an exact absolute measure of intelligence.
+- OpenAI and Claude subscription API-equivalent values are third-party
+  estimates based on exhausting usage limits. They are not fixed Token quotas
+  promised by the providers.
+- Pricing, plans, benchmark results, and quota behavior can change. Every
+  release is tied to a dated snapshot under [`data/`](data/).
 
-See the [detailed chart guide](docs/CHART_GUIDE.md), [methodology](docs/METHODOLOGY.md), [ranking methodology](docs/RANKING_METHOD.md), [sources](docs/SOURCES.md), and the [current data snapshot](data/2026-07-24/).
+See the [detailed chart guide](docs/CHART_GUIDE.md),
+[methodology](docs/METHODOLOGY.md),
+[ranking methodology](docs/RANKING_METHOD.md), [sources](docs/SOURCES.md), and
+the [current data snapshot](data/2026-07-24/).
 
-Numerical downloads: [aggregate Token efficiency](rankings/2026-07-24/token_efficiency_ranking.csv) · [API cost](rankings/2026-07-24/api_cost_ranking.csv) · [subscription-first cost](rankings/2026-07-24/subscription_cost_ranking.csv) · [score-threshold leaders](rankings/2026-07-24/score_threshold_leaders.csv)
+Numerical downloads:
+[aggregate Token efficiency](rankings/2026-07-24/token_efficiency_ranking.csv)
+· [API cost](rankings/2026-07-24/api_cost_ranking.csv) ·
+[subscription-first cost](rankings/2026-07-24/subscription_cost_ranking.csv) ·
+[score-threshold leaders](rankings/2026-07-24/score_threshold_leaders.csv)
 
-## Update policy
+</details>
 
-An update should change the data snapshot, both language chart sets, snapshot metadata, and [`PROGRESS.md`](PROGRESS.md) together. Previous dated data snapshots remain available for comparison.
+<details>
+<summary><strong>简体中文</strong></summary>
+
+持续更新主流大模型的 Intelligence Index 跑分、完整 Token 消耗、API 单位任务成本
+和套餐优先单位任务成本。
+
+每个点代表一个模型和思考档位，同色线连接同一模型的不同档位。纵轴越高、横轴越
+靠左越好。
+
+## 1. 完整 Token 消耗与跑分
+
+完整 Token 消耗包括完成同一套评测所需的输入、推理和最终回答 Token。
+
+[PNG](charts/zh-CN/01_total_token_consumption_vs_score.png) ·
+[SVG](charts/zh-CN/01_total_token_consumption_vs_score.svg)
+
+![完整 Token 消耗与 Intelligence Index 跑分](charts/zh-CN/01_total_token_consumption_vs_score.png)
+
+## 2. API 单位任务成本与跑分
+
+按每项任务的 Token 构成和每个原始模型统一选定的供应商价格计算。量化版本只有在
+评测数据足够完整时才作为单独模型纳入。
+
+[PNG](charts/zh-CN/02_api_task_cost_vs_score.png) ·
+[SVG](charts/zh-CN/02_api_task_cost_vs_score.svg)
+
+![API 单位任务成本与 Intelligence Index 跑分](charts/zh-CN/02_api_task_cost_vs_score.png)
+
+## 3. 套餐优先单位任务成本与跑分
+
+有套餐且存在可核算额度时使用性价比最高的适用套餐；有套餐但缺少可用额度数据时
+排除；只有不存在相关套餐时才使用 API。
+
+[PNG](charts/zh-CN/03_subscription_first_task_cost_vs_score.png) ·
+[SVG](charts/zh-CN/03_subscription_first_task_cost_vs_score.svg)
+
+![套餐优先单位任务成本与 Intelligence Index 跑分](charts/zh-CN/03_subscription_first_task_cost_vs_score.png)
+
+## 注意事项
+
+- 结果只代表同一套 Intelligence Index v4.1 评测。该评测以较难的编码和科学任务为主，
+  不代表所有实际使用场景。
+- 每个点衡量的是**模型与思考档位的组合**，不能脱离推理预算直接视为模型本体的
+  绝对效率。
+- Intelligence Index 分数可以用于同口径连续比较，但不是严格的绝对智能值。
+- OpenAI 和 Claude 的套餐 API 等价值来自第三方跑满限额的估算，不是厂商承诺的
+  固定 Token 配额。
+- 模型跑分、价格、套餐与额度行为都可能变化。每次更新均以 [`data/`](data/) 中的
+  日期快照为准。
+
+每张图的完整解释见[图片详细说明](docs/CHART_GUIDE.md)，具体计算方法见
+[方法说明](docs/METHODOLOGY.md)和[排名方法](docs/RANKING_METHOD.md)，完整链接见
+[数据来源](docs/SOURCES.md)，当前数据见
+[2026-07-24 快照](data/2026-07-24/)。
+
+数值下载：
+[综合 Token 效率](rankings/2026-07-24/token_efficiency_ranking.csv) ·
+[API 成本](rankings/2026-07-24/api_cost_ranking.csv) ·
+[套餐优先成本](rankings/2026-07-24/subscription_cost_ranking.csv) ·
+[分数门槛最低成本](rankings/2026-07-24/score_threshold_leaders.csv)
+
+</details>
+
+## Snapshot releases / 快照发布
+
+Every snapshot keeps its own GitHub Release. The complete archive contains
+both language sets as 4K PNG and editable SVG, all ranking CSV files, the dated
+data snapshot, documentation, and a SHA-256 checksum.
+
+每个日期快照都有单独的 GitHub Release。完整压缩包包含中英文 4K PNG、可编辑 SVG、
+全部排名 CSV、日期数据快照、说明文档和 SHA-256 校验值。
+
+[Download the latest complete bundle / 下载最新完整套图](https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/latest)
+
+## Update policy / 更新规则
+
+An update changes the dated data snapshot, both language chart sets, rankings,
+snapshot metadata, and [`PROGRESS.md`](PROGRESS.md) together. Previous
+snapshot releases remain available.
+
+每次更新同时更新日期数据快照、中英文两套图、排名、快照日期和
+[`PROGRESS.md`](PROGRESS.md)。旧版快照 Release 继续保留。

@@ -9,6 +9,7 @@ const translations = {
     heroCopy:
       "Three matched-benchmark charts plus full numerical rankings. Every point is one model and reasoning level; upper left is better.",
     viewRankings: "View rankings",
+    downloadRelease: "Download complete set",
     openRepository: "Open repository",
     tokenConfigurations: "Token configurations",
     apiConfigurations: "API-cost configurations",
@@ -161,6 +162,7 @@ const translations = {
     heroCopy:
       "三张同口径统计图，加上完整数值排名。每个点代表一个模型和思考档位，越靠左上越好。",
     viewRankings: "查看排名",
+    downloadRelease: "下载整套成图",
     openRepository: "打开仓库",
     tokenConfigurations: "Token 消耗配置",
     apiConfigurations: "API 成本配置",
