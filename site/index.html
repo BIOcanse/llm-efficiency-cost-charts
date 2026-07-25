@@ -6,12 +6,12 @@
     <meta name="color-scheme" content="light">
     <meta
       name="description"
-      content="Bilingual LLM Token-efficiency, API-cost, and subscription-first cost charts and rankings."
+      content="Compare LLM Token consumption, subscription cost, and API cost on one matched benchmark."
     >
     <title>LLM Efficiency & Cost Charts</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/styles.css?v=20260725-frontier-positions">
-    <script src="assets/app.js?v=20260725-frontier-positions" type="module"></script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260725-copy-tightened">
+    <script src="assets/app.js?v=20260725-copy-tightened" type="module"></script>
   </head>
   <body>
     <header class="topbar">
@@ -33,9 +33,9 @@
     <main id="top">
       <section class="hero page-shell">
         <div class="eyebrow" data-i18n="snapshotLabel">Snapshot · 2026-07-24</div>
-        <h1 data-i18n="heroTitle">LLM efficiency and task cost, with the numbers shown</h1>
+        <h1 data-i18n="heroTitle">Same score. How many Tokens? How much money?</h1>
         <p class="hero-copy" data-i18n="heroCopy">
-          Three matched-benchmark charts plus full numerical rankings. Every point is one model and reasoning level; upper left is better.
+          Each point represents one model and reasoning level. Lines of the same color connect levels of the same model. Upper left is better.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="#rankings" data-i18n="viewRankings">View rankings</a>
@@ -73,11 +73,11 @@
       <section id="charts" class="section page-shell">
         <div class="section-heading">
           <div>
-            <span class="eyebrow" data-i18n="chartSectionEyebrow">Matched benchmark · three views</span>
-            <h2 data-i18n="chartSectionTitle">Charts and detailed explanations</h2>
+            <span class="eyebrow" data-i18n="chartSectionEyebrow">Matched benchmark · three metrics</span>
+            <h2 data-i18n="chartSectionTitle">Token consumption, subscription cost, and API cost</h2>
           </div>
           <p data-i18n="chartSectionCopy">
-            All three charts use the same Intelligence Index v4.1 score. The horizontal metric changes, so the conclusions must remain separate.
+            Token efficiency is not the same thing as low cost.
           </p>
         </div>
 
@@ -86,7 +86,7 @@
             <span class="chart-number">01</span>
             <div>
               <h3 data-i18n="chart1Title">Total Token consumption vs. score</h3>
-              <p data-i18n="chart1Lead">How many input, reasoning, and final-answer Tokens are needed to complete the same suite.</p>
+              <p data-i18n="chart1Lead">The total Tokens consumed to complete the same benchmark suite.</p>
             </div>
           </div>
           <div class="interactive-chart" id="chart1-interactive"></div>
@@ -102,7 +102,7 @@
             <span class="chart-number">02</span>
             <div>
               <h3 data-i18n="chart2Title">Subscription-first cost per task vs. score</h3>
-              <p data-i18n="chart2Lead">The best quantifiable plan is used first; API is used only when no applicable plan exists.</p>
+              <p data-i18n="chart2Lead">Use a quantifiable plan when available; otherwise use API pricing.</p>
             </div>
           </div>
           <div class="interactive-chart" id="chart2-interactive"></div>
@@ -118,7 +118,7 @@
             <span class="chart-number">03</span>
             <div>
               <h3 data-i18n="chart3Title">API cost per task vs. score</h3>
-              <p data-i18n="chart3Lead">Fixed-provider prices combined with the actual Token composition of one benchmark task.</p>
+              <p data-i18n="chart3Lead">The API cost of completing the same benchmark task.</p>
             </div>
           </div>
           <div class="interactive-chart" id="chart3-interactive"></div>
@@ -134,11 +134,11 @@
         <div class="page-shell">
           <div class="section-heading light-heading">
             <div>
-              <span class="eyebrow" data-i18n="rankingEyebrow">Actual values · not estimated from plot positions</span>
-              <h2 data-i18n="rankingTitle">Numerical rankings</h2>
+              <span class="eyebrow" data-i18n="rankingEyebrow">USD per task · relative cost · Token efficiency</span>
+              <h2 data-i18n="rankingTitle">Full numerical rankings</h2>
             </div>
             <p data-i18n="rankingCopy">
-              Cost tables show exact USD per task. Token efficiency aggregates the full observed reasoning-level curve instead of selecting one favorable point.
+              Set a score range and the cost-performance rankings update with it.
             </p>
           </div>
 
@@ -165,7 +165,7 @@
               <div>
                 <h3 data-i18n="subscriptionRankingTitle">Subscription-first cost ranking</h3>
                 <p data-i18n="subscriptionRankingCopy">
-                  All 46 included configurations, sorted by effective USD per Intelligence Index task. Score is shown separately.
+                  Sorted by USD per task, with score and relative cost shown alongside it.
                 </p>
               </div>
               <a href="rankings/2026-07-24/subscription_cost_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
@@ -181,7 +181,7 @@
 
             <div class="threshold-block">
               <h4 data-i18n="subscriptionThresholdTitle">Lowest subscription-first cost at each score threshold</h4>
-              <p data-i18n="thresholdCopy">This avoids calling the cheapest low-score configuration the best overall value.</p>
+              <p data-i18n="thresholdCopy">For each minimum score, select the lowest-cost qualifying configuration.</p>
               <div class="table-wrap compact-table">
                 <table>
                   <thead id="subscription-threshold-head"></thead>
@@ -196,7 +196,7 @@
               <div>
                 <h3 data-i18n="subscriptionValueTitle">Filtered subscription cost-performance</h3>
                 <p data-i18n="subscriptionValueCopy">
-                  Choose an inclusive score interval, then rank the included configurations by score per USD. The interval leader is 100%.
+                  Set a score range and recalculate. The interval leader is 100%.
                 </p>
               </div>
             </div>
@@ -293,7 +293,7 @@
 
             <div class="threshold-block">
               <h4 data-i18n="apiThresholdTitle">Lowest API cost at each score threshold</h4>
-              <p data-i18n="thresholdCopy">This avoids calling the cheapest low-score configuration the best overall value.</p>
+              <p data-i18n="thresholdCopy">For each minimum score, select the lowest-cost qualifying configuration.</p>
               <div class="table-wrap compact-table">
                 <table>
                   <thead id="api-threshold-head"></thead>
@@ -308,7 +308,7 @@
               <div>
                 <h3 data-i18n="apiValueTitle">Filtered API cost-performance</h3>
                 <p data-i18n="apiValueCopy">
-                  Choose an inclusive score interval for the workload, then recalculate score per USD within that interval.
+                  Set a score range and recalculate. The interval leader is 100%.
                 </p>
               </div>
             </div>
@@ -359,8 +359,8 @@
       <section id="method" class="section page-shell method-section">
         <div class="section-heading">
           <div>
-            <span class="eyebrow" data-i18n="methodEyebrow">Scope and evidence</span>
-            <h2 data-i18n="methodTitle">What these rankings do and do not mean</h2>
+            <span class="eyebrow" data-i18n="methodEyebrow">Benchmark · evidence · exclusions</span>
+            <h2 data-i18n="methodTitle">Scope and limitations</h2>
           </div>
         </div>
         <div class="method-grid" id="method-grid"></div>

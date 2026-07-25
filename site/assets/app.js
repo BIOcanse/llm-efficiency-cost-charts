@@ -7,32 +7,32 @@ const translations = {
     navRankings: "Rankings",
     navMethod: "Method",
     snapshotLabel: "Snapshot · 2026-07-24",
-    heroTitle: "LLM efficiency and task cost, with the numbers shown",
+    heroTitle: "Same score. How many Tokens? How much money?",
     heroCopy:
-      "Three matched-benchmark charts plus full numerical rankings. Every point is one model and reasoning level; upper left is better.",
+      "Each point represents one model and reasoning level. Lines of the same color connect levels of the same model. Upper left is better.",
     viewRankings: "View rankings",
     downloadRelease: "Download complete set",
     openRepository: "Open repository",
     tokenConfigurations: "Token configurations",
     apiConfigurations: "API-cost configurations",
     subscriptionConfigurations: "Subscription-first configurations",
-    chartSectionEyebrow: "Matched benchmark · three views",
-    chartSectionTitle: "Charts and detailed explanations",
+    chartSectionEyebrow: "Matched benchmark · three metrics",
+    chartSectionTitle: "Token consumption, subscription cost, and API cost",
     chartSectionCopy:
-      "All three charts use the same Intelligence Index v4.1 score. The horizontal metric changes, so the conclusions must remain separate.",
+      "Token efficiency is not the same thing as low cost.",
     chart1Title: "Total Token consumption vs. score",
     chart1Lead:
-      "How many input, reasoning, and final-answer Tokens are needed to complete the same suite.",
+      "The total Tokens consumed to complete the same benchmark suite.",
     chart2Title: "Subscription-first cost per task vs. score",
     chart2Lead:
-      "The best quantifiable plan is used first; API is used only when no applicable plan exists.",
+      "Use a quantifiable plan when available; otherwise use API pricing.",
     chart3Title: "API cost per task vs. score",
     chart3Lead:
-      "Fixed-provider prices combined with the actual Token composition of one benchmark task.",
-    rankingEyebrow: "Actual values · not estimated from plot positions",
-    rankingTitle: "Numerical rankings",
+      "The API cost of completing the same benchmark task.",
+    rankingEyebrow: "USD per task · relative cost · Token efficiency",
+    rankingTitle: "Full numerical rankings",
     rankingCopy:
-      "Cost rankings show exact USD per task and relative cost, with the most expensive included configuration set to 100%. Token efficiency aggregates the full observed reasoning-level curve.",
+      "Set a score range and the cost-performance rankings update with it.",
     tabSubscription: "Subscription cost",
     tabSubscriptionValue: "Subscription value",
     tabToken: "Aggregate Token efficiency",
@@ -40,15 +40,15 @@ const translations = {
     tabApiValue: "API value",
     subscriptionRankingTitle: "Subscription-first cost ranking",
     subscriptionRankingCopy:
-      "All 46 included configurations, sorted by effective USD per Intelligence Index task. Exact cost, relative cost, and score are shown separately.",
+      "Sorted by USD per task, with score and relative cost shown alongside it.",
     downloadCsv: "Download CSV",
     subscriptionThresholdTitle:
       "Lowest subscription-first cost at each score threshold",
     subscriptionValueTitle: "Filtered subscription cost-performance",
     subscriptionValueCopy:
-      "Choose an inclusive score interval, then rank the included configurations by score per USD. The interval leader is 100%.",
+      "Set a score range and recalculate. The interval leader is 100%.",
     thresholdCopy:
-      "This avoids calling the cheapest low-score configuration the best overall value.",
+      "For each minimum score, select the lowest-cost qualifying configuration.",
     tokenRankingTitle: "Aggregate full-curve Token efficiency",
     tokenRankingCopy:
       "100 means the model curve matches the observed same-score Token frontier. Lower values mean more Token overhead.",
@@ -61,7 +61,7 @@ const translations = {
     apiThresholdTitle: "Lowest API cost at each score threshold",
     apiValueTitle: "Filtered API cost-performance",
     apiValueCopy:
-      "Choose an inclusive score interval for the workload, then recalculate score per USD within that interval.",
+      "Set a score range and recalculate. The interval leader is 100%.",
     minimumScore: "Minimum score",
     maximumScore: "Maximum score",
     valueMethod:
@@ -69,8 +69,8 @@ const translations = {
     invalidScoreRange:
       "Minimum score must not be greater than maximum score.",
     noValueResults: "No configurations fall inside this score interval.",
-    methodEyebrow: "Scope and evidence",
-    methodTitle: "What these rankings do and do not mean",
+    methodEyebrow: "Benchmark · evidence · exclusions",
+    methodTitle: "Scope and limitations",
     chartGuideLink: "Detailed chart guide",
     rankingMethodLink: "Ranking methodology",
     sourcesLink: "Sources",
@@ -90,9 +90,8 @@ const translations = {
       zoomOut: "Zoom out",
       reset: "Reset view",
       interactionHint:
-        "Hover or focus for details · click to pin · click empty space to clear · drag to pan · wheel to zoom",
-      readoutHint:
-        "Inspect a point to see its model, reasoning level, score, and exact horizontal value.",
+        "Hover for values · click to pin or clear",
+      readoutHint: "No point selected",
       scoreAxis: "Intelligence Index v4.1 score",
       xAxis: {
         token: "Total Token consumption (million)",
@@ -212,29 +211,29 @@ const translations = {
     navRankings: "排名",
     navMethod: "方法",
     snapshotLabel: "数据快照 · 2026-07-24",
-    heroTitle: "大模型效率与任务成本，直接列出实际数据",
+    heroTitle: "同样的跑分，要消耗多少 Token，花多少钱？",
     heroCopy:
-      "三张同口径统计图，加上完整数值排名。每个点代表一个模型和思考档位，越靠左上越好。",
+      "每个点代表一个模型和思考档位，同色线连接同一模型的不同档位。左上更优。",
     viewRankings: "查看排名",
     downloadRelease: "下载整套成图",
     openRepository: "打开仓库",
     tokenConfigurations: "Token 消耗配置",
     apiConfigurations: "API 成本配置",
     subscriptionConfigurations: "套餐优先配置",
-    chartSectionEyebrow: "同一套评测 · 三种指标",
-    chartSectionTitle: "图表与详细说明",
+    chartSectionEyebrow: "同一套评测 · 三项指标",
+    chartSectionTitle: "Token 消耗、套餐成本与 API 成本",
     chartSectionCopy:
-      "三张图使用同一套 Intelligence Index v4.1 分数，但横轴指标不同，因此 Token 效率、API 成本和套餐成本必须分别解读。",
+      "Token 效率高，不等于实际成本低。",
     chart1Title: "完整 Token 消耗与跑分",
-    chart1Lead: "完成同一套评测需要多少输入、推理和最终回答 Token。",
+    chart1Lead: "完成同一套评测实际消耗多少 Token。",
     chart2Title: "套餐优先单位任务成本与跑分",
-    chart2Lead: "优先使用可核算的最优套餐；只有不存在适用套餐时才使用 API。",
+    chart2Lead: "有可核算套餐时优先使用套餐，否则使用 API。",
     chart3Title: "API 单位任务成本与跑分",
-    chart3Lead: "按统一供应商价格和每项任务的实际 Token 构成计算。",
-    rankingEyebrow: "直接列数值 · 不再从散点位置估算",
-    rankingTitle: "数值排名",
+    chart3Lead: "完成同一评测任务需要多少 API 成本。",
+    rankingEyebrow: "美元/任务 · 相对成本 · Token 效率",
+    rankingTitle: "完整数值排名",
     rankingCopy:
-      "成本排名同时列出美元/任务和相对成本，各榜最贵的纳入配置为 100%。Token 效率综合同一模型的完整档位曲线。",
+      "限定分数区间后，套餐和 API 性价比会重新排序。",
     tabSubscription: "套餐成本",
     tabSubscriptionValue: "套餐性价比",
     tabToken: "综合 Token 效率",
@@ -242,13 +241,13 @@ const translations = {
     tabApiValue: "API 性价比",
     subscriptionRankingTitle: "套餐优先单位任务成本排名",
     subscriptionRankingCopy:
-      "列出全部 46 个纳入配置，按每个 Intelligence Index 任务的有效成本从低到高排序，并分别展示实际成本、相对成本和分数。",
+      "按单位任务成本从低到高排序，同时列出分数和相对成本。",
     downloadCsv: "下载 CSV",
     subscriptionThresholdTitle: "达到不同分数门槛的最低套餐优先成本",
     subscriptionValueTitle: "按分数区间重算套餐性价比",
     subscriptionValueCopy:
-      "先筛选可接受的分数区间，再按区间内每美元对应的分数排序；当前区间第一名为 100%。",
-    thresholdCopy: "避免把分数很低但最便宜的配置直接称为整体性价比最高。",
+      "限定分数区间后重新计算，区间第一名为 100%。",
+    thresholdCopy: "给定最低分数后，选择单位任务成本最低的配置。",
     tokenRankingTitle: "综合全档位 Token 效率",
     tokenRankingCopy:
       "100 代表整条档位曲线处于同分数全局 Token 前沿；数值越低，平均额外 Token 越多。",
@@ -260,15 +259,15 @@ const translations = {
     apiThresholdTitle: "达到不同分数门槛的最低 API 成本",
     apiValueTitle: "按分数区间重算 API 性价比",
     apiValueCopy:
-      "根据任务需要限制分数上下限，再在该区间内重新计算每美元对应的分数。",
+      "限定分数区间后重新计算，区间第一名为 100%。",
     minimumScore: "最低分数",
     maximumScore: "最高分数",
     valueMethod:
       "性价比指数 =（分数 ÷ 美元/任务）÷ 当前筛选结果最高值 × 100%。",
     invalidScoreRange: "最低分数不能高于最高分数。",
     noValueResults: "该分数区间内没有可用配置。",
-    methodEyebrow: "范围与证据",
-    methodTitle: "排名能够说明什么，不能说明什么",
+    methodEyebrow: "评测 · 证据 · 排除项",
+    methodTitle: "口径与限制",
     chartGuideLink: "图片详细说明",
     rankingMethodLink: "排名计算方法",
     sourcesLink: "数据来源",
@@ -288,8 +287,8 @@ const translations = {
       zoomOut: "缩小",
       reset: "恢复完整视图",
       interactionHint:
-        "悬停或聚焦查看数值 · 点击固定 · 点击空白取消 · 拖动平移 · 滚轮缩放",
-      readoutHint: "检查任意点即可查看模型、思考档位、分数和横轴准确数值。",
+        "悬停查看数值 · 点击固定或取消",
+      readoutHint: "未选择点位",
       scoreAxis: "Intelligence Index v4.1 分数",
       xAxis: {
         token: "完整 Token 消耗（百万）",

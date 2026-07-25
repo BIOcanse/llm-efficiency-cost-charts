@@ -18,24 +18,18 @@ Latest snapshot / 最新快照：**2026-07-24**<br>
 Benchmark / 评测：**Artificial Analysis Intelligence Index v4.1**<br>
 Coverage / 当前覆盖：**73 Token configurations / 68 API-cost configurations / 46 subscription-first configurations**
 
-The live data page renders all three analysis plots interactively from the
-current JSON snapshot, supports model-provider filtering or a view containing
-the strongest current model in each provider tier, and recalculates API or
-subscription value rankings inside any selected score interval. Chinese and
-English switch instantly on one URL. The static images below remain
-downloadable, citable release artifacts. On this repository page, expand the
-language you want below; no separate README is required.
+The interactive page compares matched-benchmark Token consumption,
+subscription cost, and API cost. Filter by model provider, keep only the
+strongest current model in each provider tier, or recalculate value inside a
+chosen score range.
 
-数据页会根据当前 JSON 快照交互式绘制三张分析图，支持按模型提供商筛选，或只看
-各家不同定位的当前最强模型；也可以限定分数区间后重算套餐或 API 性价比，并可在
-同一个 URL 内即时切换中英文。下方静态成图仍保留为可下载、可引用的发布资产。
-仓库首页直接展开对应语言即可，不再跳转到另一份 README。
+交互网页比较同一套评测下的 Token 消耗、套餐成本和 API 成本。可以按模型提供商筛选，
+只看各家不同定位的当前强型号，或限定分数区间后重算性价比。
 
 <details open>
 <summary><strong>English</strong></summary>
 
-Continuously maintained charts comparing LLM intelligence scores with total
-Token consumption, API task cost, and subscription-first task cost.
+Same benchmark score, but how many Tokens and how much money?
 
 Each point represents one model and reasoning level. Lines of the same color
 connect reasoning levels of the same model. Higher scores and lower Token
@@ -133,8 +127,7 @@ Numerical downloads:
 <details>
 <summary><strong>简体中文</strong></summary>
 
-持续更新主流大模型的 Intelligence Index 跑分、完整 Token 消耗、API 单位任务成本
-和套餐优先单位任务成本。
+同样的跑分，要消耗多少 Token，花多少钱？
 
 每个点代表一个模型和思考档位，同色线连接同一模型的不同档位。纵轴越高、横轴越
 靠左越好。
