@@ -1,0 +1,31 @@
+{
+  "current": "2026-07-31",
+  "snapshots": [
+    {
+      "id": "2026-07-31",
+      "published_at_utc": "2026-07-31T05:55:55Z",
+      "payload_url": "data/snapshots/2026-07-31.json",
+      "chart_base": "charts",
+      "ranking_base": "rankings/2026-07-31",
+      "data_url": "data/2026-07-31/model_efficiency.csv",
+      "release_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/tag/snapshot-2026-07-31",
+      "label": {
+        "en": "2026-07-31 · GPT-5.6 repricing",
+        "zh-CN": "2026-07-31 · GPT-5.6 降价"
+      }
+    },
+    {
+      "id": "2026-07-24",
+      "published_at_utc": "2026-07-25T03:06:13Z",
+      "payload_url": "data/snapshots/2026-07-24.json",
+      "chart_base": "charts/archive/2026-07-24",
+      "ranking_base": "rankings/2026-07-24",
+      "data_url": "data/2026-07-24/model_efficiency.csv",
+      "release_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/tag/snapshot-2026-07-24",
+      "label": {
+        "en": "2026-07-24 · Opus 5 update",
+        "zh-CN": "2026-07-24 · Opus 5 更新"
+      }
+    }
+  ]
+}

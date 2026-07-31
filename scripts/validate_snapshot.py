@@ -16,6 +16,10 @@ EXPECTED_PRICES = {
     "GPT-5.6 Terra": (2.0, 0.2, 2.5, 12.0),
     "GPT-5.6 Luna": (0.2, 0.02, 0.25, 1.2),
 }
+EXPECTED_SNAPSHOTS = {
+    "2026-07-31": "2026-07-31T05:55:55Z",
+    "2026-07-24": "2026-07-25T03:06:13Z",
+}
 PRICE_FIELDS = (
     "api_input_usd_per_million",
     "api_cache_read_usd_per_million",
@@ -109,7 +113,7 @@ def validate_data(root: Path, base_snapshot: str, snapshot: str) -> None:
             )
 
 
-def validate_rankings(root: Path, snapshot: str) -> None:
+def validate_rankings(root: Path, snapshot: str, *, current: bool) -> None:
     ranking_dir = root / "rankings" / snapshot
     expected = {
         "token_efficiency_ranking.csv": 9,
@@ -120,7 +124,11 @@ def validate_rankings(root: Path, snapshot: str) -> None:
     for name, count in expected.items():
         assert len(read_csv(ranking_dir / name)) == count, name
 
-    payload = json.loads((root / "site" / "data" / "rankings.json").read_text("utf-8"))
+    payload = json.loads(
+        (root / "site" / "data" / "snapshots" / f"{snapshot}.json").read_text(
+            "utf-8"
+        )
+    )
     assert payload["snapshot"] == snapshot
     assert payload["counts"]["token_configurations"] == EXPECTED_COUNTS["models"]
     assert payload["counts"]["api_cost_configurations"] == EXPECTED_COUNTS["api"]
@@ -128,11 +136,16 @@ def validate_rankings(root: Path, snapshot: str) -> None:
     assert len(payload["charts"]["token"]) == EXPECTED_COUNTS["models"]
     assert len(payload["charts"]["api"]) == EXPECTED_COUNTS["api"]
     assert len(payload["charts"]["subscription"]) == EXPECTED_COUNTS["subscription"]
+    if current:
+        alias = json.loads(
+            (root / "site" / "data" / "rankings.json").read_text("utf-8")
+        )
+        assert alias == payload
 
 
-def validate_charts(root: Path) -> None:
+def validate_chart_tree(chart_root: Path) -> None:
     for locale in ("en", "zh-CN"):
-        chart_dir = root / "charts" / locale
+        chart_dir = chart_root / locale
         for stem in CHART_STEMS:
             png = chart_dir / f"{stem}.png"
             svg = chart_dir / f"{stem}.svg"
@@ -145,16 +158,55 @@ def validate_charts(root: Path) -> None:
             assert svg.stat().st_size > 80_000, svg
 
 
+def validate_charts(root: Path) -> None:
+    validate_chart_tree(root / "charts")
+    validate_chart_tree(root / "charts" / "archive" / "2026-07-24")
+
+
 def validate_site_links(root: Path, snapshot: str) -> None:
     index_html = (root / "site" / "index.html").read_text("utf-8")
     app_js = (root / "site" / "assets" / "app.js").read_text("utf-8")
-    assert f"Snapshot · {snapshot}" in index_html
+    interactive_js = (root / "site" / "assets" / "interactive-scatter.js").read_text(
+        "utf-8"
+    )
+    manifest = json.loads(
+        (root / "site" / "data" / "snapshots.json").read_text("utf-8")
+    )
+    assert manifest["current"] == snapshot
+    assert {entry["id"] for entry in manifest["snapshots"]} == set(
+        EXPECTED_SNAPSHOTS
+    )
+    for entry in manifest["snapshots"]:
+        assert entry["published_at_utc"] == EXPECTED_SNAPSHOTS[entry["id"]]
+        assert entry["payload_url"] == f"data/snapshots/{entry['id']}.json"
+        assert entry["ranking_base"] == f"rankings/{entry['id']}"
+        assert entry["data_url"] == f"data/{entry['id']}/model_efficiency.csv"
+    historical = next(
+        entry for entry in manifest["snapshots"] if entry["id"] == "2026-07-24"
+    )
+    assert historical["chart_base"] == "charts/archive/2026-07-24"
+
+    assert 'id="snapshot-select"' in index_html
+    assert 'id="sota-recommendations"' in index_html
+    assert 'id="value-recommendations"' in index_html
     assert f"rankings/{snapshot}/subscription_cost_ranking.csv" in index_html
     assert f"data/{snapshot}/model_efficiency.csv" in index_html
-    assert f"Snapshot · {snapshot}" in app_js
-    assert f"数据快照 · {snapshot}" in app_js
-    assert "20260731-openai-repricing" in index_html
-    assert "20260731-openai-repricing" in app_js
+    assert "loadSnapshotManifest" in app_js
+    assert "renderRecommendations" in app_js
+    assert "data/snapshots.json?v=20260731-snapshot-recommendations" in app_js
+    assert "dataRevision: state.snapshot?.id" in app_js
+    assert "metricChanged || dataChanged || !this.view" in interactive_js
+    assert "20260731-snapshot-recommendations" in index_html
+    assert "20260731-snapshot-recommendations" in app_js
+
+    sota_models = ("GPT-5.6 Sol", "Claude Opus 5", "Kimi K3")
+    value_models = ("GPT-5.6 Luna", "DeepSeek V4 Pro")
+    sota_positions = [app_js.index(f'model: "{model}"') for model in sota_models]
+    value_positions = [app_js.index(f'model: "{model}"') for model in value_models]
+    assert sota_positions == sorted(sota_positions)
+    assert value_positions == sorted(value_positions)
+    assert "个人观点" in app_js
+    assert "Personal opinion" in app_js
 
 
 def parse_args() -> argparse.Namespace:
@@ -170,13 +222,19 @@ def main() -> None:
     args = parse_args()
     root = args.repository_root.resolve()
     validate_data(root, args.base_snapshot, args.snapshot)
-    validate_rankings(root, args.snapshot)
+    for known_snapshot in EXPECTED_SNAPSHOTS:
+        validate_rankings(
+            root,
+            known_snapshot,
+            current=known_snapshot == args.snapshot,
+        )
     validate_charts(root)
     validate_site_links(root, args.snapshot)
     print(
         "validated snapshot: "
         f"{args.snapshot}; 73 Token / 68 API / 46 subscription; "
-        "32 bilingual chart assets; site JSON and dated links"
+        "64 bilingual current/archive chart assets; two dated payloads; "
+        "UTC version metadata, recommendations, and switchable links"
     )
 
 

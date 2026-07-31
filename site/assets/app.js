@@ -1,12 +1,15 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-openai-repricing";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-snapshot-recommendations";
 
 const translations = {
   en: {
     brand: "LLM Efficiency & Cost",
+    navRecommendations: "My picks",
     navCharts: "Charts",
     navRankings: "Rankings",
     navMethod: "Method",
-    snapshotLabel: "Snapshot · 2026-07-31",
+    snapshotLabel: "Snapshot",
+    snapshotVersion: "Snapshot version",
+    snapshotPublishedAt: "Snapshot published (UTC)",
     heroTitle: "Same score. How many Tokens? How much money?",
     heroCopy:
       "Each point represents one model and reasoning level. Lines of the same color connect levels of the same model. Upper left is better.",
@@ -16,6 +19,45 @@ const translations = {
     tokenConfigurations: "Token configurations",
     apiConfigurations: "API-cost configurations",
     subscriptionConfigurations: "Subscription-first configurations",
+    recommendationEyebrow: "Personal opinion · latest snapshot",
+    recommendationTitle: "What I would actually use",
+    recommendationCopy:
+      "Only models with a clear reason to choose them are listed.",
+    recommendationSnapshot:
+      "Personal opinion based on the 2026-07-31 snapshot",
+    sotaRecommendationsTitle: "Frontier SOTA",
+    valueRecommendationsTitle: "Value picks",
+    recommendations: {
+      sota: [
+        {
+          model: "GPT-5.6 Sol",
+          body:
+            "First choice. It combines frontier-level capability with unusually strong value.",
+        },
+        {
+          model: "Claude Opus 5",
+          body:
+            "Its absolute intelligence is slightly higher. It costs more, but that capability edge still leaves it a narrow niche under Sol's pressure.",
+        },
+        {
+          model: "Kimi K3",
+          body:
+            "The strongest open model and relatively inexpensive, but it cannot match Sol on overall capability or value, so it has no clear practical niche here.",
+        },
+      ],
+      value: [
+        {
+          model: "GPT-5.6 Luna",
+          body:
+            "First choice. After the repricing, it reaches a higher score than DeepSeek V4 Pro at lower task cost on this benchmark.",
+        },
+        {
+          model: "DeepSeek V4 Pro",
+          body:
+            "Second choice. It remains inexpensive, but the new Luna pricing creates a clear gap.",
+        },
+      ],
+    },
     chartSectionEyebrow: "Matched benchmark · three metrics",
     chartSectionTitle: "Token consumption, subscription cost, and API cost",
     chartSectionCopy:
@@ -80,6 +122,7 @@ const translations = {
     showAll: (count) => `Show all ${count}`,
     showTop: "Show top 15",
     statusLanguage: "Language changed to English",
+    statusSnapshot: (label) => `Snapshot changed to ${label}`,
     interactive: {
       providerControl: "Model provider",
       allProviders: "All providers",
@@ -207,10 +250,13 @@ const translations = {
   },
   "zh-CN": {
     brand: "大模型效率与成本",
+    navRecommendations: "个人推荐",
     navCharts: "图表",
     navRankings: "排名",
     navMethod: "方法",
-    snapshotLabel: "数据快照 · 2026-07-31",
+    snapshotLabel: "数据快照",
+    snapshotVersion: "快照版本",
+    snapshotPublishedAt: "快照发布时间（UTC）",
     heroTitle: "同样的跑分，要消耗多少 Token，花多少钱？",
     heroCopy:
       "每个点代表一个模型和思考档位，同色线连接同一模型的不同档位。左上更优。",
@@ -220,6 +266,41 @@ const translations = {
     tokenConfigurations: "Token 消耗配置",
     apiConfigurations: "API 成本配置",
     subscriptionConfigurations: "套餐优先配置",
+    recommendationEyebrow: "个人观点 · 最新快照",
+    recommendationTitle: "我会怎么选",
+    recommendationCopy: "只列我认为仍有明确选择理由的模型。",
+    recommendationSnapshot: "个人观点基于 2026-07-31 快照",
+    sotaRecommendationsTitle: "顶级 SOTA",
+    valueRecommendationsTitle: "性价比模型",
+    recommendations: {
+      sota: [
+        {
+          model: "GPT-5.6 Sol",
+          body: "首选。顶级能力和性价比同时成立。",
+        },
+        {
+          model: "Claude Opus 5",
+          body:
+            "绝对智力略高，成本也还能接受；在 Sol 的压迫下仍勉强保留了自己的生态位。",
+        },
+        {
+          model: "Kimi K3",
+          body:
+            "最强开源模型，成本也比较低；但综合能力和性价比都无法与 Sol 相比，因此实际没有形成明确生态位。",
+        },
+      ],
+      value: [
+        {
+          model: "GPT-5.6 Luna",
+          body:
+            "首选。降价后，在该评测中可以用低于 DeepSeek V4 Pro 的任务成本达到更高分数。",
+        },
+        {
+          model: "DeepSeek V4 Pro",
+          body: "次选。任务成本仍低，但和新价格下的 Luna 已拉开明显差距。",
+        },
+      ],
+    },
     chartSectionEyebrow: "同一套评测 · 三项指标",
     chartSectionTitle: "Token 消耗、套餐成本与 API 成本",
     chartSectionCopy:
@@ -277,6 +358,7 @@ const translations = {
     showAll: (count) => `显示全部 ${count} 项`,
     showTop: "只显示前 15 项",
     statusLanguage: "已切换为中文",
+    statusSnapshot: (label) => `已切换至 ${label}`,
     interactive: {
       providerControl: "模型提供商",
       allProviders: "全部提供商",
@@ -403,16 +485,16 @@ const translations = {
   },
 };
 
-const chartAssets = {
+const chartAssetStems = {
   en: [
-    "charts/en/01_total_token_consumption_vs_score",
-    "charts/en/03_subscription_first_task_cost_vs_score",
-    "charts/en/02_api_task_cost_vs_score",
+    "en/01_total_token_consumption_vs_score",
+    "en/03_subscription_first_task_cost_vs_score",
+    "en/02_api_task_cost_vs_score",
   ],
   "zh-CN": [
-    "charts/zh-CN/01_total_token_consumption_vs_score",
-    "charts/zh-CN/03_subscription_first_task_cost_vs_score",
-    "charts/zh-CN/02_api_task_cost_vs_score",
+    "zh-CN/01_total_token_consumption_vs_score",
+    "zh-CN/03_subscription_first_task_cost_vs_score",
+    "zh-CN/02_api_task_cost_vs_score",
   ],
 };
 
@@ -447,6 +529,9 @@ const confidenceLabels = {
 const state = {
   language: "en",
   rankings: null,
+  snapshotManifest: null,
+  snapshot: null,
+  snapshotLoadSequence: 0,
   expanded: {
     subscription: false,
     subscriptionValue: false,
@@ -498,6 +583,76 @@ function browserLanguage() {
     : "en";
 }
 
+function savedSnapshotId(defaultSnapshot) {
+  try {
+    return window.localStorage.getItem("llm-efficiency-snapshot") || defaultSnapshot;
+  } catch {
+    return defaultSnapshot;
+  }
+}
+
+function snapshotOptionLabel(snapshot) {
+  return snapshot.label?.[state.language] || snapshot.id;
+}
+
+function formatUtcTimestamp(value) {
+  return value.replace("T", " ").replace("Z", " UTC");
+}
+
+function renderSnapshotMetadata() {
+  if (!state.snapshotManifest || !state.snapshot) {
+    return;
+  }
+  const text = translations[state.language];
+  const select = document.getElementById("snapshot-select");
+  select.replaceChildren(
+    ...state.snapshotManifest.snapshots.map((snapshot) => {
+      const option = document.createElement("option");
+      option.value = snapshot.id;
+      option.textContent = snapshotOptionLabel(snapshot);
+      return option;
+    }),
+  );
+  select.value = state.snapshot.id;
+
+  document.querySelector('[data-i18n="snapshotLabel"]').textContent =
+    `${text.snapshotLabel} · ${state.snapshot.id}`;
+  const time = document.getElementById("snapshot-time");
+  time.dateTime = state.snapshot.published_at_utc;
+  time.textContent = formatUtcTimestamp(state.snapshot.published_at_utc);
+
+  document.getElementById("selected-release-link").href =
+    state.snapshot.release_url;
+  document.getElementById("selected-data-link").href = state.snapshot.data_url;
+  document.getElementById("subscription-ranking-csv").href =
+    `${state.snapshot.ranking_base}/subscription_cost_ranking.csv`;
+  document.getElementById("token-ranking-csv").href =
+    `${state.snapshot.ranking_base}/token_efficiency_ranking.csv`;
+  document.getElementById("api-ranking-csv").href =
+    `${state.snapshot.ranking_base}/api_cost_ranking.csv`;
+}
+
+function renderRecommendations() {
+  const recommendations = translations[state.language].recommendations;
+  for (const [key, targetId] of [
+    ["sota", "sota-recommendations"],
+    ["value", "value-recommendations"],
+  ]) {
+    document.getElementById(targetId).innerHTML = recommendations[key]
+      .map(
+        (item, index) => `
+          <li class="recommendation-item">
+            <span class="recommendation-rank">${index + 1}</span>
+            <div>
+              <h4>${escapeHtml(item.model)}</h4>
+              <p>${escapeHtml(item.body)}</p>
+            </div>
+          </li>`,
+      )
+      .join("");
+  }
+}
+
 function translateStaticText() {
   const text = translations[state.language];
   document.documentElement.lang = state.language;
@@ -530,7 +685,9 @@ function renderChartDetails() {
       .join("");
   });
 
-  chartAssets[state.language].forEach((base, index) => {
+  const chartBase = state.snapshot?.chart_base || "charts";
+  chartAssetStems[state.language].forEach((stem, index) => {
+    const base = `${chartBase}/${stem}`;
     const chartNumber = index + 1;
     document.getElementById(`chart${chartNumber}-png`).href = `${base}.png`;
     document.getElementById(`chart${chartNumber}-svg`).href = `${base}.svg`;
@@ -637,6 +794,7 @@ function interactiveChartConfig(spec, pointCount) {
     `${row.model} · ${effortLabel(row.effort)} · ${text.score} ${formatScore(row.score)} · ${valueLabel} ${formatInteractiveValue(spec.metric, row[spec.xKey])}`;
   return {
     metric: spec.metric,
+    dataRevision: state.snapshot?.id || state.rankings.snapshot,
     xKey: spec.xKey,
     providerControlLabel: text.providerControl,
     allProvidersLabel: text.allProviders,
@@ -987,6 +1145,8 @@ function setLanguage(language, remember = true) {
     }
   }
   translateStaticText();
+  renderSnapshotMetadata();
+  renderRecommendations();
   renderChartDetails();
   renderInteractiveCharts();
   renderMethodCards();
@@ -1005,38 +1165,107 @@ function selectRankingTab(tabName) {
   });
 }
 
-async function loadRankings() {
-  const response = await fetch(
-    "data/rankings.json?v=20260731-openai-repricing",
-  );
-  if (!response.ok) {
-    throw new Error(`Ranking data request failed: ${response.status}`);
-  }
-  state.rankings = await response.json();
+function validateRankingsPayload(payload, snapshotId) {
   if (
-    !state.rankings.charts ||
-    state.rankings.charts.token.length !== 73 ||
-    state.rankings.charts.api.length !== 68 ||
-    state.rankings.charts.subscription.length !== 46 ||
-    !Number.isInteger(state.rankings.counts.frontier_position_models) ||
-    state.rankings.counts.frontier_position_models <= 0 ||
-    !Object.hasOwn(state.rankings.charts.token[0], "frontier_position") ||
-    !Object.hasOwn(state.rankings.charts.api[0], "frontier_position") ||
+    payload.snapshot !== snapshotId ||
+    !payload.charts ||
+    payload.charts.token.length !== 73 ||
+    payload.charts.api.length !== 68 ||
+    payload.charts.subscription.length !== 46 ||
+    !Number.isInteger(payload.counts.frontier_position_models) ||
+    payload.counts.frontier_position_models <= 0 ||
+    !Object.hasOwn(payload.charts.token[0], "frontier_position") ||
+    !Object.hasOwn(payload.charts.api[0], "frontier_position") ||
     !Object.hasOwn(
-      state.rankings.charts.subscription[0],
+      payload.charts.subscription[0],
       "frontier_position",
     )
   ) {
     throw new Error("Interactive chart data is incomplete");
   }
-  renderInteractiveCharts();
-  renderRankings();
+}
+
+async function loadSnapshot(snapshotId, remember = true) {
+  const snapshot = state.snapshotManifest?.snapshots.find(
+    (candidate) => candidate.id === snapshotId,
+  );
+  if (!snapshot) {
+    throw new Error(`Unknown snapshot: ${snapshotId}`);
+  }
+  const loadSequence = ++state.snapshotLoadSequence;
+  const select = document.getElementById("snapshot-select");
+  select.disabled = true;
+  try {
+    const response = await fetch(
+      `${snapshot.payload_url}?v=20260731-snapshot-recommendations`,
+    );
+    if (!response.ok) {
+      throw new Error(`Snapshot data request failed: ${response.status}`);
+    }
+    const payload = await response.json();
+    validateRankingsPayload(payload, snapshot.id);
+    if (loadSequence !== state.snapshotLoadSequence) {
+      return;
+    }
+    state.snapshot = snapshot;
+    state.rankings = payload;
+    if (remember) {
+      try {
+        window.localStorage.setItem("llm-efficiency-snapshot", snapshot.id);
+      } catch {
+        // The selector remains functional for the current page without storage.
+      }
+    }
+    renderSnapshotMetadata();
+    renderChartDetails();
+    renderInteractiveCharts();
+    renderRankings();
+    if (remember) {
+      document.getElementById("status").textContent =
+        translations[state.language].statusSnapshot(snapshotOptionLabel(snapshot));
+    }
+  } finally {
+    if (loadSequence === state.snapshotLoadSequence) {
+      select.disabled = false;
+    }
+  }
+}
+
+async function loadSnapshotManifest() {
+  const response = await fetch(
+    "data/snapshots.json?v=20260731-snapshot-recommendations",
+  );
+  if (!response.ok) {
+    throw new Error(`Snapshot manifest request failed: ${response.status}`);
+  }
+  const manifest = await response.json();
+  if (
+    !Array.isArray(manifest.snapshots) ||
+    manifest.snapshots.length < 2 ||
+    !manifest.snapshots.some((snapshot) => snapshot.id === manifest.current)
+  ) {
+    throw new Error("Snapshot manifest is incomplete");
+  }
+  state.snapshotManifest = manifest;
+  const requestedSnapshot = savedSnapshotId(manifest.current);
+  const initialSnapshot = manifest.snapshots.some(
+    (snapshot) => snapshot.id === requestedSnapshot,
+  )
+    ? requestedSnapshot
+    : manifest.current;
+  await loadSnapshot(initialSnapshot, false);
 }
 
 function bindControls() {
   document.querySelectorAll("[data-language]").forEach((button) => {
     button.addEventListener("click", () => {
       setLanguage(button.dataset.language);
+    });
+  });
+  document.getElementById("snapshot-select").addEventListener("change", (event) => {
+    loadSnapshot(event.target.value).catch((error) => {
+      document.getElementById("status").textContent = String(error);
+      console.error(error);
     });
   });
   document.querySelectorAll("[data-tab]").forEach((button) => {
@@ -1076,7 +1305,7 @@ async function main() {
   setLanguage(browserLanguage(), false);
   selectRankingTab("subscription");
   try {
-    await loadRankings();
+    await loadSnapshotManifest();
   } catch (error) {
     document.getElementById("status").textContent = String(error);
     console.error(error);

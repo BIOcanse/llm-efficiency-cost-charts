@@ -565,10 +565,20 @@ def main() -> None:
             "subscription_first": subscription_thresholds,
         },
     }
+    payload_text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     atomic_text(
-        args.repository_root / "site" / "data" / "rankings.json",
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        args.repository_root
+        / "site"
+        / "data"
+        / "snapshots"
+        / f"{args.snapshot}.json",
+        payload_text,
     )
+    if args.snapshot == SNAPSHOT:
+        atomic_text(
+            args.repository_root / "site" / "data" / "rankings.json",
+            payload_text,
+        )
     print(
         "built rankings: "
         f"token={len(token_core)} core/{len(token_limited)} limited, "

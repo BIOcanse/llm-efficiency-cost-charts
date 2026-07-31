@@ -21,10 +21,15 @@ Coverage / 当前覆盖：**73 Token configurations / 68 API-cost configurations
 The interactive page compares matched-benchmark Token consumption,
 subscription cost, and API cost. Filter by model provider, keep only the
 strongest current model in each provider tier, or recalculate value inside a
-chosen score range.
+chosen score range. The snapshot selector switches the complete chart,
+ranking, download, and source state in place and shows the exact publication
+time in UTC. A separate personal-opinion section lists only three SOTA picks
+and two value picks.
 
 交互网页比较同一套评测下的 Token 消耗、套餐成本和 API 成本。可以按模型提供商筛选，
-只看各家不同定位的当前强型号，或限定分数区间后重算性价比。
+只看各家不同定位的当前强型号，或限定分数区间后重算性价比。快照选择器会在同一页面
+内整套切换图、排名、下载和来源，并显示精确的 UTC 发布时间。个人观点区只保留 3 个
+SOTA 推荐和 2 个性价比推荐。
 
 <details open>
 <summary><strong>English</strong></summary>

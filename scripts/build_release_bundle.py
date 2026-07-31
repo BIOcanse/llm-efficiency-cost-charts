@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import json
 import shutil
 import zipfile
 from pathlib import Path
@@ -57,8 +58,15 @@ def main() -> None:
     for name in ROOT_DIRS:
         copy_tree(root / name, staging / name)
 
-    copy_tree(root / "data" / args.snapshot, staging / "data" / args.snapshot)
-    copy_tree(root / "rankings" / args.snapshot, staging / "rankings" / args.snapshot)
+    manifest = json.loads(
+        (root / "site" / "data" / "snapshots.json").read_text(encoding="utf-8")
+    )
+    snapshot_ids = [entry["id"] for entry in manifest["snapshots"]]
+    if args.snapshot not in snapshot_ids:
+        raise AssertionError(f"Release snapshot is absent from manifest: {args.snapshot}")
+    for snapshot_id in snapshot_ids:
+        copy_tree(root / "data" / snapshot_id, staging / "data" / snapshot_id)
+        copy_tree(root / "rankings" / snapshot_id, staging / "rankings" / snapshot_id)
     shutil.copy2(
         root / "data" / f"api_price_updates_{args.snapshot}.csv",
         staging / "data" / f"api_price_updates_{args.snapshot}.csv",
@@ -79,6 +87,9 @@ def main() -> None:
             raise AssertionError("Release archive is missing the dated model data")
         if f"{bundle_name}/site/data/rankings.json" not in names:
             raise AssertionError("Release archive is missing the interactive ranking payload")
+        for snapshot_id in snapshot_ids:
+            if f"{bundle_name}/data/{snapshot_id}/model_efficiency.csv" not in names:
+                raise AssertionError(f"Release archive is missing snapshot {snapshot_id}")
     print(
         f"release={release_root}; files={len(names)}; "
         f"archive_bytes={archive.stat().st_size}; sha256={digest}"

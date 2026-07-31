@@ -391,7 +391,9 @@ export class InteractiveScatterChart {
 
   update(rows, config) {
     const metricChanged = this.metric !== config.metric;
+    const dataChanged = this.dataRevision !== config.dataRevision;
     this.metric = config.metric;
+    this.dataRevision = config.dataRevision;
     this.config = config;
     this.sourceData = rows.map((row) => ({
       ...row,
@@ -402,12 +404,14 @@ export class InteractiveScatterChart {
     if (metricChanged) {
       this.selectedProvider = "";
       this.modelScope = "all";
+    }
+    if (metricChanged || dataChanged) {
       this.hoveredRow = null;
       this.pinnedRow = null;
     }
     this.populateFilterControls();
     this.updateLocalizedControls();
-    this.applyFilters(metricChanged || !this.view);
+    this.applyFilters(metricChanged || dataChanged || !this.view);
   }
 
   calculateBounds() {

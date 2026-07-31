@@ -17,36 +17,40 @@ Publish the current bilingual charts, detailed chart explanations, and numerical
 
 ## Information structure
 
-1. Snapshot and metric summary.
-2. Three client-rendered interactive chart sections, ordered as total Token
+1. Snapshot selector, exact UTC publication time, and metric summary.
+2. A clearly labelled personal-recommendation section tied to the latest snapshot.
+3. Three client-rendered interactive chart sections, ordered as total Token
    consumption, subscription-first task cost, then API task cost.
-3. A detailed explanation under each chart:
+4. A detailed explanation under each chart:
    - axes;
    - points and same-model lines;
    - formula;
    - inclusion and exclusion rules;
    - appropriate conclusions;
    - conclusions the chart does not support.
-4. Numerical rankings:
+5. Numerical rankings:
    - aggregate full-curve Token efficiency;
    - subscription-first cost per task;
    - filtered subscription-first cost-performance;
    - API cost per task;
    - filtered API cost-performance;
    - lowest cost at selected score thresholds.
-5. Methodology, limitations, source, data, and repository links.
-6. A visible link to the latest downloadable snapshot Release.
+6. Methodology, limitations, source, data, and repository links.
+7. A visible link to the selected downloadable snapshot Release.
 
 ## Data flow
 
 ```text
-dated CSV snapshot
+dated CSV snapshots
   -> scripts/build_rankings.py
-  -> rankings/<date>/*.csv + site/data/rankings.json
-  -> static GitHub Pages SVG and table rendering
+  -> rankings/<date>/*.csv + site/data/snapshots/<date>.json
+  -> site/data/snapshots.json version manifest
+  -> in-place GitHub Pages SVG and table rendering
 ```
 
-The site must not contain manually duplicated ranking numbers. A snapshot update regenerates the rankings and both language views from the same machine-readable result.
+The site must not contain manually duplicated ranking numbers. Each snapshot
+regenerates its rankings and dated interactive payload from the same
+machine-readable result. The manifest selects one payload at a time.
 
 ## Hosting
 
