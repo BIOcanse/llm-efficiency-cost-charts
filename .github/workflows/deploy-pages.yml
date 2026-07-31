@@ -35,7 +35,7 @@ jobs:
           cp -R rankings/. _site/rankings/
           cp -R data/2026-07-24 _site/data/2026-07-24
           cp -R data/2026-07-31 _site/data/2026-07-31
-          cp -R data/coding-agents _site/data/coding-agents
+          cp -R data/coding-agents/. _site/data/coding-agents/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

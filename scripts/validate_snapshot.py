@@ -334,6 +334,9 @@ def validate_site_links(root: Path, snapshot: str) -> None:
     interactive_js = (root / "site" / "assets" / "interactive-scatter.js").read_text(
         "utf-8"
     )
+    deploy_workflow = (
+        root / ".github" / "workflows" / "deploy-pages.yml"
+    ).read_text("utf-8")
     manifest = json.loads(
         (root / "site" / "data" / "snapshots.json").read_text("utf-8")
     )
@@ -377,6 +380,7 @@ def validate_site_links(root: Path, snapshot: str) -> None:
     assert "loadCodingSnapshotManifest" in app_js
     assert 'scopeMode: isCoding ? "field" : "frontier"' in app_js
     assert 'scopeField: isCoding ? "agent" : ""' in app_js
+    assert "cp -R data/coding-agents/. _site/data/coding-agents/" in deploy_workflow
 
     assert "?lang=zh-CN" in readme
     assert "?lang=en" in readme
