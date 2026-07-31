@@ -10,8 +10,8 @@
     >
     <title>LLM Efficiency & Cost Charts</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/styles.css?v=20260731-entry-locale">
-    <script src="assets/app.js?v=20260731-entry-locale" type="module"></script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260731-preview-labels">
+    <script src="assets/app.js?v=20260731-preview-labels" type="module"></script>
   </head>
   <body>
     <header class="topbar">
@@ -25,20 +25,28 @@
         <a href="#rankings" data-i18n="navRankings">Rankings</a>
         <a href="#method" data-i18n="navMethod">Method</a>
       </nav>
-      <div class="language-switch" role="group" aria-label="Language">
-        <button type="button" data-language="zh-CN">中文</button>
-        <button type="button" data-language="en">EN</button>
+      <div class="topbar-controls">
+        <div class="motion-switch" role="group" aria-labelledby="motion-switch-label">
+          <span class="motion-switch-label" id="motion-switch-label" data-i18n="motionLabel">Motion</span>
+          <button type="button" data-motion-choice="full" data-i18n="motionFull">Full</button>
+          <button type="button" data-motion-choice="reduced" data-i18n="motionReduced">Reduced</button>
+        </div>
+        <div class="language-switch" role="group" aria-label="Language">
+          <button type="button" data-language="zh-CN">中文</button>
+          <button type="button" data-language="en">EN</button>
+        </div>
       </div>
     </header>
 
     <main id="top">
+      <div class="hero-band">
       <section class="hero page-shell">
-        <div class="eyebrow" data-i18n="snapshotLabel">Snapshot · 2026-07-31</div>
-        <h1 data-i18n="heroTitle">Same score. How many Tokens? How much money?</h1>
-        <p class="hero-copy" data-i18n="heroCopy">
+        <div class="eyebrow" data-rise="0" data-i18n="snapshotLabel">Snapshot · 2026-07-31</div>
+        <h1 data-rise="0" data-i18n="heroTitle">Same score. How many Tokens? How much money?</h1>
+        <p class="hero-copy" data-rise="1" data-i18n="heroCopy">
           Each point represents one model and reasoning level. Lines of the same color connect levels of the same model. Upper left is better.
         </p>
-        <div class="snapshot-panel">
+        <div class="snapshot-panel" data-rise="2">
           <label class="snapshot-selector" for="snapshot-select">
             <span data-i18n="snapshotVersion">Snapshot version</span>
             <select id="snapshot-select"></select>
@@ -48,7 +56,7 @@
             <time id="snapshot-time" datetime="2026-07-31T05:55:55Z">2026-07-31 05:55:55 UTC</time>
           </div>
         </div>
-        <div class="hero-actions">
+        <div class="hero-actions" data-rise="2">
           <a class="button primary" href="#rankings" data-i18n="viewRankings">View rankings</a>
           <a
             class="button secondary"
@@ -66,7 +74,7 @@
             data-i18n="openRepository"
           >Open repository</a>
         </div>
-        <div class="metric-strip" aria-label="Current data coverage">
+        <div class="metric-strip" data-rise="3" aria-label="Current data coverage">
           <div>
             <strong id="token-count">73</strong>
             <span data-i18n="tokenConfigurations">Token configurations</span>
@@ -81,6 +89,7 @@
           </div>
         </div>
       </section>
+      </div>
 
       <section id="recommendations" class="section page-shell recommendation-section">
         <div class="recommendation-heading">

@@ -1,4 +1,4 @@
-import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js?v=20260725-frontier-positions";
+import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js?v=20260731-preview-labels";
 
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
@@ -32,10 +32,11 @@ function clamp(value, minimum, maximum) {
 }
 
 function modelColor(model) {
+  const colorKey = model.replace(/ \(Preview\)$/, "");
   let hash = 0;
   let index = 0;
-  while (index < model.length) {
-    hash = (hash * 31 + model.charCodeAt(index)) >>> 0;
+  while (index < colorKey.length) {
+    hash = (hash * 31 + colorKey.charCodeAt(index)) >>> 0;
     index += 1;
   }
   return SERIES_COLORS[hash % SERIES_COLORS.length];
@@ -884,29 +885,34 @@ export class InteractiveScatterChart {
     this.labelLeaderElements = [];
     const associationDistances = [];
 
+    const candidateBaseScore = (item, candidate, candidateIndex) => {
+      let score =
+        pointToBoxDistance(item, candidate) * 8 + candidateIndex * 0.08;
+      pointLocations.forEach((point) => {
+        if (
+          rowKey(point.row) !== rowKey(item.row) &&
+          boxContainsPoint(candidate, point, 5)
+        ) {
+          score += 30000;
+        }
+      });
+      lineSegments.forEach((segment) => {
+        if (segmentIntersectsBox(segment, candidate, 1)) {
+          score += 220;
+        }
+      });
+      return score;
+    };
+
     measured.forEach((item) => {
       const candidates = this.labelCandidates(item, innerBounds);
       let bestCandidate = candidates[0];
       let bestScore = Number.POSITIVE_INFINITY;
       candidates.forEach((candidate, candidateIndex) => {
-        let score =
-          pointToBoxDistance(item, candidate) * 8 + candidateIndex * 0.08;
+        let score = candidateBaseScore(item, candidate, candidateIndex);
         placedBoxes.forEach((placed) => {
           if (boxesOverlap(candidate, placed, 2)) {
             score += 100000;
-          }
-        });
-        pointLocations.forEach((point) => {
-          if (
-            rowKey(point.row) !== rowKey(item.row) &&
-            boxContainsPoint(candidate, point, 5)
-          ) {
-            score += 30000;
-          }
-        });
-        lineSegments.forEach((segment) => {
-          if (segmentIntersectsBox(segment, candidate, 1)) {
-            score += 220;
           }
         });
         if (score < bestScore) {
@@ -915,12 +921,69 @@ export class InteractiveScatterChart {
         }
       });
 
-      placedBoxes.push({ ...bestCandidate, key: rowKey(item.row) });
-      item.label.setAttribute("x", bestCandidate.x);
-      item.label.setAttribute("y", bestCandidate.y + bestCandidate.height - 2);
+      placedBoxes.push({
+        ...bestCandidate,
+        key: rowKey(item.row),
+        item,
+        candidates,
+      });
+    });
+
+    let repairPass = 0;
+    while (repairPass < 8) {
+      let collision = null;
+      let leftIndex = 0;
+      while (leftIndex < placedBoxes.length && !collision) {
+        let rightIndex = leftIndex + 1;
+        while (rightIndex < placedBoxes.length) {
+          if (boxesOverlap(placedBoxes[leftIndex], placedBoxes[rightIndex], 1)) {
+            collision = [leftIndex, rightIndex];
+            break;
+          }
+          rightIndex += 1;
+        }
+        leftIndex += 1;
+      }
+      if (!collision) {
+        break;
+      }
+
+      let bestMove = null;
+      collision.forEach((movingIndex) => {
+        const moving = placedBoxes[movingIndex];
+        moving.candidates.forEach((candidate, candidateIndex) => {
+          const overlapsOther = placedBoxes.some(
+            (other, otherIndex) =>
+              otherIndex !== movingIndex && boxesOverlap(candidate, other, 1),
+          );
+          if (overlapsOther) {
+            return;
+          }
+          const score = candidateBaseScore(
+            moving.item,
+            candidate,
+            candidateIndex,
+          );
+          if (!bestMove || score < bestMove.score) {
+            bestMove = { movingIndex, candidate, score };
+          }
+        });
+      });
+
+      if (!bestMove) {
+        break;
+      }
+      Object.assign(placedBoxes[bestMove.movingIndex], bestMove.candidate);
+      repairPass += 1;
+    }
+
+    placedBoxes.forEach((placed) => {
+      const { item } = placed;
+      item.label.setAttribute("x", placed.x);
+      item.label.setAttribute("y", placed.y + placed.height - 2);
       this.labelElements.push(item.label);
 
-      const leaderEnd = closestPointOnBox(item, bestCandidate);
+      const leaderEnd = closestPointOnBox(item, placed);
       const leaderDistance = Math.hypot(
         leaderEnd.x - item.x,
         leaderEnd.y - item.y,
@@ -1008,8 +1071,8 @@ export class InteractiveScatterChart {
     let radius = 30;
     while (radius <= 210) {
       let angleIndex = 0;
-      while (angleIndex < 16) {
-        const angle = (Math.PI * 2 * angleIndex) / 16;
+      while (angleIndex < 32) {
+        const angle = (Math.PI * 2 * angleIndex) / 32;
         const cosine = Math.cos(angle);
         const sine = Math.sin(angle);
         const x =

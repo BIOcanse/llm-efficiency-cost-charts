@@ -1,4 +1,4 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-entry-locale";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-preview-labels";
 
 const translations = {
   en: {
@@ -16,6 +16,9 @@ const translations = {
     viewRankings: "View rankings",
     downloadRelease: "Download complete set",
     openRepository: "Open repository",
+    motionLabel: "Motion",
+    motionFull: "Full",
+    motionReduced: "Reduced",
     tokenConfigurations: "Token configurations",
     apiConfigurations: "API-cost configurations",
     subscriptionConfigurations: "Subscription-first configurations",
@@ -49,10 +52,10 @@ const translations = {
         {
           model: "GPT-5.6 Luna",
           body:
-            "First choice. After the repricing, it reaches a higher score than DeepSeek V4 Pro at lower task cost on this benchmark.",
+            "First choice. After the repricing, it reaches a higher score than DeepSeek V4 Pro (Preview) at lower task cost on this benchmark.",
         },
         {
-          model: "DeepSeek V4 Pro",
+          model: "DeepSeek V4 Pro (Preview)",
           body:
             "Second choice. It remains inexpensive, but the new Luna pricing creates a clear gap.",
         },
@@ -123,6 +126,8 @@ const translations = {
     showTop: "Show top 15",
     statusLanguage: "Language changed to English",
     statusSnapshot: (label) => `Snapshot changed to ${label}`,
+    statusMotion: (mode) =>
+      mode === "reduced" ? "Motion set to reduced" : "Motion set to full",
     interactive: {
       providerControl: "Model provider",
       allProviders: "All providers",
@@ -261,8 +266,11 @@ const translations = {
     heroCopy:
       "每个点代表一个模型和思考档位，同色线连接同一模型的不同档位。左上更优。",
     viewRankings: "查看排名",
-    downloadRelease: "下载整套成图",
+    downloadRelease: "下载完整套图",
     openRepository: "打开仓库",
+    motionLabel: "动效",
+    motionFull: "正常",
+    motionReduced: "减弱",
     tokenConfigurations: "Token 消耗配置",
     apiConfigurations: "API 成本配置",
     subscriptionConfigurations: "套餐优先配置",
@@ -293,10 +301,10 @@ const translations = {
         {
           model: "GPT-5.6 Luna",
           body:
-            "首选。降价后，在该评测中可以用低于 DeepSeek V4 Pro 的任务成本达到更高分数。",
+            "首选。降价后，在该评测中可以用低于 DeepSeek V4 Pro（预览版）的任务成本达到更高分数。",
         },
         {
-          model: "DeepSeek V4 Pro",
+          model: "DeepSeek V4 Pro（预览版）",
           body: "次选。任务成本仍低，但和新价格下的 Luna 已拉开明显差距。",
         },
       ],
@@ -359,6 +367,8 @@ const translations = {
     showTop: "只显示前 15 项",
     statusLanguage: "已切换为中文",
     statusSnapshot: (label) => `已切换至 ${label}`,
+    statusMotion: (mode) =>
+      mode === "reduced" ? "动效已设为减弱" : "动效已设为正常",
     interactive: {
       providerControl: "模型提供商",
       allProviders: "全部提供商",
@@ -528,6 +538,7 @@ const confidenceLabels = {
 
 const state = {
   language: "en",
+  motion: "full",
   rankings: null,
   snapshotManifest: null,
   snapshot: null,
@@ -585,6 +596,45 @@ function browserLanguage() {
   return languages.some((language) => language.toLowerCase().startsWith("zh"))
     ? "zh-CN"
     : "en";
+}
+
+function motionPreference() {
+  try {
+    const saved = window.localStorage.getItem("llm-efficiency-motion");
+    if (saved === "full" || saved === "reduced") {
+      return saved;
+    }
+  } catch {
+    // Local storage may be disabled; the visible motion buttons still work.
+  }
+  return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    ? "reduced"
+    : "full";
+}
+
+function setMotion(mode, remember = true) {
+  if (mode !== "full" && mode !== "reduced") {
+    return;
+  }
+  state.motion = mode;
+  document.documentElement.dataset.motion = mode;
+  if (remember) {
+    try {
+      window.localStorage.setItem("llm-efficiency-motion", mode);
+    } catch {
+      // The control remains functional for the current page without storage.
+    }
+  }
+  document.querySelectorAll("[data-motion-choice]").forEach((button) => {
+    button.setAttribute(
+      "aria-pressed",
+      String(button.dataset.motionChoice === mode),
+    );
+  });
+  if (remember) {
+    document.getElementById("status").textContent =
+      translations[state.language].statusMotion(mode);
+  }
 }
 
 function savedSnapshotId(defaultSnapshot) {
@@ -1215,7 +1265,7 @@ async function loadSnapshot(snapshotId, remember = true) {
   select.disabled = true;
   try {
     const response = await fetch(
-      `${snapshot.payload_url}?v=20260731-entry-locale`,
+      `${snapshot.payload_url}?v=20260731-preview-labels`,
     );
     if (!response.ok) {
       throw new Error(`Snapshot data request failed: ${response.status}`);
@@ -1252,7 +1302,7 @@ async function loadSnapshot(snapshotId, remember = true) {
 
 async function loadSnapshotManifest() {
   const response = await fetch(
-    "data/snapshots.json?v=20260731-entry-locale",
+    "data/snapshots.json?v=20260731-preview-labels",
   );
   if (!response.ok) {
     throw new Error(`Snapshot manifest request failed: ${response.status}`);
@@ -1279,6 +1329,11 @@ function bindControls() {
   document.querySelectorAll("[data-language]").forEach((button) => {
     button.addEventListener("click", () => {
       setLanguage(button.dataset.language);
+    });
+  });
+  document.querySelectorAll("[data-motion-choice]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setMotion(button.dataset.motionChoice);
     });
   });
   document.getElementById("snapshot-select").addEventListener("change", (event) => {
@@ -1321,6 +1376,7 @@ function bindControls() {
 
 async function main() {
   bindControls();
+  setMotion(motionPreference(), false);
   setLanguage(browserLanguage(), false);
   selectRankingTab("subscription");
   try {

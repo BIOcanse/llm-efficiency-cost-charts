@@ -23,7 +23,7 @@ be presented as a generated ranking.
 ### Value models
 
 1. GPT-5.6 Luna
-2. DeepSeek V4 Pro
+2. DeepSeek V4 Pro (Preview)
 
 Do not add more models to make either list look more complete. The charts and
 numerical rankings remain the place for exhaustive comparison.

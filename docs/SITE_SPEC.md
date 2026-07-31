@@ -56,6 +56,51 @@ The site must not contain manually duplicated ranking numbers. Each snapshot
 regenerates its rankings and dated interactive payload from the same
 machine-readable result. The manifest selects one payload at a time.
 
+## Model release labels
+
+- A preview benchmark must remain visibly marked as a preview until
+  Artificial Analysis publishes results for the production checkpoint.
+- The canonical data name uses the suffix `(Preview)`. That suffix must flow
+  into interactive point labels, tooltips, filters, rankings, recommendations,
+  accessibility text, and downloadable CSV files.
+- A production release that reuses the same API model identifier does not
+  silently replace preview benchmark data. It requires a separately sourced
+  observation or an explicit Artificial Analysis retest notice.
+- The current DeepSeek V4 Pro and V4 Flash observations were released and
+  benchmarked as the 2026-04-24 preview checkpoints, so both retain the
+  `(Preview)` suffix. This is a label correction only; scores, Token counts,
+  prices, and costs remain unchanged.
+
+## Visual design and motion
+
+- Design language: a light "measurement sheet" look. Warm paper background,
+  ink-navy text (`#172033`), one deep-blue accent, hairline borders, white
+  cards, and a faint graph-grid motif behind the hero and the dark rankings
+  panel. The dark rankings section uses the same ink hue family as the light
+  theme instead of an unrelated gray.
+- Typography: system font stacks only (no bundled or remote fonts). Numeric
+  readouts use tabular numerals; eyebrow labels, snapshot metadata, and rank
+  numbers use the system monospace stack. Chinese headings drop the negative
+  Latin letter-spacing via `:lang` rules.
+- Navigation: the top bar is sticky; anchor targets keep a scroll offset so
+  section headings are not hidden under it.
+- Motion has exactly two explicit levels, selected by a visible top-bar
+  control next to the language switch:
+  - `full`: a one-time staggered hero entrance on load, hover transitions,
+    smooth anchor scrolling.
+  - `reduced`: no entrance or hover animation, instant anchor jumps; content
+    and controls are otherwise identical.
+  The default follows the operating system `prefers-reduced-motion` setting.
+  An explicit choice is stored in `localStorage` (`llm-efficiency-motion`),
+  remains reversible, and is reflected as `data-motion` on the root element.
+- No scroll-linked reveal animation anywhere: full-page captures, printing,
+  and JavaScript failure must never encounter hidden content. The hero
+  entrance is pure CSS with a terminal visible state (`animation-fill-mode:
+  both` ending at full opacity), is disabled under reduced motion, and is
+  forced off in print styles.
+- The visual layer does not change chart geometry, label placement, series
+  colors, data flow, or validation numbers.
+
 ## Hosting
 
 - Static HTML, CSS, and JavaScript only.

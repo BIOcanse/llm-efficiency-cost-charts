@@ -27,13 +27,13 @@
 26,GPT-5.5,xhigh,54.8376,0.014178054,0.992463778,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
 27,GPT-5.6 Sol,max,58.8898,0.014819002,1.037330157,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
 28,HyperNova 60B 2605,default,17.8041,0.01928939,0.01928939,open_weight_no_first_party_subscription,current,None,,Multiverse Computing,medium
-29,DeepSeek V4 Flash,max,40.2825,0.022281834,0.022281834,api_no_first_party_subscription,current,None,,DeepSeek,high
+29,DeepSeek V4 Flash (Preview),max,40.2825,0.022281834,0.022281834,api_no_first_party_subscription,current,None,,DeepSeek,high
 30,Claude Opus 5,medium,56.2806,0.023188469,0.618359184,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
 31,MiMo-V2.5-Pro,default,42.2394,0.026412511,0.031395287,subscription_official,current,Token Plan Max,100.0,Xiaomi MiMo,high
-32,DeepSeek V4 Flash,high,37.4635,0.026463603,0.026463603,api_no_first_party_subscription,current,None,,DeepSeek,high
+32,DeepSeek V4 Flash (Preview),high,37.4635,0.026463603,0.026463603,api_no_first_party_subscription,current,None,,DeepSeek,high
 33,Claude Opus 5,high,58.8642,0.039641633,1.057110227,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
-34,DeepSeek V4 Pro,high,43.1117,0.040479987,0.040479987,api_no_first_party_subscription,current,None,,DeepSeek,high
-35,DeepSeek V4 Pro,max,44.2736,0.04485219,0.04485219,api_no_first_party_subscription,current,None,,DeepSeek,high
+34,DeepSeek V4 Pro (Preview),high,43.1117,0.040479987,0.040479987,api_no_first_party_subscription,current,None,,DeepSeek,high
+35,DeepSeek V4 Pro (Preview),max,44.2736,0.04485219,0.04485219,api_no_first_party_subscription,current,None,,DeepSeek,high
 36,Claude Sonnet 5,max,53.35,0.057203454,1.525425448,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
 37,Claude Opus 5,xhigh,60.0682,0.058543512,1.561160318,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
 38,Claude Opus 4.8,max,55.692,0.067395807,1.797221526,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium

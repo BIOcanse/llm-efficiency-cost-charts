@@ -9,8 +9,8 @@ Anthropic,fable,Claude Fable 5 (with fallback)
 Anthropic,opus,Claude Opus 5
 Anthropic,sonnet,Claude Sonnet 5
 Cohere,command-a,Command A+
-DeepSeek,flash,DeepSeek V4 Flash
-DeepSeek,pro,DeepSeek V4 Pro
+DeepSeek,flash,DeepSeek V4 Flash (Preview)
+DeepSeek,pro,DeepSeek V4 Pro (Preview)
 Google,pro,Gemini 3.1 Pro Preview
 Google,flash,Gemini 3.6 Flash
 Google,flash-lite,Gemini 3.5 Flash-Lite

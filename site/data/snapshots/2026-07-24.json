@@ -95,7 +95,7 @@
       {
         "rank": 2,
         "category": "limited",
-        "model": "DeepSeek V4 Pro",
+        "model": "DeepSeek V4 Pro (Preview)",
         "levels": 2,
         "score_min": 43.1117,
         "score_max": 44.2736,
@@ -106,7 +106,7 @@
       {
         "rank": 3,
         "category": "limited",
-        "model": "DeepSeek V4 Flash",
+        "model": "DeepSeek V4 Flash (Preview)",
         "levels": 2,
         "score_min": 37.4635,
         "score_max": 40.2825,
@@ -152,7 +152,7 @@
     },
     {
       "rank": 3,
-      "model": "DeepSeek V4 Flash",
+      "model": "DeepSeek V4 Flash (Preview)",
       "effort": "max",
       "score": 40.2825,
       "cost_usd_per_task": 0.022281834,
@@ -163,7 +163,7 @@
     },
     {
       "rank": 4,
-      "model": "DeepSeek V4 Flash",
+      "model": "DeepSeek V4 Flash (Preview)",
       "effort": "high",
       "score": 37.4635,
       "cost_usd_per_task": 0.026463603,
@@ -196,7 +196,7 @@
     },
     {
       "rank": 7,
-      "model": "DeepSeek V4 Pro",
+      "model": "DeepSeek V4 Pro (Preview)",
       "effort": "high",
       "score": 43.1117,
       "cost_usd_per_task": 0.040479987,
@@ -218,7 +218,7 @@
     },
     {
       "rank": 9,
-      "model": "DeepSeek V4 Pro",
+      "model": "DeepSeek V4 Pro (Preview)",
       "effort": "max",
       "score": 44.2736,
       "cost_usd_per_task": 0.04485219,
@@ -1272,7 +1272,7 @@
     },
     {
       "rank": 29,
-      "model": "DeepSeek V4 Flash",
+      "model": "DeepSeek V4 Flash (Preview)",
       "effort": "max",
       "score": 40.2825,
       "cost_usd_per_task": 0.022281834,
@@ -1314,7 +1314,7 @@
     },
     {
       "rank": 32,
-      "model": "DeepSeek V4 Flash",
+      "model": "DeepSeek V4 Flash (Preview)",
       "effort": "high",
       "score": 37.4635,
       "cost_usd_per_task": 0.026463603,
@@ -1342,7 +1342,7 @@
     },
     {
       "rank": 34,
-      "model": "DeepSeek V4 Pro",
+      "model": "DeepSeek V4 Pro (Preview)",
       "effort": "high",
       "score": 43.1117,
       "cost_usd_per_task": 0.040479987,
@@ -1356,7 +1356,7 @@
     },
     {
       "rank": 35,
-      "model": "DeepSeek V4 Pro",
+      "model": "DeepSeek V4 Pro (Preview)",
       "effort": "max",
       "score": 44.2736,
       "cost_usd_per_task": 0.04485219,
@@ -2102,7 +2102,7 @@
         "frontier_position": ""
       },
       {
-        "model": "DeepSeek V4 Pro",
+        "model": "DeepSeek V4 Pro (Preview)",
         "effort": "high",
         "effort_order": 3,
         "score": 43.1117,
@@ -2114,7 +2114,7 @@
         "frontier_position": "pro"
       },
       {
-        "model": "DeepSeek V4 Pro",
+        "model": "DeepSeek V4 Pro (Preview)",
         "effort": "max",
         "effort_order": 5,
         "score": 44.2736,
@@ -2126,7 +2126,7 @@
         "frontier_position": "pro"
       },
       {
-        "model": "DeepSeek V4 Flash",
+        "model": "DeepSeek V4 Flash (Preview)",
         "effort": "high",
         "effort_order": 3,
         "score": 37.4635,
@@ -2138,7 +2138,7 @@
         "frontier_position": "flash"
       },
       {
-        "model": "DeepSeek V4 Flash",
+        "model": "DeepSeek V4 Flash (Preview)",
         "effort": "max",
         "effort_order": 5,
         "score": 40.2825,
@@ -3048,7 +3048,7 @@
         "frontier_position": ""
       },
       {
-        "model": "DeepSeek V4 Pro",
+        "model": "DeepSeek V4 Pro (Preview)",
         "effort": "high",
         "effort_order": 3,
         "score": 43.1117,
@@ -3062,7 +3062,7 @@
         "frontier_position": "pro"
       },
       {
-        "model": "DeepSeek V4 Pro",
+        "model": "DeepSeek V4 Pro (Preview)",
         "effort": "max",
         "effort_order": 5,
         "score": 44.2736,
@@ -3076,7 +3076,7 @@
         "frontier_position": "pro"
       },
       {
-        "model": "DeepSeek V4 Flash",
+        "model": "DeepSeek V4 Flash (Preview)",
         "effort": "high",
         "effort_order": 3,
         "score": 37.4635,
@@ -3090,7 +3090,7 @@
         "frontier_position": "flash"
       },
       {
-        "model": "DeepSeek V4 Flash",
+        "model": "DeepSeek V4 Flash (Preview)",
         "effort": "max",
         "effort_order": 5,
         "score": 40.2825,
@@ -3853,7 +3853,7 @@
         "frontier_position": "opus"
       },
       {
-        "model": "DeepSeek V4 Pro",
+        "model": "DeepSeek V4 Pro (Preview)",
         "effort": "high",
         "effort_order": 3,
         "score": 43.1117,
@@ -3868,7 +3868,7 @@
         "frontier_position": "pro"
       },
       {
-        "model": "DeepSeek V4 Pro",
+        "model": "DeepSeek V4 Pro (Preview)",
         "effort": "max",
         "effort_order": 5,
         "score": 44.2736,
@@ -3883,7 +3883,7 @@
         "frontier_position": "pro"
       },
       {
-        "model": "DeepSeek V4 Flash",
+        "model": "DeepSeek V4 Flash (Preview)",
         "effort": "high",
         "effort_order": 3,
         "score": 37.4635,
@@ -3898,7 +3898,7 @@
         "frontier_position": "flash"
       },
       {
-        "model": "DeepSeek V4 Flash",
+        "model": "DeepSeek V4 Flash (Preview)",
         "effort": "max",
         "effort_order": 5,
         "score": 40.2825,
@@ -4054,7 +4054,7 @@
       {
         "metric": "api",
         "score_threshold": 40,
-        "model": "DeepSeek V4 Flash",
+        "model": "DeepSeek V4 Flash (Preview)",
         "effort": "max",
         "score": 40.2825,
         "cost_usd_per_task": 0.022281834,

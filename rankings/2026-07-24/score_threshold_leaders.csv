@@ -1,5 +1,5 @@
 ﻿metric,score_threshold,model,effort,score,cost_usd_per_task,provider,access_mode,plan_name,confidence
-api,40,DeepSeek V4 Flash,max,40.2825,0.022281834,DeepSeek,api,,
+api,40,DeepSeek V4 Flash (Preview),max,40.2825,0.022281834,DeepSeek,api,,
 api,45,GPT-5.6 Luna,high,46.059,0.094764593,OpenAI,api,,
 api,50,GPT-5.6 Luna,max,51.2359,0.209413324,OpenAI,api,,
 api,55,GPT-5.6 Sol,high,55.8665,0.453009427,OpenAI,api,,

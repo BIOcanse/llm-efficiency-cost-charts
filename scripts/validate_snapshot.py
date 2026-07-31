@@ -16,6 +16,10 @@ EXPECTED_PRICES = {
     "GPT-5.6 Terra": (2.0, 0.2, 2.5, 12.0),
     "GPT-5.6 Luna": (0.2, 0.02, 0.25, 1.2),
 }
+EXPECTED_DEEPSEEK_V4_PREVIEW_MODELS = {
+    "DeepSeek V4 Pro (Preview)",
+    "DeepSeek V4 Flash (Preview)",
+}
 EXPECTED_SNAPSHOTS = {
     "2026-07-31": "2026-07-31T05:55:55Z",
     "2026-07-24": "2026-07-25T03:06:13Z",
@@ -50,6 +54,13 @@ def index(rows: list[dict[str, str]]) -> dict[tuple[str, str], dict[str, str]]:
     return result
 
 
+def assert_preview_suffix(rows: list[dict[str, object]]) -> None:
+    for row in rows:
+        model = str(row.get("model", ""))
+        if model.startswith("DeepSeek V4 "):
+            assert model.endswith(" (Preview)"), model
+
+
 def validate_data(root: Path, base_snapshot: str, snapshot: str) -> None:
     base_dir = root / "data" / base_snapshot
     data_dir = root / "data" / snapshot
@@ -60,6 +71,11 @@ def validate_data(root: Path, base_snapshot: str, snapshot: str) -> None:
     assert len(new_models) == EXPECTED_COUNTS["models"]
     assert sum(bool(row["cost_per_index_task_usd"]) for row in new_models) == EXPECTED_COUNTS["api"]
     assert len(new_access) == EXPECTED_COUNTS["subscription"]
+    for rows in (old_models, new_models, old_access, new_access):
+        assert_preview_suffix(rows)
+    assert {
+        row["model"] for row in new_models if row["developer"] == "DeepSeek"
+    } == EXPECTED_DEEPSEEK_V4_PREVIEW_MODELS
 
     old_model_index = index(old_models)
     new_model_index = index(new_models)
@@ -122,7 +138,9 @@ def validate_rankings(root: Path, snapshot: str, *, current: bool) -> None:
         "score_threshold_leaders.csv": 12,
     }
     for name, count in expected.items():
-        assert len(read_csv(ranking_dir / name)) == count, name
+        rows = read_csv(ranking_dir / name)
+        assert len(rows) == count, name
+        assert_preview_suffix(rows)
 
     payload = json.loads(
         (root / "site" / "data" / "snapshots" / f"{snapshot}.json").read_text(
@@ -136,6 +154,23 @@ def validate_rankings(root: Path, snapshot: str, *, current: bool) -> None:
     assert len(payload["charts"]["token"]) == EXPECTED_COUNTS["models"]
     assert len(payload["charts"]["api"]) == EXPECTED_COUNTS["api"]
     assert len(payload["charts"]["subscription"]) == EXPECTED_COUNTS["subscription"]
+    payload_rows = (
+        payload["token_efficiency"]["core"]
+        + payload["token_efficiency"]["limited"]
+        + payload["api_cost"]
+        + payload["subscription_cost"]
+        + payload["charts"]["token"]
+        + payload["charts"]["api"]
+        + payload["charts"]["subscription"]
+        + payload["thresholds"]["api"]
+        + payload["thresholds"]["subscription_first"]
+    )
+    assert_preview_suffix(payload_rows)
+    assert {
+        row["model"]
+        for row in payload["charts"]["token"]
+        if row["developer"] == "DeepSeek"
+    } == EXPECTED_DEEPSEEK_V4_PREVIEW_MODELS
     if current:
         alias = json.loads(
             (root / "site" / "data" / "rankings.json").read_text("utf-8")
@@ -194,11 +229,11 @@ def validate_site_links(root: Path, snapshot: str) -> None:
     assert f"data/{snapshot}/model_efficiency.csv" in index_html
     assert "loadSnapshotManifest" in app_js
     assert "renderRecommendations" in app_js
-    assert "data/snapshots.json?v=20260731-entry-locale" in app_js
+    assert "data/snapshots.json?v=20260731-preview-labels" in app_js
     assert "dataRevision: state.snapshot?.id" in app_js
     assert "metricChanged || dataChanged || !this.view" in interactive_js
-    assert "20260731-entry-locale" in index_html
-    assert "20260731-entry-locale" in app_js
+    assert "20260731-preview-labels" in index_html
+    assert "20260731-preview-labels" in app_js
     assert 'searchParams.get("lang")' in app_js
     assert 'searchParams.get("snapshot")' in app_js
     assert "window.history.replaceState" in app_js
@@ -211,7 +246,7 @@ def validate_site_links(root: Path, snapshot: str) -> None:
     assert not (root / "site" / "assets" / "open-interactive-charts-button.svg").exists()
 
     sota_models = ("GPT-5.6 Sol", "Claude Opus 5", "Kimi K3")
-    value_models = ("GPT-5.6 Luna", "DeepSeek V4 Pro")
+    value_models = ("GPT-5.6 Luna", "DeepSeek V4 Pro (Preview)")
     sota_positions = [app_js.index(f'model: "{model}"') for model in sota_models]
     value_positions = [app_js.index(f'model: "{model}"') for model in value_models]
     assert sota_positions == sorted(sota_positions)
