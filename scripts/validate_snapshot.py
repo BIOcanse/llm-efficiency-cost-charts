@@ -11,6 +11,14 @@ from PIL import Image
 
 
 EXPECTED_COUNTS = {"models": 73, "api": 68, "subscription": 46}
+EXPECTED_CODING_COUNTS = {
+    "token": 52,
+    "api": 52,
+    "subscription": 49,
+    "complete": 51,
+    "partial": 1,
+}
+ASSET_REVISION = "20260731-coding-agent-suite"
 EXPECTED_FACTORS = {"GPT-5.6 Terra": 0.8, "GPT-5.6 Luna": 0.2}
 EXPECTED_PRICES = {
     "GPT-5.6 Terra": (2.0, 0.2, 2.5, 12.0),
@@ -39,6 +47,11 @@ CHART_STEMS = (
     "05_api_cost_ranking_full",
     "06_subscription_cost_ranking",
     "06_subscription_cost_ranking_full",
+)
+CODING_CHART_STEMS = (
+    "07_coding_agent_total_tokens_vs_index",
+    "08_coding_agent_subscription_cost_vs_index",
+    "09_coding_agent_api_cost_vs_index",
 )
 
 
@@ -178,10 +191,10 @@ def validate_rankings(root: Path, snapshot: str, *, current: bool) -> None:
         assert alias == payload
 
 
-def validate_chart_tree(chart_root: Path) -> None:
+def validate_chart_tree(chart_root: Path, stems: tuple[str, ...]) -> None:
     for locale in ("en", "zh-CN"):
         chart_dir = chart_root / locale
-        for stem in CHART_STEMS:
+        for stem in stems:
             png = chart_dir / f"{stem}.png"
             svg = chart_dir / f"{stem}.svg"
             expected_size = (4800, 3600) if stem.endswith("_full") else (4800, 2700)
@@ -190,12 +203,128 @@ def validate_chart_tree(chart_root: Path) -> None:
                 assert image.mode in {"RGB", "RGBA"}, png
             assert png.stat().st_size > 100_000, png
             ET.parse(svg)
-            assert svg.stat().st_size > 80_000, svg
+            minimum_svg_bytes = 50_000 if stem in CODING_CHART_STEMS else 80_000
+            assert svg.stat().st_size > minimum_svg_bytes, svg
 
 
 def validate_charts(root: Path) -> None:
-    validate_chart_tree(root / "charts")
-    validate_chart_tree(root / "charts" / "archive" / "2026-07-24")
+    validate_chart_tree(root / "charts", CHART_STEMS + CODING_CHART_STEMS)
+    validate_chart_tree(root / "charts" / "archive" / "2026-07-24", CHART_STEMS)
+
+
+def validate_coding_agents(root: Path, snapshot: str) -> None:
+    data_dir = root / "data" / "coding-agents" / snapshot
+    results = read_csv(data_dir / "coding_agent_results.csv")
+    subscription = read_csv(data_dir / "subscription_first_task_cost.csv")
+    exclusions = read_csv(data_dir / "subscription_exclusions.csv")
+    policies = read_csv(data_dir / "subscription_access_policy.csv")
+    assert len(results) == EXPECTED_CODING_COUNTS["token"]
+    assert len(subscription) == EXPECTED_CODING_COUNTS["subscription"]
+    assert len(exclusions) == 3
+    assert len(policies) == 8
+    assert len({row["result_id"] for row in results}) == len(results)
+    assert len({row["source_display_label"] for row in results}) == len(results)
+    scopes = {scope: sum(row["data_scope"] == scope for row in results) for scope in ("complete", "partial")}
+    assert scopes == {
+        "complete": EXPECTED_CODING_COUNTS["complete"],
+        "partial": EXPECTED_CODING_COUNTS["partial"],
+    }
+    partial = [row for row in results if row["data_scope"] == "partial"]
+    assert [row["source_display_label"] for row in partial] == [
+        "Claude Code - Opus 4.6 (medium)"
+    ]
+    assert partial[0]["eval_count"] == "2"
+    assert {
+        row["model"] for row in results if row["host_model_slug"].endswith("_fp8")
+    } == {"GLM-5.2 (FP8)"}
+    assert {
+        row["model"] for row in results if row["model"].startswith("DeepSeek V4 Pro")
+    } == {"DeepSeek V4 Pro (Preview)"}
+
+    numeric_fields = (
+        "coding_agent_score",
+        "cost_usd_per_task",
+        "agent_wall_time_sec",
+        "steps_per_task",
+        "input_tokens",
+        "output_tokens",
+        "total_tokens",
+        "total_tokens_million",
+    )
+    for row in results:
+        for field in numeric_fields:
+            value = float(row[field])
+            assert math.isfinite(value) and value >= 0, (row["result_id"], field)
+        assert math.isclose(float(row["score_delta"]), 0.0, abs_tol=1e-9)
+
+    all_decision_ids = {
+        row["result_id"] for row in subscription + exclusions
+    }
+    assert all_decision_ids == {row["result_id"] for row in results}
+    assert {row["agent"] for row in exclusions} == {
+        "Gemini CLI",
+        "Grok Build",
+        "Kimi Code CLI",
+    }
+    for row in subscription:
+        ratio = float(row["api_value_ratio"])
+        assert ratio > 0
+        assert math.isclose(
+            float(row["api_cost_per_task_usd"])
+            / float(row["effective_cost_per_task_usd"]),
+            ratio,
+            rel_tol=1e-9,
+        )
+    cursor_rows = [row for row in subscription if row["agent"] == "Cursor CLI"]
+    assert len(cursor_rows) == 6
+    assert all(row["plan_name"] == "Cursor Ultra" for row in cursor_rows)
+    assert all(math.isclose(float(row["api_value_ratio"]), 2.0) for row in cursor_rows)
+    assert all(row["confidence"] == "high" for row in cursor_rows)
+
+    metadata = json.loads((data_dir / "source_metadata.json").read_text("utf-8"))
+    assert metadata["benchmark"] == "Coding Agent Index v1.3"
+    assert metadata["counts"] == {
+        "source_rows": 52,
+        "complete_rows": 51,
+        "partial_rows": 1,
+    }
+    assert len(metadata["source_sha256"]) == 64
+
+    payload = json.loads(
+        (root / "site" / "data" / "coding-agents" / f"{snapshot}.json").read_text(
+            "utf-8"
+        )
+    )
+    assert payload["snapshot"] == snapshot
+    assert payload["benchmark"] == "Coding Agent Index v1.3"
+    assert len(payload["charts"]["token"]) == EXPECTED_CODING_COUNTS["token"]
+    assert len(payload["charts"]["api"]) == EXPECTED_CODING_COUNTS["api"]
+    assert len(payload["charts"]["subscription"]) == EXPECTED_CODING_COUNTS["subscription"]
+    assert sum(
+        row["data_scope"] == "partial" for row in payload["charts"]["token"]
+    ) == 1
+    assert all(
+        row["agent"] in row["model"] for row in payload["charts"]["token"]
+    )
+
+    manifest = json.loads(
+        (root / "site" / "data" / "coding-agents.json").read_text("utf-8")
+    )
+    assert manifest["current"] == snapshot
+    assert [entry["id"] for entry in manifest["snapshots"]] == [snapshot]
+    assert manifest["snapshots"][0]["benchmark"] == "Coding Agent Index v1.3"
+
+    chart_metrics = json.loads(
+        (data_dir / "static_chart_metrics.json").read_text("utf-8")
+    )
+    assert len(chart_metrics) == 6
+    assert all(metric["label_collisions"] == 0 for metric in chart_metrics)
+    assert all(metric["out_of_bounds_labels"] == 0 for metric in chart_metrics)
+    assert {(metric["metric"], metric["locale"]) for metric in chart_metrics} == {
+        (metric, locale)
+        for metric in ("token", "subscription", "api")
+        for locale in ("en", "zh-CN")
+    }
 
 
 def validate_site_links(root: Path, snapshot: str) -> None:
@@ -229,14 +358,25 @@ def validate_site_links(root: Path, snapshot: str) -> None:
     assert f"data/{snapshot}/model_efficiency.csv" in index_html
     assert "loadSnapshotManifest" in app_js
     assert "renderRecommendations" in app_js
-    assert "data/snapshots.json?v=20260731-preview-labels" in app_js
-    assert "dataRevision: state.snapshot?.id" in app_js
+    assert "data/snapshots.json?v=${ASSET_REVISION}" in app_js
+    assert "data/coding-agents.json?v=${ASSET_REVISION}" in app_js
     assert "metricChanged || dataChanged || !this.view" in interactive_js
-    assert "20260731-preview-labels" in index_html
-    assert "20260731-preview-labels" in app_js
+    assert ASSET_REVISION in index_html
+    assert ASSET_REVISION in app_js
+    assert ASSET_REVISION in interactive_js
     assert 'searchParams.get("lang")' in app_js
     assert 'searchParams.get("snapshot")' in app_js
+    assert 'searchParams.get("view")' in app_js
+    assert '"coding-snapshot"' in app_js
     assert "window.history.replaceState" in app_js
+    assert 'data-scenario="general"' in index_html
+    assert 'data-scenario="coding"' in index_html
+    assert 'id="coding-chart1-interactive"' in index_html
+    assert 'id="coding-chart2-interactive"' in index_html
+    assert 'id="coding-chart3-interactive"' in index_html
+    assert "loadCodingSnapshotManifest" in app_js
+    assert 'scopeMode: isCoding ? "field" : "frontier"' in app_js
+    assert 'scopeField: isCoding ? "agent" : ""' in app_js
 
     assert "?lang=zh-CN" in readme
     assert "?lang=en" in readme
@@ -275,12 +415,14 @@ def main() -> None:
             current=known_snapshot == args.snapshot,
         )
     validate_charts(root)
+    validate_coding_agents(root, args.snapshot)
     validate_site_links(root, args.snapshot)
     print(
         "validated snapshot: "
         f"{args.snapshot}; 73 Token / 68 API / 46 subscription; "
         "64 bilingual current/archive chart assets; two dated payloads; "
-        "UTC version metadata, recommendations, and switchable links"
+        "UTC version metadata, recommendations, two scenario pages, and "
+        "52 / 52 / 49 coding-agent charts"
     )
 
 

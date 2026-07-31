@@ -1,0 +1,22 @@
+{
+  "snapshot": "2026-07-31",
+  "benchmark": "Coding Agent Index v1.3",
+  "source_url": "https://artificialanalysis.ai/agents/coding-agents",
+  "methodology_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+  "observed_at_utc": "2026-07-31T14:19:47Z",
+  "source_sha256": "97ace46aae5a6252884567b45b1818934834dcc3ec8bedfc692ba6369f05894c",
+  "source_bytes": 675402,
+  "rsc_chunks": 61,
+  "counts": {
+    "source_rows": 52,
+    "complete_rows": 51,
+    "partial_rows": 1
+  },
+  "partial_rows": [
+    {
+      "result_id": "a2fd26aa83bc9f3cb60d3031483143e4",
+      "display_label": "Claude Code - Opus 4.6 (medium)",
+      "eval_count": 2
+    }
+  ]
+}

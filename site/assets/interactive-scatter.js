@@ -1,4 +1,4 @@
-import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js?v=20260731-preview-labels";
+import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js?v=20260731-coding-agent-suite";
 
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
@@ -72,7 +72,9 @@ function groupByModel(rows) {
 }
 
 function paretoKeys(rows, xKey) {
-  const ordered = [...rows].sort(
+  const ordered = rows
+    .filter((row) => row.data_scope !== "partial")
+    .sort(
     (left, right) =>
       Number(left[xKey]) - Number(right[xKey]) ||
       Number(right.score) - Number(left.score),
@@ -456,17 +458,32 @@ export class InteractiveScatterChart {
     this.providerSelect.value = this.selectedProvider;
 
     this.scopeSelect.replaceChildren();
-    [
-      ["all", this.config.allModelsScopeLabel],
-      ["frontier", this.config.frontierModelsScopeLabel],
-    ].forEach(([value, label]) => {
+    const scopeOptions = [["all", this.config.allModelsScopeLabel]];
+    if (this.config.scopeMode === "field") {
+      const values = [
+        ...new Set(
+          this.sourceData.map(
+            (row) => String(row[this.config.scopeField] || ""),
+          ),
+        ),
+      ]
+        .filter(Boolean)
+        .sort((left, right) => left.localeCompare(right));
+      values.forEach((value) => scopeOptions.push([value, value]));
+      this.modelScope = values.includes(this.modelScope)
+        ? this.modelScope
+        : "all";
+    } else {
+      scopeOptions.push(["frontier", this.config.frontierModelsScopeLabel]);
+      this.modelScope =
+        this.modelScope === "frontier" ? "frontier" : "all";
+    }
+    scopeOptions.forEach(([value, label]) => {
       const option = document.createElement("option");
       option.value = value;
       option.textContent = label;
       this.scopeSelect.append(option);
     });
-    this.modelScope =
-      this.modelScope === "frontier" ? "frontier" : "all";
     this.scopeSelect.value = this.modelScope;
   }
 
@@ -490,6 +507,12 @@ export class InteractiveScatterChart {
         row.developer !== this.selectedProvider
       ) {
         return false;
+      }
+      if (this.config.scopeMode === "field") {
+        return (
+          this.modelScope === "all" ||
+          String(row[this.config.scopeField] || "") === this.modelScope
+        );
       }
       if (this.modelScope !== "frontier") {
         return true;
@@ -741,6 +764,9 @@ export class InteractiveScatterChart {
       if (this.frontier.has(key)) {
         point.classList.add("is-frontier");
       }
+      if (row.data_scope === "partial") {
+        point.classList.add("is-partial");
+      }
       point.addEventListener("pointerenter", () => {
         this.hoveredRow = row;
         this.showTooltip(row);
@@ -842,8 +868,9 @@ export class InteractiveScatterChart {
         "data-model": point.row.model,
         "data-key": rowKey(point.row),
       });
-      label.textContent =
-        `${point.row.model} · ${this.config.effortLabel(point.row.effort)}`;
+      label.textContent = this.config.pointLabel
+        ? this.config.pointLabel(point.row)
+        : `${point.row.model} · ${this.config.effortLabel(point.row.effort)}`;
       labelGroup.append(label);
       const measuredWidth =
         typeof label.getComputedTextLength === "function"
@@ -1149,10 +1176,14 @@ export class InteractiveScatterChart {
         y: this.scales.y(row.score),
         radius,
         color: colorWithOpacity(modelColor(row.model), opacity),
-        outlineColor: this.frontier.has(key)
-          ? colorWithOpacity("#172033", opacity)
-          : null,
-        outlineWidth: this.frontier.has(key) ? 2.4 : 0,
+        outlineColor:
+          row.data_scope === "partial"
+            ? colorWithOpacity("#be123c", opacity)
+            : this.frontier.has(key)
+              ? colorWithOpacity("#172033", opacity)
+              : null,
+        outlineWidth:
+          row.data_scope === "partial" || this.frontier.has(key) ? 2.4 : 0,
       };
     });
     this.gpuScene = {
@@ -1228,7 +1259,9 @@ export class InteractiveScatterChart {
     }
     this.tooltip.replaceChildren();
     const heading = document.createElement("strong");
-    heading.textContent = `${row.model} · ${this.config.effortLabel(row.effort)}`;
+    heading.textContent = this.config.pointLabel
+      ? this.config.pointLabel(row)
+      : `${row.model} · ${this.config.effortLabel(row.effort)}`;
     this.tooltip.append(heading);
     this.config.tooltipRows(row).forEach(([label, value]) => {
       const line = document.createElement("span");

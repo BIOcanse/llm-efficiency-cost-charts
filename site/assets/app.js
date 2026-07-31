@@ -1,4 +1,6 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-preview-labels";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-coding-agent-suite";
+
+const ASSET_REVISION = "20260731-coding-agent-suite";
 
 const translations = {
   en: {
@@ -14,6 +16,7 @@ const translations = {
     heroCopy:
       "Each point represents one model and reasoning level. Lines of the same color connect levels of the same model. Upper left is better.",
     viewRankings: "View rankings",
+    viewCharts: "View charts",
     downloadRelease: "Download complete set",
     openRepository: "Open repository",
     motionLabel: "Motion",
@@ -22,6 +25,15 @@ const translations = {
     tokenConfigurations: "Token configurations",
     apiConfigurations: "API-cost configurations",
     subscriptionConfigurations: "Subscription-first configurations",
+    scenarioEyebrow: "Choose the comparison scenario",
+    scenarioTitle: "General capability or actual coding-agent work",
+    scenarioGeneralTitle: "General benchmark",
+    scenarioGeneralCopy: "Intelligence Index v4.1 · model + reasoning level",
+    scenarioCodingTitle: "Actual coding-agent benchmark",
+    scenarioCodingCopy: "Coding Agent Index v1.3 · agent + model + setting",
+    codingHeroTitle: "What changes when the models actually work inside coding agents?",
+    codingHeroCopy:
+      "Each point is an agent harness, model, and setting on Coding Agent Index v1.3. Upper left is better.",
     recommendationEyebrow: "Personal opinion",
     recommendationTitle: "Model picks",
     recommendationCopy:
@@ -74,6 +86,21 @@ const translations = {
     chart3Title: "API cost per task vs. score",
     chart3Lead:
       "The API cost of completing the same benchmark task.",
+    codingChartSectionEyebrow: "Coding Agent Index v1.3 · three metrics",
+    codingChartSectionTitle:
+      "Token consumption, subscription cost, and API cost in coding-agent work",
+    codingChartSectionCopy:
+      "These are agent-system results, not model-only scores.",
+    codingChart1Title: "Total Token consumption vs. Coding Agent Index",
+    codingChart1Lead:
+      "Average total Tokens consumed by one coding-task attempt.",
+    codingChart2Title:
+      "Subscription-first cost per task vs. Coding Agent Index",
+    codingChart2Lead:
+      "Use an applicable quantifiable plan first; otherwise follow the published inclusion rules.",
+    codingChart3Title: "API cost per task vs. Coding Agent Index",
+    codingChart3Lead:
+      "Observed pay-per-token API cost for one coding-task attempt.",
     rankingEyebrow: "USD per task · relative cost · Token efficiency",
     rankingTitle: "Full numerical rankings",
     rankingCopy:
@@ -126,6 +153,10 @@ const translations = {
     showTop: "Show top 15",
     statusLanguage: "Language changed to English",
     statusSnapshot: (label) => `Snapshot changed to ${label}`,
+    statusScenario: (scenario) =>
+      scenario === "coding"
+        ? "Switched to the coding-agent benchmark"
+        : "Switched to the general benchmark",
     statusMotion: (mode) =>
       mode === "reduced" ? "Motion set to reduced" : "Motion set to full",
     interactive: {
@@ -159,6 +190,42 @@ const translations = {
       developer: "Model provider",
       provider: "Provider",
       access: "Access",
+      pointAction: "Press Enter to pin this point",
+    },
+    codingInteractive: {
+      providerControl: "Model provider",
+      allProviders: "All providers",
+      agentControl: "Agent harness",
+      allAgents: "All agent harnesses",
+      zoomIn: "Zoom in",
+      zoomOut: "Zoom out",
+      reset: "Reset view",
+      interactionHint: "Hover for values · click to pin or clear",
+      readoutHint: "No point selected",
+      scoreAxis: "Coding Agent Index v1.3 score",
+      xAxis: {
+        token: "Average total Tokens per task (million)",
+        api: "API cost per coding task (USD)",
+        subscription: "Subscription-first cost per coding task (USD)",
+      },
+      title: {
+        token: "Interactive coding-agent Token consumption versus score",
+        api: "Interactive coding-agent API task cost versus score",
+        subscription:
+          "Interactive coding-agent subscription-first task cost versus score",
+      },
+      score: "Score",
+      totalTokens: "Total Tokens",
+      apiCost: "API cost",
+      subscriptionCost: "Effective cost",
+      developer: "Model provider",
+      provider: "API route",
+      access: "Access",
+      agent: "Agent harness",
+      wallTime: "Agent wall time",
+      components: "Benchmark components",
+      partialComponents: "2/3 (partial)",
+      completeComponents: "3/3",
       pointAction: "Press Enter to pin this point",
     },
     table: {
@@ -235,6 +302,59 @@ const translations = {
         },
       ],
     ],
+    codingChartDetails: [
+      [
+        {
+          title: "Axes and marks",
+          body:
+            "<ul><li>Y: Coding Agent Index v1.3 score.</li><li>X: average total Tokens per coding-task attempt.</li><li>One point: agent harness + model + setting.</li><li>Same-color line: settings of the same agent and model.</li></ul>",
+        },
+        {
+          title: "Calculation",
+          body:
+            "<p>The source pools Token use across DeepSWE, Terminal-Bench v2, and SWE-Atlas-QnA. Harness policy, tool calls, context reuse, and stopping behavior all affect this number.</p>",
+        },
+        {
+          title: "Read with care",
+          body:
+            "<p>Fifty-one rows contain all three components. Claude Code · Opus 4.6 (medium) has two published components and is retained with a † marker.</p>",
+        },
+      ],
+      [
+        {
+          title: "Inclusion order",
+          body:
+            "<ol><li>Use an applicable plan when its allowance can be quantified.</li><li>Exclude a relevant plan whose allowance cannot be converted.</li><li>Use API only when the evaluated route has no applicable subscription.</li></ol>",
+        },
+        {
+          title: "Current access evidence",
+          body:
+            "<p>Codex uses the dated ChatGPT Pro 20x estimate; Anthropic models in Claude Code use the Claude Max 20x estimate. Cursor Ultra uses its official guaranteed $400 Agent API allowance for $200, a conservative 2x ratio that ignores bonus usage.</p>",
+        },
+        {
+          title: "Excluded here",
+          body:
+            "<p>Gemini CLI, Grok Build, and Kimi Code CLI have applicable plans but no stable task or Token conversion, so their three rows are excluded instead of being replaced by API pricing.</p>",
+        },
+      ],
+      [
+        {
+          title: "Axes and marks",
+          body:
+            "<ul><li>Y: Coding Agent Index v1.3 score.</li><li>X: observed pay-per-token API cost per coding task.</li><li>All 52 source-table configurations are included.</li></ul>",
+        },
+        {
+          title: "Calculation",
+          body:
+            "<p>Artificial Analysis applies the evaluated API route's uncached input, cache-read/write, and output pricing to the pooled task traces. The chart does not substitute a cheaper provider.</p>",
+        },
+        {
+          title: "Read with care",
+          body:
+            "<p>This is the observed cost of the full agent system on this suite. It excludes engineering overhead and does not predict every repository, cache pattern, or supervision policy.</p>",
+        },
+      ],
+    ],
     methodCards: [
       {
         title: "One benchmark, not every workload",
@@ -252,6 +372,23 @@ const translations = {
           "OpenAI and Claude subscription values are third-party API-equivalent estimates, not fixed Token quotas promised by the providers. Confidence is displayed in the table.",
       },
     ],
+    codingMethodCards: [
+      {
+        title: "A coding-agent benchmark, not a model-only test",
+        body:
+          "Each point combines a harness, model, setting, caching behavior, and tool workflow. A difference cannot automatically be attributed to model weights.",
+      },
+      {
+        title: "321 tasks, three components",
+        body:
+          "The index equally weights DeepSWE, Terminal-Bench v2, and SWE-Atlas-QnA. Each task is attempted three times and averaged at task level.",
+      },
+      {
+        title: "One partial row and estimated plan values",
+        body:
+          "The Opus 4.6 medium row has two materialized components. OpenAI and Anthropic plan values remain third-party API-equivalent estimates; Cursor uses an official guaranteed allowance.",
+      },
+    ],
   },
   "zh-CN": {
     brand: "大模型效率与成本",
@@ -266,6 +403,7 @@ const translations = {
     heroCopy:
       "每个点代表一个模型和思考档位，同色线连接同一模型的不同档位。左上更优。",
     viewRankings: "查看排名",
+    viewCharts: "查看图表",
     downloadRelease: "下载完整套图",
     openRepository: "打开仓库",
     motionLabel: "动效",
@@ -274,6 +412,15 @@ const translations = {
     tokenConfigurations: "Token 消耗配置",
     apiConfigurations: "API 成本配置",
     subscriptionConfigurations: "套餐优先配置",
+    scenarioEyebrow: "选择对比场景",
+    scenarioTitle: "通用能力，还是 Agent 实际编码",
+    scenarioGeneralTitle: "通用场景",
+    scenarioGeneralCopy: "Intelligence Index v4.1 · 模型＋思考档位",
+    scenarioCodingTitle: "Agent 实际编码场景",
+    scenarioCodingCopy: "Coding Agent Index v1.3 · Agent 工具链＋模型＋档位",
+    codingHeroTitle: "模型放进 Agent 里实际写代码，效率和成本会怎样？",
+    codingHeroCopy:
+      "每个点是一种 Agent 工具链、模型和档位组合，统一使用 Coding Agent Index v1.3。左上更优。",
     recommendationEyebrow: "个人观点",
     recommendationTitle: "模型推荐",
     recommendationCopy: "只列仍有明确选择理由的模型。",
@@ -319,6 +466,15 @@ const translations = {
     chart2Lead: "有可核算套餐时优先使用套餐，否则使用 API。",
     chart3Title: "API 单位任务成本与跑分",
     chart3Lead: "完成同一评测任务需要多少 API 成本。",
+    codingChartSectionEyebrow: "Coding Agent Index v1.3 · 三项指标",
+    codingChartSectionTitle: "实际编码中的 Token 消耗、套餐成本与 API 成本",
+    codingChartSectionCopy: "这里比较的是完整 Agent 系统，不是单独的模型。",
+    codingChart1Title: "总 Token 消耗与 Coding Agent Index",
+    codingChart1Lead: "平均完成一次编码任务实际消耗多少 Token。",
+    codingChart2Title: "套餐优先单任务成本与 Coding Agent Index",
+    codingChart2Lead: "优先使用可核算的适用套餐，再按统一规则决定纳入或排除。",
+    codingChart3Title: "API 单任务成本与 Coding Agent Index",
+    codingChart3Lead: "按量 API 完成一次编码任务的实测成本。",
     rankingEyebrow: "美元/任务 · 相对成本 · Token 效率",
     rankingTitle: "完整数值排名",
     rankingCopy:
@@ -367,6 +523,10 @@ const translations = {
     showTop: "只显示前 15 项",
     statusLanguage: "已切换为中文",
     statusSnapshot: (label) => `已切换至 ${label}`,
+    statusScenario: (scenario) =>
+      scenario === "coding"
+        ? "已切换至 Agent 实际编码场景"
+        : "已切换至通用场景",
     statusMotion: (mode) =>
       mode === "reduced" ? "动效已设为减弱" : "动效已设为正常",
     interactive: {
@@ -399,6 +559,41 @@ const translations = {
       developer: "模型提供商",
       provider: "供应商",
       access: "获取方式",
+      pointAction: "按 Enter 可固定该点",
+    },
+    codingInteractive: {
+      providerControl: "模型提供商",
+      allProviders: "全部提供商",
+      agentControl: "Agent 工具链",
+      allAgents: "全部 Agent 工具链",
+      zoomIn: "放大",
+      zoomOut: "缩小",
+      reset: "恢复完整视图",
+      interactionHint: "悬停查看数值 · 点击固定或取消",
+      readoutHint: "未选择点位",
+      scoreAxis: "Coding Agent Index v1.3 分数",
+      xAxis: {
+        token: "平均单任务总 Token（百万）",
+        api: "API 单任务成本（美元）",
+        subscription: "套餐优先单任务成本（美元）",
+      },
+      title: {
+        token: "实际编码 Agent 总 Token 消耗交互图",
+        api: "实际编码 Agent API 单任务成本交互图",
+        subscription: "实际编码 Agent 套餐优先单任务成本交互图",
+      },
+      score: "分数",
+      totalTokens: "总 Token",
+      apiCost: "API 成本",
+      subscriptionCost: "折算成本",
+      developer: "模型提供商",
+      provider: "API 路由",
+      access: "获取方式",
+      agent: "Agent 工具链",
+      wallTime: "Agent 执行时间",
+      components: "子评测覆盖",
+      partialComponents: "2/3（部分）",
+      completeComponents: "3/3",
       pointAction: "按 Enter 可固定该点",
     },
     table: {
@@ -475,6 +670,59 @@ const translations = {
         },
       ],
     ],
+    codingChartDetails: [
+      [
+        {
+          title: "坐标与标记",
+          body:
+            "<ul><li>纵轴：Coding Agent Index v1.3 分数。</li><li>横轴：平均每次编码任务的总 Token。</li><li>每个点：Agent 工具链＋模型＋档位。</li><li>同色线：同一 Agent 和模型的不同档位。</li></ul>",
+        },
+        {
+          title: "计算方法",
+          body:
+            "<p>Token 消耗来自 DeepSWE、Terminal-Bench v2 和 SWE-Atlas-QnA 的任务轨迹汇总。Agent 策略、工具调用、上下文复用和停止条件都会影响结果。</p>",
+        },
+        {
+          title: "注意事项",
+          body:
+            "<p>51 个配置覆盖三项子评测；Claude Code · Opus 4.6（medium）只公开了两项，图中以 † 单独标记。</p>",
+        },
+      ],
+      [
+        {
+          title: "纳入顺序",
+          body:
+            "<ol><li>有可核算额度时使用适用套餐。</li><li>有适用套餐但额度无法换算时排除。</li><li>只有该评测路径不存在适用套餐时才使用 API。</li></ol>",
+        },
+        {
+          title: "当前套餐口径",
+          body:
+            "<p>Codex 使用 ChatGPT Pro 20x 的快照估算；Claude Code 中的 Anthropic 模型使用 Claude Max 20x 估算。Cursor Ultra 官方明确 $200/月包含至少 $400 Agent API 用量，因此保守按 2 倍折算，不计无法量化的额外赠送。</p>",
+        },
+        {
+          title: "排除项",
+          body:
+            "<p>Gemini CLI、Grok Build 和 Kimi Code CLI 虽有适用套餐，但额度无法稳定换算为任务或 Token，因此排除这 3 个点，不用 API 价格替代。</p>",
+        },
+      ],
+      [
+        {
+          title: "坐标与标记",
+          body:
+            "<ul><li>纵轴：Coding Agent Index v1.3 分数。</li><li>横轴：按量 API 完成一次编码任务的成本。</li><li>纳入当前榜单全部 52 个配置。</li></ul>",
+        },
+        {
+          title: "计算方法",
+          body:
+            "<p>Artificial Analysis 按实际评测路由，将普通输入、缓存读写和输出用量乘以对应价格。不会为了压低成本改用另一个便宜供应商。</p>",
+        },
+        {
+          title: "注意事项",
+          body:
+            "<p>该图反映整套 Agent 系统在这组任务中的成本，不含工程和人工监督开销，也不能直接代表所有代码库、缓存方式或工作流。</p>",
+        },
+      ],
+    ],
     methodCards: [
       {
         title: "只代表同一套评测",
@@ -490,6 +738,23 @@ const translations = {
         title: "估算仍然是估算",
         body:
           "OpenAI 与 Claude 的套餐数据是第三方 API 等价值估算，不是厂商承诺的固定 Token 配额，表格中会同时显示置信度。",
+      },
+    ],
+    codingMethodCards: [
+      {
+        title: "这是 Agent 系统评测",
+        body:
+          "每个点同时受到工具链、模型、档位、缓存和工具调用流程影响，差异不能一概归因于模型本体。",
+      },
+      {
+        title: "321 个任务，三项组成",
+        body:
+          "指数等权汇总 DeepSWE、Terminal-Bench v2 和 SWE-Atlas-QnA；每个任务运行三次，再按任务计算平均通过率。",
+      },
+      {
+        title: "一项部分数据，部分套餐为估算",
+        body:
+          "Opus 4.6 medium 只公开两项子评测。OpenAI 与 Anthropic 套餐仍是第三方 API 等价值估算；Cursor 使用官方保证额度。",
       },
     ],
   },
@@ -508,6 +773,19 @@ const chartAssetStems = {
   ],
 };
 
+const codingChartAssetStems = {
+  en: [
+    "en/07_coding_agent_total_tokens_vs_index",
+    "en/08_coding_agent_subscription_cost_vs_index",
+    "en/09_coding_agent_api_cost_vs_index",
+  ],
+  "zh-CN": [
+    "zh-CN/07_coding_agent_total_tokens_vs_index",
+    "zh-CN/08_coding_agent_subscription_cost_vs_index",
+    "zh-CN/09_coding_agent_api_cost_vs_index",
+  ],
+};
+
 const effortLabels = {
   en: {
     instant: "Instant",
@@ -515,6 +793,8 @@ const effortLabels = {
     low: "Low",
     medium: "Medium",
     default: "Default",
+    fast: "Fast",
+    thinking: "Thinking",
     high: "High",
     xhigh: "Xhigh",
     max: "Max",
@@ -525,6 +805,8 @@ const effortLabels = {
     low: "低",
     medium: "中",
     default: "默认",
+    fast: "快速",
+    thinking: "思考",
     high: "高",
     xhigh: "超高",
     max: "Max",
@@ -539,10 +821,15 @@ const confidenceLabels = {
 const state = {
   language: "en",
   motion: "full",
+  scenario: "general",
   rankings: null,
   snapshotManifest: null,
   snapshot: null,
   snapshotLoadSequence: 0,
+  coding: null,
+  codingSnapshotManifest: null,
+  codingSnapshot: null,
+  codingSnapshotLoadSequence: 0,
   expanded: {
     subscription: false,
     subscriptionValue: false,
@@ -556,23 +843,56 @@ const state = {
 };
 
 const chartInstances = new Map();
-const interactiveChartSpecs = [
+const generalInteractiveChartSpecs = [
   {
+    scenario: "general",
+    instanceKey: "general-token",
     metric: "token",
     dataKey: "token",
     containerId: "chart1-interactive",
     xKey: "total_tokens_million",
   },
   {
+    scenario: "general",
+    instanceKey: "general-subscription",
     metric: "subscription",
     dataKey: "subscription",
     containerId: "chart2-interactive",
     xKey: "cost_usd_per_task",
   },
   {
+    scenario: "general",
+    instanceKey: "general-api",
     metric: "api",
     dataKey: "api",
     containerId: "chart3-interactive",
+    xKey: "cost_usd_per_task",
+  },
+];
+
+const codingInteractiveChartSpecs = [
+  {
+    scenario: "coding",
+    instanceKey: "coding-token",
+    metric: "token",
+    dataKey: "token",
+    containerId: "coding-chart1-interactive",
+    xKey: "total_tokens_million",
+  },
+  {
+    scenario: "coding",
+    instanceKey: "coding-subscription",
+    metric: "subscription",
+    dataKey: "subscription",
+    containerId: "coding-chart2-interactive",
+    xKey: "cost_usd_per_task",
+  },
+  {
+    scenario: "coding",
+    instanceKey: "coding-api",
+    metric: "api",
+    dataKey: "api",
+    containerId: "coding-chart3-interactive",
     xKey: "cost_usd_per_task",
   },
 ];
@@ -596,6 +916,22 @@ function browserLanguage() {
   return languages.some((language) => language.toLowerCase().startsWith("zh"))
     ? "zh-CN"
     : "en";
+}
+
+function scenarioPreference() {
+  const requested = new URL(window.location.href).searchParams.get("view");
+  if (requested === "general" || requested === "coding") {
+    return requested;
+  }
+  try {
+    const saved = window.localStorage.getItem("llm-efficiency-scenario");
+    if (saved === "general" || saved === "coding") {
+      return saved;
+    }
+  } catch {
+    // The visible scenario control still works when storage is disabled.
+  }
+  return "general";
 }
 
 function motionPreference() {
@@ -649,11 +985,32 @@ function savedSnapshotId(defaultSnapshot) {
   }
 }
 
+function savedCodingSnapshotId(defaultSnapshot) {
+  const requested = new URL(window.location.href).searchParams.get(
+    "coding-snapshot",
+  );
+  if (requested) {
+    return requested;
+  }
+  try {
+    return (
+      window.localStorage.getItem("llm-efficiency-coding-snapshot") ||
+      defaultSnapshot
+    );
+  } catch {
+    return defaultSnapshot;
+  }
+}
+
 function syncUrlState() {
   const url = new URL(window.location.href);
   url.searchParams.set("lang", state.language);
+  url.searchParams.set("view", state.scenario);
   if (state.snapshot) {
     url.searchParams.set("snapshot", state.snapshot.id);
+  }
+  if (state.codingSnapshot) {
+    url.searchParams.set("coding-snapshot", state.codingSnapshot.id);
   }
   window.history.replaceState(null, "", url);
 }
@@ -667,36 +1024,44 @@ function formatUtcTimestamp(value) {
 }
 
 function renderSnapshotMetadata() {
-  if (!state.snapshotManifest || !state.snapshot) {
+  const manifest =
+    state.scenario === "coding"
+      ? state.codingSnapshotManifest
+      : state.snapshotManifest;
+  const snapshot =
+    state.scenario === "coding" ? state.codingSnapshot : state.snapshot;
+  if (!manifest || !snapshot) {
     return;
   }
   const text = translations[state.language];
   const select = document.getElementById("snapshot-select");
   select.replaceChildren(
-    ...state.snapshotManifest.snapshots.map((snapshot) => {
+    ...manifest.snapshots.map((candidate) => {
       const option = document.createElement("option");
-      option.value = snapshot.id;
-      option.textContent = snapshotOptionLabel(snapshot);
+      option.value = candidate.id;
+      option.textContent = snapshotOptionLabel(candidate);
       return option;
     }),
   );
-  select.value = state.snapshot.id;
+  select.value = snapshot.id;
 
   document.querySelector('[data-i18n="snapshotLabel"]').textContent =
-    `${text.snapshotLabel} · ${state.snapshot.id}`;
+    `${text.snapshotLabel} · ${snapshot.id}`;
   const time = document.getElementById("snapshot-time");
-  time.dateTime = state.snapshot.published_at_utc;
-  time.textContent = formatUtcTimestamp(state.snapshot.published_at_utc);
+  time.dateTime = snapshot.published_at_utc;
+  time.textContent = formatUtcTimestamp(snapshot.published_at_utc);
 
   document.getElementById("selected-release-link").href =
-    state.snapshot.release_url;
-  document.getElementById("selected-data-link").href = state.snapshot.data_url;
-  document.getElementById("subscription-ranking-csv").href =
-    `${state.snapshot.ranking_base}/subscription_cost_ranking.csv`;
-  document.getElementById("token-ranking-csv").href =
-    `${state.snapshot.ranking_base}/token_efficiency_ranking.csv`;
-  document.getElementById("api-ranking-csv").href =
-    `${state.snapshot.ranking_base}/api_cost_ranking.csv`;
+    snapshot.release_url;
+  document.getElementById("selected-data-link").href = snapshot.data_url;
+  if (state.scenario === "general") {
+    document.getElementById("subscription-ranking-csv").href =
+      `${snapshot.ranking_base}/subscription_cost_ranking.csv`;
+    document.getElementById("token-ranking-csv").href =
+      `${snapshot.ranking_base}/token_efficiency_ranking.csv`;
+    document.getElementById("api-ranking-csv").href =
+      `${snapshot.ranking_base}/api_cost_ranking.csv`;
+  }
 }
 
 function renderRecommendations() {
@@ -759,16 +1124,50 @@ function renderChartDetails() {
     document.getElementById(`chart${chartNumber}-png`).href = `${base}.png`;
     document.getElementById(`chart${chartNumber}-svg`).href = `${base}.svg`;
   });
+
+  text.codingChartDetails.forEach((blocks, index) => {
+    const target = document.getElementById(`coding-chart${index + 1}-details`);
+    target.innerHTML = blocks
+      .map(
+        (block) =>
+          `<section class="detail-block"><h4>${block.title}</h4>${block.body}</section>`,
+      )
+      .join("");
+  });
+  const codingChartBase = state.codingSnapshot?.chart_base || "charts";
+  codingChartAssetStems[state.language].forEach((stem, index) => {
+    const base = `${codingChartBase}/${stem}`;
+    const chartNumber = index + 1;
+    document.getElementById(`coding-chart${chartNumber}-png`).href = `${base}.png`;
+    document.getElementById(`coding-chart${chartNumber}-svg`).href = `${base}.svg`;
+  });
 }
 
 function renderMethodCards() {
-  const cards = translations[state.language].methodCards;
+  const translationsForLanguage = translations[state.language];
+  const cards =
+    state.scenario === "coding"
+      ? translationsForLanguage.codingMethodCards
+      : translationsForLanguage.methodCards;
   document.getElementById("method-grid").innerHTML = cards
     .map(
       (card) =>
         `<article class="method-card"><h3>${card.title}</h3><p>${card.body}</p></article>`,
     )
     .join("");
+}
+
+function renderMetricCounts() {
+  const payload = state.scenario === "coding" ? state.coding : state.rankings;
+  if (!payload?.counts) {
+    return;
+  }
+  document.getElementById("token-count").textContent =
+    payload.counts.token_configurations;
+  document.getElementById("api-count").textContent =
+    payload.counts.api_cost_configurations;
+  document.getElementById("subscription-count").textContent =
+    payload.counts.subscription_first_configurations;
 }
 
 function formatScore(value) {
@@ -854,20 +1253,63 @@ function interactiveAccess(metric, row, text) {
   return [text.access, accessLabel(row)];
 }
 
+function formatDuration(seconds) {
+  const numeric = Number(seconds);
+  if (numeric < 120) {
+    return `${numeric.toFixed(0)} s`;
+  }
+  return `${(numeric / 60).toFixed(1)} min`;
+}
+
 function interactiveChartConfig(spec, pointCount) {
-  const text = translations[state.language].interactive;
+  const isCoding = spec.scenario === "coding";
+  const text = isCoding
+    ? translations[state.language].codingInteractive
+    : translations[state.language].interactive;
   const valueLabel = interactiveValueLabel(spec.metric, text);
+  const pointLabel = (row) =>
+    `${row.data_scope === "partial" ? "†" : ""}${row.model} · ${effortLabel(row.effort)}`;
   const rowSummary = (row) =>
-    `${row.model} · ${effortLabel(row.effort)} · ${text.score} ${formatScore(row.score)} · ${valueLabel} ${formatInteractiveValue(spec.metric, row[spec.xKey])}`;
+    `${pointLabel(row)} · ${text.score} ${formatScore(row.score)} · ${valueLabel} ${formatInteractiveValue(spec.metric, row[spec.xKey])}`;
+  const snapshot = isCoding ? state.codingSnapshot : state.snapshot;
+  const tooltipRows = (row) => {
+    const rows = [
+      [text.score, formatScore(row.score)],
+      [valueLabel, formatInteractiveValue(spec.metric, row[spec.xKey])],
+    ];
+    if (!isCoding) {
+      rows.push(interactiveAccess(spec.metric, row, text));
+      return rows;
+    }
+    rows.push(
+      [text.agent, row.agent],
+      [text.developer, row.developer],
+      spec.metric === "subscription"
+        ? [text.access, accessLabel(row)]
+        : [text.provider, row.provider],
+      [text.wallTime, formatDuration(row.agent_wall_time_sec)],
+      [
+        text.components,
+        row.data_scope === "partial"
+          ? text.partialComponents
+          : text.completeComponents,
+      ],
+    );
+    return rows;
+  };
   return {
-    metric: spec.metric,
-    dataRevision: state.snapshot?.id || state.rankings.snapshot,
+    metric: spec.instanceKey,
+    dataRevision: `${spec.scenario}:${snapshot?.id || "unloaded"}`,
     xKey: spec.xKey,
     providerControlLabel: text.providerControl,
     allProvidersLabel: text.allProviders,
-    modelScopeControlLabel: text.modelScopeControl,
-    allModelsScopeLabel: text.allModelsScope,
+    modelScopeControlLabel: isCoding
+      ? text.agentControl
+      : text.modelScopeControl,
+    allModelsScopeLabel: isCoding ? text.allAgents : text.allModelsScope,
     frontierModelsScopeLabel: text.frontierModelsScope,
+    scopeMode: isCoding ? "field" : "frontier",
+    scopeField: isCoding ? "agent" : "",
     zoomInLabel: text.zoomIn,
     zoomOutLabel: text.zoomOut,
     resetLabel: text.reset,
@@ -880,31 +1322,34 @@ function interactiveChartConfig(spec, pointCount) {
     effortLabel,
     formatScoreTick: (value) => Number(value).toFixed(0),
     formatXAxisTick: (value) => formatInteractiveAxis(spec.metric, value),
-    tooltipRows: (row) => [
-      [text.score, formatScore(row.score)],
-      [valueLabel, formatInteractiveValue(spec.metric, row[spec.xKey])],
-      interactiveAccess(spec.metric, row, text),
-    ],
+    pointLabel,
+    tooltipRows,
     readoutText: rowSummary,
     pointAriaLabel: (row) => `${rowSummary(row)}. ${text.pointAction}.`,
   };
 }
 
 function renderInteractiveCharts() {
-  if (!state.rankings?.charts) {
-    return;
-  }
-  interactiveChartSpecs.forEach((spec) => {
-    const rows = state.rankings.charts[spec.dataKey];
-    let chart = chartInstances.get(spec.metric);
-    if (!chart) {
-      chart = new InteractiveScatterChart(
-        document.getElementById(spec.containerId),
-      );
-      chartInstances.set(spec.metric, chart);
-    }
-    chart.update(rows, interactiveChartConfig(spec, rows.length));
-  });
+  [...generalInteractiveChartSpecs, ...codingInteractiveChartSpecs].forEach(
+    (spec) => {
+      if (spec.scenario !== state.scenario) {
+        return;
+      }
+      const payload = spec.scenario === "coding" ? state.coding : state.rankings;
+      if (!payload?.charts) {
+        return;
+      }
+      const rows = payload.charts[spec.dataKey];
+      let chart = chartInstances.get(spec.instanceKey);
+      if (!chart) {
+        chart = new InteractiveScatterChart(
+          document.getElementById(spec.containerId),
+        );
+        chartInstances.set(spec.instanceKey, chart);
+      }
+      chart.update(rows, interactiveChartConfig(spec, rows.length));
+    },
+  );
 }
 
 function tableHeader(targetId, columns) {
@@ -1167,13 +1612,6 @@ function renderRankings() {
   if (!state.rankings) {
     return;
   }
-  const counts = state.rankings.counts;
-  document.getElementById("token-count").textContent =
-    counts.token_configurations;
-  document.getElementById("api-count").textContent =
-    counts.api_cost_configurations;
-  document.getElementById("subscription-count").textContent =
-    counts.subscription_first_configurations;
   renderSubscriptionRanking();
   renderValueRanking("subscription");
   renderTokenRanking();
@@ -1199,6 +1637,62 @@ function renderRankings() {
   );
 }
 
+function renderScenarioUi() {
+  const text = translations[state.language];
+  const isCoding = state.scenario === "coding";
+  document.documentElement.dataset.scenario = state.scenario;
+  document.querySelectorAll("[data-scenario]").forEach((button) => {
+    button.setAttribute(
+      "aria-selected",
+      String(button.dataset.scenario === state.scenario),
+    );
+  });
+  document.querySelectorAll("[data-scenario-panel]").forEach((panel) => {
+    panel.hidden = panel.dataset.scenarioPanel !== state.scenario;
+  });
+  document.querySelectorAll("[data-scenario-nav='general']").forEach((link) => {
+    link.hidden = isCoding;
+  });
+
+  document.querySelector('[data-i18n="heroTitle"]').textContent = isCoding
+    ? text.codingHeroTitle
+    : text.heroTitle;
+  document.querySelector('[data-i18n="heroCopy"]').textContent = isCoding
+    ? text.codingHeroCopy
+    : text.heroCopy;
+  const chartLink = document.getElementById("nav-charts-link");
+  chartLink.href = isCoding ? "#coding-charts" : "#charts";
+  const primaryLink = document.getElementById("primary-content-link");
+  primaryLink.href = isCoding ? "#coding-charts" : "#rankings";
+  primaryLink.textContent = isCoding ? text.viewCharts : text.viewRankings;
+
+  renderSnapshotMetadata();
+  renderMetricCounts();
+  renderMethodCards();
+}
+
+function setScenario(scenario, remember = true) {
+  if (scenario !== "general" && scenario !== "coding") {
+    return;
+  }
+  state.scenario = scenario;
+  if (remember) {
+    try {
+      window.localStorage.setItem("llm-efficiency-scenario", scenario);
+    } catch {
+      // The visible control remains functional without local storage.
+    }
+  }
+  syncUrlState();
+  renderScenarioUi();
+  renderChartDetails();
+  renderInteractiveCharts();
+  if (remember) {
+    document.getElementById("status").textContent =
+      translations[state.language].statusScenario(scenario);
+  }
+}
+
 function setLanguage(language, remember = true) {
   if (language !== "en" && language !== "zh-CN") {
     return;
@@ -1213,12 +1707,11 @@ function setLanguage(language, remember = true) {
   }
   syncUrlState();
   translateStaticText();
-  renderSnapshotMetadata();
   renderRecommendations();
   renderChartDetails();
   renderInteractiveCharts();
-  renderMethodCards();
   renderRankings();
+  renderScenarioUi();
   document.getElementById("status").textContent =
     translations[state.language].statusLanguage;
 }
@@ -1253,6 +1746,30 @@ function validateRankingsPayload(payload, snapshotId) {
   }
 }
 
+function validateCodingPayload(payload, snapshotId) {
+  const partialRows = payload?.charts?.token?.filter(
+    (row) => row.data_scope === "partial",
+  );
+  if (
+    payload.snapshot !== snapshotId ||
+    payload.benchmark !== "Coding Agent Index v1.3" ||
+    !payload.charts ||
+    payload.charts.token.length !== 52 ||
+    payload.charts.api.length !== 52 ||
+    payload.charts.subscription.length !== 49 ||
+    payload.counts.complete_configurations !== 51 ||
+    payload.counts.partial_configurations !== 1 ||
+    partialRows.length !== 1 ||
+    partialRows[0].agent !== "Claude Code" ||
+    partialRows[0].base_model !== "Opus 4.6" ||
+    !payload.charts.token.every(
+      (row) => row.agent && row.developer && row.host_model_slug,
+    )
+  ) {
+    throw new Error("Coding-agent chart data is incomplete");
+  }
+}
+
 async function loadSnapshot(snapshotId, remember = true) {
   const snapshot = state.snapshotManifest?.snapshots.find(
     (candidate) => candidate.id === snapshotId,
@@ -1262,10 +1779,12 @@ async function loadSnapshot(snapshotId, remember = true) {
   }
   const loadSequence = ++state.snapshotLoadSequence;
   const select = document.getElementById("snapshot-select");
-  select.disabled = true;
+  if (state.scenario === "general") {
+    select.disabled = true;
+  }
   try {
     const response = await fetch(
-      `${snapshot.payload_url}?v=20260731-preview-labels`,
+      `${snapshot.payload_url}?v=${ASSET_REVISION}`,
     );
     if (!response.ok) {
       throw new Error(`Snapshot data request failed: ${response.status}`);
@@ -1289,12 +1808,16 @@ async function loadSnapshot(snapshotId, remember = true) {
     renderChartDetails();
     renderInteractiveCharts();
     renderRankings();
+    renderMetricCounts();
     if (remember) {
       document.getElementById("status").textContent =
         translations[state.language].statusSnapshot(snapshotOptionLabel(snapshot));
     }
   } finally {
-    if (loadSequence === state.snapshotLoadSequence) {
+    if (
+      loadSequence === state.snapshotLoadSequence &&
+      state.scenario === "general"
+    ) {
       select.disabled = false;
     }
   }
@@ -1302,7 +1825,7 @@ async function loadSnapshot(snapshotId, remember = true) {
 
 async function loadSnapshotManifest() {
   const response = await fetch(
-    "data/snapshots.json?v=20260731-preview-labels",
+    `data/snapshots.json?v=${ASSET_REVISION}`,
   );
   if (!response.ok) {
     throw new Error(`Snapshot manifest request failed: ${response.status}`);
@@ -1325,6 +1848,92 @@ async function loadSnapshotManifest() {
   await loadSnapshot(initialSnapshot, false);
 }
 
+async function loadCodingSnapshot(snapshotId, remember = true) {
+  const snapshot = state.codingSnapshotManifest?.snapshots.find(
+    (candidate) => candidate.id === snapshotId,
+  );
+  if (!snapshot) {
+    throw new Error(`Unknown coding-agent snapshot: ${snapshotId}`);
+  }
+  const loadSequence = ++state.codingSnapshotLoadSequence;
+  const select = document.getElementById("snapshot-select");
+  if (state.scenario === "coding") {
+    select.disabled = true;
+  }
+  try {
+    const response = await fetch(
+      `${snapshot.payload_url}?v=${ASSET_REVISION}`,
+    );
+    if (!response.ok) {
+      throw new Error(
+        `Coding-agent snapshot request failed: ${response.status}`,
+      );
+    }
+    const payload = await response.json();
+    validateCodingPayload(payload, snapshot.id);
+    if (loadSequence !== state.codingSnapshotLoadSequence) {
+      return;
+    }
+    state.codingSnapshot = snapshot;
+    state.coding = payload;
+    if (remember) {
+      try {
+        window.localStorage.setItem(
+          "llm-efficiency-coding-snapshot",
+          snapshot.id,
+        );
+      } catch {
+        // The selector remains functional for the current page without storage.
+      }
+    }
+    syncUrlState();
+    renderSnapshotMetadata();
+    renderChartDetails();
+    renderInteractiveCharts();
+    renderMetricCounts();
+    if (remember) {
+      document.getElementById("status").textContent =
+        translations[state.language].statusSnapshot(
+          snapshotOptionLabel(snapshot),
+        );
+    }
+  } finally {
+    if (
+      loadSequence === state.codingSnapshotLoadSequence &&
+      state.scenario === "coding"
+    ) {
+      select.disabled = false;
+    }
+  }
+}
+
+async function loadCodingSnapshotManifest() {
+  const response = await fetch(
+    `data/coding-agents.json?v=${ASSET_REVISION}`,
+  );
+  if (!response.ok) {
+    throw new Error(
+      `Coding-agent manifest request failed: ${response.status}`,
+    );
+  }
+  const manifest = await response.json();
+  if (
+    !Array.isArray(manifest.snapshots) ||
+    manifest.snapshots.length < 1 ||
+    !manifest.snapshots.some((snapshot) => snapshot.id === manifest.current)
+  ) {
+    throw new Error("Coding-agent manifest is incomplete");
+  }
+  state.codingSnapshotManifest = manifest;
+  const requestedSnapshot = savedCodingSnapshotId(manifest.current);
+  const initialSnapshot = manifest.snapshots.some(
+    (snapshot) => snapshot.id === requestedSnapshot,
+  )
+    ? requestedSnapshot
+    : manifest.current;
+  await loadCodingSnapshot(initialSnapshot, false);
+}
+
 function bindControls() {
   document.querySelectorAll("[data-language]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -1336,8 +1945,15 @@ function bindControls() {
       setMotion(button.dataset.motionChoice);
     });
   });
+  document.querySelectorAll("[data-scenario]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setScenario(button.dataset.scenario);
+    });
+  });
   document.getElementById("snapshot-select").addEventListener("change", (event) => {
-    loadSnapshot(event.target.value).catch((error) => {
+    const loader =
+      state.scenario === "coding" ? loadCodingSnapshot : loadSnapshot;
+    loader(event.target.value).catch((error) => {
       document.getElementById("status").textContent = String(error);
       console.error(error);
     });
@@ -1378,9 +1994,10 @@ async function main() {
   bindControls();
   setMotion(motionPreference(), false);
   setLanguage(browserLanguage(), false);
+  setScenario(scenarioPreference(), false);
   selectRankingTab("subscription");
   try {
-    await loadSnapshotManifest();
+    await Promise.all([loadSnapshotManifest(), loadCodingSnapshotManifest()]);
   } catch (error) {
     document.getElementById("status").textContent = String(error);
     console.error(error);

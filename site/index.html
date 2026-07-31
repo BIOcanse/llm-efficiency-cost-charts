@@ -10,8 +10,8 @@
     >
     <title>LLM Efficiency & Cost Charts</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/styles.css?v=20260731-preview-labels">
-    <script src="assets/app.js?v=20260731-preview-labels" type="module"></script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260731-coding-agent-suite">
+    <script src="assets/app.js?v=20260731-coding-agent-suite" type="module"></script>
   </head>
   <body>
     <header class="topbar">
@@ -20,9 +20,9 @@
         <span data-i18n="brand">LLM Efficiency & Cost</span>
       </a>
       <nav class="topnav" aria-label="Primary navigation">
-        <a href="#recommendations" data-i18n="navRecommendations">My picks</a>
-        <a href="#charts" data-i18n="navCharts">Charts</a>
-        <a href="#rankings" data-i18n="navRankings">Rankings</a>
+        <a href="#recommendations" data-i18n="navRecommendations" data-scenario-nav="general">My picks</a>
+        <a href="#charts" data-i18n="navCharts" id="nav-charts-link">Charts</a>
+        <a href="#rankings" data-i18n="navRankings" data-scenario-nav="general">Rankings</a>
         <a href="#method" data-i18n="navMethod">Method</a>
       </nav>
       <div class="topbar-controls">
@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="hero-actions" data-rise="2">
-          <a class="button primary" href="#rankings" data-i18n="viewRankings">View rankings</a>
+          <a class="button primary" href="#rankings" data-i18n="viewRankings" id="primary-content-link">View rankings</a>
           <a
             class="button secondary"
             href="https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/latest"
@@ -91,7 +91,30 @@
       </section>
       </div>
 
-      <section id="recommendations" class="section page-shell recommendation-section">
+      <section class="scenario-section page-shell" aria-labelledby="scenario-title">
+        <div class="scenario-heading">
+          <span class="eyebrow" data-i18n="scenarioEyebrow">Choose the comparison scenario</span>
+          <h2 id="scenario-title" data-i18n="scenarioTitle">General capability or actual coding-agent work</h2>
+        </div>
+        <div class="scenario-switch" role="tablist" aria-label="Comparison scenario">
+          <button type="button" role="tab" data-scenario="general" aria-selected="true">
+            <span class="scenario-index">01</span>
+            <span>
+              <strong data-i18n="scenarioGeneralTitle">General benchmark</strong>
+              <small data-i18n="scenarioGeneralCopy">Intelligence Index v4.1 · model + reasoning level</small>
+            </span>
+          </button>
+          <button type="button" role="tab" data-scenario="coding" aria-selected="false">
+            <span class="scenario-index">02</span>
+            <span>
+              <strong data-i18n="scenarioCodingTitle">Actual coding-agent benchmark</strong>
+              <small data-i18n="scenarioCodingCopy">Coding Agent Index v1.3 · agent + model + setting</small>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <section id="recommendations" class="section page-shell recommendation-section" data-scenario-panel="general">
         <div class="recommendation-heading">
           <div>
             <span class="eyebrow" data-i18n="recommendationEyebrow">Personal opinion</span>
@@ -116,7 +139,7 @@
         </div>
       </section>
 
-      <section id="charts" class="section page-shell">
+      <section id="charts" class="section page-shell" data-scenario-panel="general">
         <div class="section-heading">
           <div>
             <span class="eyebrow" data-i18n="chartSectionEyebrow">Matched benchmark · three metrics</span>
@@ -176,7 +199,67 @@
         </article>
       </section>
 
-      <section id="rankings" class="section ranking-section">
+      <section id="coding-charts" class="section page-shell" data-scenario-panel="coding" hidden>
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow" data-i18n="codingChartSectionEyebrow">Coding Agent Index v1.3 · three metrics</span>
+            <h2 data-i18n="codingChartSectionTitle">Token consumption, subscription cost, and API cost in coding-agent work</h2>
+          </div>
+          <p data-i18n="codingChartSectionCopy">
+            These are agent-system results, not model-only scores.
+          </p>
+        </div>
+
+        <article class="chart-card">
+          <div class="chart-heading">
+            <span class="chart-number">01</span>
+            <div>
+              <h3 data-i18n="codingChart1Title">Total Token consumption vs. Coding Agent Index</h3>
+              <p data-i18n="codingChart1Lead">Average total Tokens consumed by one coding-task attempt.</p>
+            </div>
+          </div>
+          <div class="interactive-chart" id="coding-chart1-interactive"></div>
+          <div class="chart-details" id="coding-chart1-details"></div>
+          <div class="asset-links">
+            <a id="coding-chart1-png" href="charts/en/07_coding_agent_total_tokens_vs_index.png">PNG</a>
+            <a id="coding-chart1-svg" href="charts/en/07_coding_agent_total_tokens_vs_index.svg">SVG</a>
+          </div>
+        </article>
+
+        <article class="chart-card featured-chart">
+          <div class="chart-heading">
+            <span class="chart-number">02</span>
+            <div>
+              <h3 data-i18n="codingChart2Title">Subscription-first cost per task vs. Coding Agent Index</h3>
+              <p data-i18n="codingChart2Lead">Use an applicable quantifiable plan first; otherwise follow the published inclusion rules.</p>
+            </div>
+          </div>
+          <div class="interactive-chart" id="coding-chart2-interactive"></div>
+          <div class="chart-details" id="coding-chart2-details"></div>
+          <div class="asset-links">
+            <a id="coding-chart2-png" href="charts/en/08_coding_agent_subscription_cost_vs_index.png">PNG</a>
+            <a id="coding-chart2-svg" href="charts/en/08_coding_agent_subscription_cost_vs_index.svg">SVG</a>
+          </div>
+        </article>
+
+        <article class="chart-card">
+          <div class="chart-heading">
+            <span class="chart-number">03</span>
+            <div>
+              <h3 data-i18n="codingChart3Title">API cost per task vs. Coding Agent Index</h3>
+              <p data-i18n="codingChart3Lead">Observed pay-per-token API cost for one coding-task attempt.</p>
+            </div>
+          </div>
+          <div class="interactive-chart" id="coding-chart3-interactive"></div>
+          <div class="chart-details" id="coding-chart3-details"></div>
+          <div class="asset-links">
+            <a id="coding-chart3-png" href="charts/en/09_coding_agent_api_cost_vs_index.png">PNG</a>
+            <a id="coding-chart3-svg" href="charts/en/09_coding_agent_api_cost_vs_index.svg">SVG</a>
+          </div>
+        </article>
+      </section>
+
+      <section id="rankings" class="section ranking-section" data-scenario-panel="general">
         <div class="page-shell">
           <div class="section-heading light-heading">
             <div>

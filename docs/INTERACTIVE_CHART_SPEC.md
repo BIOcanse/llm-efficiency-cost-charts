@@ -4,9 +4,14 @@ Snapshot baseline: **2026-07-31**
 
 ## Goal
 
-The GitHub Pages site must render the three analysis charts from machine-readable
-snapshot data instead of displaying pre-rendered PNG files. PNG and SVG assets
-remain available only as downloadable, citable snapshot artifacts.
+The GitHub Pages site must render two separately sourced three-chart suites from
+machine-readable snapshot data instead of displaying pre-rendered PNG files:
+
+- general: Intelligence Index v4.1;
+- coding: Coding Agent Index v1.3.
+
+PNG and SVG assets remain available only as downloadable, citable snapshot
+artifacts.
 
 The site remains a static GitHub Pages deployment. It has no application server,
 database, account system, or third-party runtime dependency.
@@ -29,6 +34,11 @@ data/<snapshot>/frontier_model_positions.csv
 - `charts.subscription`: all 46 subscription-first configurations;
 - `charts.api`: all 68 configurations with comparable API cost.
 
+`site/data/coding-agents/<date>.json` independently contains the coding-agent
+Token, subscription, and API datasets. It is not inserted into
+`site/data/rankings.json`, because its score, observation grain, source version,
+and snapshot cadence differ from the model-level Intelligence Index data.
+
 `frontier_model_positions.csv` is an explicit, dated classification rather
 than an inference from whichever model happens to have the highest benchmark
 score. Each row identifies one current model for one provider positioning:
@@ -45,10 +55,10 @@ serve different product positions. The build must reject duplicate
 `developer + position` pairs, references to missing models, or providers with no
 frontier entry.
 
-The published reading order is total Token consumption, subscription-first
-task cost, then API task cost. Subscription cost comes first because
-subscriptions are the common access path for the included frontier models; API
-cost remains available for metered and volume workloads.
+Both scenario pages use the same reading order: total Token consumption,
+subscription-first task cost, then API task cost. Subscription cost comes first
+because subscriptions are the common access path for the included frontier
+models; API cost remains available for metered and volume workloads.
 
 The site must not manually duplicate plotted values.
 
@@ -67,8 +77,10 @@ The site must not manually duplicate plotted values.
   - exposes an explicit `webgpu` or `svg-fallback` backend state;
   - contains no chart filtering, localization, tooltip, or label-layout logic.
 - `site/assets/app.js`
-  - loads the static JSON payload;
-  - provides the three metric configurations;
+  - loads the independent general and coding-agent manifests/payloads;
+  - provides three metric configurations for each scenario;
+  - switches all three visible charts with `?view=general|coding` without a
+    reload;
   - updates chart language without navigating or reloading the page;
   - continues to own ranking tables and the page-level language state.
 - `site/assets/styles.css`
@@ -102,6 +114,10 @@ Each chart provides:
 11. Pareto-frontier points with a distinct outline;
 12. immediate Chinese/English updates on the same URL.
 
+Each coding-agent chart replaces the frontier-model selector with an
+agent-harness selector. Its series key is `agent harness + underlying model`, so
+different harnesses using the same model are never connected by one line.
+
 The horizontal scales remain linear. Interactivity provides close inspection
 without changing the cost comparison to a logarithmic axis.
 
@@ -124,6 +140,10 @@ without changing the cost comparison to a logarithmic axis.
 
 - No PNG is used as the visible chart body on GitHub Pages.
 - All 73 / 68 / 46 expected configurations render from JSON.
+- Coding-agent Token/API charts render 52 configurations and the
+  subscription-first chart renders 49.
+- The large scenario control switches the complete three-chart suite in place,
+  updates `view` in the URL, and does not mix benchmark labels or snapshots.
 - Chinese and English update chart titles, axes, controls, tooltips, and
   accessibility text in place.
 - Selecting a model provider removes other providers from the plotted dataset

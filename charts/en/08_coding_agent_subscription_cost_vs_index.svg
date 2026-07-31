@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1728pt" height="972pt" viewBox="0 0 1728 972" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-07-31T09:52:59.869401</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 972
+L 1728 972
+L 1728 0
+L 0 0
+z
+" style="fill: #fbfbfa"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 95.04 835.92
+L 1460.16 835.92
+L 1460.16 106.92
+L 95.04 106.92
+z
+" style="fill: #fbfbfa"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 95.04 835.92
+L 95.04 106.92
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="md5648b3243" d="M 0 0
+L 0 3.5
+" style="stroke: #586579; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#md5648b3243" x="95.04" y="835.92" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #586579" x="95.04" y="851.040117" transform="rotate(-0 95.04 851.040117)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 293.770257 835.92
+L 293.770257 106.92
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#md5648b3243" x="293.770257" y="835.92" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #586579" x="293.770257" y="851.040117" transform="rotate(-0 293.770257 851.040117)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 492.500515 835.92
+L 492.500515 106.92
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#md5648b3243" x="492.500515" y="835.92" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #586579" x="492.500515" y="851.040117" transform="rotate(-0 492.500515 851.040117)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 691.230772 835.92
+L 691.230772 106.92
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#md5648b3243" x="691.230772" y="835.92" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #586579" x="691.230772" y="851.040117" transform="rotate(-0 691.230772 851.040117)">3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 889.961029 835.92
+L 889.961029 106.92
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#md5648b3243" x="889.961029" y="835.92" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #586579" x="889.961029" y="851.040117" transform="rotate(-0 889.961029 851.040117)">4</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 1088.691287 835.92
+L 1088.691287 106.92
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#md5648b3243" x="1088.691287" y="835.92" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #586579" x="1088.691287" y="851.040117" transform="rotate(-0 1088.691287 851.040117)">5</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 1287.421544 835.92
+L 1287.421544 106.92
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#md5648b3243" x="1287.421544" y="835.92" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #586579" x="1287.421544" y="851.040117" transform="rotate(-0 1287.421544 851.040117)">6</text>
+     </g>
+    </g>
+    <g id="text_8">
+     <text style="font-weight: 700; font-size: 12px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #172033" x="777.6" y="879.318672" transform="rotate(-0 777.6 879.318672)">Subscription-first effective cost per coding task (USD, lower is better)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_15">
+      <path d="M 95.04 799.993537
+L 1460.16 799.993537
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16">
+      <defs>
+       <path id="m5ed1a52fdb" d="M 0 0
+L -3.5 0
+" style="stroke: #586579; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5ed1a52fdb" x="95.04" y="799.993537" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #586579" x="88.04" y="804.053596" transform="rotate(-0 88.04 804.053596)">20</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_17">
+      <path d="M 95.04 660.664837
+L 1460.16 660.664837
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m5ed1a52fdb" x="95.04" y="660.664837" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #586579" x="88.04" y="664.724896" transform="rotate(-0 88.04 664.724896)">30</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_19">
+      <path d="M 95.04 521.336137
+L 1460.16 521.336137
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#m5ed1a52fdb" x="95.04" y="521.336137" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #586579" x="88.04" y="525.396196" transform="rotate(-0 88.04 525.396196)">40</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_21">
+      <path d="M 95.04 382.007437
+L 1460.16 382.007437
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_22">
+      <g>
+       <use xlink:href="#m5ed1a52fdb" x="95.04" y="382.007437" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #586579" x="88.04" y="386.067495" transform="rotate(-0 88.04 386.067495)">50</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_23">
+      <path d="M 95.04 242.678737
+L 1460.16 242.678737
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #d8dee9; stroke-opacity: 0.72; stroke-width: 0.65; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_24">
+      <g>
+       <use xlink:href="#m5ed1a52fdb" x="95.04" y="242.678737" style="fill: #586579; stroke: #586579; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #586579" x="88.04" y="246.738795" transform="rotate(-0 88.04 246.738795)">60</text>
+     </g>
+    </g>
+    <g id="text_14">
+     <text style="font-weight: 700; font-size: 12px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #172033" x="59.270625" y="471.42" transform="rotate(-90 59.270625 471.42)">Coding Agent Index v1.3 (higher is better)</text>
+    </g>
+   </g>
+   <g id="line2d_25">
+    <path d="M 99.009747 473.721473
+L 99.916033 331.771053
+L 103.532432 234.117726
+L 106.80551 185.419698
+L 109.903005 171.727616
+L 115.150111 151.141884
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #15803d; stroke-opacity: 0.78; stroke-width: 1.45; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_26">
+    <path d="M 111.274729 287.329809
+L 118.467496 215.936334
+L 123.340073 195.682051
+L 156.407364 148.71861
+L 161.73631 165.697846
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #65a30d; stroke-opacity: 0.78; stroke-width: 1.45; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_27">
+    <path d="M 149.630202 546.543876
+L 103.211121 546.543876
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #6d28d9; stroke-opacity: 0.78; stroke-width: 1.45; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_28">
+    <path d="M 96.039221 794.12139
+L 95.632091 729.167005
+L 96.385392 487.800778
+L 97.761648 362.269269
+L 98.606883 316.938886
+L 99.488597 261.351416
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #be123c; stroke-opacity: 0.78; stroke-width: 1.45; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_29">
+    <path d="M 96.090391 748.402725
+L 96.414998 566.93073
+L 97.598584 412.692423
+L 99.553279 301.298877
+L 100.420287 283.452347
+L 102.8678 210.905649
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #b45309; stroke-opacity: 0.78; stroke-width: 1.45; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_30">
+    <path d="M 102.86009 321.278794
+L 109.432545 221.987157
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #0284c7; stroke-opacity: 0.78; stroke-width: 1.45; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_31">
+    <path d="M 111.070022 418.025633
+L 119.358057 332.402393
+L 122.737499 288.685073
+L 137.266645 263.956208
+L 152.404963 235.1426
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #4f46e5; stroke-opacity: 0.78; stroke-width: 1.45; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_32">
+    <path d="M 107.559133 514.635151
+L 137.014656 377.250323
+" clip-path="url(#pd3ad9d93bb)" style="fill: none; stroke: #0891b2; stroke-opacity: 0.78; stroke-width: 1.45; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 95.04 835.92
+L 95.04 106.92
+" style="fill: none; stroke: #9aa7b8; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 95.04 835.92
+L 1460.16 835.92
+" style="fill: none; stroke: #9aa7b8; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m58bb362aa3" d="M 0 3.741657
+C 0.992299 3.741657 1.94409 3.347413 2.645751 2.645751
+C 3.347413 1.94409 3.741657 0.992299 3.741657 0
+C 3.741657 -0.992299 3.347413 -1.94409 2.645751 -2.645751
+C 1.94409 -3.347413 0.992299 -3.741657 0 -3.741657
+C -0.992299 -3.741657 -1.94409 -3.347413 -2.645751 -2.645751
+C -3.347413 -1.94409 -3.741657 -0.992299 -3.741657 0
+C -3.741657 0.992299 -3.347413 1.94409 -2.645751 2.645751
+C -1.94409 3.347413 -0.992299 3.741657 0 3.741657
+z
+" style="stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m58bb362aa3" x="115.150111" y="151.141884" style="fill: #15803d; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_2">
+    <defs>
+     <path id="m07494cd100" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #2563eb; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m07494cd100" x="149.081636" y="640.601226" style="fill: #2563eb; fill-opacity: 0.96; stroke: #2563eb; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_3">
+    <defs>
+     <path id="m9e00fa5758" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m9e00fa5758" x="156.407364" y="148.71861" style="fill: #65a30d; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_4">
+    <defs>
+     <path id="m00aa190316" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #dc2626; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m00aa190316" x="269.582704" y="161.21273" style="fill: #dc2626; fill-opacity: 0.96; stroke: #dc2626; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_5">
+    <defs>
+     <path id="m668178dec8" d="M -3.741657 3.741657
+L 3.741657 3.741657
+L 3.741657 -3.741657
+L -3.741657 -3.741657
+z
+" style="stroke: #6d28d9; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m668178dec8" x="149.630202" y="546.543876" style="fill: #6d28d9; fill-opacity: 0.96; stroke: #6d28d9; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_6">
+    <defs>
+     <path id="m8486be747e" d="M 0 -3.741657
+L -3.24037 -1.870829
+L -3.24037 1.870829
+L -0 3.741657
+L 3.24037 1.870829
+L 3.24037 -1.870829
+z
+" style="stroke: #9f1239; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m8486be747e" x="378.874639" y="332.654926" style="fill: #9f1239; fill-opacity: 0.96; stroke: #9f1239; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_7">
+    <defs>
+     <path id="m22d050d622" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #059669; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m22d050d622" x="1388.992607" y="477.06036" style="fill: #059669; fill-opacity: 0.96; stroke: #059669; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_8">
+    <defs>
+     <path id="mfabae9caa0" d="M 0 3.741657
+C 0.992299 3.741657 1.94409 3.347413 2.645751 2.645751
+C 3.347413 1.94409 3.741657 0.992299 3.741657 0
+C 3.741657 -0.992299 3.347413 -1.94409 2.645751 -2.645751
+C 1.94409 -3.347413 0.992299 -3.741657 0 -3.741657
+C -0.992299 -3.741657 -1.94409 -3.347413 -2.645751 -2.645751
+C -3.347413 -1.94409 -3.741657 -0.992299 -3.741657 0
+C -3.741657 0.992299 -3.347413 1.94409 -2.645751 2.645751
+C -1.94409 3.347413 -0.992299 3.741657 0 3.741657
+z
+" style="stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#mfabae9caa0" x="99.488597" y="261.351416" style="fill: #be123c; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_9">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#mfabae9caa0" x="95.632091" y="729.167005" style="fill: #be123c; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_10">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#mfabae9caa0" x="97.761648" y="362.269269" style="fill: #be123c; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_11">
+    <defs>
+     <path id="m7f3f7449ab" d="M 0 3.741657
+C 0.992299 3.741657 1.94409 3.347413 2.645751 2.645751
+C 3.347413 1.94409 3.741657 0.992299 3.741657 0
+C 3.741657 -0.992299 3.347413 -1.94409 2.645751 -2.645751
+C 1.94409 -3.347413 0.992299 -3.741657 0 -3.741657
+C -0.992299 -3.741657 -1.94409 -3.347413 -2.645751 -2.645751
+C -3.347413 -1.94409 -3.741657 -0.992299 -3.741657 0
+C -3.741657 0.992299 -3.347413 1.94409 -2.645751 2.645751
+C -1.94409 3.347413 -0.992299 3.741657 0 3.741657
+z
+" style="stroke: #b45309; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m7f3f7449ab" x="100.420287" y="283.452347" style="fill: #b45309; fill-opacity: 0.96; stroke: #b45309; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_12">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m7f3f7449ab" x="96.090391" y="748.402725" style="fill: #b45309; fill-opacity: 0.96; stroke: #b45309; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_13">
+    <defs>
+     <path id="m202c59b8e7" d="M 0 3.741657
+C 0.992299 3.741657 1.94409 3.347413 2.645751 2.645751
+C 3.347413 1.94409 3.741657 0.992299 3.741657 0
+C 3.741657 -0.992299 3.347413 -1.94409 2.645751 -2.645751
+C 1.94409 -3.347413 0.992299 -3.741657 0 -3.741657
+C -0.992299 -3.741657 -1.94409 -3.347413 -2.645751 -2.645751
+C -3.347413 -1.94409 -3.741657 -0.992299 -3.741657 0
+C -3.741657 0.992299 -3.347413 1.94409 -2.645751 2.645751
+C -1.94409 3.347413 -0.992299 3.741657 0 3.741657
+z
+" style="stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m202c59b8e7" x="97.598584" y="412.692423" style="fill: #b45309; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_14">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m202c59b8e7" x="102.8678" y="210.905649" style="fill: #b45309; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_15">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m7f3f7449ab" x="96.414998" y="566.93073" style="fill: #b45309; fill-opacity: 0.96; stroke: #b45309; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_16">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m7f3f7449ab" x="99.553279" y="301.298877" style="fill: #b45309; fill-opacity: 0.96; stroke: #b45309; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_17">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m58bb362aa3" x="109.903005" y="171.727616" style="fill: #15803d; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_18">
+    <defs>
+     <path id="medb6308a8d" d="M 0 3.741657
+C 0.992299 3.741657 1.94409 3.347413 2.645751 2.645751
+C 3.347413 1.94409 3.741657 0.992299 3.741657 0
+C 3.741657 -0.992299 3.347413 -1.94409 2.645751 -2.645751
+C 1.94409 -3.347413 0.992299 -3.741657 0 -3.741657
+C -0.992299 -3.741657 -1.94409 -3.347413 -2.645751 -2.645751
+C -3.347413 -1.94409 -3.741657 -0.992299 -3.741657 0
+C -3.741657 0.992299 -3.347413 1.94409 -2.645751 2.645751
+C -1.94409 3.347413 -0.992299 3.741657 0 3.741657
+z
+" style="stroke: #15803d; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#medb6308a8d" x="99.009747" y="473.721473" style="fill: #15803d; fill-opacity: 0.96; stroke: #15803d; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_19">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#medb6308a8d" x="103.532432" y="234.117726" style="fill: #15803d; fill-opacity: 0.96; stroke: #15803d; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_20">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#medb6308a8d" x="99.916033" y="331.771053" style="fill: #15803d; fill-opacity: 0.96; stroke: #15803d; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_21">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m58bb362aa3" x="106.80551" y="185.419698" style="fill: #15803d; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_22">
+    <defs>
+     <path id="m91c48799b6" d="M 0 3.741657
+C 0.992299 3.741657 1.94409 3.347413 2.645751 2.645751
+C 3.347413 1.94409 3.741657 0.992299 3.741657 0
+C 3.741657 -0.992299 3.347413 -1.94409 2.645751 -2.645751
+C 1.94409 -3.347413 0.992299 -3.741657 0 -3.741657
+C -0.992299 -3.741657 -1.94409 -3.347413 -2.645751 -2.645751
+C -3.347413 -1.94409 -3.741657 -0.992299 -3.741657 0
+C -3.741657 0.992299 -3.347413 1.94409 -2.645751 2.645751
+C -1.94409 3.347413 -0.992299 3.741657 0 3.741657
+z
+" style="stroke: #0284c7; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m91c48799b6" x="109.432545" y="221.987157" style="fill: #0284c7; fill-opacity: 0.96; stroke: #0284c7; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_23">
+    <defs>
+     <path id="mfea97f844c" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #ea580c; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#mfea97f844c" x="1332.386614" y="577.488766" style="fill: #ea580c; fill-opacity: 0.96; stroke: #ea580c; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_24">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m91c48799b6" x="102.86009" y="321.278794" style="fill: #0284c7; fill-opacity: 0.96; stroke: #0284c7; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_25">
+    <defs>
+     <path id="m21f4dc5e2a" d="M 0 3.741657
+C 0.992299 3.741657 1.94409 3.347413 2.645751 2.645751
+C 3.347413 1.94409 3.741657 0.992299 3.741657 0
+C 3.741657 -0.992299 3.347413 -1.94409 2.645751 -2.645751
+C 1.94409 -3.347413 0.992299 -3.741657 0 -3.741657
+C -0.992299 -3.741657 -1.94409 -3.347413 -2.645751 -2.645751
+C -3.347413 -1.94409 -3.741657 -0.992299 -3.741657 0
+C -3.741657 0.992299 -3.347413 1.94409 -2.645751 2.645751
+C -1.94409 3.347413 -0.992299 3.741657 0 3.741657
+z
+" style="stroke: #9333ea; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m21f4dc5e2a" x="101.896487" y="534.557971" style="fill: #9333ea; fill-opacity: 0.96; stroke: #9333ea; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_26">
+    <defs>
+     <path id="mfc5adb371c" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #d97706; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#mfc5adb371c" x="331.320755" y="624.181241" style="fill: #d97706; fill-opacity: 0.96; stroke: #d97706; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_27">
+    <defs>
+     <path id="mdb5947f605" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #7c3aed; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#mdb5947f605" x="955.783846" y="575.234887" style="fill: #7c3aed; fill-opacity: 0.96; stroke: #7c3aed; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_28">
+    <defs>
+     <path id="m3dee077415" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #0f766e; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m3dee077415" x="109.988505" y="554.691776" style="fill: #0f766e; fill-opacity: 0.96; stroke: #0f766e; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_29">
+    <defs>
+     <path id="m804daf9e8a" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #4f46e5; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m804daf9e8a" x="122.737499" y="288.685073" style="fill: #4f46e5; fill-opacity: 0.96; stroke: #4f46e5; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_30">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m804daf9e8a" x="137.266645" y="263.956208" style="fill: #4f46e5; fill-opacity: 0.96; stroke: #4f46e5; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_31">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m804daf9e8a" x="119.358057" y="332.402393" style="fill: #4f46e5; fill-opacity: 0.96; stroke: #4f46e5; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_32">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m804daf9e8a" x="152.404963" y="235.1426" style="fill: #4f46e5; fill-opacity: 0.96; stroke: #4f46e5; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_33">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m804daf9e8a" x="111.070022" y="418.025633" style="fill: #4f46e5; fill-opacity: 0.96; stroke: #4f46e5; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_34">
+    <defs>
+     <path id="m642e0925cb" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #0891b2; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m642e0925cb" x="107.559133" y="514.635151" style="fill: #0891b2; fill-opacity: 0.96; stroke: #0891b2; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_35">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m642e0925cb" x="137.014656" y="377.250323" style="fill: #0891b2; fill-opacity: 0.96; stroke: #0891b2; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_36">
+    <defs>
+     <path id="md4fadd7d63" d="M 0 -4.062019
+L -4.062019 4.062019
+L 4.062019 4.062019
+z
+" style="stroke: #db2777; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#md4fadd7d63" x="104.562047" y="431.143458" style="fill: #fbfbfa; fill-opacity: 0.96; stroke: #db2777; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_37">
+    <defs>
+     <path id="m7901f62af7" d="M 0 -3.741657
+L -3.741657 3.741657
+L 3.741657 3.741657
+z
+" style="stroke: #65a30d; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m7901f62af7" x="161.73631" y="165.697846" style="fill: #65a30d; fill-opacity: 0.96; stroke: #65a30d; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_38">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m7901f62af7" x="118.467496" y="215.936334" style="fill: #65a30d; fill-opacity: 0.96; stroke: #65a30d; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_39">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m7901f62af7" x="123.340073" y="195.682051" style="fill: #65a30d; fill-opacity: 0.96; stroke: #65a30d; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_40">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m7901f62af7" x="111.274729" y="287.329809" style="fill: #65a30d; fill-opacity: 0.96; stroke: #65a30d; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_41">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#mfabae9caa0" x="96.385392" y="487.800778" style="fill: #be123c; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_42">
+    <defs>
+     <path id="m87f0d626e2" d="M 0 3.741657
+C 0.992299 3.741657 1.94409 3.347413 2.645751 2.645751
+C 3.347413 1.94409 3.741657 0.992299 3.741657 0
+C 3.741657 -0.992299 3.347413 -1.94409 2.645751 -2.645751
+C 1.94409 -3.347413 0.992299 -3.741657 0 -3.741657
+C -0.992299 -3.741657 -1.94409 -3.347413 -2.645751 -2.645751
+C -3.347413 -1.94409 -3.741657 -0.992299 -3.741657 0
+C -3.741657 0.992299 -3.347413 1.94409 -2.645751 2.645751
+C -1.94409 3.347413 -0.992299 3.741657 0 3.741657
+z
+" style="stroke: #be123c; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m87f0d626e2" x="96.039221" y="794.12139" style="fill: #be123c; fill-opacity: 0.96; stroke: #be123c; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_43">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#mfabae9caa0" x="98.606883" y="316.938886" style="fill: #be123c; fill-opacity: 0.96; stroke: #172033; stroke-opacity: 0.96; stroke-width: 1.8"/>
+    </g>
+   </g>
+   <g id="PathCollection_44">
+    <defs>
+     <path id="m8962ab3f8d" d="M -3.741657 3.741657
+L 3.741657 3.741657
+L 3.741657 -3.741657
+L -3.741657 -3.741657
+z
+" style="stroke: #1d4ed8; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m8962ab3f8d" x="361.325471" y="446.705597" style="fill: #1d4ed8; fill-opacity: 0.96; stroke: #1d4ed8; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_45">
+    <defs>
+     <path id="m910c977541" d="M -3.741657 3.741657
+L 3.741657 3.741657
+L 3.741657 -3.741657
+L -3.741657 -3.741657
+z
+" style="stroke: #0369a1; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m910c977541" x="99.376174" y="695.847772" style="fill: #0369a1; fill-opacity: 0.96; stroke: #0369a1; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_46">
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m668178dec8" x="103.211121" y="546.543876" style="fill: #6d28d9; fill-opacity: 0.96; stroke: #6d28d9; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_47">
+    <defs>
+     <path id="m2fba1421c4" d="M -3.741657 3.741657
+L 3.741657 3.741657
+L 3.741657 -3.741657
+L -3.741657 -3.741657
+z
+" style="stroke: #c2410c; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m2fba1421c4" x="248.644341" y="566.06685" style="fill: #c2410c; fill-opacity: 0.96; stroke: #c2410c; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_48">
+    <defs>
+     <path id="m37c5ab970f" d="M -3.741657 3.741657
+L 3.741657 3.741657
+L 3.741657 -3.741657
+L -3.741657 -3.741657
+z
+" style="stroke: #047857; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#m37c5ab970f" x="295.260214" y="436.489542" style="fill: #047857; fill-opacity: 0.96; stroke: #047857; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="PathCollection_49">
+    <defs>
+     <path id="mece158806d" d="M 0 -3.741657
+L -3.24037 -1.870829
+L -3.24037 1.870829
+L -0 3.741657
+L 3.24037 1.870829
+L 3.24037 -1.870829
+z
+" style="stroke: #5b21b6; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </defs>
+    <g clip-path="url(#pd3ad9d93bb)">
+     <use xlink:href="#mece158806d" x="677.567045" y="382.606146" style="fill: #5b21b6; fill-opacity: 0.96; stroke: #5b21b6; stroke-opacity: 0.96; stroke-width: 1.2"/>
+    </g>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #940e2f" x="106.488597" y="252.792895" transform="rotate(-0 106.488597 252.792895)">Codex · GPT-5.6 Luna · max · 59</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #106430" x="146.532432" y="262.761599" transform="rotate(-0 146.532432 262.761599)">Codex · GPT-5.6 Sol · medium · 61</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #4f7f0a" x="130.340073" y="187.117645" transform="rotate(-0 130.340073 187.117645)">Claude Code · Opus 5 · high · 63</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #8c4107" x="107.420287" y="274.887941" transform="rotate(-0 107.420287 274.887941)">Codex · GPT-5.6 Terra · xhigh · 57</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #4f7f0a" x="118.274729" y="299.323681" transform="rotate(-0 118.274729 299.323681)">Claude Code · Opus 5 · low · 57</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #3e37b3" x="130.437499" y="315.678945" transform="rotate(-0 130.437499 315.678945)">Claude Code · Opus 4.8 · high · 57</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 169.892265 322.374686
+Q 137.116204 312.55393 104.340142 302.733174
+" style="fill: none; stroke: #b45309; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #8c4107" x="142.553279" y="329.942749" transform="rotate(-0 142.553279 329.942749)">Codex · GPT-5.6 Terra · high · 56</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #8c4107" x="124.8678" y="212.623324" transform="rotate(-0 124.8678 212.623324)">Codex · GPT-5.6 Terra · max · 62</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #4f7f0a" x="140.467496" y="202.277814" transform="rotate(-0 140.467496 202.277814)">Claude Code · Opus 5 · medium · 62</text>
+   </g>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #02679b" x="124.432545" y="223.70189" transform="rotate(-0 124.432545 223.70189)">Codex · GPT-5.5 · xhigh · 61</text>
+   </g>
+   <g id="text_25">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #3e37b3" x="142.516645" y="283.95008" transform="rotate(-0 142.516645 283.95008)">Claude Code · Opus 4.8 · xhigh · 58</text>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #940e2f" x="106.306883" y="343.932758" transform="rotate(-0 106.306883 343.932758)">Codex · GPT-5.6 Luna · xhigh · 55</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 147.876463 349.223653
+Q 127.493531 336.57052 107.110598 323.917386
+" style="fill: none; stroke: #0284c7; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #02679b" x="113.71009" y="357.272666" transform="rotate(-0 113.71009 357.272666)">Codex · GPT-5.5 · medium · 54</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 143.647538 359.691134
+Q 123.889086 347.076485 104.130635 334.461837
+" style="fill: none; stroke: #15803d; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #106430" x="110.766033" y="367.764925" transform="rotate(-0 110.766033 367.764925)">Codex · GPT-5.6 Sol · low · 54</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 186.927897 387.143774
+Q 155.086476 361.3476 123.245055 335.551426
+" style="fill: none; stroke: #4f46e5; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #3e37b3" x="139.658057" y="395.396265" transform="rotate(-0 139.658057 395.396265)">Claude Code · Opus 4.8 · medium · 54</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 156.091257 143.762657
+Q 135.135424 156.450494 114.17959 169.138331
+" style="fill: none; stroke: #15803d; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #106430" x="120.753005" y="139.16321" transform="rotate(-0 120.753005 139.16321)">Codex · GPT-5.6 Sol · xhigh · 65</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 175.006907 164.359747
+Q 143.293507 174.152547 111.580107 183.945348
+" style="fill: none; stroke: #15803d; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_31">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #106430" x="149.80551" y="160.205292" transform="rotate(-0 149.80551 160.205292)">Codex · GPT-5.6 Sol · high · 64</text>
+   </g>
+   <g id="patch_11">
+    <path d="M 150.892233 402.070464
+Q 126.32939 383.669942 101.766547 365.26942
+" style="fill: none; stroke: #be123c; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_32">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #940e2f" x="112.811648" y="410.263141" transform="rotate(-0 112.811648 410.263141)">Codex · GPT-5.6 Luna · high · 51</text>
+   </g>
+   <g id="text_33">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #3e37b3" x="162.404963" y="236.860276" transform="rotate(-0 162.404963 236.860276)">Claude Code · Opus 4.8 · max · 61</text>
+   </g>
+   <g id="text_34">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #06718b" x="114.559133" y="506.076631" transform="rotate(-0 114.559133 506.076631)">Claude Code · Opus 4.7 · medium · 40</text>
+   </g>
+   <g id="text_35">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #7328b7" x="108.896487" y="525.99945" transform="rotate(-0 108.896487 525.99945)">Codex · GPT-5.4 · medium · 39</text>
+   </g>
+   <g id="text_36">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #106430" x="122.850111" y="127.583364" transform="rotate(-0 122.850111 127.583364)">Codex · GPT-5.6 Sol · max · 67</text>
+   </g>
+   <g id="text_37">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #106430" x="106.009747" y="465.162953" transform="rotate(-0 106.009747 465.162953)">Codex · GPT-5.6 Sol · none · 43</text>
+   </g>
+   <g id="text_38">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #551fa9" x="110.211121" y="537.985355" transform="rotate(-0 110.211121 537.985355)">Cursor CLI · Composer 2.5 · default · 38</text>
+   </g>
+   <g id="patch_12">
+    <path d="M 268.240348 126.585829
+Q 217.336631 145.279459 166.432914 163.973089
+" style="fill: none; stroke: #65a30d; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_39">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #4f7f0a" x="237.73631" y="122.339326" transform="rotate(-0 237.73631 122.339326)">Claude Code · Opus 5 · max · 66</text>
+   </g>
+   <g id="text_40">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #06718b" x="147.014656" y="378.967999" transform="rotate(-0 147.014656 378.967999)">Claude Code · Opus 4.7 · max · 50</text>
+   </g>
+   <g id="text_41">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #8c4107" x="119.598584" y="429.786295" transform="rotate(-0 119.598584 429.786295)">Codex · GPT-5.6 Terra · medium · 48</text>
+   </g>
+   <g id="text_42">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #3e37b3" x="116.320022" y="438.019506" transform="rotate(-0 116.320022 438.019506)">Claude Code · Opus 4.8 · low · 47</text>
+   </g>
+   <g id="text_43">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #940e2f" x="103.385392" y="479.242257" transform="rotate(-0 103.385392 479.242257)">Codex · GPT-5.6 Luna · medium · 42</text>
+   </g>
+   <g id="text_44">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #551fa9" x="156.630202" y="558.537748" transform="rotate(-0 156.630202 558.537748)">Cursor CLI · Composer 2.5 · fast · 38</text>
+   </g>
+   <g id="text_45">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #0c5c56" x="115.238505" y="574.685648" transform="rotate(-0 115.238505 574.685648)">Claude Code · Sonnet 4.6 · medium · 38</text>
+   </g>
+   <g id="text_46">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #8c4107" x="101.664998" y="586.924602" transform="rotate(-0 101.664998 586.924602)">Codex · GPT-5.6 Terra · low · 37</text>
+   </g>
+   <g id="patch_13">
+    <path d="M 213.503116 163.275516
+Q 187.378952 156.615003 161.254788 149.95449
+" style="fill: none; stroke: #65a30d; stroke-opacity: 0.45; stroke-width: 0.6; stroke-linecap: round"/>
+   </g>
+   <g id="text_47">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #4f7f0a" x="187.407364" y="170.762482" transform="rotate(-0 187.407364 170.762482)">Claude Code · Opus 5 · xhigh · 67</text>
+   </g>
+   <g id="text_48">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #ab1e5d" x="109.812047" y="451.137331" transform="rotate(-0 109.812047 451.137331)">†Claude Code · Opus 4.6 · medium · 46</text>
+   </g>
+   <g id="text_49">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #8c4107" x="103.090391" y="739.844205" transform="rotate(-0 103.090391 739.844205)">Codex · GPT-5.6 Terra · none · 24</text>
+   </g>
+   <g id="text_50">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #02527e" x="106.376174" y="687.289252" transform="rotate(-0 106.376174 687.289252)">Cursor CLI · Composer 2 · default · 27</text>
+   </g>
+   <g id="text_51">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #940e2f" x="102.632091" y="720.608484" transform="rotate(-0 102.632091 720.608484)">Codex · GPT-5.6 Luna · low · 25</text>
+   </g>
+   <g id="text_52">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #940e2f" x="103.039221" y="785.562869" transform="rotate(-0 103.039221 785.562869)">Codex · GPT-5.6 Luna · none · 20</text>
+   </g>
+   <g id="text_53">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #ac1e1e" x="276.582704" y="152.65421" transform="rotate(-0 276.582704 152.65421)">Claude Code · Fable 5 (with fallback) · max · 66</text>
+   </g>
+   <g id="text_54">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #7c0e2c" x="385.874639" y="324.09052" transform="rotate(-0 385.874639 324.09052)">Opencode · Muse Spark 1.1 · xhigh · 54</text>
+   </g>
+   <g id="text_55">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #471a8e" x="684.567045" y="374.047626" transform="rotate(-0 684.567045 374.047626)">Opencode · Opus 4.7 · medium · 50</text>
+   </g>
+   <g id="text_56">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #035e44" x="302.260214" y="427.931022" transform="rotate(-0 302.260214 427.931022)">Cursor CLI · GPT-5.5 · medium · 46</text>
+   </g>
+   <g id="text_57">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #173da8" x="368.325471" y="458.699469" transform="rotate(-0 368.325471 458.699469)">Cursor CLI · Opus 4.7 · medium · 45</text>
+   </g>
+   <g id="text_58">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #047552" x="1381.992607" y="468.50184" transform="rotate(-0 1381.992607 468.50184)">Claude Code · GLM-5.2 (FP8) · default · 43</text>
+   </g>
+   <g id="text_59">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #973309" x="255.644341" y="578.060722" transform="rotate(-0 255.644341 578.060722)">Cursor CLI · GPT-5.4 · medium · 37</text>
+   </g>
+   <g id="text_60">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #612db9" x="962.783846" y="566.676367" transform="rotate(-0 962.783846 566.676367)">Claude Code · GLM-5.1 · default · 36</text>
+   </g>
+   <g id="text_61">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #b74509" x="1325.386614" y="568.92436" transform="rotate(-0 1325.386614 568.92436)">Claude Code · Qwen3.7 Plus · thinking · 36</text>
+   </g>
+   <g id="text_62">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #a95d05" x="338.320755" y="615.62272" transform="rotate(-0 338.320755 615.62272)">Claude Code · Kimi K2.6 · default · 33</text>
+   </g>
+   <g id="text_63">
+    <text style="font-weight: 700; font-size: 6.15px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #1d4db7" x="156.081636" y="652.595098" transform="rotate(-0 156.081636 652.595098)">Claude Code · DeepSeek V4 Pro (Preview) · high · 31</text>
+   </g>
+  </g>
+  <g id="text_64">
+   <text style="font-weight: 700; font-size: 23px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #111827" x="95.04" y="48.6" transform="rotate(-0 95.04 48.6)">Coding agents: subscription-first task cost vs. task success — upper left is better</text>
+  </g>
+  <g id="text_65">
+   <text style="font-size: 10.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #586579" x="95.04" y="82.62" transform="rotate(-0 95.04 82.62)">Artificial Analysis Coding Agent Index v1.3 | Point = agent harness × model × setting | 49 configurations</text>
+  </g>
+  <g id="text_66">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #172033" x="1494.72" y="136.08" transform="rotate(-0 1494.72 136.08)">How to read</text>
+  </g>
+  <g id="text_67">
+   <text style="font-size: 9.2px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #344054" transform="translate(1494.72 180.273232)">↑ Higher score</text>
+   <text style="font-size: 9.2px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #344054" transform="translate(1494.72 195.382166)">← Lower consumption or cost</text>
+   <text style="font-size: 9.2px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #344054" transform="translate(1494.72 208.082568)"/>
+   <text style="font-size: 9.2px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #344054" transform="translate(1494.72 226.894502)">Same-color line:</text>
+   <text style="font-size: 9.2px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #344054" transform="translate(1494.72 241.029529)">settings of one agent + model</text>
+   <text style="font-size: 9.2px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #344054" transform="translate(1494.72 253.66165)"/>
+   <text style="font-size: 9.2px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #344054" transform="translate(1494.72 272.52749)">Black outline: Pareto frontier</text>
+   <text style="font-size: 9.2px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #344054" transform="translate(1494.72 286.554705)">†: only 2/3 components available</text>
+  </g>
+  <g id="text_68">
+   <text style="font-weight: 700; font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #172033" x="1494.72" y="437.4" transform="rotate(-0 1494.72 437.4)">Agent markers</text>
+  </g>
+  <g id="text_69">
+   <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #344054" x="1494.72" y="471.42" transform="rotate(-0 1494.72 471.42)">^</text>
+  </g>
+  <g id="text_70">
+   <text style="font-size: 8.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #586579" x="1525.824" y="471.42" transform="rotate(-0 1525.824 471.42)">Claude Code</text>
+  </g>
+  <g id="text_71">
+   <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #344054" x="1494.72" y="502.524" transform="rotate(-0 1494.72 502.524)">o</text>
+  </g>
+  <g id="text_72">
+   <text style="font-size: 8.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #586579" x="1525.824" y="502.524" transform="rotate(-0 1525.824 502.524)">Codex</text>
+  </g>
+  <g id="text_73">
+   <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #344054" x="1494.72" y="533.628" transform="rotate(-0 1494.72 533.628)">s</text>
+  </g>
+  <g id="text_74">
+   <text style="font-size: 8.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #586579" x="1525.824" y="533.628" transform="rotate(-0 1525.824 533.628)">Cursor CLI</text>
+  </g>
+  <g id="text_75">
+   <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #344054" x="1494.72" y="564.732" transform="rotate(-0 1494.72 564.732)">h</text>
+  </g>
+  <g id="text_76">
+   <text style="font-size: 8.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #586579" x="1525.824" y="564.732" transform="rotate(-0 1525.824 564.732)">Opencode</text>
+  </g>
+  <g id="text_77">
+   <text style="font-size: 8.4px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #667085" x="95.04" y="918.54" transform="rotate(-0 95.04 918.54)">Sources: [1] artificialanalysis.ai/agents/coding-agents  [2] artificialanalysis.ai/methodology/coding-agents-benchmarking</text>
+  </g>
+  <g id="text_78">
+   <text style="font-size: 8.2px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #667085" x="95.04" y="945.756" transform="rotate(-0 95.04 945.756)">Snapshot: 2026-07-31 | Linear X axis starts at zero | Agent + model + setting result, not model-only ability | † Opus 4.6 medium has two components</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pd3ad9d93bb">
+   <rect x="95.04" y="106.92" width="1365.12" height="729"/>
+  </clipPath>
+ </defs>
+</svg>

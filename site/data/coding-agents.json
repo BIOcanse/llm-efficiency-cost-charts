@@ -1,0 +1,19 @@
+{
+  "current": "2026-07-31",
+  "snapshots": [
+    {
+      "id": "2026-07-31",
+      "benchmark": "Coding Agent Index v1.3",
+      "published_at_utc": "2026-07-31T14:19:47Z",
+      "payload_url": "data/coding-agents/2026-07-31.json",
+      "chart_base": "charts",
+      "data_url": "data/coding-agents/2026-07-31/coding_agent_results.csv",
+      "access_data_url": "data/coding-agents/2026-07-31/subscription_first_task_cost.csv",
+      "release_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/tag/coding-agents-2026-07-31",
+      "label": {
+        "en": "2026-07-31 · Coding Agent Index v1.3",
+        "zh-CN": "2026-07-31 · Coding Agent Index v1.3"
+      }
+    }
+  ]
+}

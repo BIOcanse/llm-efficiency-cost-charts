@@ -12,6 +12,30 @@ Snapshot date: **2026-07-31**
 
 Every model configuration's direct Artificial Analysis page is stored in the `source_url` or `benchmark_source_url` column of the dated CSV files.
 
+## Coding-agent benchmark
+
+- [Artificial Analysis Coding Agent benchmarks](https://artificialanalysis.ai/agents/coding-agents)
+- [Coding Agent Index methodology](https://artificialanalysis.ai/methodology/coding-agents-benchmarking)
+- [DeepSWE](https://deepswe.datacurve.ai/)
+- [Terminal-Bench v2](https://www.tbench.ai/benchmarks/terminal-bench-2)
+- [SWE-Atlas-QnA](https://labs.scale.com/leaderboard/sweatlas-qna)
+
+The coding-agent snapshot stores the source observation time and SHA-256 of the
+downloaded page. Its Coding Agent Index v1.3 score and pooled task cost are not
+mixed with Intelligence Index v4.1 values.
+
+## Coding-agent access paths
+
+- [Cursor models and pricing](https://docs.cursor.com/account/pricing)
+- [Grok Build launch and subscription access](https://x.ai/news/grok-build-cli)
+- [Grok shared weekly usage-pool FAQ](https://docs.x.ai/grok/faq)
+
+The coding-agent subscription chart uses Cursor Ultra's official guaranteed
+$400/month Agent API allowance against its $200/month price, a conservative 2x
+API-value ratio that excludes unquantified bonus usage. Grok Build is available
+through paid plans, but the shared weekly pool is published only as percentages,
+so its result is excluded rather than replaced by API pricing.
+
 ## OpenAI
 
 - [Codex pricing and usage limits](https://learn.chatgpt.com/docs/pricing)

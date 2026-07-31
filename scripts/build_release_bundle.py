@@ -67,6 +67,10 @@ def main() -> None:
     for snapshot_id in snapshot_ids:
         copy_tree(root / "data" / snapshot_id, staging / "data" / snapshot_id)
         copy_tree(root / "rankings" / snapshot_id, staging / "rankings" / snapshot_id)
+    copy_tree(
+        root / "data" / "coding-agents",
+        staging / "data" / "coding-agents",
+    )
     shutil.copy2(
         root / "data" / f"api_price_updates_{args.snapshot}.csv",
         staging / "data" / f"api_price_updates_{args.snapshot}.csv",
@@ -87,6 +91,11 @@ def main() -> None:
             raise AssertionError("Release archive is missing the dated model data")
         if f"{bundle_name}/site/data/rankings.json" not in names:
             raise AssertionError("Release archive is missing the interactive ranking payload")
+        if (
+            f"{bundle_name}/data/coding-agents/{args.snapshot}/"
+            "coding_agent_results.csv"
+        ) not in names:
+            raise AssertionError("Release archive is missing coding-agent data")
         for snapshot_id in snapshot_ids:
             if f"{bundle_name}/data/{snapshot_id}/model_efficiency.csv" not in names:
                 raise AssertionError(f"Release archive is missing snapshot {snapshot_id}")

@@ -21,26 +21,33 @@ Publish the current bilingual charts, detailed chart explanations, and numerical
 
 ## Information structure
 
-1. Snapshot selector, exact UTC publication time, and metric summary.
-2. A compact, clearly labelled personal-recommendation section tied to the latest snapshot.
-3. Three client-rendered interactive chart sections, ordered as total Token
-   consumption, subscription-first task cost, then API task cost.
-4. A detailed explanation under each chart:
+1. A large scenario selector with two equal-level pages: general benchmark and
+   actual coding-agent benchmark. `?view=general` and `?view=coding` switch all
+   visible charts in place without reloading.
+2. Snapshot selector, exact UTC publication time, benchmark version, and metric
+   summary for the active scenario.
+3. The general page contains the compact personal recommendations, three
+   Intelligence Index charts, and the existing numerical rankings.
+4. The coding page contains three Coding Agent Index v1.3 charts in the same
+   order: total Token consumption, subscription-first task cost, and API task
+   cost. Every point remains an `agent harness + model + setting` result, not a
+   model-only measurement.
+5. A detailed explanation under each chart:
    - axes;
    - points and same-model lines;
    - formula;
    - inclusion and exclusion rules;
    - appropriate conclusions;
    - conclusions the chart does not support.
-5. Numerical rankings:
+6. General-scenario numerical rankings:
    - aggregate full-curve Token efficiency;
    - subscription-first cost per task;
    - filtered subscription-first cost-performance;
    - API cost per task;
    - filtered API cost-performance;
    - lowest cost at selected score thresholds.
-6. Methodology, limitations, source, data, and repository links.
-7. A visible link to the selected downloadable snapshot Release.
+7. Methodology, limitations, source, data, and repository links.
+8. A visible link to the active scenario's downloadable snapshot Release.
 
 ## Data flow
 
@@ -126,6 +133,9 @@ machine-readable result. The manifest selects one payload at a time.
   while supporting point inspection, model-provider filtering,
   all-model/provider-position-frontier scope, pan, zoom, reset, pointer pinning,
   and keyboard inspection.
+- The large scenario selector switches between two complete three-chart suites
+  without reloading. It updates the URL, benchmark label, snapshot metadata,
+  chart controls, download links, and visible methodology together.
 - Point and line paint uses WebGPU when available, with an explicit SVG fallback;
   axes, labels, hit targets, and accessibility remain SVG/HTML.
 - CSS and JavaScript entry URLs carry an explicit deployment revision. The
