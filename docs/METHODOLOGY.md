@@ -1,6 +1,6 @@
 # Methodology
 
-Snapshot date: **2026-07-24**
+Snapshot date: **2026-07-31**
 
 ## Shared benchmark
 
@@ -40,6 +40,8 @@ Inclusion order:
 For API-equivalent estimates, the effective task cost is derived from the plan cost, estimated API-equivalent allowance, and that configuration's API cost per task. Because different tasks use different Token types and quantities, the result is benchmark-specific rather than a general raw-Token quota.
 
 OpenAI and Claude values are medium-confidence third-party estimates based on exhausting usage limits and applying current provider pricing. They are not fixed Token quotas promised by the providers. Claude uses the current standard allowance estimate; the expired +50% promotion is not plotted.
+
+For the 2026-07-31 pricing refresh, GPT-5.6 Luna and Terra keep the existing OpenAI 70x API-value estimate. OpenAI's current Codex credit rates remain proportional to the new standard API prices, so their subscription-first task costs fall by the same 80% and 20% as their API task costs. This changes cost, not benchmark score or Token efficiency.
 
 ## Pareto frontier
 

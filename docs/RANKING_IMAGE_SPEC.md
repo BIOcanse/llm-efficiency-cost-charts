@@ -1,6 +1,6 @@
 # Ranking image specification
 
-Snapshot: **2026-07-24**
+Snapshot: **2026-07-31**
 
 ## Purpose
 

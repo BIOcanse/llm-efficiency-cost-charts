@@ -1,0 +1,69 @@
+﻿rank,model,effort,score,cost_usd_per_task,total_tokens_million,provider,provider_model_id,precision
+1,GPT-5.6 Luna,low,33.2639,0.008091083,116.165739,OpenAI,gpt-5.6-luna,first-party undisclosed
+2,MiMo-V2.5,default,37.2026,0.009753224,373.842847,Xiaomi,mimo-v2.5,first-party undisclosed
+3,GPT-5.6 Luna,medium,38.0506,0.010083395,137.908476,OpenAI,gpt-5.6-luna,first-party undisclosed
+4,GPT-5.6 Luna,non-reasoning,26.5601,0.010940507,180.931436,OpenAI,gpt-5.6-luna,first-party undisclosed
+5,GPT-5.6 Luna,high,46.059,0.018952919,312.989293,OpenAI,gpt-5.6-luna,first-party undisclosed
+6,HyperNova 60B 2605,default,17.8041,0.01928939,571.809314,CompactifAI,hypernova-60b,official released model precision undisclosed
+7,DeepSeek V4 Flash,max,40.2825,0.022281834,940.122371,DeepSeek,deepseek-v4-flash,first-party undisclosed
+8,DeepSeek V4 Flash,high,37.4635,0.026463603,617.541833,DeepSeek,deepseek-v4-flash,first-party undisclosed
+9,GPT-5.6 Luna,xhigh,49.0677,0.027792958,518.208795,OpenAI,gpt-5.6-luna,first-party undisclosed
+10,MiMo-V2.5-Pro,default,42.2394,0.031395287,422.90526,Xiaomi,mimo-v2.5-pro,first-party undisclosed
+11,DeepSeek V4 Pro,high,43.1117,0.040479987,453.826074,DeepSeek,deepseek-v4-pro,first-party undisclosed
+12,GPT-5.6 Luna,max,51.2359,0.041882665,860.115185,OpenAI,gpt-5.6-luna,first-party undisclosed
+13,Ring-2.6-1T,default,30.5727,0.042652512,765.11771,OpenRouter,inclusionai/ring-2.6-1t,publisher-routed precision undisclosed
+14,DeepSeek V4 Pro,max,44.2736,0.04485219,544.957436,DeepSeek,deepseek-v4-pro,first-party undisclosed
+15,Mistral Large 3,default,15.9301,0.05988933,130.840838,Mistral,mistral-large-3,first-party precision undisclosed
+16,Gemini 3.5 Flash-Lite,default,36.4776,0.085844299,516.615155,Google AI Studio,gemini-3.5-flash-lite,first-party undisclosed
+17,Mistral Small 4,default,19.5555,0.097631311,425.85493,Mistral,mistral-small-4,first-party precision undisclosed
+18,MiniMax-M3,default,44.4373,0.119962135,1314.749577,MiniMax,MiniMax-M3,first-party undisclosed
+19,GPT-5.6 Terra,low,40.4657,0.123337436,119.744361,OpenAI,gpt-5.6-terra,first-party undisclosed
+20,Qwen3.7 Plus,default,38.9772,0.123525744,414.380358,Alibaba Cloud Model Studio,qwen3.7-plus,first-party undisclosed
+21,Ministral 3 3B,default,6.4616,0.126204274,918.18605,Mistral,ministral-3-3b,first-party precision undisclosed
+22,Amazon Nova 2.0 Lite,high,18.1684,0.139369329,476.044499,Amazon Bedrock,amazon.nova-2-lite-v1:0,first-party undisclosed
+23,GPT-5.6 Terra,medium,45.5742,0.140158766,142.534286,OpenAI,gpt-5.6-terra,first-party undisclosed
+24,GPT-5.6 Terra,non-reasoning,33.9672,0.142875751,141.859696,OpenAI,gpt-5.6-terra,first-party undisclosed
+25,Ministral 3 14B,default,11.0525,0.149186254,597.855766,Mistral,ministral-3-14b,first-party precision undisclosed
+26,GPT-5.5,non-reasoning,35.3827,0.171013647,64.46389,OpenAI,gpt-5.5,first-party undisclosed
+27,Qwen3.6 35B A3B,default,31.6496,0.178815932,605.75407,Novita,qwen/qwen3.6-35b-a3b,BF16
+28,Ministral 3 8B,default,8.9573,0.18482442,756.518983,Mistral,ministral-3-8b,first-party precision undisclosed
+29,Qwen3.6 Plus,default,39.5608,0.18526297,520.24408,Alibaba Cloud Model Studio,qwen3.6-plus,first-party undisclosed
+30,Qwen3.6 27B,default,37.0517,0.195746565,398.38539,Alibaba Cloud Model Studio,qwen3.6-27b,first-party undisclosed
+31,GPT-5.6 Sol,low,49.444,0.197466244,100.092568,OpenAI,gpt-5.6-sol,first-party undisclosed
+32,Nemotron 3 Ultra 550B A55B (NVFP4),default,37.762,0.198174616,496.45206,Blackbox AI,nvidia/nemotron-3-ultra-550b-a55b,NVFP4
+33,GPT-5.6 Sol,non-reasoning,41.2034,0.200444615,112.41316,OpenAI,gpt-5.6-sol,first-party undisclosed
+34,GPT-5.5,low,43.4605,0.210872345,81.638001,OpenAI,gpt-5.5,first-party undisclosed
+35,Amazon Nova 2.0 Pro,low,19.6059,0.21277261,108.455918,Amazon Bedrock,amazon.nova-2-pro-v1:0,first-party undisclosed
+36,Amazon Nova 2.0 Pro,non-reasoning,14.3557,0.24556414,127.797362,Amazon Bedrock,amazon.nova-2-pro-v1:0,first-party undisclosed
+37,Grok 4.5,high,53.8266,0.249885212,415.347932,xAI,grok-4.5,first-party undisclosed
+38,Amazon Nova 2.0 Pro,medium,21.7655,0.252645642,128.260737,Amazon Bedrock,amazon.nova-2-pro-v1:0,first-party undisclosed
+39,Muse Spark 1.1,xhigh,50.623,0.26102207,635.456362,Meta Model API,muse-spark-1.1,first-party undisclosed
+40,GPT-5.6 Terra,high,48.9549,0.269063593,316.660198,OpenAI,gpt-5.6-terra,first-party undisclosed
+41,Gemini 3.1 Pro Preview,default,46.4594,0.29113643,341.946425,Google AI Studio,gemini-3.1-pro-preview,first-party undisclosed
+42,Kimi K2.6,default,44.2197,0.293594759,706.580846,Novita,moonshotai/kimi-k2.6,unquantized
+43,GPT-5.6 Sol,medium,53.5888,0.313984498,198.727752,OpenAI,gpt-5.6-sol,first-party undisclosed
+44,GLM-5.2,max,51.0858,0.318739992,685.958125,Z.AI,glm-5.2,first-party undisclosed
+45,Claude Opus 5,low,50.6137,0.360722115,208.631169,Anthropic,claude-opus-5,first-party undisclosed
+46,Qwen3.7 Max,default,45.9937,0.368760407,402.021404,Alibaba Cloud Model Studio,qwen3.7-max,first-party undisclosed
+47,Claude Sonnet 5,non-reasoning,41.7305,0.374528087,984.052492,Anthropic,claude-sonnet-5,first-party undisclosed
+48,GPT-5.6 Terra,xhigh,51.6046,0.381499584,482.823675,OpenAI,gpt-5.6-terra,first-party undisclosed
+49,GPT-5.5,medium,50.409,0.40611679,172.37123,OpenAI,gpt-5.5,first-party undisclosed
+50,GPT-5.6 Sol,high,55.8665,0.453009427,362.117022,OpenAI,gpt-5.6-sol,first-party undisclosed
+51,Gemini 3.6 Flash,high,50.0675,0.501299279,832.147674,Google AI Studio,gemini-3.6-flash,first-party undisclosed
+52,GPT-5.5 Instant (June 2026),instant,28.8603,0.53896428,242.679655,OpenAI,gpt-5.5-instant-06-26,first-party undisclosed
+53,Mistral Medium 3.5,default,29.9473,0.563328394,624.238109,Mistral,mistral-medium-3.5,first-party precision undisclosed
+54,Gemini 3.5 Flash,default,50.2035,0.585545242,1084.683674,Google AI Studio,gemini-3.5-flash,first-party undisclosed
+55,Claude Opus 5,medium,56.2806,0.618359184,409.469487,Anthropic,claude-opus-5,first-party undisclosed
+56,GPT-5.6 Terra,max,54.9529,0.659689325,892.465517,OpenAI,gpt-5.6-terra,first-party undisclosed
+57,GPT-5.5,high,53.1275,0.668057792,286.183934,OpenAI,gpt-5.5,first-party undisclosed
+58,GPT-5.6 Sol,xhigh,57.6538,0.682476859,566.232133,OpenAI,gpt-5.6-sol,first-party undisclosed
+59,Magistral Medium 1.2,default,17.8745,0.747145128,377.396138,Mistral,magistral-medium-2509,first-party precision undisclosed
+60,Kimi K3,default,57.1123,0.954120788,992.318419,Kimi,kimi-k3,first-party undisclosed
+61,GPT-5.5,xhigh,54.8376,0.992463778,436.333834,OpenAI,gpt-5.5,first-party undisclosed
+62,GPT-5.6 Sol,max,58.8898,1.037330157,1053.561887,OpenAI,gpt-5.6-sol,first-party undisclosed
+63,Claude Opus 5,high,58.8642,1.057110227,843.479445,Anthropic,claude-opus-5,first-party undisclosed
+64,Claude Sonnet 5,max,53.35,1.525425448,3826.837271,Anthropic,claude-sonnet-5,first-party undisclosed
+65,Claude Opus 5,xhigh,60.0682,1.561160318,1368.02731,Anthropic,claude-opus-5,first-party undisclosed
+66,Claude Opus 4.8,max,55.692,1.797221526,1052.866483,Anthropic,claude-opus-4-8,first-party undisclosed
+67,Claude Opus 5,max,60.6919,2.02768093,1877.177407,Anthropic,claude-opus-5,first-party undisclosed
+68,Claude Fable 5 (with fallback),max,59.8606,2.749823901,906.882715,Anthropic,claude-fable-5,first-party undisclosed

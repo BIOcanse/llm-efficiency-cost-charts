@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-SNAPSHOT = "2026-07-24"
+SNAPSHOT = "2026-07-31"
 SCORE_THRESHOLDS = (40, 45, 50, 55, 58, 60)
 CORE_MIN_LEVELS = 4
 CORE_MIN_SCORE_SPAN = 8.0

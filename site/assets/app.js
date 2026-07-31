@@ -1,4 +1,4 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260725-frontier-positions";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-openai-repricing";
 
 const translations = {
   en: {
@@ -6,7 +6,7 @@ const translations = {
     navCharts: "Charts",
     navRankings: "Rankings",
     navMethod: "Method",
-    snapshotLabel: "Snapshot · 2026-07-24",
+    snapshotLabel: "Snapshot · 2026-07-31",
     heroTitle: "Same score. How many Tokens? How much money?",
     heroCopy:
       "Each point represents one model and reasoning level. Lines of the same color connect levels of the same model. Upper left is better.",
@@ -178,7 +178,7 @@ const translations = {
         {
           title: "Evidence",
           body:
-            "<p>OpenAI and Claude use medium-confidence API-equivalent estimates from exhausting limits. MiMo uses official quota rules; GLM uses an official multiplier plus a reproducible reconstruction. Claude uses the current standard post-promotion estimate only.</p>",
+            "<p>OpenAI and Claude use medium-confidence API-equivalent estimates from exhausting limits. OpenAI keeps the measured 70x ratio and applies the July 30 Luna/Terra prices. MiMo uses official quota rules; GLM uses an official multiplier plus a reproducible reconstruction. Claude uses the current standard post-promotion estimate only.</p>",
         },
         {
           title: "Read with care",
@@ -210,7 +210,7 @@ const translations = {
     navCharts: "图表",
     navRankings: "排名",
     navMethod: "方法",
-    snapshotLabel: "数据快照 · 2026-07-24",
+    snapshotLabel: "数据快照 · 2026-07-31",
     heroTitle: "同样的跑分，要消耗多少 Token，花多少钱？",
     heroCopy:
       "每个点代表一个模型和思考档位，同色线连接同一模型的不同档位。左上更优。",
@@ -374,7 +374,7 @@ const translations = {
         {
           title: "数据证据",
           body:
-            "<p>OpenAI 与 Claude 使用第三方跑满限额的 API 等价值估算；MiMo 使用官方额度；GLM 使用官方倍率和可复核反推。Claude 只保留活动结束后的当前标准额度，不再绘制 +50% 活动期。</p>",
+            "<p>OpenAI 与 Claude 使用第三方跑满限额的 API 等价值估算；OpenAI 沿用实测 70 倍比例，并按 7 月 30 日 Luna / Terra 新价格更新。MiMo 使用官方额度；GLM 使用官方倍率和可复核反推。Claude 只保留活动结束后的当前标准额度。</p>",
         },
         {
           title: "注意事项",
@@ -1007,7 +1007,7 @@ function selectRankingTab(tabName) {
 
 async function loadRankings() {
   const response = await fetch(
-    "data/rankings.json?v=20260725-frontier-positions",
+    "data/rankings.json?v=20260731-openai-repricing",
   );
   if (!response.ok) {
     throw new Error(`Ranking data request failed: ${response.status}`);

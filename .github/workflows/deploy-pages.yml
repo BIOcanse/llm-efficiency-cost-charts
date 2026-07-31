@@ -29,12 +29,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p _site/charts _site/rankings/2026-07-24 _site/data/2026-07-24
+          mkdir -p _site/charts _site/rankings/2026-07-31 _site/data/2026-07-31
           cp -R site/. _site/
           cp -R charts/en _site/charts/en
           cp -R charts/zh-CN _site/charts/zh-CN
-          cp rankings/2026-07-24/*.csv _site/rankings/2026-07-24/
-          cp data/2026-07-24/*.csv _site/data/2026-07-24/
+          cp rankings/2026-07-31/*.csv _site/rankings/2026-07-31/
+          cp data/2026-07-31/*.csv _site/data/2026-07-31/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

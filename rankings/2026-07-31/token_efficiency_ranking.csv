@@ -1,0 +1,10 @@
+﻿rank,category,model,levels,score_min,score_max,score_span,efficiency_index,token_overhead_vs_frontier
+1,core,GPT-5.6 Sol,6,41.2034,58.8898,17.6864,90.55,1.1043
+2,core,GPT-5.5,5,35.3827,54.8376,19.4549,86.44,1.1569
+3,core,Claude Opus 5,5,50.6137,60.6919,10.0782,84.46,1.1839
+4,core,GPT-5.6 Terra,6,33.9672,54.9529,20.9856,46.73,2.1398
+5,core,GPT-5.6 Luna,6,26.5601,51.2359,24.6758,37.62,2.6581
+1,limited,Amazon Nova 2.0 Pro,3,14.3557,21.7655,7.4097,54.73,1.8273
+2,limited,DeepSeek V4 Pro,2,43.1117,44.2736,1.1618,16.55,6.0421
+3,limited,DeepSeek V4 Flash,2,37.4635,40.2825,2.819,9.37,10.673
+4,limited,Claude Sonnet 5,2,41.7305,53.35,11.6195,5.64,17.7152

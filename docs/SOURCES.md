@@ -1,6 +1,6 @@
 # Sources
 
-Snapshot date: **2026-07-24**
+Snapshot date: **2026-07-31**
 
 ## Benchmark methodology and model results
 
@@ -15,10 +15,17 @@ Every model configuration's direct Artificial Analysis page is stored in the `so
 ## OpenAI
 
 - [Codex pricing and usage limits](https://learn.chatgpt.com/docs/pricing)
-- [OpenAI API pricing](https://platform.openai.com/docs/pricing)
+- [OpenAI API changelog](https://developers.openai.com/api/docs/changelog)
+- [OpenAI API pricing](https://developers.openai.com/api/docs/pricing)
 - [Codex rate card](https://help.openai.com/en/articles/20001106)
 - [SemiAnalysis subscription-limit measurement](https://x.com/semianalysis_/status/2064815044085318040)
 - [Tom's Hardware report on the same measurement](https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-spike-as-subscriptions-hit-pricing-wall-firms-turn-towards-chinese-llms-open-source-models-to-extend-budget)
+
+The 2026-07-31 snapshot applies the official July 30 standard API prices:
+GPT-5.6 Luna is 80% lower and GPT-5.6 Terra is 20% lower. Current Codex
+credit rates remain proportional to those API prices. The subscription chart
+therefore keeps the independently measured 70x API-value ratio and reprices
+the affected tasks; it does not treat that estimate as an official Token quota.
 
 ## Anthropic
 

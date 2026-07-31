@@ -1,5 +1,5 @@
 {
-  "snapshot": "2026-07-24",
+  "snapshot": "2026-07-31",
   "counts": {
     "token_configurations": 73,
     "api_cost_configurations": 68,
@@ -130,6 +130,17 @@
   "api_cost": [
     {
       "rank": 1,
+      "model": "GPT-5.6 Luna",
+      "effort": "low",
+      "score": 33.2639,
+      "cost_usd_per_task": 0.008091083,
+      "total_tokens_million": 116.165739,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-luna",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 2,
       "model": "MiMo-V2.5",
       "effort": "default",
       "score": 37.2026,
@@ -140,7 +151,40 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 2,
+      "rank": 3,
+      "model": "GPT-5.6 Luna",
+      "effort": "medium",
+      "score": 38.0506,
+      "cost_usd_per_task": 0.010083395,
+      "total_tokens_million": 137.908476,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-luna",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 4,
+      "model": "GPT-5.6 Luna",
+      "effort": "non-reasoning",
+      "score": 26.5601,
+      "cost_usd_per_task": 0.010940507,
+      "total_tokens_million": 180.931436,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-luna",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 5,
+      "model": "GPT-5.6 Luna",
+      "effort": "high",
+      "score": 46.059,
+      "cost_usd_per_task": 0.018952919,
+      "total_tokens_million": 312.989293,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-luna",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 6,
       "model": "HyperNova 60B 2605",
       "effort": "default",
       "score": 17.8041,
@@ -151,7 +195,7 @@
       "precision": "official released model precision undisclosed"
     },
     {
-      "rank": 3,
+      "rank": 7,
       "model": "DeepSeek V4 Flash",
       "effort": "max",
       "score": 40.2825,
@@ -162,7 +206,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 4,
+      "rank": 8,
       "model": "DeepSeek V4 Flash",
       "effort": "high",
       "score": 37.4635,
@@ -173,7 +217,18 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 5,
+      "rank": 9,
+      "model": "GPT-5.6 Luna",
+      "effort": "xhigh",
+      "score": 49.0677,
+      "cost_usd_per_task": 0.027792958,
+      "total_tokens_million": 518.208795,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-luna",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 10,
       "model": "MiMo-V2.5-Pro",
       "effort": "default",
       "score": 42.2394,
@@ -184,18 +239,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 6,
-      "model": "GPT-5.6 Luna",
-      "effort": "low",
-      "score": 33.2639,
-      "cost_usd_per_task": 0.040455416,
-      "total_tokens_million": 116.165739,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-luna",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 7,
+      "rank": 11,
       "model": "DeepSeek V4 Pro",
       "effort": "high",
       "score": 43.1117,
@@ -206,7 +250,18 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 8,
+      "rank": 12,
+      "model": "GPT-5.6 Luna",
+      "effort": "max",
+      "score": 51.2359,
+      "cost_usd_per_task": 0.041882665,
+      "total_tokens_million": 860.115185,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-luna",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 13,
       "model": "Ring-2.6-1T",
       "effort": "default",
       "score": 30.5727,
@@ -217,7 +272,7 @@
       "precision": "publisher-routed precision undisclosed"
     },
     {
-      "rank": 9,
+      "rank": 14,
       "model": "DeepSeek V4 Pro",
       "effort": "max",
       "score": 44.2736,
@@ -228,29 +283,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 10,
-      "model": "GPT-5.6 Luna",
-      "effort": "medium",
-      "score": 38.0506,
-      "cost_usd_per_task": 0.050416974,
-      "total_tokens_million": 137.908476,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-luna",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 11,
-      "model": "GPT-5.6 Luna",
-      "effort": "non-reasoning",
-      "score": 26.5601,
-      "cost_usd_per_task": 0.054702536,
-      "total_tokens_million": 180.931436,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-luna",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 12,
+      "rank": 15,
       "model": "Mistral Large 3",
       "effort": "default",
       "score": 15.9301,
@@ -261,7 +294,7 @@
       "precision": "first-party precision undisclosed"
     },
     {
-      "rank": 13,
+      "rank": 16,
       "model": "Gemini 3.5 Flash-Lite",
       "effort": "default",
       "score": 36.4776,
@@ -272,18 +305,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 14,
-      "model": "GPT-5.6 Luna",
-      "effort": "high",
-      "score": 46.059,
-      "cost_usd_per_task": 0.094764593,
-      "total_tokens_million": 312.989293,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-luna",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 15,
+      "rank": 17,
       "model": "Mistral Small 4",
       "effort": "default",
       "score": 19.5555,
@@ -294,7 +316,7 @@
       "precision": "first-party precision undisclosed"
     },
     {
-      "rank": 16,
+      "rank": 18,
       "model": "MiniMax-M3",
       "effort": "default",
       "score": 44.4373,
@@ -305,7 +327,18 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 17,
+      "rank": 19,
+      "model": "GPT-5.6 Terra",
+      "effort": "low",
+      "score": 40.4657,
+      "cost_usd_per_task": 0.123337436,
+      "total_tokens_million": 119.744361,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-terra",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 20,
       "model": "Qwen3.7 Plus",
       "effort": "default",
       "score": 38.9772,
@@ -316,7 +349,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 18,
+      "rank": 21,
       "model": "Ministral 3 3B",
       "effort": "default",
       "score": 6.4616,
@@ -327,18 +360,7 @@
       "precision": "first-party precision undisclosed"
     },
     {
-      "rank": 19,
-      "model": "GPT-5.6 Luna",
-      "effort": "xhigh",
-      "score": 49.0677,
-      "cost_usd_per_task": 0.138964788,
-      "total_tokens_million": 518.208795,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-luna",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 20,
+      "rank": 22,
       "model": "Amazon Nova 2.0 Lite",
       "effort": "high",
       "score": 18.1684,
@@ -349,7 +371,29 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 21,
+      "rank": 23,
+      "model": "GPT-5.6 Terra",
+      "effort": "medium",
+      "score": 45.5742,
+      "cost_usd_per_task": 0.140158766,
+      "total_tokens_million": 142.534286,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-terra",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 24,
+      "model": "GPT-5.6 Terra",
+      "effort": "non-reasoning",
+      "score": 33.9672,
+      "cost_usd_per_task": 0.142875751,
+      "total_tokens_million": 141.859696,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-terra",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 25,
       "model": "Ministral 3 14B",
       "effort": "default",
       "score": 11.0525,
@@ -360,18 +404,7 @@
       "precision": "first-party precision undisclosed"
     },
     {
-      "rank": 22,
-      "model": "GPT-5.6 Terra",
-      "effort": "low",
-      "score": 40.4657,
-      "cost_usd_per_task": 0.154171795,
-      "total_tokens_million": 119.744361,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-terra",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 23,
+      "rank": 26,
       "model": "GPT-5.5",
       "effort": "non-reasoning",
       "score": 35.3827,
@@ -382,29 +415,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 24,
-      "model": "GPT-5.6 Terra",
-      "effort": "medium",
-      "score": 45.5742,
-      "cost_usd_per_task": 0.175198458,
-      "total_tokens_million": 142.534286,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-terra",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 25,
-      "model": "GPT-5.6 Terra",
-      "effort": "non-reasoning",
-      "score": 33.9672,
-      "cost_usd_per_task": 0.178594689,
-      "total_tokens_million": 141.859696,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-terra",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 26,
+      "rank": 27,
       "model": "Qwen3.6 35B A3B",
       "effort": "default",
       "score": 31.6496,
@@ -415,7 +426,7 @@
       "precision": "BF16"
     },
     {
-      "rank": 27,
+      "rank": 28,
       "model": "Ministral 3 8B",
       "effort": "default",
       "score": 8.9573,
@@ -426,7 +437,7 @@
       "precision": "first-party precision undisclosed"
     },
     {
-      "rank": 28,
+      "rank": 29,
       "model": "Qwen3.6 Plus",
       "effort": "default",
       "score": 39.5608,
@@ -437,7 +448,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 29,
+      "rank": 30,
       "model": "Qwen3.6 27B",
       "effort": "default",
       "score": 37.0517,
@@ -448,7 +459,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 30,
+      "rank": 31,
       "model": "GPT-5.6 Sol",
       "effort": "low",
       "score": 49.444,
@@ -459,7 +470,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 31,
+      "rank": 32,
       "model": "Nemotron 3 Ultra 550B A55B (NVFP4)",
       "effort": "default",
       "score": 37.762,
@@ -470,7 +481,7 @@
       "precision": "NVFP4"
     },
     {
-      "rank": 32,
+      "rank": 33,
       "model": "GPT-5.6 Sol",
       "effort": "non-reasoning",
       "score": 41.2034,
@@ -478,17 +489,6 @@
       "total_tokens_million": 112.41316,
       "provider": "OpenAI",
       "provider_model_id": "gpt-5.6-sol",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 33,
-      "model": "GPT-5.6 Luna",
-      "effort": "max",
-      "score": 51.2359,
-      "cost_usd_per_task": 0.209413324,
-      "total_tokens_million": 860.115185,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-luna",
       "precision": "first-party undisclosed"
     },
     {
@@ -559,6 +559,17 @@
     },
     {
       "rank": 40,
+      "model": "GPT-5.6 Terra",
+      "effort": "high",
+      "score": 48.9549,
+      "cost_usd_per_task": 0.269063593,
+      "total_tokens_million": 316.660198,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-terra",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 41,
       "model": "Gemini 3.1 Pro Preview",
       "effort": "default",
       "score": 46.4594,
@@ -569,7 +580,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 41,
+      "rank": 42,
       "model": "Kimi K2.6",
       "effort": "default",
       "score": 44.2197,
@@ -580,7 +591,7 @@
       "precision": "unquantized"
     },
     {
-      "rank": 42,
+      "rank": 43,
       "model": "GPT-5.6 Sol",
       "effort": "medium",
       "score": 53.5888,
@@ -591,7 +602,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 43,
+      "rank": 44,
       "model": "GLM-5.2",
       "effort": "max",
       "score": 51.0858,
@@ -599,17 +610,6 @@
       "total_tokens_million": 685.958125,
       "provider": "Z.AI",
       "provider_model_id": "glm-5.2",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 44,
-      "model": "GPT-5.6 Terra",
-      "effort": "high",
-      "score": 48.9549,
-      "cost_usd_per_task": 0.336329491,
-      "total_tokens_million": 316.660198,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-terra",
       "precision": "first-party undisclosed"
     },
     {
@@ -647,6 +647,17 @@
     },
     {
       "rank": 48,
+      "model": "GPT-5.6 Terra",
+      "effort": "xhigh",
+      "score": 51.6046,
+      "cost_usd_per_task": 0.381499584,
+      "total_tokens_million": 482.823675,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-terra",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 49,
       "model": "GPT-5.5",
       "effort": "medium",
       "score": 50.409,
@@ -657,7 +668,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 49,
+      "rank": 50,
       "model": "GPT-5.6 Sol",
       "effort": "high",
       "score": 55.8665,
@@ -665,17 +676,6 @@
       "total_tokens_million": 362.117022,
       "provider": "OpenAI",
       "provider_model_id": "gpt-5.6-sol",
-      "precision": "first-party undisclosed"
-    },
-    {
-      "rank": 50,
-      "model": "GPT-5.6 Terra",
-      "effort": "xhigh",
-      "score": 51.6046,
-      "cost_usd_per_task": 0.47687448,
-      "total_tokens_million": 482.823675,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-terra",
       "precision": "first-party undisclosed"
     },
     {
@@ -735,6 +735,17 @@
     },
     {
       "rank": 56,
+      "model": "GPT-5.6 Terra",
+      "effort": "max",
+      "score": 54.9529,
+      "cost_usd_per_task": 0.659689325,
+      "total_tokens_million": 892.465517,
+      "provider": "OpenAI",
+      "provider_model_id": "gpt-5.6-terra",
+      "precision": "first-party undisclosed"
+    },
+    {
+      "rank": 57,
       "model": "GPT-5.5",
       "effort": "high",
       "score": 53.1275,
@@ -745,7 +756,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 57,
+      "rank": 58,
       "model": "GPT-5.6 Sol",
       "effort": "xhigh",
       "score": 57.6538,
@@ -756,7 +767,7 @@
       "precision": "first-party undisclosed"
     },
     {
-      "rank": 58,
+      "rank": 59,
       "model": "Magistral Medium 1.2",
       "effort": "default",
       "score": 17.8745,
@@ -765,17 +776,6 @@
       "provider": "Mistral",
       "provider_model_id": "magistral-medium-2509",
       "precision": "first-party precision undisclosed"
-    },
-    {
-      "rank": 59,
-      "model": "GPT-5.6 Terra",
-      "effort": "max",
-      "score": 54.9529,
-      "cost_usd_per_task": 0.824611656,
-      "total_tokens_million": 892.465517,
-      "provider": "OpenAI",
-      "provider_model_id": "gpt-5.6-terra",
-      "precision": "first-party undisclosed"
     },
     {
       "rank": 60,
@@ -883,8 +883,8 @@
       "model": "GPT-5.6 Luna",
       "effort": "low",
       "score": 33.2639,
-      "cost_usd_per_task": 0.000577935,
-      "api_cost_usd_per_task": 0.040455416,
+      "cost_usd_per_task": 0.000115587,
+      "api_cost_usd_per_task": 0.008091083,
       "access_mode": "subscription_api_equivalent_estimate",
       "quota_scenario": "current_estimate",
       "plan_name": "ChatGPT Pro 20x",
@@ -897,8 +897,8 @@
       "model": "GPT-5.6 Luna",
       "effort": "medium",
       "score": 38.0506,
-      "cost_usd_per_task": 0.000720242,
-      "api_cost_usd_per_task": 0.050416974,
+      "cost_usd_per_task": 0.000144048,
+      "api_cost_usd_per_task": 0.010083395,
       "access_mode": "subscription_api_equivalent_estimate",
       "quota_scenario": "current_estimate",
       "plan_name": "ChatGPT Pro 20x",
@@ -911,8 +911,8 @@
       "model": "GPT-5.6 Luna",
       "effort": "non-reasoning",
       "score": 26.5601,
-      "cost_usd_per_task": 0.000781465,
-      "api_cost_usd_per_task": 0.054702536,
+      "cost_usd_per_task": 0.000156293,
+      "api_cost_usd_per_task": 0.010940507,
       "access_mode": "subscription_api_equivalent_estimate",
       "quota_scenario": "current_estimate",
       "plan_name": "ChatGPT Pro 20x",
@@ -925,8 +925,8 @@
       "model": "GPT-5.6 Luna",
       "effort": "high",
       "score": 46.059,
-      "cost_usd_per_task": 0.00135378,
-      "api_cost_usd_per_task": 0.094764593,
+      "cost_usd_per_task": 0.000270756,
+      "api_cost_usd_per_task": 0.018952919,
       "access_mode": "subscription_api_equivalent_estimate",
       "quota_scenario": "current_estimate",
       "plan_name": "ChatGPT Pro 20x",
@@ -939,8 +939,8 @@
       "model": "GPT-5.6 Luna",
       "effort": "xhigh",
       "score": 49.0677,
-      "cost_usd_per_task": 0.001985211,
-      "api_cost_usd_per_task": 0.138964788,
+      "cost_usd_per_task": 0.000397042,
+      "api_cost_usd_per_task": 0.027792958,
       "access_mode": "subscription_api_equivalent_estimate",
       "quota_scenario": "current_estimate",
       "plan_name": "ChatGPT Pro 20x",
@@ -950,11 +950,11 @@
     },
     {
       "rank": 6,
-      "model": "GPT-5.6 Terra",
-      "effort": "low",
-      "score": 40.4657,
-      "cost_usd_per_task": 0.002202454,
-      "api_cost_usd_per_task": 0.154171795,
+      "model": "GPT-5.6 Luna",
+      "effort": "max",
+      "score": 51.2359,
+      "cost_usd_per_task": 0.000598324,
+      "api_cost_usd_per_task": 0.041882665,
       "access_mode": "subscription_api_equivalent_estimate",
       "quota_scenario": "current_estimate",
       "plan_name": "ChatGPT Pro 20x",
@@ -964,6 +964,48 @@
     },
     {
       "rank": 7,
+      "model": "GPT-5.6 Terra",
+      "effort": "low",
+      "score": 40.4657,
+      "cost_usd_per_task": 0.001761963,
+      "api_cost_usd_per_task": 0.123337436,
+      "access_mode": "subscription_api_equivalent_estimate",
+      "quota_scenario": "current_estimate",
+      "plan_name": "ChatGPT Pro 20x",
+      "plan_price_usd_per_month": 200.0,
+      "provider": "OpenAI",
+      "confidence": "medium"
+    },
+    {
+      "rank": 8,
+      "model": "GPT-5.6 Terra",
+      "effort": "medium",
+      "score": 45.5742,
+      "cost_usd_per_task": 0.002002268,
+      "api_cost_usd_per_task": 0.140158766,
+      "access_mode": "subscription_api_equivalent_estimate",
+      "quota_scenario": "current_estimate",
+      "plan_name": "ChatGPT Pro 20x",
+      "plan_price_usd_per_month": 200.0,
+      "provider": "OpenAI",
+      "confidence": "medium"
+    },
+    {
+      "rank": 9,
+      "model": "GPT-5.6 Terra",
+      "effort": "non-reasoning",
+      "score": 33.9672,
+      "cost_usd_per_task": 0.002041082,
+      "api_cost_usd_per_task": 0.142875751,
+      "access_mode": "subscription_api_equivalent_estimate",
+      "quota_scenario": "current_estimate",
+      "plan_name": "ChatGPT Pro 20x",
+      "plan_price_usd_per_month": 200.0,
+      "provider": "OpenAI",
+      "confidence": "medium"
+    },
+    {
+      "rank": 10,
       "model": "GPT-5.5",
       "effort": "non-reasoning",
       "score": 35.3827,
@@ -977,35 +1019,7 @@
       "confidence": "medium"
     },
     {
-      "rank": 8,
-      "model": "GPT-5.6 Terra",
-      "effort": "medium",
-      "score": 45.5742,
-      "cost_usd_per_task": 0.002502835,
-      "api_cost_usd_per_task": 0.175198458,
-      "access_mode": "subscription_api_equivalent_estimate",
-      "quota_scenario": "current_estimate",
-      "plan_name": "ChatGPT Pro 20x",
-      "plan_price_usd_per_month": 200.0,
-      "provider": "OpenAI",
-      "confidence": "medium"
-    },
-    {
-      "rank": 9,
-      "model": "GPT-5.6 Terra",
-      "effort": "non-reasoning",
-      "score": 33.9672,
-      "cost_usd_per_task": 0.002551353,
-      "api_cost_usd_per_task": 0.178594689,
-      "access_mode": "subscription_api_equivalent_estimate",
-      "quota_scenario": "current_estimate",
-      "plan_name": "ChatGPT Pro 20x",
-      "plan_price_usd_per_month": 200.0,
-      "provider": "OpenAI",
-      "confidence": "medium"
-    },
-    {
-      "rank": 10,
+      "rank": 11,
       "model": "GPT-5.6 Sol",
       "effort": "low",
       "score": 49.444,
@@ -1019,26 +1033,12 @@
       "confidence": "medium"
     },
     {
-      "rank": 11,
+      "rank": 12,
       "model": "GPT-5.6 Sol",
       "effort": "non-reasoning",
       "score": 41.2034,
       "cost_usd_per_task": 0.002863494,
       "api_cost_usd_per_task": 0.200444615,
-      "access_mode": "subscription_api_equivalent_estimate",
-      "quota_scenario": "current_estimate",
-      "plan_name": "ChatGPT Pro 20x",
-      "plan_price_usd_per_month": 200.0,
-      "provider": "OpenAI",
-      "confidence": "medium"
-    },
-    {
-      "rank": 12,
-      "model": "GPT-5.6 Luna",
-      "effort": "max",
-      "score": 51.2359,
-      "cost_usd_per_task": 0.002991619,
-      "api_cost_usd_per_task": 0.209413324,
       "access_mode": "subscription_api_equivalent_estimate",
       "quota_scenario": "current_estimate",
       "plan_name": "ChatGPT Pro 20x",
@@ -1062,6 +1062,20 @@
     },
     {
       "rank": 14,
+      "model": "GPT-5.6 Terra",
+      "effort": "high",
+      "score": 48.9549,
+      "cost_usd_per_task": 0.003843766,
+      "api_cost_usd_per_task": 0.269063593,
+      "access_mode": "subscription_api_equivalent_estimate",
+      "quota_scenario": "current_estimate",
+      "plan_name": "ChatGPT Pro 20x",
+      "plan_price_usd_per_month": 200.0,
+      "provider": "OpenAI",
+      "confidence": "medium"
+    },
+    {
+      "rank": 15,
       "model": "GPT-5.6 Sol",
       "effort": "medium",
       "score": 53.5888,
@@ -1075,12 +1089,12 @@
       "confidence": "medium"
     },
     {
-      "rank": 15,
+      "rank": 16,
       "model": "GPT-5.6 Terra",
-      "effort": "high",
-      "score": 48.9549,
-      "cost_usd_per_task": 0.004804707,
-      "api_cost_usd_per_task": 0.336329491,
+      "effort": "xhigh",
+      "score": 51.6046,
+      "cost_usd_per_task": 0.005449994,
+      "api_cost_usd_per_task": 0.381499584,
       "access_mode": "subscription_api_equivalent_estimate",
       "quota_scenario": "current_estimate",
       "plan_name": "ChatGPT Pro 20x",
@@ -1089,7 +1103,7 @@
       "confidence": "medium"
     },
     {
-      "rank": 16,
+      "rank": 17,
       "model": "GPT-5.5",
       "effort": "medium",
       "score": 50.409,
@@ -1103,26 +1117,12 @@
       "confidence": "medium"
     },
     {
-      "rank": 17,
+      "rank": 18,
       "model": "GPT-5.6 Sol",
       "effort": "high",
       "score": 55.8665,
       "cost_usd_per_task": 0.006471563,
       "api_cost_usd_per_task": 0.453009427,
-      "access_mode": "subscription_api_equivalent_estimate",
-      "quota_scenario": "current_estimate",
-      "plan_name": "ChatGPT Pro 20x",
-      "plan_price_usd_per_month": 200.0,
-      "provider": "OpenAI",
-      "confidence": "medium"
-    },
-    {
-      "rank": 18,
-      "model": "GPT-5.6 Terra",
-      "effort": "xhigh",
-      "score": 51.6046,
-      "cost_usd_per_task": 0.006812493,
-      "api_cost_usd_per_task": 0.47687448,
       "access_mode": "subscription_api_equivalent_estimate",
       "quota_scenario": "current_estimate",
       "plan_name": "ChatGPT Pro 20x",
@@ -1146,6 +1146,20 @@
     },
     {
       "rank": 20,
+      "model": "GPT-5.6 Terra",
+      "effort": "max",
+      "score": 54.9529,
+      "cost_usd_per_task": 0.009424133,
+      "api_cost_usd_per_task": 0.659689325,
+      "access_mode": "subscription_api_equivalent_estimate",
+      "quota_scenario": "current_estimate",
+      "plan_name": "ChatGPT Pro 20x",
+      "plan_price_usd_per_month": 200.0,
+      "provider": "OpenAI",
+      "confidence": "medium"
+    },
+    {
+      "rank": 21,
       "model": "GPT-5.5",
       "effort": "high",
       "score": 53.1275,
@@ -1159,7 +1173,7 @@
       "confidence": "medium"
     },
     {
-      "rank": 21,
+      "rank": 22,
       "model": "GPT-5.6 Sol",
       "effort": "xhigh",
       "score": 57.6538,
@@ -1173,7 +1187,7 @@
       "confidence": "medium"
     },
     {
-      "rank": 22,
+      "rank": 23,
       "model": "GLM-5.2",
       "effort": "max",
       "score": 51.0858,
@@ -1184,20 +1198,6 @@
       "plan_name": "Coding Plan Max",
       "plan_price_usd_per_month": 160.0,
       "provider": "Zhipu AI",
-      "confidence": "medium"
-    },
-    {
-      "rank": 23,
-      "model": "GPT-5.6 Terra",
-      "effort": "max",
-      "score": 54.9529,
-      "cost_usd_per_task": 0.011780167,
-      "api_cost_usd_per_task": 0.824611656,
-      "access_mode": "subscription_api_equivalent_estimate",
-      "quota_scenario": "current_estimate",
-      "plan_name": "ChatGPT Pro 20x",
-      "plan_price_usd_per_month": 200.0,
-      "provider": "OpenAI",
       "confidence": "medium"
     },
     {
@@ -2492,7 +2492,7 @@
         "effort": "non-reasoning",
         "effort_order": 0,
         "score": 33.9672,
-        "cost_usd_per_task": 0.178594689,
+        "cost_usd_per_task": 0.142875751,
         "total_tokens_million": 141.859696,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2506,7 +2506,7 @@
         "effort": "low",
         "effort_order": 1,
         "score": 40.4657,
-        "cost_usd_per_task": 0.154171795,
+        "cost_usd_per_task": 0.123337436,
         "total_tokens_million": 119.744361,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2520,7 +2520,7 @@
         "effort": "medium",
         "effort_order": 2,
         "score": 45.5742,
-        "cost_usd_per_task": 0.175198458,
+        "cost_usd_per_task": 0.140158766,
         "total_tokens_million": 142.534286,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2534,7 +2534,7 @@
         "effort": "high",
         "effort_order": 3,
         "score": 48.9549,
-        "cost_usd_per_task": 0.336329491,
+        "cost_usd_per_task": 0.269063593,
         "total_tokens_million": 316.660198,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2548,7 +2548,7 @@
         "effort": "xhigh",
         "effort_order": 4,
         "score": 51.6046,
-        "cost_usd_per_task": 0.47687448,
+        "cost_usd_per_task": 0.381499584,
         "total_tokens_million": 482.823675,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2562,7 +2562,7 @@
         "effort": "max",
         "effort_order": 5,
         "score": 54.9529,
-        "cost_usd_per_task": 0.824611656,
+        "cost_usd_per_task": 0.659689325,
         "total_tokens_million": 892.465517,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2576,7 +2576,7 @@
         "effort": "non-reasoning",
         "effort_order": 0,
         "score": 26.5601,
-        "cost_usd_per_task": 0.054702536,
+        "cost_usd_per_task": 0.010940507,
         "total_tokens_million": 180.931436,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2590,7 +2590,7 @@
         "effort": "low",
         "effort_order": 1,
         "score": 33.2639,
-        "cost_usd_per_task": 0.040455416,
+        "cost_usd_per_task": 0.008091083,
         "total_tokens_million": 116.165739,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2604,7 +2604,7 @@
         "effort": "medium",
         "effort_order": 2,
         "score": 38.0506,
-        "cost_usd_per_task": 0.050416974,
+        "cost_usd_per_task": 0.010083395,
         "total_tokens_million": 137.908476,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2618,7 +2618,7 @@
         "effort": "high",
         "effort_order": 3,
         "score": 46.059,
-        "cost_usd_per_task": 0.094764593,
+        "cost_usd_per_task": 0.018952919,
         "total_tokens_million": 312.989293,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2632,7 +2632,7 @@
         "effort": "xhigh",
         "effort_order": 4,
         "score": 49.0677,
-        "cost_usd_per_task": 0.138964788,
+        "cost_usd_per_task": 0.027792958,
         "total_tokens_million": 518.208795,
         "developer": "OpenAI",
         "country_code": "US",
@@ -2646,7 +2646,7 @@
         "effort": "max",
         "effort_order": 5,
         "score": 51.2359,
-        "cost_usd_per_task": 0.209413324,
+        "cost_usd_per_task": 0.041882665,
         "total_tokens_million": 860.115185,
         "developer": "OpenAI",
         "country_code": "US",
@@ -3452,7 +3452,7 @@
         "effort": "non-reasoning",
         "effort_order": 0,
         "score": 33.9672,
-        "cost_usd_per_task": 0.002551353,
+        "cost_usd_per_task": 0.002041082,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3467,7 +3467,7 @@
         "effort": "low",
         "effort_order": 1,
         "score": 40.4657,
-        "cost_usd_per_task": 0.002202454,
+        "cost_usd_per_task": 0.001761963,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3482,7 +3482,7 @@
         "effort": "medium",
         "effort_order": 2,
         "score": 45.5742,
-        "cost_usd_per_task": 0.002502835,
+        "cost_usd_per_task": 0.002002268,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3497,7 +3497,7 @@
         "effort": "high",
         "effort_order": 3,
         "score": 48.9549,
-        "cost_usd_per_task": 0.004804707,
+        "cost_usd_per_task": 0.003843766,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3512,7 +3512,7 @@
         "effort": "xhigh",
         "effort_order": 4,
         "score": 51.6046,
-        "cost_usd_per_task": 0.006812493,
+        "cost_usd_per_task": 0.005449994,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3527,7 +3527,7 @@
         "effort": "max",
         "effort_order": 5,
         "score": 54.9529,
-        "cost_usd_per_task": 0.011780167,
+        "cost_usd_per_task": 0.009424133,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3542,7 +3542,7 @@
         "effort": "non-reasoning",
         "effort_order": 0,
         "score": 26.5601,
-        "cost_usd_per_task": 0.000781465,
+        "cost_usd_per_task": 0.000156293,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3557,7 +3557,7 @@
         "effort": "low",
         "effort_order": 1,
         "score": 33.2639,
-        "cost_usd_per_task": 0.000577935,
+        "cost_usd_per_task": 0.000115587,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3572,7 +3572,7 @@
         "effort": "medium",
         "effort_order": 2,
         "score": 38.0506,
-        "cost_usd_per_task": 0.000720242,
+        "cost_usd_per_task": 0.000144048,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3587,7 +3587,7 @@
         "effort": "high",
         "effort_order": 3,
         "score": 46.059,
-        "cost_usd_per_task": 0.00135378,
+        "cost_usd_per_task": 0.000270756,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3602,7 +3602,7 @@
         "effort": "xhigh",
         "effort_order": 4,
         "score": 49.0677,
-        "cost_usd_per_task": 0.001985211,
+        "cost_usd_per_task": 0.000397042,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -3617,7 +3617,7 @@
         "effort": "max",
         "effort_order": 5,
         "score": 51.2359,
-        "cost_usd_per_task": 0.002991619,
+        "cost_usd_per_task": 0.000598324,
         "developer": "OpenAI",
         "country_code": "US",
         "access_mode": "subscription_api_equivalent_estimate",
@@ -4054,11 +4054,11 @@
       {
         "metric": "api",
         "score_threshold": 40,
-        "model": "DeepSeek V4 Flash",
-        "effort": "max",
-        "score": 40.2825,
-        "cost_usd_per_task": 0.022281834,
-        "provider": "DeepSeek",
+        "model": "GPT-5.6 Luna",
+        "effort": "high",
+        "score": 46.059,
+        "cost_usd_per_task": 0.018952919,
+        "provider": "OpenAI",
         "access_mode": "api",
         "plan_name": "",
         "confidence": ""
@@ -4069,7 +4069,7 @@
         "model": "GPT-5.6 Luna",
         "effort": "high",
         "score": 46.059,
-        "cost_usd_per_task": 0.094764593,
+        "cost_usd_per_task": 0.018952919,
         "provider": "OpenAI",
         "access_mode": "api",
         "plan_name": "",
@@ -4081,7 +4081,7 @@
         "model": "GPT-5.6 Luna",
         "effort": "max",
         "score": 51.2359,
-        "cost_usd_per_task": 0.209413324,
+        "cost_usd_per_task": 0.041882665,
         "provider": "OpenAI",
         "access_mode": "api",
         "plan_name": "",
@@ -4131,7 +4131,7 @@
         "model": "GPT-5.6 Luna",
         "effort": "high",
         "score": 46.059,
-        "cost_usd_per_task": 0.00135378,
+        "cost_usd_per_task": 0.000270756,
         "provider": "OpenAI",
         "access_mode": "subscription_api_equivalent_estimate",
         "plan_name": "ChatGPT Pro 20x",
@@ -4143,7 +4143,7 @@
         "model": "GPT-5.6 Luna",
         "effort": "high",
         "score": 46.059,
-        "cost_usd_per_task": 0.00135378,
+        "cost_usd_per_task": 0.000270756,
         "provider": "OpenAI",
         "access_mode": "subscription_api_equivalent_estimate",
         "plan_name": "ChatGPT Pro 20x",
@@ -4155,7 +4155,7 @@
         "model": "GPT-5.6 Luna",
         "effort": "max",
         "score": 51.2359,
-        "cost_usd_per_task": 0.002991619,
+        "cost_usd_per_task": 0.000598324,
         "provider": "OpenAI",
         "access_mode": "subscription_api_equivalent_estimate",
         "plan_name": "ChatGPT Pro 20x",

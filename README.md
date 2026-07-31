@@ -14,7 +14,7 @@
   <a href="https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/latest">Download the complete chart set / 下载整套成图</a>
 </p>
 
-Latest snapshot / 最新快照：**2026-07-24**<br>
+Latest snapshot / 最新快照：**2026-07-31**<br>
 Benchmark / 评测：**Artificial Analysis Intelligence Index v4.1**<br>
 Coverage / 当前覆盖：**73 Token configurations / 68 API-cost configurations / 46 subscription-first configurations**
 
@@ -114,13 +114,13 @@ same ranking = **100%**.
 See the [detailed chart guide](docs/CHART_GUIDE.md),
 [methodology](docs/METHODOLOGY.md),
 [ranking methodology](docs/RANKING_METHOD.md), [sources](docs/SOURCES.md), and
-the [current data snapshot](data/2026-07-24/).
+the [current data snapshot](data/2026-07-31/).
 
 Numerical downloads:
-[aggregate Token efficiency](rankings/2026-07-24/token_efficiency_ranking.csv)
-· [API cost](rankings/2026-07-24/api_cost_ranking.csv) ·
-[subscription-first cost](rankings/2026-07-24/subscription_cost_ranking.csv) ·
-[score-threshold leaders](rankings/2026-07-24/score_threshold_leaders.csv)
+[aggregate Token efficiency](rankings/2026-07-31/token_efficiency_ranking.csv)
+· [API cost](rankings/2026-07-31/api_cost_ranking.csv) ·
+[subscription-first cost](rankings/2026-07-31/subscription_cost_ranking.csv) ·
+[score-threshold leaders](rankings/2026-07-31/score_threshold_leaders.csv)
 
 </details>
 
@@ -204,13 +204,13 @@ Numerical downloads:
 每张图的完整解释见[图片详细说明](docs/CHART_GUIDE.md)，具体计算方法见
 [方法说明](docs/METHODOLOGY.md)和[排名方法](docs/RANKING_METHOD.md)，完整链接见
 [数据来源](docs/SOURCES.md)，当前数据见
-[2026-07-24 快照](data/2026-07-24/)。
+[2026-07-31 快照](data/2026-07-31/)。
 
 数值下载：
-[综合 Token 效率](rankings/2026-07-24/token_efficiency_ranking.csv) ·
-[API 成本](rankings/2026-07-24/api_cost_ranking.csv) ·
-[套餐优先成本](rankings/2026-07-24/subscription_cost_ranking.csv) ·
-[分数门槛最低成本](rankings/2026-07-24/score_threshold_leaders.csv)
+[综合 Token 效率](rankings/2026-07-31/token_efficiency_ranking.csv) ·
+[API 成本](rankings/2026-07-31/api_cost_ranking.csv) ·
+[套餐优先成本](rankings/2026-07-31/subscription_cost_ranking.csv) ·
+[分数门槛最低成本](rankings/2026-07-31/score_threshold_leaders.csv)
 
 </details>
 

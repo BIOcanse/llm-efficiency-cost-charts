@@ -23,11 +23,11 @@ page navigation.
 
 Release tag:
 
-`snapshot-2026-07-24`
+`snapshot-2026-07-31`
 
 Primary asset:
 
-`llm-efficiency-cost-charts-2026-07-24-full.zip`
+`llm-efficiency-cost-charts-2026-07-31-full.zip`
 
 The archive contains:
 

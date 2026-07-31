@@ -1,6 +1,6 @@
 # WebGPU scatter rendering specification
 
-Snapshot baseline: **2026-07-24**
+Snapshot baseline: **2026-07-31**
 
 ## Purpose
 

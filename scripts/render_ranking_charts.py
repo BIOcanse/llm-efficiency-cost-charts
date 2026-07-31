@@ -117,7 +117,7 @@ LOCALES = {
             "Intelligence Index score"
         ),
         snapshot_note=(
-            "Snapshot 2026-07-24 · Artificial Analysis Intelligence Index "
+            "Snapshot 2026-07-31 · Artificial Analysis Intelligence Index "
             "v4.1 · lower cost and higher score are better"
         ),
     ),
@@ -152,7 +152,7 @@ LOCALES = {
         plan_full_title="套餐优先单位任务成本完整排名",
         full_subtitle="列出全部纳入配置 · 标出单位任务美元成本与 Intelligence Index 分数",
         snapshot_note=(
-            "数据快照 2026-07-24 · Artificial Analysis Intelligence Index "
+            "数据快照 2026-07-31 · Artificial Analysis Intelligence Index "
             "v4.1 · 成本越低、分数越高越好"
         ),
     ),
@@ -187,7 +187,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Render bilingual ranking images from dated ranking CSV files."
     )
-    parser.add_argument("--snapshot", default="2026-07-24")
+    parser.add_argument("--snapshot", default="2026-07-31")
     parser.add_argument(
         "--repository-root",
         type=Path,

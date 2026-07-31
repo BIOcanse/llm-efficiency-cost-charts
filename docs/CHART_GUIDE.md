@@ -1,6 +1,6 @@
 # Chart guide / 图片详细说明
 
-Snapshot: **2026-07-24**
+Snapshot: **2026-07-31**
 
 ## 中文
 

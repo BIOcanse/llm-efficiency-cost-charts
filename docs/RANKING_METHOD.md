@@ -1,6 +1,6 @@
 # Ranking methodology
 
-Snapshot: **2026-07-24**
+Snapshot: **2026-07-31**
 
 ## Why there is no single score-to-cost ratio
 
