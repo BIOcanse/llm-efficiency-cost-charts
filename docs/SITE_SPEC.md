@@ -9,16 +9,20 @@ Publish the current bilingual charts, detailed chart explanations, and numerical
 ## Language behavior
 
 - Chinese and English switch instantly on the same page without navigating to another Markdown document.
+- `?lang=zh-CN` and `?lang=en` provide deterministic direct links to the same
+  document; switching the visible control updates the URL without reloading.
 - The first visit uses the browser language when available.
 - A visible language control always lets the reader override the default.
 - The explicit choice is stored locally in the browser and remains reversible.
 - The document `lang`, button state, headings, chart images, detailed explanations, table headings, numbers, and accessibility labels update together.
-- The repository README uses native same-document `<details>` sections because GitHub Markdown does not execute custom JavaScript.
+- The repository README is a content-free bilingual entry page. It links to
+  the Pages locale parameters because GitHub Markdown does not execute custom
+  JavaScript and cannot provide a true language switch.
 
 ## Information structure
 
 1. Snapshot selector, exact UTC publication time, and metric summary.
-2. A clearly labelled personal-recommendation section tied to the latest snapshot.
+2. A compact, clearly labelled personal-recommendation section tied to the latest snapshot.
 3. Three client-rendered interactive chart sections, ordered as total Token
    consumption, subscription-first task cost, then API task cost.
 4. A detailed explanation under each chart:
@@ -64,7 +68,8 @@ machine-readable result. The manifest selects one payload at a time.
 ## Published result
 
 - The page switches Chinese and English in place without navigating to a second document.
-- The repository home page contains both language summaries in one README instead of linking to separate language files.
+- The repository home page contains only a compact bilingual entry and does
+  not duplicate the analysis maintained on Pages.
 - Subscription-first ranking is the default numerical view; all 46 rows can be expanded.
 - API ranking contains all 68 comparable rows.
 - Aggregate Token efficiency contains five core full-curve models and four limited-evidence models.

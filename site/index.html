@@ -10,8 +10,8 @@
     >
     <title>LLM Efficiency & Cost Charts</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/styles.css?v=20260731-snapshot-recommendations">
-    <script src="assets/app.js?v=20260731-snapshot-recommendations" type="module"></script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260731-entry-locale">
+    <script src="assets/app.js?v=20260731-entry-locale" type="module"></script>
   </head>
   <body>
     <header class="topbar">
@@ -82,28 +82,28 @@
         </div>
       </section>
 
-      <section id="recommendations" class="section recommendation-section">
-        <div class="page-shell">
-          <div class="section-heading recommendation-heading">
-            <div>
-              <span class="eyebrow" data-i18n="recommendationEyebrow">Personal opinion · latest snapshot</span>
-              <h2 data-i18n="recommendationTitle">What I would actually use</h2>
-            </div>
-            <p data-i18n="recommendationCopy">Only models with a clear reason to choose them are listed.</p>
+      <section id="recommendations" class="section page-shell recommendation-section">
+        <div class="recommendation-heading">
+          <div>
+            <span class="eyebrow" data-i18n="recommendationEyebrow">Personal opinion</span>
+            <h2 data-i18n="recommendationTitle">Model picks</h2>
           </div>
-          <div class="recommendation-snapshot-badge" data-i18n="recommendationSnapshot">
-            Personal opinion based on the 2026-07-31 snapshot
+          <div class="recommendation-meta">
+            <p data-i18n="recommendationCopy">Only models with a clear reason to choose them are included.</p>
+            <p class="recommendation-snapshot" data-i18n="recommendationSnapshot">
+              Based on the 2026-07-31 snapshot
+            </p>
           </div>
-          <div class="recommendation-grid">
-            <article class="recommendation-card">
-              <h3 data-i18n="sotaRecommendationsTitle">Frontier SOTA</h3>
-              <ol class="recommendation-list" id="sota-recommendations"></ol>
-            </article>
-            <article class="recommendation-card">
-              <h3 data-i18n="valueRecommendationsTitle">Value picks</h3>
-              <ol class="recommendation-list" id="value-recommendations"></ol>
-            </article>
-          </div>
+        </div>
+        <div class="recommendation-grid">
+          <article class="recommendation-card">
+            <h3 data-i18n="sotaRecommendationsTitle">Frontier SOTA</h3>
+            <ol class="recommendation-list" id="sota-recommendations"></ol>
+          </article>
+          <article class="recommendation-card">
+            <h3 data-i18n="valueRecommendationsTitle">Value picks</h3>
+            <ol class="recommendation-list" id="value-recommendations"></ol>
+          </article>
         </div>
       </section>
 

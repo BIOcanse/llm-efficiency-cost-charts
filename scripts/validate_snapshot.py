@@ -164,6 +164,7 @@ def validate_charts(root: Path) -> None:
 
 
 def validate_site_links(root: Path, snapshot: str) -> None:
+    readme = (root / "README.md").read_text("utf-8")
     index_html = (root / "site" / "index.html").read_text("utf-8")
     app_js = (root / "site" / "assets" / "app.js").read_text("utf-8")
     interactive_js = (root / "site" / "assets" / "interactive-scatter.js").read_text(
@@ -193,11 +194,21 @@ def validate_site_links(root: Path, snapshot: str) -> None:
     assert f"data/{snapshot}/model_efficiency.csv" in index_html
     assert "loadSnapshotManifest" in app_js
     assert "renderRecommendations" in app_js
-    assert "data/snapshots.json?v=20260731-snapshot-recommendations" in app_js
+    assert "data/snapshots.json?v=20260731-entry-locale" in app_js
     assert "dataRevision: state.snapshot?.id" in app_js
     assert "metricChanged || dataChanged || !this.view" in interactive_js
-    assert "20260731-snapshot-recommendations" in index_html
-    assert "20260731-snapshot-recommendations" in app_js
+    assert "20260731-entry-locale" in index_html
+    assert "20260731-entry-locale" in app_js
+    assert 'searchParams.get("lang")' in app_js
+    assert 'searchParams.get("snapshot")' in app_js
+    assert "window.history.replaceState" in app_js
+
+    assert "?lang=zh-CN" in readme
+    assert "?lang=en" in readme
+    assert "releases/latest" in readme
+    assert "<details" not in readme
+    assert "charts/en/" not in readme
+    assert not (root / "site" / "assets" / "open-interactive-charts-button.svg").exists()
 
     sota_models = ("GPT-5.6 Sol", "Claude Opus 5", "Kimi K3")
     value_models = ("GPT-5.6 Luna", "DeepSeek V4 Pro")

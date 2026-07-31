@@ -1,4 +1,4 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-snapshot-recommendations";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-entry-locale";
 
 const translations = {
   en: {
@@ -19,12 +19,12 @@ const translations = {
     tokenConfigurations: "Token configurations",
     apiConfigurations: "API-cost configurations",
     subscriptionConfigurations: "Subscription-first configurations",
-    recommendationEyebrow: "Personal opinion · latest snapshot",
-    recommendationTitle: "What I would actually use",
+    recommendationEyebrow: "Personal opinion",
+    recommendationTitle: "Model picks",
     recommendationCopy:
-      "Only models with a clear reason to choose them are listed.",
+      "Only models with a clear reason to choose them are included.",
     recommendationSnapshot:
-      "Personal opinion based on the 2026-07-31 snapshot",
+      "Based on the 2026-07-31 snapshot",
     sotaRecommendationsTitle: "Frontier SOTA",
     valueRecommendationsTitle: "Value picks",
     recommendations: {
@@ -266,10 +266,10 @@ const translations = {
     tokenConfigurations: "Token 消耗配置",
     apiConfigurations: "API 成本配置",
     subscriptionConfigurations: "套餐优先配置",
-    recommendationEyebrow: "个人观点 · 最新快照",
-    recommendationTitle: "我会怎么选",
-    recommendationCopy: "只列我认为仍有明确选择理由的模型。",
-    recommendationSnapshot: "个人观点基于 2026-07-31 快照",
+    recommendationEyebrow: "个人观点",
+    recommendationTitle: "模型推荐",
+    recommendationCopy: "只列仍有明确选择理由的模型。",
+    recommendationSnapshot: "基于 2026-07-31 快照",
     sotaRecommendationsTitle: "顶级 SOTA",
     valueRecommendationsTitle: "性价比模型",
     recommendations: {
@@ -567,6 +567,10 @@ const interactiveChartSpecs = [
 ];
 
 function browserLanguage() {
+  const requested = new URL(window.location.href).searchParams.get("lang");
+  if (requested === "en" || requested === "zh-CN") {
+    return requested;
+  }
   try {
     const saved = window.localStorage.getItem("llm-efficiency-language");
     if (saved === "en" || saved === "zh-CN") {
@@ -584,11 +588,24 @@ function browserLanguage() {
 }
 
 function savedSnapshotId(defaultSnapshot) {
+  const requested = new URL(window.location.href).searchParams.get("snapshot");
+  if (requested) {
+    return requested;
+  }
   try {
     return window.localStorage.getItem("llm-efficiency-snapshot") || defaultSnapshot;
   } catch {
     return defaultSnapshot;
   }
+}
+
+function syncUrlState() {
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", state.language);
+  if (state.snapshot) {
+    url.searchParams.set("snapshot", state.snapshot.id);
+  }
+  window.history.replaceState(null, "", url);
 }
 
 function snapshotOptionLabel(snapshot) {
@@ -1144,6 +1161,7 @@ function setLanguage(language, remember = true) {
       // The control remains functional for the current page without storage.
     }
   }
+  syncUrlState();
   translateStaticText();
   renderSnapshotMetadata();
   renderRecommendations();
@@ -1197,7 +1215,7 @@ async function loadSnapshot(snapshotId, remember = true) {
   select.disabled = true;
   try {
     const response = await fetch(
-      `${snapshot.payload_url}?v=20260731-snapshot-recommendations`,
+      `${snapshot.payload_url}?v=20260731-entry-locale`,
     );
     if (!response.ok) {
       throw new Error(`Snapshot data request failed: ${response.status}`);
@@ -1216,6 +1234,7 @@ async function loadSnapshot(snapshotId, remember = true) {
         // The selector remains functional for the current page without storage.
       }
     }
+    syncUrlState();
     renderSnapshotMetadata();
     renderChartDetails();
     renderInteractiveCharts();
@@ -1233,7 +1252,7 @@ async function loadSnapshot(snapshotId, remember = true) {
 
 async function loadSnapshotManifest() {
   const response = await fetch(
-    "data/snapshots.json?v=20260731-snapshot-recommendations",
+    "data/snapshots.json?v=20260731-entry-locale",
   );
   if (!response.ok) {
     throw new Error(`Snapshot manifest request failed: ${response.status}`);
