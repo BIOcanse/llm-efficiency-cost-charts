@@ -1,6 +1,6 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-coding-agent-suite";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-coding-agent-suite-2";
 
-const ASSET_REVISION = "20260731-coding-agent-suite";
+const ASSET_REVISION = "20260731-coding-agent-suite-2";
 
 const translations = {
   en: {
@@ -1991,10 +1991,12 @@ function bindControls() {
 }
 
 async function main() {
+  const preferredLanguage = browserLanguage();
+  const preferredScenario = scenarioPreference();
   bindControls();
   setMotion(motionPreference(), false);
-  setLanguage(browserLanguage(), false);
-  setScenario(scenarioPreference(), false);
+  setLanguage(preferredLanguage, false);
+  setScenario(preferredScenario, false);
   selectRankingTab("subscription");
   try {
     await Promise.all([loadSnapshotManifest(), loadCodingSnapshotManifest()]);

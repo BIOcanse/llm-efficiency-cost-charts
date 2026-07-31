@@ -1,4 +1,4 @@
-import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js?v=20260731-coding-agent-suite";
+import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js?v=20260731-coding-agent-suite-2";
 
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 

@@ -18,7 +18,7 @@ EXPECTED_CODING_COUNTS = {
     "complete": 51,
     "partial": 1,
 }
-ASSET_REVISION = "20260731-coding-agent-suite"
+ASSET_REVISION = "20260731-coding-agent-suite-2"
 EXPECTED_FACTORS = {"GPT-5.6 Terra": 0.8, "GPT-5.6 Luna": 0.2}
 EXPECTED_PRICES = {
     "GPT-5.6 Terra": (2.0, 0.2, 2.5, 12.0),
@@ -380,6 +380,7 @@ def validate_site_links(root: Path, snapshot: str) -> None:
     assert "loadCodingSnapshotManifest" in app_js
     assert 'scopeMode: isCoding ? "field" : "frontier"' in app_js
     assert 'scopeField: isCoding ? "agent" : ""' in app_js
+    assert "const preferredScenario = scenarioPreference();" in app_js
     assert "cp -R data/coding-agents/. _site/data/coding-agents/" in deploy_workflow
 
     assert "?lang=zh-CN" in readme
