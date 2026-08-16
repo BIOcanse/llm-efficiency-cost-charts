@@ -8,7 +8,7 @@ For coding-agent variants evaluated on the same Artificial Analysis coding
 suite, how do total Token consumption, pay-per-token API cost, and
 subscription-first effective task cost relate to observed task success?
 
-This is a separate scenario from the three Intelligence Index v4.1 charts. It
+This is a separate scenario from the current three Intelligence Index v4.1.1 charts. It
 must never reuse the label `Intelligence Index`, merge the two scores, or imply
 that an agent result measures the underlying model independently of its harness
 and settings.
@@ -17,7 +17,7 @@ and settings.
 
 The site exposes two same-level, large scenario pages:
 
-- `general`: the existing Intelligence Index v4.1 model-level suite;
+- `general`: the current Intelligence Index v4.1.1 model-level suite;
 - `coding`: the Coding Agent Index v1.3 agent-system suite.
 
 The scenario control changes all three visible charts in place without a page

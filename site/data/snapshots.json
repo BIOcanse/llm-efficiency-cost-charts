@@ -1,11 +1,24 @@
 {
-  "current": "2026-07-31",
+  "current": "2026-08-15",
   "snapshots": [
+    {
+      "id": "2026-08-15",
+      "published_at_utc": "2026-08-16T01:53:54Z",
+      "payload_url": "data/snapshots/2026-08-15.json",
+      "chart_base": "charts",
+      "ranking_base": "rankings/2026-08-15",
+      "data_url": "data/2026-08-15/model_efficiency.csv",
+      "release_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/tag/snapshot-2026-08-15",
+      "label": {
+        "en": "2026-08-15 · Intelligence Index v4.1.1",
+        "zh-CN": "2026-08-15 · Intelligence Index v4.1.1"
+      }
+    },
     {
       "id": "2026-07-31",
       "published_at_utc": "2026-07-31T05:55:55Z",
       "payload_url": "data/snapshots/2026-07-31.json",
-      "chart_base": "charts",
+      "chart_base": "charts/archive/2026-07-31",
       "ranking_base": "rankings/2026-07-31",
       "data_url": "data/2026-07-31/model_efficiency.csv",
       "release_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/tag/snapshot-2026-07-31",

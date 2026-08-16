@@ -1,0 +1,41 @@
+﻿rank,model,effort,score,cost_usd_per_task,api_cost_usd_per_task,access_mode,quota_scenario,plan_name,plan_price_usd_per_month,provider,confidence
+1,GPT-5.6 Luna,low,33.8546,0.000125643,0.008794988,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+2,GPT-5.6 Luna,medium,38.9051,0.000160991,0.01126935,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+3,GPT-5.6 Luna,non-reasoning,26.8449,0.000167592,0.011731427,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+4,GPT-5.6 Luna,high,46.9604,0.000308379,0.021586509,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+5,GPT-5.6 Luna,xhigh,50.0587,0.000451959,0.031637141,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+6,GPT-5.6 Luna,max,52.3181,0.00067325,0.047127534,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+7,GPT-5.6 Terra,low,41.2961,0.001342095,0.09394667,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+8,GPT-5.6 Terra,non-reasoning,34.6189,0.001464844,0.102539087,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+9,GPT-5.6 Terra,medium,46.7559,0.001700344,0.119024052,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+10,GPT-5.5,non-reasoning,35.7538,0.002975935,0.20831544,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+11,GPT-5.6 Terra,high,50.1131,0.003118314,0.218282013,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+12,GPT-5.6 Sol,low,50.7315,0.003301442,0.231100947,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+13,GPT-5.6 Sol,non-reasoning,41.878,0.003379329,0.236552999,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+14,GPT-5.5,low,44.4981,0.003698087,0.258866102,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+15,GPT-5.6 Terra,xhigh,52.7732,0.004357461,0.305022291,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+16,GPT-5.6 Sol,medium,55.5729,0.005309583,0.371670812,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+17,GPT-5.5,medium,51.4223,0.007145269,0.500168861,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+18,GPT-5.6 Terra,max,56.5756,0.007257413,0.508018891,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+19,GPT-5.5 Instant (June 2026),instant,29.2328,0.007663416,0.536439147,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+20,GPT-5.6 Sol,high,57.3317,0.00782472,0.547730391,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+21,GLM-5.2,max,52.641,0.010839398,0.320553029,subscription_reconstructed,current,Coding Plan Max,160.0,Zhipu AI,medium
+22,GPT-5.5,high,54.6668,0.011475869,0.803310854,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+23,GPT-5.6 Sol,xhigh,59.009,0.011531161,0.807181243,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+24,Claude Sonnet 5,non-reasoning,42.5708,0.015635489,0.416946367,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+25,Claude Opus 5,low,52.4569,0.015943503,0.425160067,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+26,GPT-5.5,xhigh,56.3067,0.016781528,1.174706932,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+27,GPT-5.6 Sol,max,60.9299,0.017588729,1.231211056,subscription_api_equivalent_estimate,current_estimate,ChatGPT Pro 20x,200.0,OpenAI,medium
+28,Claude Opus 5,medium,58.6355,0.027160441,0.72427844,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+29,MiMo-V2.5-Pro,default,42.8797,0.028526982,0.033908453,subscription_official,current,Token Plan Max,100.0,Xiaomi MiMo,high
+30,Claude Opus 5,high,61.4751,0.046003557,1.226761528,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+31,DeepSeek V4 Pro 0813,max,53.1977,0.05609416,0.05609416,api_no_first_party_subscription,current,None,,DeepSeek,high
+32,DeepSeek V4 Flash 0731,max,51.7666,0.056678693,0.056678693,api_no_first_party_subscription,current,None,,DeepInfra,high
+33,Claude Sonnet 5,max,55.2612,0.064397503,1.717266743,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+34,Claude Opus 5,xhigh,62.5205,0.067544875,1.801196675,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+35,Claude Opus 4.8,max,57.3304,0.076181309,2.031501563,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+36,Claude Opus 5,max,63.0532,0.08763222,2.336859208,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+37,Nemotron 3 Ultra 550B A55B,default,38.3185,0.163217082,0.163217082,api_or_open_weight_no_model_token_plan,current,None,,CoreWeave,medium
+38,Solar Pro 4,default,41.6373,0.223080229,0.223080229,api_no_first_party_subscription,current,None,,Upstage,high
+39,Claude Fable 5 (with fallback),max,62.0727,0.235468822,3.139584292,subscription_api_equivalent_estimate,post_promotion_standard,Claude Max 20x,200.0,Anthropic,medium
+40,Muse Spark 1.2,xhigh,56.7616,0.399200304,0.399200304,api_public_preview_no_paid_token_plan,current,None,,Meta,medium

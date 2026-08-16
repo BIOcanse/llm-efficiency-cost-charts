@@ -1,6 +1,6 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260731-coding-agent-suite-2";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260815-v411-snapshot-1";
 
-const ASSET_REVISION = "20260731-coding-agent-suite-2";
+const ASSET_REVISION = "20260815-v411-snapshot-1";
 
 const translations = {
   en: {
@@ -28,7 +28,7 @@ const translations = {
     scenarioEyebrow: "Choose the comparison scenario",
     scenarioTitle: "General capability or actual coding-agent work",
     scenarioGeneralTitle: "General benchmark",
-    scenarioGeneralCopy: "Intelligence Index v4.1 · model + reasoning level",
+    scenarioGeneralCopy: "Intelligence Index v4.1.1 · model + reasoning level",
     scenarioCodingTitle: "Actual coding-agent benchmark",
     scenarioCodingCopy: "Coding Agent Index v1.3 · agent + model + setting",
     codingHeroTitle: "What changes when the models actually work inside coding agents?",
@@ -39,7 +39,7 @@ const translations = {
     recommendationCopy:
       "Only models with a clear reason to choose them are included.",
     recommendationSnapshot:
-      "Based on the 2026-07-31 snapshot",
+      "Based on the 2026-08-15 snapshot",
     sotaRecommendationsTitle: "Frontier SOTA",
     valueRecommendationsTitle: "Value picks",
     recommendations: {
@@ -64,12 +64,12 @@ const translations = {
         {
           model: "GPT-5.6 Luna",
           body:
-            "First choice. After the repricing, it reaches a higher score than DeepSeek V4 Pro (Preview) at lower task cost on this benchmark.",
+            "First choice for high-volume work. Its low-through-Max curve keeps task cost unusually low on this benchmark.",
         },
         {
-          model: "DeepSeek V4 Pro (Preview)",
+          model: "DeepSeek V4 Pro 0813",
           body:
-            "Second choice. It remains inexpensive, but the new Luna pricing creates a clear gap.",
+            "Second choice when a stronger open-weight model matters. It scores higher than Luna Max, but its measured task cost is also materially higher.",
         },
       ],
     },
@@ -129,7 +129,7 @@ const translations = {
       "These models have only two or three observed levels, or cover less than eight score points. They are listed separately.",
     apiRankingTitle: "API cost ranking",
     apiRankingCopy:
-      "All 68 configurations with comparable API prices, sorted by USD per task.",
+      "All 66 configurations with comparable API prices, sorted by USD per task.",
     apiThresholdTitle: "Lowest API cost at each score threshold",
     apiValueTitle: "Filtered API cost-performance",
     apiValueCopy:
@@ -171,7 +171,7 @@ const translations = {
       interactionHint:
         "Hover for values · click to pin or clear",
       readoutHint: "No point selected",
-      scoreAxis: "Intelligence Index v4.1 score",
+      scoreAxis: "Intelligence Index v4.1.1 score",
       xAxis: {
         token: "Total Token consumption (million)",
         api: "API cost per task (USD)",
@@ -254,7 +254,7 @@ const translations = {
         {
           title: "Axes and marks",
           body:
-            "<ul><li>Y: Intelligence Index v4.1 score.</li><li>X: complete-suite Tokens in millions.</li><li>One point: model + reasoning level.</li><li>Same-color line: levels of one model.</li></ul>",
+            "<ul><li>Y: Intelligence Index v4.1.1 score.</li><li>X: complete-suite Tokens in millions.</li><li>One point: model + reasoning level.</li><li>Same-color line: levels of one model.</li></ul>",
         },
         {
           title: "Calculation",
@@ -271,7 +271,7 @@ const translations = {
         {
           title: "Axes and marks",
           body:
-            "<ul><li>Y: Intelligence Index v4.1 score.</li><li>X: USD to complete one benchmark task.</li><li>68 configurations have comparable cost data.</li></ul>",
+            "<ul><li>Y: Intelligence Index v4.1.1 score.</li><li>X: USD to complete one benchmark task.</li><li>66 configurations have comparable cost data.</li></ul>",
         },
         {
           title: "Calculation",
@@ -281,7 +281,7 @@ const translations = {
         {
           title: "Read with care",
           body:
-            "<p>This combines Token price and Token consumption for this benchmark. Cache rates, answer length, and task difficulty can change real-world costs. Four models without comparable cost data are excluded.</p>",
+            "<p>This combines Token price and Token consumption for this benchmark. Cache rates, answer length, and task difficulty can change real-world costs. Configurations without comparable cost data are excluded.</p>",
         },
       ],
       [
@@ -359,7 +359,7 @@ const translations = {
       {
         title: "One benchmark, not every workload",
         body:
-          "The Intelligence Index v4.1 suite emphasizes relatively difficult coding and scientific tasks. Rankings can change on lightweight, repetitive, or latency-sensitive workloads.",
+          "The Intelligence Index v4.1.1 suite emphasizes relatively difficult coding and scientific tasks. Rankings can change on lightweight, repetitive, or latency-sensitive workloads.",
       },
       {
         title: "Capability and cost stay separate",
@@ -415,7 +415,7 @@ const translations = {
     scenarioEyebrow: "选择对比场景",
     scenarioTitle: "通用能力，还是 Agent 实际编码",
     scenarioGeneralTitle: "通用场景",
-    scenarioGeneralCopy: "Intelligence Index v4.1 · 模型＋思考档位",
+    scenarioGeneralCopy: "Intelligence Index v4.1.1 · 模型＋思考档位",
     scenarioCodingTitle: "Agent 实际编码场景",
     scenarioCodingCopy: "Coding Agent Index v1.3 · Agent 工具链＋模型＋档位",
     codingHeroTitle: "模型放进 Agent 里实际写代码，效率和成本会怎样？",
@@ -424,7 +424,7 @@ const translations = {
     recommendationEyebrow: "个人观点",
     recommendationTitle: "模型推荐",
     recommendationCopy: "只列仍有明确选择理由的模型。",
-    recommendationSnapshot: "基于 2026-07-31 快照",
+    recommendationSnapshot: "基于 2026-08-15 快照",
     sotaRecommendationsTitle: "顶级 SOTA",
     valueRecommendationsTitle: "性价比模型",
     recommendations: {
@@ -448,11 +448,11 @@ const translations = {
         {
           model: "GPT-5.6 Luna",
           body:
-            "首选。降价后，在该评测中可以用低于 DeepSeek V4 Pro（预览版）的任务成本达到更高分数。",
+            "走量任务首选。该评测中从低到 Max 档的单位任务成本都很低。",
         },
         {
-          model: "DeepSeek V4 Pro（预览版）",
-          body: "次选。任务成本仍低，但和新价格下的 Luna 已拉开明显差距。",
+          model: "DeepSeek V4 Pro 0813",
+          body: "需要更强开源模型时的次选。分数高于 Luna Max，但实测单位任务成本也明显更高。",
         },
       ],
     },
@@ -500,7 +500,7 @@ const translations = {
     limitedEvidenceCopy:
       "这些模型只有两至三个已测档位，或覆盖不到 8 个分数点，因此单独列出，不参与核心排名。",
     apiRankingTitle: "API 单位任务成本排名",
-    apiRankingCopy: "列出 68 个存在可比 API 价格的配置，按单位任务成本排序。",
+    apiRankingCopy: "列出 66 个存在可比 API 价格的配置，按单位任务成本排序。",
     apiThresholdTitle: "达到不同分数门槛的最低 API 成本",
     apiValueTitle: "按分数区间重算 API 性价比",
     apiValueCopy:
@@ -541,7 +541,7 @@ const translations = {
       interactionHint:
         "悬停查看数值 · 点击固定或取消",
       readoutHint: "未选择点位",
-      scoreAxis: "Intelligence Index v4.1 分数",
+      scoreAxis: "Intelligence Index v4.1.1 分数",
       xAxis: {
         token: "完整 Token 消耗（百万）",
         api: "API 单位任务成本（美元）",
@@ -622,7 +622,7 @@ const translations = {
         {
           title: "坐标与标记",
           body:
-            "<ul><li>纵轴：Intelligence Index v4.1 分数。</li><li>横轴：整套评测完整 Token，单位为百万。</li><li>每点：模型与思考档位。</li><li>同色线：同一模型的不同档位。</li></ul>",
+            "<ul><li>纵轴：Intelligence Index v4.1.1 分数。</li><li>横轴：整套评测完整 Token，单位为百万。</li><li>每点：模型与思考档位。</li><li>同色线：同一模型的不同档位。</li></ul>",
         },
         {
           title: "计算方法",
@@ -639,7 +639,7 @@ const translations = {
         {
           title: "坐标与标记",
           body:
-            "<ul><li>纵轴：Intelligence Index v4.1 分数。</li><li>横轴：完成一个评测任务的美元成本。</li><li>当前 68 个配置存在可比成本数据。</li></ul>",
+            "<ul><li>纵轴：Intelligence Index v4.1.1 分数。</li><li>横轴：完成一个评测任务的美元成本。</li><li>当前 66 个配置存在可比成本数据。</li></ul>",
         },
         {
           title: "计算方法",
@@ -649,7 +649,7 @@ const translations = {
         {
           title: "注意事项",
           body:
-            "<p>该图同时包含 Token 单价和消耗量，只代表该套评测。真实任务的缓存比例、输出长度和难度都会改变成本。另有 4 个模型因缺少可比成本数据而排除。</p>",
+            "<p>该图同时包含 Token 单价和消耗量，只代表该套评测。真实任务的缓存比例、输出长度和难度都会改变成本。缺少可比成本数据的配置不纳入。</p>",
         },
       ],
       [
@@ -727,7 +727,7 @@ const translations = {
       {
         title: "只代表同一套评测",
         body:
-          "Intelligence Index v4.1 以较难的编码和科学任务为主。轻量、重复、低延迟或其他类型任务中的排名可能不同。",
+          "Intelligence Index v4.1.1 以较难的编码和科学任务为主。轻量、重复、低延迟或其他类型任务中的排名可能不同。",
       },
       {
         title: "能力与成本分开",
@@ -1023,6 +1023,37 @@ function formatUtcTimestamp(value) {
   return value.replace("T", " ").replace("Z", " UTC");
 }
 
+function generalBenchmarkName() {
+  return (
+    state.rankings?.benchmark ||
+    "Artificial Analysis Intelligence Index v4.1"
+  );
+}
+
+function generalBenchmarkShortName() {
+  return generalBenchmarkName().replace(/^Artificial Analysis\s+/, "");
+}
+
+function renderGeneralSnapshotCopy() {
+  if (!state.rankings?.counts) {
+    return;
+  }
+  const text = translations[state.language];
+  const benchmark = generalBenchmarkShortName();
+  const scenarioCopy =
+    state.language === "zh-CN"
+      ? `${benchmark} · 模型＋思考档位`
+      : `${benchmark} · model + reasoning level`;
+  document.querySelector('[data-i18n="scenarioGeneralCopy"]').textContent =
+    scenarioCopy;
+
+  const apiCount = state.rankings.counts.api_cost_configurations;
+  document.querySelector('[data-i18n="apiRankingCopy"]').textContent =
+    state.language === "zh-CN"
+      ? `列出 ${apiCount} 个存在可比 API 价格的配置，按单位任务成本排序。`
+      : `All ${apiCount} configurations with comparable API prices, sorted by USD per task.`;
+}
+
 function renderSnapshotMetadata() {
   const manifest =
     state.scenario === "coding"
@@ -1061,6 +1092,7 @@ function renderSnapshotMetadata() {
       `${snapshot.ranking_base}/token_efficiency_ranking.csv`;
     document.getElementById("api-ranking-csv").href =
       `${snapshot.ranking_base}/api_cost_ranking.csv`;
+    renderGeneralSnapshotCopy();
   }
 }
 
@@ -1102,17 +1134,31 @@ function translateStaticText() {
     const selected = button.dataset.language === state.language;
     button.setAttribute("aria-pressed", String(selected));
   });
+  renderGeneralSnapshotCopy();
 }
 
 function renderChartDetails() {
   const text = translations[state.language];
+  const benchmark = generalBenchmarkShortName();
+  const apiCount = state.rankings?.counts?.api_cost_configurations ?? 0;
+  const resolveGeneralDetailBody = (body) =>
+    body
+      .replace(/Intelligence Index v4\.1(?:\.1)?/g, benchmark)
+      .replace(
+        /(?:66|68) configurations have comparable cost data\./g,
+        `${apiCount} configurations have comparable cost data.`,
+      )
+      .replace(
+        /当前 (?:66|68) 个配置存在可比成本数据。/g,
+        `当前 ${apiCount} 个配置存在可比成本数据。`,
+      );
   [0, 2, 1].forEach((detailIndex, chartIndex) => {
     const blocks = text.chartDetails[detailIndex];
     const target = document.getElementById(`chart${chartIndex + 1}-details`);
     target.innerHTML = blocks
       .map(
         (block) =>
-          `<section class="detail-block"><h4>${block.title}</h4>${block.body}</section>`,
+          `<section class="detail-block"><h4>${block.title}</h4>${resolveGeneralDetailBody(block.body)}</section>`,
       )
       .join("");
   });
@@ -1149,10 +1195,11 @@ function renderMethodCards() {
     state.scenario === "coding"
       ? translationsForLanguage.codingMethodCards
       : translationsForLanguage.methodCards;
+  const benchmark = generalBenchmarkShortName();
   document.getElementById("method-grid").innerHTML = cards
     .map(
       (card) =>
-        `<article class="method-card"><h3>${card.title}</h3><p>${card.body}</p></article>`,
+        `<article class="method-card"><h3>${card.title}</h3><p>${card.body.replace(/Intelligence Index v4\.1(?:\.1)?/g, benchmark)}</p></article>`,
     )
     .join("");
 }
@@ -1316,7 +1363,9 @@ function interactiveChartConfig(spec, pointCount) {
     interactionHint: text.interactionHint,
     readoutHint: text.readoutHint,
     xAxisLabel: text.xAxis[spec.metric],
-    yAxisLabel: text.scoreAxis,
+    yAxisLabel: isCoding
+      ? text.scoreAxis
+      : `${generalBenchmarkShortName()} ${state.language === "zh-CN" ? "分数" : "score"}`,
     accessibleTitle: text.title[spec.metric],
     accessibleDescription: `${pointCount} points. ${text.interactionHint}.`,
     effortLabel,
@@ -1727,18 +1776,27 @@ function selectRankingTab(tabName) {
 }
 
 function validateRankingsPayload(payload, snapshotId) {
+  const counts = payload?.counts;
+  const charts = payload?.charts;
   if (
     payload.snapshot !== snapshotId ||
-    !payload.charts ||
-    payload.charts.token.length !== 73 ||
-    payload.charts.api.length !== 68 ||
-    payload.charts.subscription.length !== 46 ||
-    !Number.isInteger(payload.counts.frontier_position_models) ||
-    payload.counts.frontier_position_models <= 0 ||
-    !Object.hasOwn(payload.charts.token[0], "frontier_position") ||
-    !Object.hasOwn(payload.charts.api[0], "frontier_position") ||
+    !charts ||
+    !counts ||
+    !Array.isArray(charts.token) ||
+    !Array.isArray(charts.api) ||
+    !Array.isArray(charts.subscription) ||
+    charts.token.length !== counts.token_configurations ||
+    charts.api.length !== counts.api_cost_configurations ||
+    charts.subscription.length !== counts.subscription_first_configurations ||
+    charts.token.length === 0 ||
+    charts.api.length === 0 ||
+    charts.subscription.length === 0 ||
+    !Number.isInteger(counts.frontier_position_models) ||
+    counts.frontier_position_models <= 0 ||
+    !Object.hasOwn(charts.token[0], "frontier_position") ||
+    !Object.hasOwn(charts.api[0], "frontier_position") ||
     !Object.hasOwn(
-      payload.charts.subscription[0],
+      charts.subscription[0],
       "frontier_position",
     )
   ) {
@@ -1809,6 +1867,7 @@ async function loadSnapshot(snapshotId, remember = true) {
     renderInteractiveCharts();
     renderRankings();
     renderMetricCounts();
+    renderMethodCards();
     if (remember) {
       document.getElementById("status").textContent =
         translations[state.language].statusSnapshot(snapshotOptionLabel(snapshot));

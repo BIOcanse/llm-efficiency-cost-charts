@@ -1,0 +1,13 @@
+﻿metric,score_threshold,model,effort,score,cost_usd_per_task,provider,access_mode,plan_name,confidence
+api,40,GPT-5.6 Luna,high,46.9604,0.021586509,OpenAI,api,,
+api,45,GPT-5.6 Luna,high,46.9604,0.021586509,OpenAI,api,,
+api,50,GPT-5.6 Luna,xhigh,50.0587,0.031637141,OpenAI,api,,
+api,55,GPT-5.6 Sol,medium,55.5729,0.371670812,OpenAI,api,,
+api,58,Claude Opus 5,medium,58.6355,0.72427844,Amazon,api,,
+api,60,Grok 4.6,high,60.923,0.836670781,SpaceXAI,api,,
+subscription_first,40,GPT-5.6 Luna,high,46.9604,0.000308379,OpenAI,subscription_api_equivalent_estimate,ChatGPT Pro 20x,medium
+subscription_first,45,GPT-5.6 Luna,high,46.9604,0.000308379,OpenAI,subscription_api_equivalent_estimate,ChatGPT Pro 20x,medium
+subscription_first,50,GPT-5.6 Luna,xhigh,50.0587,0.000451959,OpenAI,subscription_api_equivalent_estimate,ChatGPT Pro 20x,medium
+subscription_first,55,GPT-5.6 Sol,medium,55.5729,0.005309583,OpenAI,subscription_api_equivalent_estimate,ChatGPT Pro 20x,medium
+subscription_first,58,GPT-5.6 Sol,xhigh,59.009,0.011531161,OpenAI,subscription_api_equivalent_estimate,ChatGPT Pro 20x,medium
+subscription_first,60,GPT-5.6 Sol,max,60.9299,0.017588729,OpenAI,subscription_api_equivalent_estimate,ChatGPT Pro 20x,medium

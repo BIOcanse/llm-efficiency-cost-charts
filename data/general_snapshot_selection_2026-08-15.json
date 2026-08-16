@@ -1,0 +1,173 @@
+{
+  "snapshot": "2026-08-15",
+  "benchmark": "Artificial Analysis Intelligence Index v4.1.1",
+  "base_snapshot": "2026-07-31",
+  "exclude_models": [
+    "DeepSeek V4 Pro (Preview)",
+    "DeepSeek V4 Flash (Preview)",
+    "Amazon Nova 2.0 Pro",
+    "Amazon Nova 2.0 Lite",
+    "IBM Granite 4.1 30B",
+    "IBM Granite 4.1 3B",
+    "Grok 4.5",
+    "Gemini 3.6 Flash",
+    "Muse Spark 1.1",
+    "Qwen3.7 Max",
+    "Solar Pro 3",
+    "K2 Think V2"
+  ],
+  "renames": {
+    "Amazon Nova 2.0 Pro": "Amazon Nova 2.0 Pro (Preview)",
+    "Nemotron 3 Ultra 550B A55B (NVFP4)": "Nemotron 3 Ultra 550B A55B"
+  },
+  "api_price_candidates": [
+    {
+      "model": "DeepSeek V4 Pro 0813",
+      "provider": "DeepSeek",
+      "provider_model_id": "deepseek_deepseek-v4-pro",
+      "precision": "official original endpoint",
+      "input_usd_per_million": 0.435,
+      "cache_read_usd_per_million": 0.003625,
+      "cache_write_usd_per_million": 0.435,
+      "output_usd_per_million": 0.87,
+      "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "note": "Current official DeepSeek price; cache writes are billed as cache-miss input"
+    },
+    {
+      "model": "DeepSeek V4 Flash 0731",
+      "provider": "DeepSeek",
+      "provider_model_id": "deepseek_deepseek-v4-flash",
+      "precision": "official original endpoint",
+      "input_usd_per_million": 0.14,
+      "cache_read_usd_per_million": 0.0028,
+      "cache_write_usd_per_million": 0.14,
+      "output_usd_per_million": 0.28,
+      "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "note": "Current official DeepSeek price; cache writes are billed as cache-miss input"
+    }
+  ],
+  "additions": [
+    {
+      "model": "Grok 4.6",
+      "effort": "high",
+      "effort_order": 3,
+      "country_code": "US",
+      "country_name": "美国",
+      "developer": "SpaceXAI",
+      "source_slug": "grok-4-6"
+    },
+    {
+      "model": "Gemini 3.7 Flash",
+      "effort": "low",
+      "effort_order": 1,
+      "country_code": "US",
+      "country_name": "美国",
+      "developer": "Google",
+      "source_slug": "gemini-3-7-flash-low"
+    },
+    {
+      "model": "Gemini 3.7 Flash",
+      "effort": "medium",
+      "effort_order": 2,
+      "country_code": "US",
+      "country_name": "美国",
+      "developer": "Google",
+      "source_slug": "gemini-3-7-flash-medium"
+    },
+    {
+      "model": "Gemini 3.7 Flash",
+      "effort": "high",
+      "effort_order": 3,
+      "country_code": "US",
+      "country_name": "美国",
+      "developer": "Google",
+      "source_slug": "gemini-3-7-flash"
+    },
+    {
+      "model": "Muse Spark 1.2",
+      "effort": "xhigh",
+      "effort_order": 4,
+      "country_code": "US",
+      "country_name": "美国",
+      "developer": "Meta",
+      "source_slug": "muse-spark-1-2",
+      "access_template": "Muse Spark 1.1|xhigh"
+    },
+    {
+      "model": "Kimi K3",
+      "effort": "low",
+      "effort_order": 1,
+      "country_code": "CN",
+      "country_name": "中国",
+      "developer": "Kimi",
+      "source_slug": "kimi-k3-low"
+    },
+    {
+      "model": "DeepSeek V4 Pro 0813",
+      "effort": "max",
+      "effort_order": 5,
+      "country_code": "CN",
+      "country_name": "中国",
+      "developer": "DeepSeek",
+      "source_slug": "deepseek-v4-pro",
+      "access_template": "DeepSeek V4 Pro (Preview)|max"
+    },
+    {
+      "model": "DeepSeek V4 Flash 0731",
+      "effort": "max",
+      "effort_order": 5,
+      "country_code": "CN",
+      "country_name": "中国",
+      "developer": "DeepSeek",
+      "source_slug": "deepseek-v4-flash",
+      "access_template": "DeepSeek V4 Flash (Preview)|max"
+    },
+    {
+      "model": "Qwen3.8 Max",
+      "effort": "default",
+      "effort_order": 2,
+      "country_code": "CN",
+      "country_name": "中国",
+      "developer": "Alibaba",
+      "source_slug": "qwen3-8-max"
+    },
+    {
+      "model": "Qwen3.8 2.4T A95B",
+      "effort": "default",
+      "effort_order": 2,
+      "country_code": "CN",
+      "country_name": "中国",
+      "developer": "Alibaba",
+      "source_slug": "qwen3-8-2-4t-a95b"
+    },
+    {
+      "model": "Solar Pro 4",
+      "effort": "default",
+      "effort_order": 2,
+      "country_code": "KR",
+      "country_name": "韩国",
+      "developer": "Upstage",
+      "source_slug": "solar-pro4",
+      "access_template": "DeepSeek V4 Pro (Preview)|max"
+    },
+    {
+      "model": "K-EXAONE 2.0 0803",
+      "effort": "default",
+      "effort_order": 2,
+      "country_code": "KR",
+      "country_name": "韩国",
+      "developer": "LG AI Research",
+      "source_slug": "k-exaone-2-0-0803"
+    },
+    {
+      "model": "Nemotron 3.5 Lightning",
+      "effort": "default",
+      "effort_order": 2,
+      "country_code": "US",
+      "country_name": "美国",
+      "developer": "NVIDIA",
+      "source_slug": "nemotron-3-5-lightning",
+      "access_template": "Nemotron 3 Ultra 550B A55B (NVFP4)|default"
+    }
+  ]
+}

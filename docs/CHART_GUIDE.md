@@ -1,12 +1,12 @@
 # Chart guide / 图片详细说明
 
-Snapshot: **2026-07-31**
+Snapshot: **2026-08-15**
 
 ## 中文
 
 ### 图1：完整 Token 消耗与跑分
 
-- 纵轴：Artificial Analysis Intelligence Index v4.1 原始分数，越高越强。
+- 纵轴：Artificial Analysis Intelligence Index v4.1.1 原始分数，越高越强。
 - 横轴：完成整套评测消耗的全部 Token，单位为百万，越低越省。
 - 每个点：一个模型与思考档位的组合。
 - 同色连线：同一模型公开的不同思考档位。
@@ -19,19 +19,19 @@ Snapshot: **2026-07-31**
 
 ### 图2：API 单位任务成本与跑分
 
-- 纵轴：Artificial Analysis Intelligence Index v4.1 原始分数。
+- 纵轴：Artificial Analysis Intelligence Index v4.1.1 原始分数。
 - 横轴：完成一个 Intelligence Index 任务的 API 成本，单位为美元，越低越便宜。
 - 任务成本：按该配置的普通输入、缓存读写、推理和最终回答 Token 构成，乘以统一选定供应商的原始模型价格。
 - 供应商规则：同一原始模型的所有思考档位固定使用同一供应商和同一价格表，避免逐档挑选不同低价供应商。
 - 量化规则：量化版本不替代原模型；只有评测数据足够完整时才作为单独模型纳入。
-- 当前纳入：68 个存在完整成本数据的配置。
-- 当前排除：Command A+、Solar Pro 3、K2 Think V2 和 Granite 4.1 缺少可比成本。
+- 当前纳入：66 个存在完整成本数据的配置。
+- 当前排除：Command A+、HyperNova 60B 2605、K-EXAONE 2.0 0803 和 Nemotron 3.5 Lightning 缺少稳定的正数可比成本。
 
 该图回答的是“完成该套任务实际需要多少 API 费用”，同时包含 Token 单价和任务 Token 消耗。它不代表所有实际工作负载；缓存比例、输出长度和任务难度变化都会改变真实成本。
 
 ### 图3：套餐优先单位任务成本与跑分
 
-- 纵轴：Artificial Analysis Intelligence Index v4.1 原始分数。
+- 纵轴：Artificial Analysis Intelligence Index v4.1.1 原始分数。
 - 横轴：优先使用适用套餐后，完成一个 Intelligence Index 任务的有效成本，单位为美元。
 - 纳入顺序：
   1. 有适用套餐且存在可核算额度时，使用性价比最高的套餐；
@@ -62,7 +62,7 @@ Snapshot: **2026-07-31**
 - 左侧列出成本最低的 15 个配置；右侧列出达到各分数门槛时成本最低的配置。
 - 每项同时标出实际美元/任务和相对成本百分比。
 - 百分比以 API 榜最贵的纳入配置为 100%，因此 20% 表示任务成本为该配置的五分之一。
-- 完整图列出全部 68 个纳入配置，并保留跑分和供应商。
+- 完整图列出全部 66 个纳入配置，并保留跑分和供应商。
 
 [概览 PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking.png) ·
 [概览 SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/05_api_cost_ranking.svg) ·
@@ -78,7 +78,7 @@ Snapshot: **2026-07-31**
 - 左侧列出成本最低的 15 个配置；右侧列出达到各分数门槛时成本最低的配置。
 - 每项同时标出实际美元/任务和相对成本百分比。
 - 百分比以套餐优先榜最贵的纳入配置为 100%，只用于直观比较本榜内部成本。
-- 完整图列出全部 46 个纳入配置，并保留跑分和获取方式。
+- 完整图列出全部 40 个纳入配置，并保留跑分和获取方式。
 
 [概览 PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking.png) ·
 [概览 SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/zh-CN/06_subscription_cost_ranking.svg) ·
@@ -93,7 +93,7 @@ Snapshot: **2026-07-31**
 
 ### Chart 1: total Token consumption versus score
 
-- Y-axis: the raw Artificial Analysis Intelligence Index v4.1 score; higher is better.
+- Y-axis: the raw Artificial Analysis Intelligence Index v4.1.1 score; higher is better.
 - X-axis: all Tokens consumed by the complete benchmark suite, in millions; lower is better.
 - Each point: one model and reasoning-level configuration.
 - Same-color line: published reasoning levels of the same model.
@@ -106,19 +106,19 @@ Use this chart to compare complete Token consumption under one benchmark and to 
 
 ### Chart 2: API cost per task versus score
 
-- Y-axis: the raw Artificial Analysis Intelligence Index v4.1 score.
+- Y-axis: the raw Artificial Analysis Intelligence Index v4.1.1 score.
 - X-axis: API cost to complete one Intelligence Index task, in USD.
 - Task cost: the configuration's standard input, cache read/write, reasoning, and final-answer Token composition multiplied by the selected original-model price.
 - Provider rule: one provider and one price schedule are fixed across all reasoning levels of the same original model.
 - Quantization rule: a quantized endpoint never replaces the original model; it appears separately only when benchmark data is sufficiently complete.
-- Included: 68 configurations with complete comparable cost data.
-- Excluded: Command A+, Solar Pro 3, K2 Think V2, and Granite 4.1 lack comparable cost data.
+- Included: 66 configurations with complete comparable cost data.
+- Excluded: Command A+, HyperNova 60B 2605, K-EXAONE 2.0 0803, and Nemotron 3.5 Lightning lack a stable positive comparable cost.
 
 This chart answers how much the benchmark task costs through API access, combining both Token price and Token consumption. It does not represent every workload because cache rates, answer lengths, and task difficulty change real cost.
 
 ### Chart 3: subscription-first cost per task versus score
 
-- Y-axis: the raw Artificial Analysis Intelligence Index v4.1 score.
+- Y-axis: the raw Artificial Analysis Intelligence Index v4.1.1 score.
 - X-axis: effective cost per Intelligence Index task after applying the preferred access method.
 - Inclusion order:
   1. use the best-value applicable plan when a usable quota estimate exists;
@@ -149,7 +149,7 @@ Use this chart to compare effective benchmark-task cost under current plans or A
 - The left panel lists the 15 lowest-cost configurations; the right panel lists the lowest-cost configuration reaching each score threshold.
 - Every row shows exact USD per task and relative cost.
 - Relative cost is normalized to the most expensive included API configuration = 100%. A value of 20% therefore costs one fifth as much per task.
-- The complete image lists all 68 included configurations with score and provider.
+- The complete image lists all 66 included configurations with score and provider.
 
 [Overview PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking.png) ·
 [Overview SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/05_api_cost_ranking.svg) ·
@@ -165,7 +165,7 @@ Use this chart to compare effective benchmark-task cost under current plans or A
 - The left panel lists the 15 lowest-cost configurations; the right panel lists the lowest-cost configuration reaching each score threshold.
 - Every row shows exact USD per task and relative cost.
 - Relative cost is normalized to the most expensive included subscription-first configuration = 100% and is only an internal comparison within this ranking.
-- The complete image lists all 46 included configurations with score and access method.
+- The complete image lists all 40 included configurations with score and access method.
 
 [Overview PNG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking.png) ·
 [Overview SVG](https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/en/06_subscription_cost_ranking.svg) ·

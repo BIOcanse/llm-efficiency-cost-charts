@@ -1,6 +1,6 @@
 # Filtered cost-performance ranking specification
 
-Snapshot baseline: **2026-07-31**
+Snapshot baseline: **2026-08-15**
 
 ## Purpose
 

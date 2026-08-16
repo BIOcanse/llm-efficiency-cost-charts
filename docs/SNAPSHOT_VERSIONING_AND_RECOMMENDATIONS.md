@@ -11,7 +11,7 @@ Add two reader-facing features without changing the benchmark calculations:
 ## Personal recommendation contract
 
 The recommendation section is subjective and applies to the latest
-2026-07-31 snapshot only. It must be labelled as personal opinion and must not
+2026-08-15 snapshot only. It must be labelled as personal opinion and must not
 be presented as a generated ranking.
 
 ### SOTA models
@@ -23,7 +23,7 @@ be presented as a generated ranking.
 ### Value models
 
 1. GPT-5.6 Luna
-2. DeepSeek V4 Pro (Preview)
+2. DeepSeek V4 Pro 0813
 
 Do not add more models to make either list look more complete. The charts and
 numerical rankings remain the place for exhaustive comparison.
@@ -40,9 +40,10 @@ numerical rankings remain the place for exhaustive comparison.
 - UTC timestamps:
   - `2026-07-24`: `2026-07-25T03:06:13Z`
   - `2026-07-31`: `2026-07-31T05:55:55Z`
+  - `2026-08-15`: the exact GitHub Release publication timestamp stored in the manifest
 - The latest snapshot is the default. A reader-selected snapshot is stored
   locally and remains reversible.
-- Personal recommendations stay tied to 2026-07-31 and carry a visible badge;
+- Personal recommendations stay tied to 2026-08-15 and carry a visible badge;
   switching to a historical chart does not rewrite those opinions.
 
 ## Published assets
@@ -51,7 +52,9 @@ numerical rankings remain the place for exhaustive comparison.
 site/data/snapshots.json
 site/data/snapshots/2026-07-24.json
 site/data/snapshots/2026-07-31.json
+site/data/snapshots/2026-08-15.json
 charts/archive/2026-07-24/{en,zh-CN}/*.{png,svg}
+charts/archive/2026-07-31/{en,zh-CN}/*.{png,svg}
 ```
 
 The current charts remain under `charts/{en,zh-CN}`. The archive directory
@@ -60,8 +63,8 @@ Release, not newly reconstructed artwork.
 
 ## Validation
 
-- Both versions load 73 / 68 / 46 configurations and pass the existing data
-  shape checks.
+- Every version validates its chart arrays against its own stored counts. The
+  current version loads 70 / 66 / 40 configurations.
 - Version changes preserve the chosen language and reset no unrelated user
   controls.
 - Both languages show the correct UTC timestamp and recommendation wording.

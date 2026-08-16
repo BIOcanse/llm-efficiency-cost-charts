@@ -1,6 +1,6 @@
 # Ranking methodology
 
-Snapshot: **2026-07-31**
+Snapshot: **2026-08-15**
 
 ## Why there is no single score-to-cost ratio
 
@@ -67,7 +67,7 @@ expensive included API configuration. The most expensive API configuration is
 
 ## Subscription-first cost ranking
 
-Sort the 46 included configurations by effective cost per Intelligence Index task.
+Sort the 40 included configurations by effective cost per Intelligence Index task.
 
 Inclusion order:
 

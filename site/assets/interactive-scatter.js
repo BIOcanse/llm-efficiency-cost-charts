@@ -1,4 +1,4 @@
-import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js?v=20260731-coding-agent-suite-2";
+import { WebGpuScatterLayer } from "./webgpu-scatter-layer.js?v=20260815-v411-snapshot-1";
 
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
@@ -913,8 +913,14 @@ export class InteractiveScatterChart {
     const associationDistances = [];
 
     const candidateBaseScore = (item, candidate, candidateIndex) => {
+      const associationWeight =
+        this.config.metric === "general-token" ||
+        this.config.metric === "general-subscription"
+          ? 12
+          : 8;
       let score =
-        pointToBoxDistance(item, candidate) * 8 + candidateIndex * 0.08;
+        pointToBoxDistance(item, candidate) * associationWeight +
+        candidateIndex * 0.08;
       pointLocations.forEach((point) => {
         if (
           rowKey(point.row) !== rowKey(item.row) &&

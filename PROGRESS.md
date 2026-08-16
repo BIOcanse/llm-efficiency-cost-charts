@@ -2,6 +2,7 @@
 
 ## Current
 
+- [ ] 2026-08-15：按 Artificial Analysis Intelligence Index v4.1.1 刷新通用模型快照；正式版 DeepSeek V4 Pro / Flash 替换预览版，补充同期前沿与地区代表模型，重建双语三图、排名、网页版本切换和 Release；旧快照与 Coding Agent 分页保持独立。
 - [x] 新增独立的 Coding Agent Index v1.3 三图（Token 消耗、套餐折算成本、API 成本）；抓取并验证 52 个 Agent 配置，输出双语 PNG/SVG，并以“通用场景 / Agent 实际编码场景”大分页无刷新切换两套三图。
 - [x] 将现有 DeepSeek V4 Pro / Flash 统一标为 `(Preview)`；覆盖双快照交互图、筛选、排名、推荐、无障碍文本和网页 CSV，不改任何数值。
 - [x] 2026-07-31：重构网页视觉层——「测量记录」风格设计语言（暖纸底＋坐标纸网格、细分隔线、等宽/表格数字、明暗区同一墨蓝色相）、置顶导航、深色工具提示；动效提供正常/减弱两版，顶栏可见开关，默认跟随系统 prefers-reduced-motion，选择存 localStorage 可随时改回；入场动画只保留 hero 的纯 CSS 一次性错峰上浮，明确不做滚动渐显（保证整页截图、打印和无 JS 场景永不出现空白内容）；文案仅一致性微调（「下载整套成图」→「下载完整套图」，新增动效开关文案）；图表几何、标注避让、系列配色与数据流未改动。规范见 docs/SITE_SPEC.md「Visual design and motion」。

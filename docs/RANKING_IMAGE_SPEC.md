@@ -1,6 +1,6 @@
 # Ranking image specification
 
-Snapshot: **2026-07-31**
+Snapshot: **2026-08-15**
 
 ## Purpose
 
@@ -20,14 +20,14 @@ Each asset is rendered in English and Simplified Chinese as PNG and SVG:
    - exact USD per task, cost percentage, and Intelligence Index score;
    - the cheapest configuration reaching each score threshold.
 3. `05_api_cost_ranking_full`
-   - all 68 API-cost configurations;
+   - all 66 API-cost configurations;
    - exact USD per task, cost percentage, and score.
 4. `06_subscription_cost_ranking`
    - the 15 lowest subscription-first costs per task;
    - exact USD per task, cost percentage, and score;
    - the cheapest configuration reaching each score threshold.
 5. `06_subscription_cost_ranking_full`
-   - all 46 subscription-first configurations;
+   - all 40 subscription-first configurations;
    - exact USD per task, cost percentage, and score.
 
 ## Calculation and presentation rules

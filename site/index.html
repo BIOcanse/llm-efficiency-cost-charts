@@ -10,8 +10,8 @@
     >
     <title>LLM Efficiency & Cost Charts</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/styles.css?v=20260731-coding-agent-suite-2">
-    <script src="assets/app.js?v=20260731-coding-agent-suite-2" type="module"></script>
+    <link rel="stylesheet" href="assets/styles.css?v=20260815-v411-snapshot-1">
+    <script src="assets/app.js?v=20260815-v411-snapshot-1" type="module"></script>
   </head>
   <body>
     <header class="topbar">
@@ -41,7 +41,7 @@
     <main id="top">
       <div class="hero-band">
       <section class="hero page-shell">
-        <div class="eyebrow" data-rise="0" data-i18n="snapshotLabel">Snapshot · 2026-07-31</div>
+        <div class="eyebrow" data-rise="0" data-i18n="snapshotLabel">Snapshot · 2026-08-15</div>
         <h1 data-rise="0" data-i18n="heroTitle">Same score. How many Tokens? How much money?</h1>
         <p class="hero-copy" data-rise="1" data-i18n="heroCopy">
           Each point represents one model and reasoning level. Lines of the same color connect levels of the same model. Upper left is better.
@@ -53,7 +53,7 @@
           </label>
           <div class="snapshot-time-block">
             <span data-i18n="snapshotPublishedAt">Snapshot published (UTC)</span>
-            <time id="snapshot-time" datetime="2026-07-31T05:55:55Z">2026-07-31 05:55:55 UTC</time>
+            <time id="snapshot-time" datetime="2026-08-15T00:00:00Z">2026-08-15 00:00:00 UTC</time>
           </div>
         </div>
         <div class="hero-actions" data-rise="2">
@@ -76,15 +76,15 @@
         </div>
         <div class="metric-strip" data-rise="3" aria-label="Current data coverage">
           <div>
-            <strong id="token-count">73</strong>
+            <strong id="token-count">70</strong>
             <span data-i18n="tokenConfigurations">Token configurations</span>
           </div>
           <div>
-            <strong id="api-count">68</strong>
+            <strong id="api-count">66</strong>
             <span data-i18n="apiConfigurations">API-cost configurations</span>
           </div>
           <div>
-            <strong id="subscription-count">46</strong>
+            <strong id="subscription-count">40</strong>
             <span data-i18n="subscriptionConfigurations">Subscription-first configurations</span>
           </div>
         </div>
@@ -101,7 +101,7 @@
             <span class="scenario-index">01</span>
             <span>
               <strong data-i18n="scenarioGeneralTitle">General benchmark</strong>
-              <small data-i18n="scenarioGeneralCopy">Intelligence Index v4.1 · model + reasoning level</small>
+              <small data-i18n="scenarioGeneralCopy">Intelligence Index v4.1.1 · model + reasoning level</small>
             </span>
           </button>
           <button type="button" role="tab" data-scenario="coding" aria-selected="false">
@@ -123,7 +123,7 @@
           <div class="recommendation-meta">
             <p data-i18n="recommendationCopy">Only models with a clear reason to choose them are included.</p>
             <p class="recommendation-snapshot" data-i18n="recommendationSnapshot">
-              Based on the 2026-07-31 snapshot
+              Based on the 2026-08-15 snapshot
             </p>
           </div>
         </div>
@@ -297,7 +297,7 @@
                   Sorted by USD per task, with score and relative cost shown alongside it.
                 </p>
               </div>
-              <a id="subscription-ranking-csv" href="rankings/2026-07-31/subscription_cost_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
+              <a id="subscription-ranking-csv" href="rankings/2026-08-15/subscription_cost_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
             </div>
             <div class="table-wrap">
               <table>
@@ -379,7 +379,7 @@
                   100 means the model curve matches the observed same-score Token frontier. Lower values mean more Token overhead.
                 </p>
               </div>
-              <a id="token-ranking-csv" href="rankings/2026-07-31/token_efficiency_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
+              <a id="token-ranking-csv" href="rankings/2026-08-15/token_efficiency_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
             </div>
             <div class="method-callout" id="token-method-callout"></div>
             <div class="table-wrap">
@@ -406,10 +406,10 @@
               <div>
                 <h3 data-i18n="apiRankingTitle">API cost ranking</h3>
                 <p data-i18n="apiRankingCopy">
-                  All 68 configurations with comparable API prices, sorted by recalculated USD per task.
+                  All 66 configurations with comparable API prices, sorted by recalculated USD per task.
                 </p>
               </div>
-              <a id="api-ranking-csv" href="rankings/2026-07-31/api_cost_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
+              <a id="api-ranking-csv" href="rankings/2026-08-15/api_cost_ranking.csv" data-i18n="downloadCsv">Download CSV</a>
             </div>
             <div class="table-wrap">
               <table>
@@ -506,7 +506,7 @@
             href="https://github.com/BIOcanse/llm-efficiency-cost-charts/blob/main/docs/SOURCES.md"
             data-i18n="sourcesLink"
           >Sources</a>
-          <a id="selected-data-link" href="data/2026-07-31/model_efficiency.csv" data-i18n="dataLink">Current data</a>
+          <a id="selected-data-link" href="data/2026-08-15/model_efficiency.csv" data-i18n="dataLink">Current data</a>
         </div>
       </section>
     </main>

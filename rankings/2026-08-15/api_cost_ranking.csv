@@ -1,0 +1,67 @@
+﻿rank,model,effort,score,cost_usd_per_task,total_tokens_million,provider,provider_model_id,precision
+1,GPT-5.6 Luna,low,33.8546,0.008794988,115.442469,OpenAI,openai_gpt-5-6-luna-low,AA provider benchmark endpoint
+2,MiMo-V2.5,default,38.0434,0.010359307,372.557155,Xiaomi,xiaomi_mimo-v2-5,AA provider benchmark endpoint
+3,GPT-5.6 Luna,medium,38.9051,0.01126935,137.22033,OpenAI,openai_gpt-5-6-luna-medium,AA provider benchmark endpoint
+4,GPT-5.6 Luna,non-reasoning,26.8449,0.011731427,178.254345,OpenAI,openai_gpt-5-6-luna-non-reasoning,AA provider benchmark endpoint
+5,GPT-5.6 Luna,high,46.9604,0.021586509,313.886914,OpenAI,openai_gpt-5-6-luna-high,AA provider benchmark endpoint
+6,GPT-5.6 Luna,xhigh,50.0587,0.031637141,515.160682,OpenAI,openai_gpt-5-6-luna-xhigh,AA provider benchmark endpoint
+7,MiMo-V2.5-Pro,default,42.8797,0.033908453,421.224319,Xiaomi,xiaomi_mimo-v2-5-pro,AA provider benchmark endpoint
+8,GPT-5.6 Luna,max,52.3181,0.047127534,848.538119,OpenAI,openai_gpt-5-6-luna,AA provider benchmark endpoint
+9,DeepSeek V4 Pro 0813,max,53.1977,0.05609416,1014.847808,DeepSeek,deepseek_deepseek-v4-pro,official original endpoint
+10,DeepSeek V4 Flash 0731,max,51.7666,0.056678693,1486.993592,DeepInfra,deepinfra_deepseek-v4-flash-0731,AA provider benchmark endpoint
+11,Qwen3.6 27B,default,37.7025,0.072952964,396.600229,CompactifAI,compactifai_qwen3-6-27b,AA provider benchmark endpoint
+12,Qwen3.6 35B A3B,default,32.1291,0.079135973,606.620826,Parasail,parasail_qwen3-6-35b-a3b,AA provider benchmark endpoint
+13,Mistral Large 3,default,15.9192,0.080608486,131.032584,Amazon,amazon-bedrock_mistral-large-3,AA provider benchmark endpoint
+14,GPT-5.6 Terra,low,41.2961,0.09394667,124.450358,OpenAI,openai_gpt-5-6-terra-low,AA provider benchmark endpoint
+15,Gemini 3.5 Flash-Lite,default,37.4387,0.096525039,520.399421,Google AI Studio,google-gemini-3-5-flash-lite_ai-studio,AA provider benchmark endpoint
+16,Mistral Small 4,default,19.7078,0.100285096,424.067729,Mistral,mistral_mistral-small-4,AA provider benchmark endpoint
+17,GPT-5.6 Terra,non-reasoning,34.6189,0.102539087,141.830155,OpenAI,openai_gpt-5-6-terra-non-reasoning,AA provider benchmark endpoint
+18,MiniMax-M3,default,45.3969,0.108564039,1323.611938,CoreWeave,coreweave_minimax-m3,AA provider benchmark endpoint
+19,GPT-5.6 Terra,medium,46.7559,0.119024052,142.380413,OpenAI,openai_gpt-5-6-terra-medium,AA provider benchmark endpoint
+20,Ministral 3 3B,default,7.0738,0.12967869,915.897083,Amazon,amazon-bedrock_ministral-3b,AA provider benchmark endpoint
+21,Ministral 3 14B,default,11.243,0.158416848,595.990639,Amazon,amazon-bedrock_ministral-14b,AA provider benchmark endpoint
+22,Nemotron 3 Ultra 550B A55B,default,38.3185,0.163217082,503.925196,CoreWeave,coreweave_nvidia-nemotron-3-ultra-550b-a55b,AA provider benchmark endpoint
+23,Gemini 3.7 Flash,low,50.9423,0.164849891,512.101422,Google,gemini-3-7-flash-low,AA provider benchmark endpoint
+24,Ministral 3 8B,default,8.9736,0.184578644,760.369859,Amazon,amazon-bedrock_ministral-8b,AA provider benchmark endpoint
+25,GPT-5.5,non-reasoning,35.7538,0.20831544,65.423373,OpenAI,openai_gpt-5-5-non-reasoning,AA provider benchmark endpoint
+26,GPT-5.6 Terra,high,50.1131,0.218282013,314.274985,OpenAI,openai_gpt-5-6-terra-high,AA provider benchmark endpoint
+27,Solar Pro 4,default,41.6373,0.223080229,848.906305,Upstage,upstage_solar-pro4,AA provider benchmark endpoint
+28,GPT-5.6 Sol,low,50.7315,0.231100947,101.276099,OpenAI,openai_gpt-5-6-sol-low,AA provider benchmark endpoint
+29,GPT-5.6 Sol,non-reasoning,41.878,0.236552999,110.840303,OpenAI,openai_gpt-5-6-sol-non-reasoning,AA provider benchmark endpoint
+30,Kimi K3,low,48.2515,0.241918565,206.537181,Kimi,kimi_kimi-k3-low,AA provider benchmark endpoint
+31,Qwen3.7 Plus,default,39.3746,0.242414685,439.866018,Alibaba Cloud,alibaba_cloud_qwen3-7-plus,AA provider benchmark endpoint
+32,GPT-5.5,low,44.4981,0.258866102,81.17183,OpenAI,openai_gpt-5-5-low,AA provider benchmark endpoint
+33,Gemini 3.7 Flash,medium,53.4167,0.26290401,886.125437,Google,gemini-3-7-flash-medium,AA provider benchmark endpoint
+34,Kimi K2.6,default,45.1382,0.269219365,707.892578,Parasail,parasail_kimi-k2-6,AA provider benchmark endpoint
+35,GPT-5.6 Terra,xhigh,52.7732,0.305022291,483.053184,OpenAI,openai_gpt-5-6-terra-xhigh,AA provider benchmark endpoint
+36,Gemini 3.1 Pro Preview,default,47.7383,0.33456475,329.166203,Google (AI Studio),google_gemini-3-1-pro_ai-studio,AA provider benchmark endpoint
+37,Qwen3.6 Plus,default,40.4881,0.35689728,520.195649,Alibaba Cloud,alibaba_cloud_qwen3-6-plus,AA provider benchmark endpoint
+38,Ring-2.6-1T,default,31.6634,0.360056723,751.655279,InclusionAI,ring-2-6-1t,AA provider benchmark endpoint
+39,GLM-5.2,max,52.641,0.361273723,684.650946,Wafer,wafer_glm-5-2,AA provider benchmark endpoint
+40,GPT-5.6 Sol,medium,55.5729,0.371670812,200.140662,OpenAI,openai_gpt-5-6-sol-medium,AA provider benchmark endpoint
+41,Muse Spark 1.2,xhigh,56.7616,0.399200304,1086.472309,Meta,muse-spark-1-2,AA provider benchmark endpoint
+42,Gemini 3.7 Flash,high,56.0301,0.402165818,1459.801928,Google,gemini-3-7-flash,AA provider benchmark endpoint
+43,Claude Sonnet 5,non-reasoning,42.5708,0.416946367,981.277116,Anthropic,anthropic_claude-sonnet-5-non-reasoning,AA provider benchmark endpoint
+44,Claude Opus 5,low,52.4569,0.425160067,207.349701,Amazon,amazon_bedrock_claude-opus-5-low,AA provider benchmark endpoint
+45,Mistral Medium 3.5,default,30.3922,0.463738441,632.218581,Mistral,mistral_mistral-medium-3-5,AA provider benchmark endpoint
+46,GPT-5.5,medium,51.4223,0.500168861,174.417644,OpenAI,openai_gpt-5-5-medium,AA provider benchmark endpoint
+47,GPT-5.6 Terra,max,56.5756,0.508018891,883.777391,OpenAI,openai_gpt-5-6-terra,AA provider benchmark endpoint
+48,GPT-5.5 Instant (June 2026),instant,29.2328,0.536439147,241.952729,OpenAI,openai_gpt-5-5-instant-06-26,AA provider benchmark endpoint
+49,GPT-5.6 Sol,high,57.3317,0.547730391,362.060701,OpenAI,openai_gpt-5-6-sol-high,AA provider benchmark endpoint
+50,Gemini 3.5 Flash,default,51.9636,0.693389486,1088.929106,Google AI Studio,google_gemini-3-5-flash_ai-studio,AA provider benchmark endpoint
+51,Claude Opus 5,medium,58.6355,0.72427844,411.442587,Amazon,amazon_bedrock_claude-opus-5-medium,AA provider benchmark endpoint
+52,GPT-5.5,high,54.6668,0.803310854,286.166212,OpenAI,openai_gpt-5-5-high,AA provider benchmark endpoint
+53,GPT-5.6 Sol,xhigh,59.009,0.807181243,572.069381,OpenAI,openai_gpt-5-6-sol-xhigh,AA provider benchmark endpoint
+54,Grok 4.6,high,60.923,0.836670781,926.833385,SpaceXAI,xai_grok-4-6,AA provider benchmark endpoint
+55,Kimi K3,default,59.6995,0.837457492,977.362769,Kimi,kimi_kimi-k3,AA provider benchmark endpoint
+56,Magistral Medium 1.2,default,18.0471,0.891796687,394.160982,Mistral,mistral_magistral-medium-2509,AA provider benchmark endpoint
+57,Qwen3.8 2.4T A95B,default,57.7043,1.091912877,1714.362109,Alibaba Cloud,alibaba_cloud_qwen3-8-2-4t-a95b,AA provider benchmark endpoint
+58,Qwen3.8 Max,default,58.0774,1.132037908,1743.415224,Alibaba Cloud,alibaba_cloud_qwen3-8-max,AA provider benchmark endpoint
+59,GPT-5.5,xhigh,56.3067,1.174706932,436.100918,OpenAI,openai_gpt-5-5,AA provider benchmark endpoint
+60,Claude Opus 5,high,61.4751,1.226761528,844.092606,Amazon,amazon_bedrock_claude-opus-5-high,AA provider benchmark endpoint
+61,GPT-5.6 Sol,max,60.9299,1.231211056,1054.056388,OpenAI,openai_gpt-5-6-sol,AA provider benchmark endpoint
+62,Claude Sonnet 5,max,55.2612,1.717266743,3828.299826,Anthropic,anthropic_claude-sonnet-5,AA provider benchmark endpoint
+63,Claude Opus 5,xhigh,62.5205,1.801196675,1367.107235,Amazon,amazon_bedrock_claude-opus-5-xhigh,AA provider benchmark endpoint
+64,Claude Opus 4.8,max,57.3304,2.013215496,1052.766847,Amazon,amazon_bedrock_claude-opus-4-8,AA provider benchmark endpoint
+65,Claude Opus 5,max,63.0532,2.336859208,1877.170384,Amazon,amazon_bedrock_claude-opus-5,AA provider benchmark endpoint
+66,Claude Fable 5 (with fallback),max,62.0727,3.139584292,903.133597,Anthropic,anthropic_claude-fable-5,AA provider benchmark endpoint

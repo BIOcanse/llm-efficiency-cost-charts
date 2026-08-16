@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-SNAPSHOT = "2026-07-31"
+SNAPSHOT = "2026-08-15"
 SCORE_THRESHOLDS = (40, 45, 50, 55, 58, 60)
 CORE_MIN_LEVELS = 4
 CORE_MIN_SCORE_SPAN = 8.0
@@ -428,12 +428,10 @@ def main() -> None:
         data_dir / "frontier_model_positions.csv",
         model_rows,
     )
-    if len(model_rows) != 73:
-        raise ValueError(f"Expected 73 model configurations, found {len(model_rows)}")
-    if len(access_rows) != 46:
-        raise ValueError(
-            f"Expected 46 subscription-first configurations, found {len(access_rows)}"
-        )
+    if not model_rows:
+        raise ValueError("No model configurations found")
+    if not access_rows:
+        raise ValueError("No subscription-first configurations found")
 
     token_core, token_limited = aggregate_token_efficiency(model_rows)
     api_ranking = api_cost_ranking(model_rows)
@@ -448,15 +446,13 @@ def main() -> None:
         access_rows,
         frontier_positions,
     )
-    if len(token_chart) != 73:
-        raise ValueError(f"Expected 73 Token chart points, found {len(token_chart)}")
-    if len(api_chart) != 68:
-        raise ValueError(f"Expected 68 API chart points, found {len(api_chart)}")
-    if len(subscription_chart) != 46:
-        raise ValueError(
-            "Expected 46 subscription chart points, "
-            f"found {len(subscription_chart)}"
-        )
+    if len(token_chart) != len(model_rows):
+        raise ValueError("Token chart count does not match source data")
+    expected_api = sum(bool(row["cost_per_index_task_usd"]) for row in model_rows)
+    if len(api_chart) != expected_api:
+        raise ValueError("API chart count does not match comparable source data")
+    if len(subscription_chart) != len(access_rows):
+        raise ValueError("Subscription chart count does not match source data")
 
     rankings_dir = args.repository_root / "rankings" / args.snapshot
     token_rows = token_core + token_limited
@@ -528,6 +524,11 @@ def main() -> None:
 
     payload = {
         "snapshot": args.snapshot,
+        "benchmark": (
+            "Artificial Analysis Intelligence Index v4.1.1"
+            if args.snapshot == SNAPSHOT
+            else "Artificial Analysis Intelligence Index v4.1"
+        ),
         "counts": {
             "token_configurations": len(model_rows),
             "api_cost_configurations": len(api_ranking),

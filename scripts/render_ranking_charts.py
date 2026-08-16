@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import csv
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Iterable
 
@@ -187,7 +187,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Render bilingual ranking images from dated ranking CSV files."
     )
-    parser.add_argument("--snapshot", default="2026-07-31")
+    parser.add_argument("--snapshot", default="2026-08-15")
     parser.add_argument(
         "--repository-root",
         type=Path,
@@ -321,7 +321,10 @@ def render_token_ranking(
     add_title(figure, text.token_title, text.token_subtitle)
     axis = figure.add_axes((0.28, 0.16, 0.66, 0.67), facecolor=BACKGROUND)
 
-    positions = [9.0, 8.0, 7.0, 6.0, 5.0, 3.45, 2.45, 1.45, 0.45]
+    core_positions = [9.0 - index for index in range(len(core))]
+    limited_start = core_positions[-1] - 1.55
+    limited_positions = [limited_start - index for index in range(len(limited))]
+    positions = core_positions + limited_positions
     axis.set_xlim(0, 108)
     axis.set_ylim(-0.2, 9.8)
     axis.set_yticks([])
@@ -814,15 +817,33 @@ def main() -> None:
     subscription_rows = load_csv(ranking_dir / "subscription_cost_ranking.csv")
     threshold_rows = load_csv(ranking_dir / "score_threshold_leaders.csv")
 
-    if len(token_rows) != 9:
-        raise ValueError(f"Expected 9 Token ranking rows, found {len(token_rows)}")
-    if len(api_rows) != 68:
-        raise ValueError(f"Expected 68 API ranking rows, found {len(api_rows)}")
-    if len(subscription_rows) != 46:
-        raise ValueError(
-            "Expected 46 subscription ranking rows, "
-            f"found {len(subscription_rows)}"
-        )
+    if not token_rows or not api_rows or not subscription_rows:
+        raise ValueError("Ranking inputs must not be empty")
+    payload = __import__("json").loads(
+        (
+            repository_root
+            / "site"
+            / "data"
+            / "snapshots"
+            / f"{args.snapshot}.json"
+        ).read_text("utf-8")
+    )
+    benchmark = payload.get(
+        "benchmark", "Artificial Analysis Intelligence Index v4.1"
+    )
+    LOCALES["en"] = replace(
+        LOCALES["en"],
+        snapshot_note=(
+            f"Snapshot {args.snapshot} · {benchmark} · "
+            "lower cost and higher score are better"
+        ),
+    )
+    LOCALES["zh-CN"] = replace(
+        LOCALES["zh-CN"],
+        snapshot_note=(
+            f"数据快照 {args.snapshot} · {benchmark} · 成本越低、分数越高越好"
+        ),
+    )
 
     for locale in args.languages:
         output_dir = repository_root / "charts" / locale

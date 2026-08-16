@@ -1,0 +1,9 @@
+﻿rank,category,model,levels,score_min,score_max,score_span,efficiency_index,token_overhead_vs_frontier
+1,core,Claude Opus 5,5,52.4569,63.0532,10.5963,88.96,1.1241
+2,core,GPT-5.6 Sol,6,41.878,60.9299,19.0519,88.91,1.1248
+3,core,GPT-5.5,5,35.7538,56.3067,20.5529,85.99,1.1629
+4,core,GPT-5.6 Terra,6,34.6189,56.5756,21.9567,46.25,2.1623
+5,core,GPT-5.6 Luna,6,26.8449,52.3181,25.4732,38.07,2.6268
+1,limited,Kimi K3,2,48.2515,59.6995,11.448,44.95,2.2245
+2,limited,Gemini 3.7 Flash,3,50.9423,56.0301,5.0879,20.96,4.7717
+3,limited,Claude Sonnet 5,2,42.5708,55.2612,12.6904,5.81,17.1971

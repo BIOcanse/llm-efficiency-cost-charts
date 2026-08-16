@@ -1,13 +1,13 @@
 # Interactive chart specification
 
-Snapshot baseline: **2026-07-31**
+Snapshot baseline: **2026-08-15**
 
 ## Goal
 
 The GitHub Pages site must render two separately sourced three-chart suites from
 machine-readable snapshot data instead of displaying pre-rendered PNG files:
 
-- general: Intelligence Index v4.1;
+- general: Intelligence Index v4.1.1 for the current snapshot, with earlier versions preserved per snapshot;
 - coding: Coding Agent Index v1.3.
 
 PNG and SVG assets remain available only as downloadable, citable snapshot
@@ -28,11 +28,11 @@ data/<snapshot>/frontier_model_positions.csv
   -> client-side SVG
 ```
 
-`site/data/rankings.json` must contain three chart datasets:
+The current dated payload under `site/data/snapshots/` must contain three chart datasets:
 
-- `charts.token`: all 73 configurations with complete Token data;
-- `charts.subscription`: all 46 subscription-first configurations;
-- `charts.api`: all 68 configurations with comparable API cost.
+- `charts.token`: all 70 configurations with complete Token data;
+- `charts.subscription`: all 40 subscription-first configurations;
+- `charts.api`: all 66 configurations with comparable API cost.
 
 `site/data/coding-agents/<date>.json` independently contains the coding-agent
 Token, subscription, and API datasets. It is not inserted into
@@ -139,7 +139,7 @@ without changing the cost comparison to a logarithmic axis.
 ## Acceptance criteria
 
 - No PNG is used as the visible chart body on GitHub Pages.
-- All 73 / 68 / 46 expected configurations render from JSON.
+- All 70 / 66 / 40 current configurations render from JSON, while historical payloads validate against their own stored counts.
 - Coding-agent Token/API charts render 52 configurations and the
   subscription-first chart renders 49.
 - The large scenario control switches the complete three-chart suite in place,

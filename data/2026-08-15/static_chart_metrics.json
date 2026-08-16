@@ -1,0 +1,44 @@
+[
+  {
+    "locale": "en",
+    "metric": "token",
+    "rows": 70,
+    "label_collisions": 0,
+    "out_of_bounds_labels": 0
+  },
+  {
+    "locale": "en",
+    "metric": "api",
+    "rows": 66,
+    "label_collisions": 0,
+    "out_of_bounds_labels": 0
+  },
+  {
+    "locale": "en",
+    "metric": "subscription",
+    "rows": 40,
+    "label_collisions": 0,
+    "out_of_bounds_labels": 0
+  },
+  {
+    "locale": "zh-CN",
+    "metric": "token",
+    "rows": 70,
+    "label_collisions": 0,
+    "out_of_bounds_labels": 0
+  },
+  {
+    "locale": "zh-CN",
+    "metric": "api",
+    "rows": 66,
+    "label_collisions": 0,
+    "out_of_bounds_labels": 0
+  },
+  {
+    "locale": "zh-CN",
+    "metric": "subscription",
+    "rows": 40,
+    "label_collisions": 0,
+    "out_of_bounds_labels": 0
+  }
+]

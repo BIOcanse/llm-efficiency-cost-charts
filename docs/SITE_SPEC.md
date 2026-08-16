@@ -122,8 +122,8 @@ machine-readable result. The manifest selects one payload at a time.
 - The page switches Chinese and English in place without navigating to a second document.
 - The repository home page contains only a compact bilingual entry and does
   not duplicate the analysis maintained on Pages.
-- Subscription-first ranking is the default numerical view; all 46 rows can be expanded.
-- API ranking contains all 68 comparable rows.
+- Subscription-first ranking is the default numerical view; all 40 current rows can be expanded.
+- API ranking contains all 66 current comparable rows.
 - Aggregate Token efficiency contains five core full-curve models and four limited-evidence models.
 - API and subscription-first views show exact USD per task and relative cost, with the most expensive included configuration in each ranking set to 100%.
 - Cost-performance views accept inclusive minimum and maximum score filters,
