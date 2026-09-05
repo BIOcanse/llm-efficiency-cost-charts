@@ -2,10 +2,10 @@
 
 ## Current
 
-- [ ] 2026-09-05：网站主线迁移到 Terminal-Bench；取消推荐；突出套餐/API 单位成功任务成本和可筛选性价比，保留独立 Token 效率分析。TB4 按快照继续更新，旧 TB 版本发布最终双语成图并冻结。合同见 docs/TERMINAL_BENCH_SPEC.md。
+- [x] 2026-09-05：网站主线迁移到 Terminal-Bench；取消推荐；突出套餐/API 单位成功任务成本和可筛选性价比，保留独立 Token 效率分析。TB4 按快照继续更新，旧 TB 版本发布最终双语成图并冻结。合同见 docs/TERMINAL_BENCH_SPEC.md。
 - [x] Terminal-Bench 官方当前/旧版数据与套餐证据核验。
-- [ ] Terminal-Bench 版本化数据、双语三图、排名与 Release。
-- [ ] Terminal-Bench 网页主视图、语言/版本切换、桌面交互验证及部署。
+- [x] Terminal-Bench 版本化数据、双语三图、排名与 Release。
+- [x] Terminal-Bench 网页主视图、语言/版本切换、桌面交互验证及部署。
 - [x] 2026-08-15：按 Artificial Analysis Intelligence Index v4.1.1 刷新通用模型快照；正式版 DeepSeek V4 Pro / Flash 替换预览版，补充同期前沿与地区代表模型，重建双语三图、排名、网页版本切换和 Release；旧快照与 Coding Agent 分页保持独立。
 - [x] 新增独立的 Coding Agent Index v1.3 三图（Token 消耗、套餐折算成本、API 成本）；抓取并验证 52 个 Agent 配置，输出双语 PNG/SVG，并以“通用场景 / Agent 实际编码场景”大分页无刷新切换两套三图。
 - [x] 将现有 DeepSeek V4 Pro / Flash 统一标为 `(Preview)`；覆盖双快照交互图、筛选、排名、推荐、无障碍文本和网页 CSV，不改任何数值。
@@ -40,6 +40,7 @@
 
 ## Current validation
 
+- `terminal-bench-2026-09-05` Release 已于 2026-09-05T07:34:44Z 发布并设为最新版本；完整包 387 个文件、63,571,251 字节，GitHub 资产 SHA-256 与本地完全一致，ZIP CRC 检查通过。Pages 部署成功，线上 55 项浏览器检查再次通过，控制台 0 错误／0 警告，当前与旧版的成图直链均可访问。
 - 2026-09-05 Terminal-Bench：4.0 / 3.0 / 2.1 / 2.0 / 1.0 共 256 条官方记录，原始字节 SHA-256 可复核；Token / API / 套餐可用数分别为 18/18/16、12/11/7、22/22/18、0/0/0、0/0/0。TB2 和 TB1 分别保留 142 / 62 条最终成功率数据。旧版禁止新增快照日期，新增 TB4 快照必须显式指定已复核的日期化套餐依据。
 - 2026-09-05 产物与网页验证：中英文 60 张 4800×2700 PNG、60 份 SVG，标注／表格碰撞与越界均为 0；7 项数据和产物测试通过。1920 px / 1440 px 的 55 项浏览器检查通过，覆盖双语、五版切换、厂商／Agent／成功率筛选、百分比重算、WebGPU 点选与 Esc 解除、缩放、来源链接与原始计数差异；表格最低文字对比度 9.18:1，档位距模型名 7 px。原有 AA 通用 70/66/40 和 Coding Agent 52/52/49 计数保持不变。
 - 2026-08-15 Intelligence Index v4.1.1 验证：通用 Token / API / 套餐优先图分别纳入 70 / 66 / 40 个模型＋档位配置；双语六张静态分析图均为 4800×2700，标签碰撞和越界均为 0。正式版 DeepSeek V4 Pro 0813 / V4 Flash 0731 已替换预览版；同一原始模型的各档位统一供应商与价格口径，量化端点不混入原模型曲线。
