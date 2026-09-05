@@ -1,0 +1,144 @@
+{
+  "rows": 22,
+  "counts": {
+    "token": 22,
+    "api": 22,
+    "subscription": 18
+  },
+  "component_semantics": {
+    "named_uncached_field_includes_cache_arithmetically": 5,
+    "disjoint_components_match": 17
+  },
+  "access_decisions": {
+    "codex_historical_full_use_70x": 8,
+    "fable_historical_40x_times_shared_cap_50pct": 1,
+    "no_supported_subscription_for_evaluated_harness": 6,
+    "cursor_models_pool_not_api_pool_quota": 1,
+    "claude_historical_full_use_40x": 3,
+    "official_request_quota_but_benchmark_model_request_count_missing": 2,
+    "exact_checkpoint_no_longer_supported_by_current_plan": 1
+  },
+  "missing_agent_version": 22,
+  "missing_trials": 0,
+  "trial_count_discrepancies": [
+    "fdb8393b-5b29-4645-b784-84f52cf31722"
+  ],
+  "static_layouts": {
+    "zh-CN": {
+      "subscription": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 18
+      },
+      "subscription_ranking": [
+        {
+          "table": "subscription",
+          "page": 1,
+          "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "api": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 22
+      },
+      "api_ranking": [
+        {
+          "table": "api",
+          "page": 1,
+          "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        },
+        {
+          "table": "api",
+          "page": 2,
+          "rows": 4,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "token": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 22
+      },
+      "token_ranking": [
+        {
+          "table": "token",
+          "page": 1,
+          "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        },
+        {
+          "table": "token",
+          "page": 2,
+          "rows": 4,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ]
+    },
+    "en": {
+      "subscription": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 18
+      },
+      "subscription_ranking": [
+        {
+          "table": "subscription",
+          "page": 1,
+          "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "api": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 22
+      },
+      "api_ranking": [
+        {
+          "table": "api",
+          "page": 1,
+          "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        },
+        {
+          "table": "api",
+          "page": 2,
+          "rows": 4,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "token": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 22
+      },
+      "token_ranking": [
+        {
+          "table": "token",
+          "page": 1,
+          "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        },
+        {
+          "table": "token",
+          "page": 2,
+          "rows": 4,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ]
+    }
+  }
+}

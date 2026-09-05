@@ -2,3 +2,5 @@
 *.md text eol=lf
 *.svg text eol=lf
 *.png binary
+data/terminal-bench/**/leaderboard.raw.json -text
+data/terminal-bench/**/leaderboard.raw.ts -text

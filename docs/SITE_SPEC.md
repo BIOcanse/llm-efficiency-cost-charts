@@ -21,12 +21,18 @@ Publish the current bilingual charts, detailed chart explanations, and numerical
 
 ## Information structure
 
+2026-09-05 update: Terminal-Bench is the default main page (`?view=terminal`).
+Its versioned data contract, cost ranking, exports and freeze policy are in
+`TERMINAL_BENCH_SPEC.md`. The earlier AA pages described below are historical
+archives. The personal recommendation section has been removed from all
+current UI views; it is not part of the current product contract.
+
 1. A large scenario selector with two equal-level pages: general benchmark and
    actual coding-agent benchmark. `?view=general` and `?view=coding` switch all
    visible charts in place without reloading.
 2. Snapshot selector, exact UTC publication time, benchmark version, and metric
    summary for the active scenario.
-3. The general page contains the compact personal recommendations, three
+3. The archived general page contains three
    Intelligence Index charts, and the existing numerical rankings.
 4. The coding page contains three Coding Agent Index v1.3 charts in the same
    order: total Token consumption, subscription-first task cost, and API task

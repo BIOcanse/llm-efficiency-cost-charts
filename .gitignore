@@ -5,3 +5,4 @@ __pycache__/
 .venv/
 .playwright-cli/
 dist/
+.codex/subagent-results/

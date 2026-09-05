@@ -50,7 +50,7 @@ function colorWithOpacity(color, opacity) {
 }
 
 function rowKey(row) {
-  return `${row.model}\u0000${row.effort}`;
+  return row.id || `${row.model}\u0000${row.effort}`;
 }
 
 function groupByModel(rows) {
@@ -275,6 +275,7 @@ export class InteractiveScatterChart {
     this.svg = svgElement("svg", {
       class: "interactive-chart-svg",
       role: "group",
+      tabindex: 0,
     });
     this.tooltip = document.createElement("div");
     this.tooltip.className = "interactive-chart-tooltip";
@@ -298,6 +299,9 @@ export class InteractiveScatterChart {
   }
 
   bindControls() {
+    this.plot.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") this.clearPinnedRow();
+    });
     this.providerSelect.addEventListener("change", () => {
       this.selectedProvider = this.providerSelect.value;
       this.applyFilters(true);
@@ -429,8 +433,8 @@ export class InteractiveScatterChart {
     return {
       xMin: 0,
       xMax: xMaximum * 1.045,
-      yMin: Math.max(0, yMinimum - 2),
-      yMax: Math.min(100, yMaximum + 2),
+      yMin: this.config.yDomain?.[0] ?? Math.max(0, yMinimum - 2),
+      yMax: this.config.yDomain?.[1] ?? Math.min(100, yMaximum + 2),
     };
   }
 
@@ -749,6 +753,15 @@ export class InteractiveScatterChart {
     this.pointElements = [];
     this.data.forEach((row) => {
       const key = rowKey(row);
+      if (this.config.showConfidenceIntervals && row.ci95_low != null && row.ci95_high != null) {
+        const interval = svgElement("path", {
+          class: "interactive-confidence-interval",
+          d: `M ${scaleX(row[this.config.xKey])} ${scaleY(row.ci95_low)} V ${scaleY(row.ci95_high)} M ${scaleX(row[this.config.xKey]) - 3} ${scaleY(row.ci95_low)} h 6 M ${scaleX(row[this.config.xKey]) - 3} ${scaleY(row.ci95_high)} h 6`,
+          fill: "none", stroke: modelColor(row.model), "stroke-width": 1,
+          "data-model": row.model, "pointer-events": "none",
+        });
+        marks.append(interval);
+      }
       const point = svgElement("circle", {
         class: "interactive-point",
         cx: scaleX(row[this.config.xKey]),
@@ -797,7 +810,7 @@ export class InteractiveScatterChart {
       });
       point.addEventListener("click", () => {
         this.togglePinnedRow(row);
-        point.blur();
+        this.svg.focus({ preventScroll: true });
       });
       point.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -837,6 +850,13 @@ export class InteractiveScatterChart {
           point.y <= plot.top + plot.height,
       );
     const lineSegments = [];
+    if (this.config.showConfidenceIntervals) {
+      this.data.forEach((row) => {
+        if (row.ci95_low != null && row.ci95_high != null) {
+          lineSegments.push({x1: scaleX(row[this.config.xKey]), x2: scaleX(row[this.config.xKey]), y1: scaleY(row.ci95_low), y2: scaleY(row.ci95_high)});
+        }
+      });
+    }
     this.groups.forEach((rows) => {
       rows.slice(1).forEach((row, index) => {
         const previous = rows[index];
@@ -1207,6 +1227,10 @@ export class InteractiveScatterChart {
     const activeRow = this.hoveredRow || this.pinnedRow;
     const activeModel = activeRow?.model || "";
     const activeKey = activeRow ? rowKey(activeRow) : "";
+
+    this.svg.querySelectorAll(".interactive-confidence-interval").forEach((interval) => {
+      interval.style.opacity = !activeModel || interval.dataset.model === activeModel ? "0.65" : "0.10";
+    });
 
     this.lineElements.forEach((line) => {
       const isActive = !activeModel || line.dataset.model === activeModel;

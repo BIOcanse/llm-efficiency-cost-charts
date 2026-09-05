@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1728pt" height="972pt" viewBox="0 0 1728 972" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-05T02:16:28.133047</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 972 
+L 1728 972 
+L 1728 0 
+L 0 0 
+z
+" style="fill: #fafbf9"/>
+  </g>
+  <g id="line2d_1">
+   <path d="M 69.12 189.2268 
+L 1667.52 189.2268 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_2">
+   <path d="M 69.12 229.1868 
+L 1667.52 229.1868 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_3">
+   <path d="M 69.12 269.1468 
+L 1667.52 269.1468 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_4">
+   <path d="M 69.12 309.1068 
+L 1667.52 309.1068 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_5">
+   <path d="M 69.12 349.0668 
+L 1667.52 349.0668 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_6">
+   <path d="M 69.12 389.0268 
+L 1667.52 389.0268 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_7">
+   <path d="M 69.12 428.9868 
+L 1667.52 428.9868 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_8">
+   <path d="M 69.12 468.9468 
+L 1667.52 468.9468 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_9">
+   <path d="M 69.12 508.9068 
+L 1667.52 508.9068 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_10">
+   <path d="M 69.12 548.8668 
+L 1667.52 548.8668 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_11">
+   <path d="M 69.12 588.8268 
+L 1667.52 588.8268 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_12">
+   <path d="M 69.12 628.7868 
+L 1667.52 628.7868 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_13">
+   <path d="M 69.12 668.7468 
+L 1667.52 668.7468 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_14">
+   <path d="M 69.12 708.7068 
+L 1667.52 708.7068 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_15">
+   <path d="M 69.12 748.6668 
+L 1667.52 748.6668 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_16">
+   <path d="M 69.12 788.6268 
+L 1667.52 788.6268 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_17">
+   <path d="M 69.12 828.5868 
+L 1667.52 828.5868 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_18">
+   <path d="M 69.12 868.5468 
+L 1667.52 868.5468 
+" style="fill: none; stroke: #dfe5eb; stroke-width: 0.6; stroke-linecap: square"/>
+  </g>
+  <g id="text_1">
+   <text style="font-weight: 700; font-size: 23px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #182435" x="77.76" y="51.516" transform="rotate(-0 77.76 51.516)">Terminal-Bench 2.1 · API 性价比数据  1/2</text>
+  </g>
+  <g id="text_2">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="88.452" transform="rotate(-0 77.76 88.452)">按每个成功任务的平均消耗排序，失败尝试也计入。并非反复重试必然成功。</text>
+  </g>
+  <g id="text_3">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="130.248" transform="rotate(-0 77.76 130.248)">排名</text>
+  </g>
+  <g id="text_4">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="143.424" y="130.248" transform="rotate(-0 143.424 130.248)">模型 / Agent / 档位</text>
+  </g>
+  <g id="text_5">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="794.88" y="130.248" transform="rotate(-0 794.88 130.248)">成功率 · 95% 区间</text>
+  </g>
+  <g id="text_6">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #536476" x="1036.8" y="130.248" transform="rotate(-0 1036.8 130.248)">消耗 / 尝试</text>
+  </g>
+  <g id="text_7">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #536476" x="1244.16" y="130.248" transform="rotate(-0 1244.16 130.248)">消耗 / 成功任务</text>
+  </g>
+  <g id="text_8">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #536476" x="1451.52" y="130.248" transform="rotate(-0 1451.52 130.248)">相对最高消耗</text>
+  </g>
+  <g id="text_9">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #536476" x="1624.32" y="130.248" transform="rotate(-0 1624.32 130.248)">相对性价比</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="172.044" transform="rotate(-0 77.76 172.044)">1</text>
+  </g>
+  <g id="text_11">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #e76f2e" x="143.424" y="170.1" transform="rotate(-0 143.424 170.1)">Grok 4.5</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="183.6324" transform="rotate(-0 143.424 183.6324)">Cursor CLI · 高</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="172.044" transform="rotate(-0 794.88 172.044)">79.33% ± 2.86</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="172.044" transform="rotate(-0 1036.8 172.044)">$0.3013</text>
+  </g>
+  <g id="text_15">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="172.044" transform="rotate(-0 1244.16 172.044)">$0.3798</text>
+  </g>
+  <g id="text_16">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="172.044" transform="rotate(-0 1451.52 172.044)">6.83%</text>
+  </g>
+  <g id="text_17">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="172.044" transform="rotate(-0 1624.32 172.044)">100.00%</text>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="212.004" transform="rotate(-0 77.76 212.004)">2</text>
+  </g>
+  <g id="text_19">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #8a6a17" x="143.424" y="210.06" transform="rotate(-0 143.424 210.06)">Muse Spark 1.1</text>
+  </g>
+  <g id="text_20">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="223.5924" transform="rotate(-0 143.424 223.5924)">mini-SWE-agent · 超高</text>
+  </g>
+  <g id="text_21">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="212.004" transform="rotate(-0 794.88 212.004)">76.18% ± 2.41</text>
+  </g>
+  <g id="text_22">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="212.004" transform="rotate(-0 1036.8 212.004)">$0.4451</text>
+  </g>
+  <g id="text_23">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="212.004" transform="rotate(-0 1244.16 212.004)">$0.5842</text>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="212.004" transform="rotate(-0 1451.52 212.004)">10.50%</text>
+  </g>
+  <g id="text_25">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="212.004" transform="rotate(-0 1624.32 212.004)">65.02%</text>
+  </g>
+  <g id="text_26">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="251.964" transform="rotate(-0 77.76 251.964)">3</text>
+  </g>
+  <g id="text_27">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #c5522d" x="143.424" y="250.02" transform="rotate(-0 143.424 250.02)">Gemini 3 Pro</text>
+  </g>
+  <g id="text_28">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="263.5524" transform="rotate(-0 143.424 263.5524)">Terminus 2 · 高</text>
+  </g>
+  <g id="text_29">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="251.964" transform="rotate(-0 794.88 251.964)">73.93% ± 2.53</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="251.964" transform="rotate(-0 1036.8 251.964)">$0.5044</text>
+  </g>
+  <g id="text_31">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="251.964" transform="rotate(-0 1244.16 251.964)">$0.6822</text>
+  </g>
+  <g id="text_32">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="251.964" transform="rotate(-0 1451.52 251.964)">12.26%</text>
+  </g>
+  <g id="text_33">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="251.964" transform="rotate(-0 1624.32 251.964)">55.68%</text>
+  </g>
+  <g id="text_34">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="291.924" transform="rotate(-0 77.76 291.924)">4</text>
+  </g>
+  <g id="text_35">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #b34b9b" x="143.424" y="289.98" transform="rotate(-0 143.424 289.98)">GPT-5.6 Luna</text>
+  </g>
+  <g id="text_36">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="303.5124" transform="rotate(-0 143.424 303.5124)">Codex · Max</text>
+  </g>
+  <g id="text_37">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="291.924" transform="rotate(-0 794.88 291.924)">75.73% ± 2.59</text>
+  </g>
+  <g id="text_38">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="291.924" transform="rotate(-0 1036.8 291.924)">$0.5426</text>
+  </g>
+  <g id="text_39">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="291.924" transform="rotate(-0 1244.16 291.924)">$0.7165</text>
+  </g>
+  <g id="text_40">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="291.924" transform="rotate(-0 1451.52 291.924)">12.87%</text>
+  </g>
+  <g id="text_41">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="291.924" transform="rotate(-0 1624.32 291.924)">53.02%</text>
+  </g>
+  <g id="text_42">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="331.884" transform="rotate(-0 77.76 331.884)">5</text>
+  </g>
+  <g id="text_43">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #7b4ce2" x="143.424" y="329.94" transform="rotate(-0 143.424 329.94)">Gemini 3.1 Pro</text>
+  </g>
+  <g id="text_44">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="343.4724" transform="rotate(-0 143.424 343.4724)">Terminus 2 · 高</text>
+  </g>
+  <g id="text_45">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="331.884" transform="rotate(-0 794.88 331.884)">65.62% ± 3.23</text>
+  </g>
+  <g id="text_46">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="331.884" transform="rotate(-0 1036.8 331.884)">$0.5168</text>
+  </g>
+  <g id="text_47">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="331.884" transform="rotate(-0 1244.16 331.884)">$0.7876</text>
+  </g>
+  <g id="text_48">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="331.884" transform="rotate(-0 1451.52 331.884)">14.15%</text>
+  </g>
+  <g id="text_49">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="331.884" transform="rotate(-0 1624.32 331.884)">48.23%</text>
+  </g>
+  <g id="text_50">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="371.844" transform="rotate(-0 77.76 371.844)">6</text>
+  </g>
+  <g id="text_51">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #087ea4" x="143.424" y="369.9" transform="rotate(-0 143.424 369.9)">Gemini 3.1 Pro</text>
+  </g>
+  <g id="text_52">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="383.4324" transform="rotate(-0 143.424 383.4324)">Gemini CLI · 高</text>
+  </g>
+  <g id="text_53">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="371.844" transform="rotate(-0 794.88 371.844)">65.84% ± 3.27</text>
+  </g>
+  <g id="text_54">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="371.844" transform="rotate(-0 1036.8 371.844)">$0.5314</text>
+  </g>
+  <g id="text_55">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="371.844" transform="rotate(-0 1244.16 371.844)">$0.8072</text>
+  </g>
+  <g id="text_56">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="371.844" transform="rotate(-0 1451.52 371.844)">14.50%</text>
+  </g>
+  <g id="text_57">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="371.844" transform="rotate(-0 1624.32 371.844)">47.06%</text>
+  </g>
+  <g id="text_58">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="411.804" transform="rotate(-0 77.76 411.804)">7</text>
+  </g>
+  <g id="text_59">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #b34b9b" x="143.424" y="409.86" transform="rotate(-0 143.424 409.86)">Opus 4.8</text>
+  </g>
+  <g id="text_60">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="423.3924" transform="rotate(-0 143.424 423.3924)">Claude Code · 高</text>
+  </g>
+  <g id="text_61">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="411.804" transform="rotate(-0 794.88 411.804)">78.88% ± 2.57</text>
+  </g>
+  <g id="text_62">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="411.804" transform="rotate(-0 1036.8 411.804)">$0.6448</text>
+  </g>
+  <g id="text_63">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="411.804" transform="rotate(-0 1244.16 411.804)">$0.8175</text>
+  </g>
+  <g id="text_64">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="411.804" transform="rotate(-0 1451.52 411.804)">14.69%</text>
+  </g>
+  <g id="text_65">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="411.804" transform="rotate(-0 1624.32 411.804)">46.47%</text>
+  </g>
+  <g id="text_66">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="451.764" transform="rotate(-0 77.76 451.764)">8</text>
+  </g>
+  <g id="text_67">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #e76f2e" x="143.424" y="449.82" transform="rotate(-0 143.424 449.82)">Gemini 3 Pro</text>
+  </g>
+  <g id="text_68">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="463.3524" transform="rotate(-0 143.424 463.3524)">Gemini CLI · 高</text>
+  </g>
+  <g id="text_69">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="451.764" transform="rotate(-0 794.88 451.764)">65.84% ± 2.70</text>
+  </g>
+  <g id="text_70">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="451.764" transform="rotate(-0 1036.8 451.764)">$0.5568</text>
+  </g>
+  <g id="text_71">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="451.764" transform="rotate(-0 1244.16 451.764)">$0.8456</text>
+  </g>
+  <g id="text_72">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="451.764" transform="rotate(-0 1451.52 451.764)">15.20%</text>
+  </g>
+  <g id="text_73">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="451.764" transform="rotate(-0 1624.32 451.764)">44.92%</text>
+  </g>
+  <g id="text_74">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="491.724" transform="rotate(-0 77.76 491.724)">9</text>
+  </g>
+  <g id="text_75">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #7b4ce2" x="143.424" y="489.78" transform="rotate(-0 143.424 489.78)">Sonnet 5</text>
+  </g>
+  <g id="text_76">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="503.3124" transform="rotate(-0 143.424 503.3124)">Claude Code · 高</text>
+  </g>
+  <g id="text_77">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="491.724" transform="rotate(-0 794.88 491.724)">74.61% ± 3.21</text>
+  </g>
+  <g id="text_78">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="491.724" transform="rotate(-0 1036.8 491.724)">$0.6476</text>
+  </g>
+  <g id="text_79">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="491.724" transform="rotate(-0 1244.16 491.724)">$0.8680</text>
+  </g>
+  <g id="text_80">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="491.724" transform="rotate(-0 1451.52 491.724)">15.60%</text>
+  </g>
+  <g id="text_81">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="491.724" transform="rotate(-0 1624.32 491.724)">43.76%</text>
+  </g>
+  <g id="text_82">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="531.684" transform="rotate(-0 77.76 531.684)">10</text>
+  </g>
+  <g id="text_83">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #8a6a17" x="143.424" y="529.74" transform="rotate(-0 143.424 529.74)">GLM-5.1</text>
+  </g>
+  <g id="text_84">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="543.2724" transform="rotate(-0 143.424 543.2724)">Claude Code · Max</text>
+  </g>
+  <g id="text_85">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="531.684" transform="rotate(-0 794.88 531.684)">58.65% ± 2.43</text>
+  </g>
+  <g id="text_86">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="531.684" transform="rotate(-0 1036.8 531.684)">$0.6228</text>
+  </g>
+  <g id="text_87">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="531.684" transform="rotate(-0 1244.16 531.684)">$1.0619</text>
+  </g>
+  <g id="text_88">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="531.684" transform="rotate(-0 1451.52 531.684)">19.08%</text>
+  </g>
+  <g id="text_89">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="531.684" transform="rotate(-0 1624.32 531.684)">35.77%</text>
+  </g>
+  <g id="text_90">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="571.644" transform="rotate(-0 77.76 571.644)">11</text>
+  </g>
+  <g id="text_91">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #b34b9b" x="143.424" y="569.7" transform="rotate(-0 143.424 569.7)">GPT-6 Astra</text>
+  </g>
+  <g id="text_92">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="583.2324" transform="rotate(-0 143.424 583.2324)">Codex · 低</text>
+  </g>
+  <g id="text_93">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="571.644" transform="rotate(-0 794.88 571.644)">86.74% ± 1.82</text>
+  </g>
+  <g id="text_94">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="571.644" transform="rotate(-0 1036.8 571.644)">$1.0415</text>
+  </g>
+  <g id="text_95">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="571.644" transform="rotate(-0 1244.16 571.644)">$1.2007</text>
+  </g>
+  <g id="text_96">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="571.644" transform="rotate(-0 1451.52 571.644)">21.57%</text>
+  </g>
+  <g id="text_97">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="571.644" transform="rotate(-0 1624.32 571.644)">31.64%</text>
+  </g>
+  <g id="text_98">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="611.604" transform="rotate(-0 77.76 611.604)">12</text>
+  </g>
+  <g id="text_99">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #e76f2e" x="143.424" y="609.66" transform="rotate(-0 143.424 609.66)">GPT-5.6 Terra</text>
+  </g>
+  <g id="text_100">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="623.1924" transform="rotate(-0 143.424 623.1924)">Codex · Max</text>
+  </g>
+  <g id="text_101">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="611.604" transform="rotate(-0 794.88 611.604)">78.43% ± 2.45</text>
+  </g>
+  <g id="text_102">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="611.604" transform="rotate(-0 1036.8 611.604)">$0.9464</text>
+  </g>
+  <g id="text_103">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="611.604" transform="rotate(-0 1244.16 611.604)">$1.2067</text>
+  </g>
+  <g id="text_104">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="611.604" transform="rotate(-0 1451.52 611.604)">21.68%</text>
+  </g>
+  <g id="text_105">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="611.604" transform="rotate(-0 1624.32 611.604)">31.48%</text>
+  </g>
+  <g id="text_106">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="651.564" transform="rotate(-0 77.76 651.564)">13</text>
+  </g>
+  <g id="text_107">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #c5522d" x="143.424" y="649.62" transform="rotate(-0 143.424 649.62)">Fable 5</text>
+  </g>
+  <g id="text_108">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="663.1524" transform="rotate(-0 143.424 663.1524)">Terminus 2 · 高</text>
+  </g>
+  <g id="text_109">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="651.564" transform="rotate(-0 794.88 651.564)">80.45% ± 2.27</text>
+  </g>
+  <g id="text_110">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="651.564" transform="rotate(-0 1036.8 651.564)">$0.9857</text>
+  </g>
+  <g id="text_111">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="651.564" transform="rotate(-0 1244.16 651.564)">$1.2252</text>
+  </g>
+  <g id="text_112">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="651.564" transform="rotate(-0 1451.52 651.564)">22.02%</text>
+  </g>
+  <g id="text_113">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="651.564" transform="rotate(-0 1624.32 651.564)">31.00%</text>
+  </g>
+  <g id="text_114">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="691.524" transform="rotate(-0 77.76 691.524)">14</text>
+  </g>
+  <g id="text_115">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #315efb" x="143.424" y="689.58" transform="rotate(-0 143.424 689.58)">GPT-5.5</text>
+  </g>
+  <g id="text_116">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="703.1124" transform="rotate(-0 143.424 703.1124)">Terminus 2 · 超高</text>
+  </g>
+  <g id="text_117">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="691.524" transform="rotate(-0 794.88 691.524)">77.98% ± 2.39</text>
+  </g>
+  <g id="text_118">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="691.524" transform="rotate(-0 1036.8 691.524)">$1.1098</text>
+  </g>
+  <g id="text_119">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="691.524" transform="rotate(-0 1244.16 691.524)">$1.4232</text>
+  </g>
+  <g id="text_120">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="691.524" transform="rotate(-0 1451.52 691.524)">25.57%</text>
+  </g>
+  <g id="text_121">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="691.524" transform="rotate(-0 1624.32 691.524)">26.69%</text>
+  </g>
+  <g id="text_122">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="731.484" transform="rotate(-0 77.76 731.484)">15</text>
+  </g>
+  <g id="text_123">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #7a5a9e" x="143.424" y="729.54" transform="rotate(-0 143.424 729.54)">Fable 5</text>
+  </g>
+  <g id="text_124">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="743.0724" transform="rotate(-0 143.424 743.0724)">Claude Code · 超高</text>
+  </g>
+  <g id="text_125">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="731.484" transform="rotate(-0 794.88 731.484)">83.82% ± 2.27</text>
+  </g>
+  <g id="text_126">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="731.484" transform="rotate(-0 1036.8 731.484)">$1.2420</text>
+  </g>
+  <g id="text_127">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="731.484" transform="rotate(-0 1244.16 731.484)">$1.4817</text>
+  </g>
+  <g id="text_128">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="731.484" transform="rotate(-0 1451.52 731.484)">26.62%</text>
+  </g>
+  <g id="text_129">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="731.484" transform="rotate(-0 1624.32 731.484)">25.64%</text>
+  </g>
+  <g id="text_130">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="771.444" transform="rotate(-0 77.76 771.444)">16</text>
+  </g>
+  <g id="text_131">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #b34b9b" x="143.424" y="769.5" transform="rotate(-0 143.424 769.5)">GPT-6 Astra</text>
+  </g>
+  <g id="text_132">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="783.0324" transform="rotate(-0 143.424 783.0324)">Codex · 中</text>
+  </g>
+  <g id="text_133">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="771.444" transform="rotate(-0 794.88 771.444)">86.97% ± 1.89</text>
+  </g>
+  <g id="text_134">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="771.444" transform="rotate(-0 1036.8 771.444)">$1.3912</text>
+  </g>
+  <g id="text_135">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="771.444" transform="rotate(-0 1244.16 771.444)">$1.5996</text>
+  </g>
+  <g id="text_136">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="771.444" transform="rotate(-0 1451.52 771.444)">28.74%</text>
+  </g>
+  <g id="text_137">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="771.444" transform="rotate(-0 1624.32 771.444)">23.75%</text>
+  </g>
+  <g id="text_138">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="811.404" transform="rotate(-0 77.76 811.404)">17</text>
+  </g>
+  <g id="text_139">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #087ea4" x="143.424" y="809.46" transform="rotate(-0 143.424 809.46)">Opus 4.7</text>
+  </g>
+  <g id="text_140">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="822.9924" transform="rotate(-0 143.424 822.9924)">Claude Code · Max</text>
+  </g>
+  <g id="text_141">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="811.404" transform="rotate(-0 794.88 811.404)">68.90% ± 2.76</text>
+  </g>
+  <g id="text_142">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="811.404" transform="rotate(-0 1036.8 811.404)">$1.3412</text>
+  </g>
+  <g id="text_143">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="811.404" transform="rotate(-0 1244.16 811.404)">$1.9466</text>
+  </g>
+  <g id="text_144">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="811.404" transform="rotate(-0 1451.52 811.404)">34.98%</text>
+  </g>
+  <g id="text_145">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="811.404" transform="rotate(-0 1624.32 811.404)">19.51%</text>
+  </g>
+  <g id="text_146">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="851.364" transform="rotate(-0 77.76 851.364)">18</text>
+  </g>
+  <g id="text_147">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #7b4ce2" x="143.424" y="849.42" transform="rotate(-0 143.424 849.42)">Opus 4.7</text>
+  </g>
+  <g id="text_148">
+   <text style="font-size: 7.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="143.424" y="862.9524" transform="rotate(-0 143.424 862.9524)">Terminus 2 · Max</text>
+  </g>
+  <g id="text_149">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #27374b" x="794.88" y="851.364" transform="rotate(-0 794.88 851.364)">66.07% ± 2.69</text>
+  </g>
+  <g id="text_150">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1036.8" y="851.364" transform="rotate(-0 1036.8 851.364)">$1.3084</text>
+  </g>
+  <g id="text_151">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1244.16" y="851.364" transform="rotate(-0 1244.16 851.364)">$1.9804</text>
+  </g>
+  <g id="text_152">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1451.52" y="851.364" transform="rotate(-0 1451.52 851.364)">35.59%</text>
+  </g>
+  <g id="text_153">
+   <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #27374b" x="1624.32" y="851.364" transform="rotate(-0 1624.32 851.364)">19.18%</text>
+  </g>
+  <g id="text_154">
+   <text style="font-size: 9.5px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="77.76" y="914.652" transform="rotate(-0 77.76 914.652)">同一测试集、不同模型＋Agent＋档位。不同版本不混排；缺失项不补零。</text>
+  </g>
+  <g id="text_155">
+   <a xlink:href="https://www.tbench.ai/?version=2.1" target="_blank">
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="77.76" y="942.84" transform="rotate(-0 77.76 942.84)">Source: tbench.ai/?version=2.1  |  2026-09-05T06:33:24.423717Z</text>
+   </a>
+  </g>
+ </g>
+</svg>

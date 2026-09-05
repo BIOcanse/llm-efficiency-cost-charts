@@ -1,11 +1,12 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260815-v411-snapshot-1";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260905-terminal-bench-1";
+import { TerminalBenchView } from "./terminal-bench.js?v=20260905-terminal-bench-1";
 
-const ASSET_REVISION = "20260815-v411-snapshot-1";
+const ASSET_REVISION = "20260905-terminal-bench-1";
+const terminalBench = new TerminalBenchView(document.getElementById("terminal-panel"));
 
 const translations = {
   en: {
     brand: "LLM Efficiency & Cost",
-    navRecommendations: "My picks",
     navCharts: "Charts",
     navRankings: "Rankings",
     navMethod: "Method",
@@ -25,54 +26,17 @@ const translations = {
     tokenConfigurations: "Token configurations",
     apiConfigurations: "API-cost configurations",
     subscriptionConfigurations: "Subscription-first configurations",
-    scenarioEyebrow: "Choose the comparison scenario",
-    scenarioTitle: "General capability or actual coding-agent work",
-    scenarioGeneralTitle: "General benchmark",
+    scenarioEyebrow: "Benchmark series",
+    scenarioTitle: "Terminal-Bench and historical archives",
+    scenarioTerminalTitle: "Terminal-Bench",
+    scenarioTerminalCopy: "Task success · subscription / API cost · Token efficiency",
+    scenarioGeneralTitle: "AA general · archive",
     scenarioGeneralCopy: "Intelligence Index v4.1.1 · model + reasoning level",
-    scenarioCodingTitle: "Actual coding-agent benchmark",
+    scenarioCodingTitle: "AA coding agents · archive",
     scenarioCodingCopy: "Coding Agent Index v1.3 · agent + model + setting",
     codingHeroTitle: "What changes when the models actually work inside coding agents?",
     codingHeroCopy:
       "Each point is an agent harness, model, and setting on Coding Agent Index v1.3. Upper left is better.",
-    recommendationEyebrow: "Personal opinion",
-    recommendationTitle: "Model picks",
-    recommendationCopy:
-      "Only models with a clear reason to choose them are included.",
-    recommendationSnapshot:
-      "Based on the 2026-08-15 snapshot",
-    sotaRecommendationsTitle: "Frontier SOTA",
-    valueRecommendationsTitle: "Value picks",
-    recommendations: {
-      sota: [
-        {
-          model: "GPT-5.6 Sol",
-          body:
-            "First choice. It combines frontier-level capability with unusually strong value.",
-        },
-        {
-          model: "Claude Opus 5",
-          body:
-            "Its absolute intelligence is slightly higher. It costs more, but that capability edge still leaves it a narrow niche under Sol's pressure.",
-        },
-        {
-          model: "Kimi K3",
-          body:
-            "The strongest open model and relatively inexpensive, but it cannot match Sol on overall capability or value, so it has no clear practical niche here.",
-        },
-      ],
-      value: [
-        {
-          model: "GPT-5.6 Luna",
-          body:
-            "First choice for high-volume work. Its low-through-Max curve keeps task cost unusually low on this benchmark.",
-        },
-        {
-          model: "DeepSeek V4 Pro 0813",
-          body:
-            "Second choice when a stronger open-weight model matters. It scores higher than Luna Max, but its measured task cost is also materially higher.",
-        },
-      ],
-    },
     chartSectionEyebrow: "Matched benchmark · three metrics",
     chartSectionTitle: "Token consumption, subscription cost, and API cost",
     chartSectionCopy:
@@ -392,7 +356,6 @@ const translations = {
   },
   "zh-CN": {
     brand: "大模型效率与成本",
-    navRecommendations: "个人推荐",
     navCharts: "图表",
     navRankings: "排名",
     navMethod: "方法",
@@ -412,50 +375,17 @@ const translations = {
     tokenConfigurations: "Token 消耗配置",
     apiConfigurations: "API 成本配置",
     subscriptionConfigurations: "套餐优先配置",
-    scenarioEyebrow: "选择对比场景",
-    scenarioTitle: "通用能力，还是 Agent 实际编码",
-    scenarioGeneralTitle: "通用场景",
+    scenarioEyebrow: "测试集系列",
+    scenarioTitle: "Terminal-Bench 与历史存档",
+    scenarioTerminalTitle: "Terminal-Bench",
+    scenarioTerminalCopy: "任务成功率 · 套餐 / API 成本 · Token 效率",
+    scenarioGeneralTitle: "AA 通用场景 · 存档",
     scenarioGeneralCopy: "Intelligence Index v4.1.1 · 模型＋思考档位",
-    scenarioCodingTitle: "Agent 实际编码场景",
+    scenarioCodingTitle: "AA 编码 Agent · 存档",
     scenarioCodingCopy: "Coding Agent Index v1.3 · Agent 工具链＋模型＋档位",
     codingHeroTitle: "模型放进 Agent 里实际写代码，效率和成本会怎样？",
     codingHeroCopy:
       "每个点是一种 Agent 工具链、模型和档位组合，统一使用 Coding Agent Index v1.3。左上更优。",
-    recommendationEyebrow: "个人观点",
-    recommendationTitle: "模型推荐",
-    recommendationCopy: "只列仍有明确选择理由的模型。",
-    recommendationSnapshot: "基于 2026-08-15 快照",
-    sotaRecommendationsTitle: "顶级 SOTA",
-    valueRecommendationsTitle: "性价比模型",
-    recommendations: {
-      sota: [
-        {
-          model: "GPT-5.6 Sol",
-          body: "首选。顶级能力和性价比同时成立。",
-        },
-        {
-          model: "Claude Opus 5",
-          body:
-            "绝对智力略高，成本也还能接受；在 Sol 的压迫下仍勉强保留了自己的生态位。",
-        },
-        {
-          model: "Kimi K3",
-          body:
-            "最强开源模型，成本也比较低；但综合能力和性价比都无法与 Sol 相比，因此实际没有形成明确生态位。",
-        },
-      ],
-      value: [
-        {
-          model: "GPT-5.6 Luna",
-          body:
-            "走量任务首选。该评测中从低到 Max 档的单位任务成本都很低。",
-        },
-        {
-          model: "DeepSeek V4 Pro 0813",
-          body: "需要更强开源模型时的次选。分数高于 Luna Max，但实测单位任务成本也明显更高。",
-        },
-      ],
-    },
     chartSectionEyebrow: "同一套评测 · 三项指标",
     chartSectionTitle: "Token 消耗、套餐成本与 API 成本",
     chartSectionCopy:
@@ -920,18 +850,18 @@ function browserLanguage() {
 
 function scenarioPreference() {
   const requested = new URL(window.location.href).searchParams.get("view");
-  if (requested === "general" || requested === "coding") {
+  if (["terminal", "general", "coding"].includes(requested)) {
     return requested;
   }
   try {
-    const saved = window.localStorage.getItem("llm-efficiency-scenario");
-    if (saved === "general" || saved === "coding") {
+    const saved = window.localStorage.getItem("llm-efficiency-scenario-v2");
+    if (["terminal", "general", "coding"].includes(saved)) {
       return saved;
     }
   } catch {
     // The visible scenario control still works when storage is disabled.
   }
-  return "general";
+  return "terminal";
 }
 
 function motionPreference() {
@@ -1055,6 +985,7 @@ function renderGeneralSnapshotCopy() {
 }
 
 function renderSnapshotMetadata() {
+  if (state.scenario === "terminal") { terminalBench.renderShell(); return; }
   const manifest =
     state.scenario === "coding"
       ? state.codingSnapshotManifest
@@ -1093,27 +1024,6 @@ function renderSnapshotMetadata() {
     document.getElementById("api-ranking-csv").href =
       `${snapshot.ranking_base}/api_cost_ranking.csv`;
     renderGeneralSnapshotCopy();
-  }
-}
-
-function renderRecommendations() {
-  const recommendations = translations[state.language].recommendations;
-  for (const [key, targetId] of [
-    ["sota", "sota-recommendations"],
-    ["value", "value-recommendations"],
-  ]) {
-    document.getElementById(targetId).innerHTML = recommendations[key]
-      .map(
-        (item, index) => `
-          <li class="recommendation-item">
-            <span class="recommendation-rank">${index + 1}</span>
-            <div>
-              <h4>${escapeHtml(item.model)}</h4>
-              <p>${escapeHtml(item.body)}</p>
-            </div>
-          </li>`,
-      )
-      .join("");
   }
 }
 
@@ -1190,6 +1100,7 @@ function renderChartDetails() {
 }
 
 function renderMethodCards() {
+  if (state.scenario === "terminal") return;
   const translationsForLanguage = translations[state.language];
   const cards =
     state.scenario === "coding"
@@ -1205,6 +1116,7 @@ function renderMethodCards() {
 }
 
 function renderMetricCounts() {
+  if (state.scenario === "terminal") { terminalBench.renderShell(); return; }
   const payload = state.scenario === "coding" ? state.coding : state.rankings;
   if (!payload?.counts) {
     return;
@@ -1689,6 +1601,7 @@ function renderRankings() {
 function renderScenarioUi() {
   const text = translations[state.language];
   const isCoding = state.scenario === "coding";
+  const isTerminal = state.scenario === "terminal";
   document.documentElement.dataset.scenario = state.scenario;
   document.querySelectorAll("[data-scenario]").forEach((button) => {
     button.setAttribute(
@@ -1700,8 +1613,20 @@ function renderScenarioUi() {
     panel.hidden = panel.dataset.scenarioPanel !== state.scenario;
   });
   document.querySelectorAll("[data-scenario-nav='general']").forEach((link) => {
-    link.hidden = isCoding;
+    link.hidden = isCoding || isTerminal;
   });
+  document.querySelector(".snapshot-panel").hidden = isTerminal;
+  document.getElementById("method").hidden = isTerminal;
+  document.getElementById("nav-rankings-link").hidden = isCoding;
+  document.getElementById("nav-rankings-link").href = isTerminal ? "#tb-rankings" : "#rankings";
+  document.getElementById("nav-method-link").href = isTerminal ? "#tb-method" : "#method";
+  terminalBench.setActive(isTerminal, state.language);
+  if (isTerminal) {
+    document.getElementById("nav-charts-link").href = "#tb-charts";
+    document.getElementById("primary-content-link").href = "#tb-rankings";
+    document.getElementById("primary-content-link").textContent = text.viewRankings;
+    return;
+  }
 
   document.querySelector('[data-i18n="heroTitle"]').textContent = isCoding
     ? text.codingHeroTitle
@@ -1721,13 +1646,13 @@ function renderScenarioUi() {
 }
 
 function setScenario(scenario, remember = true) {
-  if (scenario !== "general" && scenario !== "coding") {
+  if (!["terminal", "general", "coding"].includes(scenario)) {
     return;
   }
   state.scenario = scenario;
   if (remember) {
     try {
-      window.localStorage.setItem("llm-efficiency-scenario", scenario);
+      window.localStorage.setItem("llm-efficiency-scenario-v2", scenario);
     } catch {
       // The visible control remains functional without local storage.
     }
@@ -1738,7 +1663,7 @@ function setScenario(scenario, remember = true) {
   renderInteractiveCharts();
   if (remember) {
     document.getElementById("status").textContent =
-      translations[state.language].statusScenario(scenario);
+      scenario === "terminal" ? "Terminal-Bench" : translations[state.language].statusScenario(scenario);
   }
 }
 
@@ -1756,7 +1681,6 @@ function setLanguage(language, remember = true) {
   }
   syncUrlState();
   translateStaticText();
-  renderRecommendations();
   renderChartDetails();
   renderInteractiveCharts();
   renderRankings();
@@ -2058,7 +1982,7 @@ async function main() {
   setScenario(preferredScenario, false);
   selectRankingTab("subscription");
   try {
-    await Promise.all([loadSnapshotManifest(), loadCodingSnapshotManifest()]);
+    await Promise.all([loadSnapshotManifest(), loadCodingSnapshotManifest(), terminalBench.load()]);
   } catch (error) {
     document.getElementById("status").textContent = String(error);
     console.error(error);

@@ -1,0 +1,83 @@
+{
+  "as_of_utc": "2026-09-05",
+  "weeks_per_month": 4.333333333333333,
+  "method": "Full utilization of a dated allowance estimate; not a guaranteed current weekly quota. Published historical run cost is not silently repriced.",
+  "codex": {
+    "id": "codex_historical_full_use_70x",
+    "plan": "ChatGPT Pro 20x · $200/mo",
+    "monthly_usd": 200,
+    "api_value_ratio": 70,
+    "confidence": "medium",
+    "evidence_date": "2026-06-10",
+    "rates_checked_at": "2026-09-05",
+    "assumptions": "Historical $14,000 monthly API equivalent; current standard short-context input/cache-hit/output rates preserve 25 credits per API dollar. Weekly allowance not remeasured; cache writes, long context, Fast mode and non-model charges can differ.",
+    "sources": [
+      "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-spike-as-subscriptions-hit-pricing-wall-firms-turn-towards-chinese-llms-open-source-models-to-extend-budget",
+      "https://learn.chatgpt.com/docs/pricing",
+      "https://developers.openai.com/api/docs/pricing"
+    ]
+  },
+  "claude": {
+    "id": "claude_historical_full_use_40x",
+    "plan": "Claude Max 20x · $200/mo",
+    "monthly_usd": 200,
+    "api_value_ratio": 40,
+    "confidence": "medium",
+    "evidence_date": "2026-06-10",
+    "assumptions": "Dated $8,000 monthly API equivalent. ccmeter April Opus calibration ($1,900/week) supports the same approximate scale, not a new September measurement. No unverified +50% promotion removal.",
+    "sources": [
+      "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-spike-as-subscriptions-hit-pricing-wall-firms-turn-towards-chinese-llms-open-source-models-to-extend-budget",
+      "https://github.com/iteebz/ccmeter/blob/1484b439e0789e2eb7b070d478f6f19f539305ef/README.md",
+      "https://claude.com/pricing"
+    ]
+  },
+  "fable": {
+    "id": "fable_historical_40x_times_shared_cap_50pct",
+    "plan": "Claude Max 20x · Fable 50% cap",
+    "monthly_usd": 200,
+    "api_value_ratio": 20,
+    "confidence": "low",
+    "evidence_date": "2026-06-10; cap checked 2026-09-05",
+    "assumptions": "40x historical regular allowance × official 50% Fable cap. Assumes comparable internal API-value metering; Fable 5.1 cache weighting and fallback model shares are unverified. Modeled, not measured current Fable quota.",
+    "sources": [
+      "https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan",
+      "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-spike-as-subscriptions-hit-pricing-wall-firms-turn-towards-chinese-llms-open-source-models-to-extend-budget"
+    ]
+  },
+  "glm": {
+    "id": "glm53_max_weighted_credits_inclusive_input_scenario",
+    "plan": "GLM Max · $1,411.20/year · standard credits",
+    "monthly_usd": 117.6,
+    "annual_payment_usd": 1411.2,
+    "month_to_month_usd": 168,
+    "weekly_credits": 140000,
+    "five_hour_credits": 28000,
+    "credits_per_10000_tokens": [
+      6.9,
+      1.7,
+      24
+    ],
+    "confidence": "low",
+    "evidence_date": "2026-09-05",
+    "assumptions": "Official weighted credits and annual prepayment $1,411.20, equivalent $117.60/month (month-to-month $168). Current V3 product-1f179d. Input/cache split is an explicit arithmetic-residual interpretation of an inconsistent upstream field name. Standard-rate scenario; off-peak half-rate shown separately, no invented blend. MCP charges not exposed by benchmark.",
+    "sources": [
+      "https://docs.z.ai/devpack/overview",
+      "https://docs.z.ai/devpack/tool/claude",
+      "https://z.ai/subscribe",
+      "https://static.bigmodel.cn/z-ai-website/_next/static/chunks/8519-b0eeed0c70db38cb.js"
+    ]
+  },
+  "cursor_api_pool": {
+    "id": "cursor_third_party_api_pool_2x",
+    "plan": "Cursor Ultra · other-model API pool",
+    "monthly_usd": 200,
+    "api_value_ratio": 2,
+    "confidence": "medium",
+    "evidence_date": "2026-06-15",
+    "assumptions": "$400 API-model pool / $200 subscription. Excludes Composer and Cursor Grok first-party pools.",
+    "sources": [
+      "https://forum.cursor.com/t/how-much-usage-is-available-on-the-200-subscription/163309/5",
+      "https://cursor.com/docs/models-and-pricing"
+    ]
+  }
+}
