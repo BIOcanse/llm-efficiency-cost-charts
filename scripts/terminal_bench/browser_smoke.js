@@ -43,7 +43,7 @@ async (page) => {
   await selectVersion("2.0", [0, 0, 0], 142);
   check(await page.locator("#tb-no-usage").isVisible(), "Legacy missing consumption is explicit");
   await selectVersion("1.0", [0, 0, 0], 62);
-  check((await page.locator("#tb-state").textContent()).includes("frozen"), "Legacy versions marked frozen");
+  check(await page.locator("#tb-state").getAttribute("data-state") === "frozen", "Legacy versions marked frozen");
   await selectVersion("4.0", [18, 18, 16], 16);
   await page.locator('[data-scenario="general"][role="tab"]').click();
   check(await page.locator("#charts").isVisible(), "AA general archive remains accessible");

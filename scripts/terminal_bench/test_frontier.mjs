@@ -5,8 +5,9 @@ import {paretoRows} from "../../site/assets/interactive-scatter.js";
 const keys = {subscription: "subscription_per_attempt", api: "api_per_attempt", token: "token_per_attempt"};
 const counts = {"4.0": [5, 5, 4], "3.0": [4, 4, 5], "2.1": [5, 5, 5], "2.0": [0, 0, 0], "1.0": [0, 0, 0]};
 let checked = 0;
-for (const [version, expectedCounts] of Object.entries(counts)) {
-  const payload = JSON.parse(readFileSync(new URL(`../../site/data/terminal-bench/${version}/2026-09-05.json`, import.meta.url), "utf8"));
+const manifest = JSON.parse(readFileSync(new URL("../../site/data/terminal-bench.json", import.meta.url), "utf8"));
+for (const version of manifest.versions) for (const snapshot of version.snapshots) {
+  const payload = JSON.parse(readFileSync(new URL(`../../site/${snapshot.payload}`, import.meta.url), "utf8"));
   const actualCounts = [];
   for (const [metric, key] of Object.entries(keys)) {
     const selected = paretoRows(payload.rows, key);
@@ -16,7 +17,7 @@ for (const [version, expectedCounts] of Object.entries(counts)) {
     assert.deepEqual(new Set(selected.map(row => row.id)), new Set(oracle.map(row => row.id)));
     actualCounts.push(selected.length); checked++;
   }
-  assert.deepEqual(actualCounts, expectedCounts);
+  if (snapshot.id === "2026-09-05") assert.deepEqual(actualCounts, counts[version.id]);
 }
 const ties = [{id:"a",x:0,score:10}, {id:"b",x:0,score:10}, {id:"c",x:1,score:10}, {id:"d",x:1,score:20}, {id:"e",x:2,score:19}, {id:"f",x:3,score:30}, {id:"g",x:null,score:100}, {id:"h",x:NaN,score:100}, {id:"i",x:-1,score:100}, {id:"j",x:0,score:null}];
 assert.deepEqual(paretoRows(ties, "x").map(row => row.id), ["a","b","d","f"]);

@@ -56,3 +56,4 @@
 .tb-frontier-heading a { margin-left: auto; color: #315778; font-size: 13px; }
 .tb-frontier-table { min-width: 1120px; }
 .tb-frontier-table .tb-frontier-access { white-space: normal; max-width: 250px; }
+.hero-copy:empty { display: none; }

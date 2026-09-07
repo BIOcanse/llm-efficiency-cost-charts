@@ -11,7 +11,8 @@ async (page) => {
       await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
       const values = await page.locator("#terminal-panel .interactive-chart-svg").evaluateAll(nodes => nodes.map(node => ({...node.dataset})));
       check(values.length === 3 && values.every(item => Number(item.labelCollisions) === 0), `1440px ${language} TB${version} labels`);
-      check((await page.locator("#tb-image-token").getAttribute("href")).includes(`/${version}/2026-09-05/${language}/`), `Selected ${language} TB${version} image URL`);
+      const snapshot = await page.locator("#tb-snapshot").inputValue();
+      check((await page.locator("#tb-image-token").getAttribute("href")).includes(`/${version}/${snapshot}/${language}/`), `Selected ${language} TB${version} image URL`);
       layouts.push({language, version, values});
     }
   }

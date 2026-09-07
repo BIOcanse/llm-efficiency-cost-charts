@@ -1,71 +1,71 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260907-frontiers-1";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260907-quota-copy-1";
 
-const REVISION = "20260907-frontiers-1";
+const REVISION = "20260907-quota-copy-1";
 const text = {
   "zh-CN": {
-    title: "编码 Agent：任务成本与 Token 效率", lead: "套餐折算与 API 成本分别比较。成功率和实际任务消耗，放在一起看。",
-    active: "持续更新", frozen: "最终快照 · 已冻结", version: "测试集版本", snapshot: "数据快照", captured: "采集时间（UTC）",
+    title: "编码 Agent 性价比与效率", lead: "",
+    active: "持续更新", frozen: "最终快照", version: "测试集版本", snapshot: "数据快照", captured: "采集时间（UTC）",
     charts: "三项对比", rankings: "数据与性价比排名", method: "计算口径与来源", upperLeft: "左上更好",
-    frontier: "左上前沿（斩杀线）", showFrontier: "显示前沿线", frontierList: "前沿配置列表", frontierCsv: "完整前沿 CSV",
-    frontierHint: "没有其他配置同时做到消耗不高、成功率不低，并至少一项更好。按图中点值计算，不代表统计显著；虚线只表示已观测到的预算边界，不是模型插值。名单随上方厂商与 Agent 筛选更新。",
-    frontierOrder: "按消耗从低到高排列", frontierCount: "个前沿配置", frontierMissing: "缺少可核实的消耗数据，无法计算该版本的三项前沿；成功率排名仍保留。",
-    chartHint: "点＝模型＋Agent＋思考档位；竖线为官方 95% 区间。不同测试集版本不混排。",
+    costFrontier: "性价比前沿", tokenFrontier: "Token 效率前沿", showFrontier: "显示前沿线", frontierList: "前沿配置", frontierCsv: "完整名单 CSV",
+    costFrontierHint: "只看成功率与成本，前沿之外的配置没有经济优势。", tokenFrontierHint: "线外配置均有 Token 消耗不高、成功率不低的更优替代项。",
+    frontierOrder: "按消耗递增", frontierCount: "个配置", frontierMissing: "该版缺少消耗数据，仅列成功率，无法计算前沿。",
+    chartHint: "点＝模型＋Agent＋思考档位；竖线＝95% 区间。",
     subscription: "套餐折算成本", api: "API 成本", token: "Token 消耗", success: "成功率",
-    subscriptionLead: "跑满适用套餐额度后的估算成本。没有适用套餐的配置保留 API 价格。",
-    apiLead: "该次运行公布的 API 总成本，包含失败尝试，不替换供应商。",
-    tokenLead: "采用官方公布的总 Token，缓存与思考不重复统计。",
+    subscriptionLead: "按历史实测或官方额度折算；无适用套餐时采用 API 成本。",
+    apiLead: "评测公布的实际 API 成本，包含失败尝试。",
+    tokenLead: "完成任务所用的总 Token，包含输入、缓存、推理和回答。",
     subscriptionAxis: "美元 / 尝试（套餐折算，越低越好）", apiAxis: "美元 / 尝试（API，越低越好）", tokenAxis: "百万 Token / 尝试（越低越好）",
     yAxis: "任务成功率（%，越高越好）", provider: "模型提供商", allProviders: "全部提供商", agent: "Agent", allAgents: "全部 Agent",
     zoomIn: "放大", zoomOut: "缩小", reset: "重置视图", interact: "滚轮缩放，拖动平移；点击点查看，空白处或 Esc 取消。", readout: "指向或点击一个配置查看数据。",
     unknown: "未公布", attempt: "每次尝试", resolved: "每个成功任务", trials: "尝试数", taskCount: "题目数", runtime: "平均耗时", confidence: "折算置信度", unverified: "上游标记未核验", verification: "上游核验标志",
     access: "使用方式", source: "官方记录", download: "成图 / 数据下载", images: "打开成图", data: "原始数据", csv: "下载 CSV",
     scoreMin: "成功率不低于（%）", scoreMax: "成功率不高于（%）", metric: "排序指标", apply: "筛选后重排", clear: "清除筛选",
-    rankingHint: "成本排名按总消耗 ÷ 成功数排序。失败消耗也计入；这是该组任务的平均产出成本，不是无限重试的成功保证。",
-    tokenRankingHint: "按总 Token ÷ 成功数列出配置消耗，不能据此直接排出模型架构先进程度。",
+    rankingHint: "按总成本 ÷ 成功数排序，失败尝试的成本也计入。",
+    tokenRankingHint: "按总 Token ÷ 成功数排序。",
     successRankingHint: "按任务成功率排序，保留官方区间与尝试数。", missingConsumptionHint: "该版缺少可核实的消耗汇总，仅比较成功率。",
     rank: "排名", model: "模型 · 档位", rate: "成功率 · 95% 区间", perAttempt: "消耗 / 尝试", perSuccess: "消耗 / 成功任务", relativeCost: "相对最高消耗", relativeValue: "相对性价比", details: "明细",
     empty: "该筛选条件下没有可用配置。", rangeError: "成功率区间应在 0–100% 内，且下限不高于上限。", visible: "个配置", close: "关闭",
-    estimate: "估算", published: "官方运行数据", medium: "中 · 历史实测延伸", low: "低 · 建模假设", unavailable: "不可折算",
+    estimate: "估算", published: "官方运行数据", medium: "中", low: "低", unavailable: "不可折算",
     noUsage: "该版官方汇总缺少可核实的 Token / 成本数据。最终成图保留成功率，不补猜测值。",
-    versionPolicy: "TB 4 持续收录新快照；旧版保留本项目的最终成图与数据，不再跟随更新。冻结不代表上游永不修订。",
-    productionTitle: "任务成本", productionBody: "每次尝试成本＝该次运行总成本 ÷ 尝试数；平均成功任务成本＝总成本 ÷ 成功数。它们衡量实际任务产出与消耗，套餐和 API 分别比较。",
+    versionPolicy: "TB 4 持续更新；旧版保留最终快照。",
+    productionTitle: "任务成本", productionBody: "每次尝试成本＝总成本 ÷ 尝试数；每个成功任务成本＝总成本 ÷ 成功数，包含失败尝试。",
     tokenTitle: "Token 效率", tokenBody: "同一任务、成功率相近时，Token 消耗越低，效率越高。参数量接近、Agent 与预算可比时，更能反映模型技术效率；参数规模本身也会影响该指标。",
-    quotaTitle: "套餐折算", quotaBody: "按可用的高置信度额度证据选择套餐，并假设充分使用。Codex 70×、Claude 40×来自 2026-06 的跑满额度实测；Fable 20×还包含共享周额度上限的建模，并非 9 月重新实测。GLM 使用官方加权积分，年付 $1,411.20，标准时段；缓存拆分为明确的残差假设。",
-    scopeTitle: "比较边界", scopeBody: "该榜测的是模型＋Agent＋配置，不是纯模型。连线只连接同名系统的档位；上游未公布的 Agent 版本仍标为未知。成功率区间与样本量应一起看，区间重叠时不应把小差异当成确定领先。",
-    percentage: "相对最高消耗：当前筛选内最贵者为 100%；相对性价比：每成功任务消耗最低者为 100%。两者随筛选重算。",
+    quotaTitle: "套餐折算", quotaBody: "采用官方额度或可信实测，按充分使用折算。估算日期、适用限制和置信度见下方套餐依据。",
+    scopeTitle: "评测范围", scopeBody: "比较同一版 Terminal-Bench 的模型＋Agent＋配置。结果不代表所有实际任务，分数差距需结合 95% 区间看。",
+    percentage: "相对消耗以筛选后最高者为 100%；相对性价比以每成功任务消耗最低者为 100%。",
     exclusions: "未进入套餐图的配置", evidence: "套餐依据与日期", rawTokens: "官方总 Token", rawCost: "官方总 API 成本", tokenFields: "Token 字段口径", missingVersion: "上游未公布 Agent 构建版本", offpeak: "GLM 全非高峰估计 / 尝试", monthly: "GLM 月付估计 / 尝试", rawInput: "原字段 uncached_input_tokens", rawCache: "原字段 cached_input_tokens", rawOutput: "原字段 output_tokens",
     rawWarning: "部分 uncached_input_tokens 字段在数值上已包含缓存；该图使用官方 total_tokens，不把三项再次相加。GLM 的缓存拆分是显式建模假设。",
     statuses: {missing_or_unreliable_benchmark_cost: "该次运行缺少可信成本", exact_checkpoint_no_longer_supported_by_current_plan: "当前套餐不再提供该精确旧模型", plan_credit_formula_known_benchmark_components_missing: "套餐公式已知，但评测缺少 Token 分类", official_request_quota_but_benchmark_model_request_count_missing: "官方请求额度已知，但评测缺少模型请求数", applicable_plan_conversion_unavailable: "有适用套餐，缺少可信折算分母", cursor_models_pool_not_api_pool_quota: "Cursor 自有模型池不可套用 API 池额度"},
   },
   en: {
-    title: "Coding agents: task cost and Token efficiency", lead: "Subscription-equivalent and API costs, compared separately against task success and measured resource use.",
-    active: "Actively updated", frozen: "Final snapshot · frozen", version: "Benchmark version", snapshot: "Data snapshot", captured: "Captured (UTC)",
+    title: "Coding agents: cost and efficiency", lead: "",
+    active: "Actively updated", frozen: "Final snapshot", version: "Benchmark version", snapshot: "Data snapshot", captured: "Captured (UTC)",
     charts: "Three comparisons", rankings: "Data and cost-performance rankings", method: "Method and sources", upperLeft: "Upper left is better",
-    frontier: "Upper-left Pareto frontier", showFrontier: "Show frontier", frontierList: "Frontier configurations", frontierCsv: "Full frontier CSV",
-    frontierHint: "No other configuration uses no more resources and achieves no less success, with at least one strict improvement. Based on point estimates, not statistical significance. Dashed steps show observed budget limits, not model interpolation. The list follows the provider and agent filters above.",
-    frontierOrder: "Ordered from lowest to highest consumption", frontierCount: "frontier configurations", frontierMissing: "Verifiable consumption is missing, so all three frontiers are unavailable for this version. Success-rate rankings remain available.",
-    chartHint: "Point = model + agent + effort; whiskers show the owner's 95% interval. Benchmark versions remain separate.",
+    costFrontier: "Cost-performance frontier", tokenFrontier: "Token-efficiency frontier", showFrontier: "Show frontier", frontierList: "Frontier configurations", frontierCsv: "Full list CSV",
+    costFrontierHint: "On success rate and cost alone, configurations outside the frontier offer no economic advantage.", tokenFrontierHint: "Outside the frontier, a better alternative offers at least as much success with no more Tokens.",
+    frontierOrder: "Lowest consumption first", frontierCount: "configurations", frontierMissing: "Consumption data is missing. Only success rates are available; no frontier can be calculated.",
+    chartHint: "Point = model + agent + effort; whiskers = 95% interval.",
     subscription: "Subscription-equivalent cost", api: "API cost", token: "Token consumption", success: "Success rate",
-    subscriptionLead: "Estimated cost at full use of an applicable plan. API prices remain only where no applicable plan exists.",
-    apiLead: "Published API cost of the evaluated run, including failures. No provider substitution.", tokenLead: "Owner-reported total Tokens, without double-counting cache or reasoning.",
+    subscriptionLead: "Historical measurements or official allowances at full use; API cost where no applicable plan exists.",
+    apiLead: "Reported API spending, including failed attempts.", tokenLead: "Total task Tokens: input, cache, reasoning and answers.",
     subscriptionAxis: "USD / attempt · subscription-equivalent · lower is better", apiAxis: "USD / attempt · API · lower is better", tokenAxis: "Million Tokens / attempt · lower is better",
     yAxis: "Task success rate (%) · higher is better", provider: "Model provider", allProviders: "All providers", agent: "Agent", allAgents: "All agents",
     zoomIn: "Zoom in", zoomOut: "Zoom out", reset: "Reset view", interact: "Scroll to zoom, drag to pan; click a point for details, blank space or Esc to clear.", readout: "Hover or select a configuration to inspect its data.",
     unknown: "Not reported", attempt: "Per attempt", resolved: "Per successful task", trials: "Attempts", taskCount: "Tasks", runtime: "Mean time", confidence: "Conversion confidence", unverified: "Unverified upstream", verification: "Upstream verification flag",
     access: "Access", source: "Official record", download: "Charts / data downloads", images: "Open chart", data: "Source data", csv: "Download CSV",
     scoreMin: "Success rate at least (%)", scoreMax: "Success rate at most (%)", metric: "Rank by", apply: "Recalculate after filtering", clear: "Clear filters",
-    rankingHint: "Ranked by total resources divided by successes, including failed attempts. This is the workload's average output cost, not a guarantee that retries solve every task.",
-    tokenRankingHint: "Configuration-level Tokens per success, not a direct ranking of model architecture advancement.", successRankingHint: "Ranked by task success, alongside reported uncertainty and attempt counts.", missingConsumptionHint: "This version lacks verifiable aggregate consumption. Compare success rates only.",
+    rankingHint: "Ranked by total cost / successes, including failed attempts.",
+    tokenRankingHint: "Ranked by total Tokens / successes.", successRankingHint: "Ranked by success rate, with uncertainty and attempt counts.", missingConsumptionHint: "Consumption data is missing. Compare success rates only.",
     rank: "Rank", model: "Model · effort", rate: "Success · 95% interval", perAttempt: "Usage / attempt", perSuccess: "Usage / success", relativeCost: "% of highest usage", relativeValue: "Value index", details: "Details",
     empty: "No configurations match these filters.", rangeError: "Use a 0–100% interval with the lower bound no greater than the upper bound.", visible: "configurations", close: "Close",
-    estimate: "Estimate", published: "Owner-reported run", medium: "Medium · historical calibration", low: "Low · modeled assumptions", unavailable: "Unavailable",
+    estimate: "Estimate", published: "Owner-reported run", medium: "Medium", low: "Low", unavailable: "Unavailable",
     noUsage: "The official summary lacks verifiable aggregate Token / cost data. Final exports retain success rates without invented consumption.",
-    versionPolicy: "TB 4 receives new snapshots. Earlier versions retain this project's final charts and data. Frozen does not mean upstream can never revise a leaderboard.",
-    productionTitle: "Task cost", productionBody: "Cost per attempt = total run cost / attempts. Average cost per successful task = total cost / successes. These measure resource use against completed work; subscriptions and API are compared separately.",
+    versionPolicy: "TB 4 receives updates; earlier versions retain their final snapshots.",
+    productionTitle: "Task cost", productionBody: "Cost per attempt = total cost / attempts. Cost per successful task = total cost / successes, including failed attempts.",
     tokenTitle: "Token efficiency", tokenBody: "On the same tasks at similar success rates, fewer Tokens mean higher efficiency. At comparable parameter scale, agent setup and budget, this better reflects technical efficiency. Model scale itself also affects the metric.",
-    quotaTitle: "Subscription conversion", quotaBody: "Use the best-supported applicable allowance estimate at full utilization. Codex 70× and Claude 40× use June 2026 exhaustion tests; Fable 20× also models its shared weekly cap. These were not remeasured in September. GLM uses official weighted credits, $1,411.20 annual prepayment and standard credits; the cache split is an explicit residual-input assumption.",
-    scopeTitle: "Comparison limits", scopeBody: "The evaluated unit is model + agent + configuration, not the model alone. Lines connect effort levels of named systems; unpublished agent builds remain unknown. Read uncertainty and sample size alongside success rates; small differences with overlapping intervals are not conclusive.",
-    percentage: "Relative cost: the highest filtered resource cost is 100%. Value index: the lowest resources per success is 100%. Both recalculate after filtering.",
+    quotaTitle: "Subscription conversion", quotaBody: "Official allowances or credible measurements, assuming full utilization. Evidence dates, limits and confidence appear below.",
+    scopeTitle: "Benchmark scope", scopeBody: "Model + agent + configuration on the same Terminal-Bench version. Results do not cover every workload; read score gaps alongside the 95% intervals.",
+    percentage: "Highest filtered consumption = 100%. Best resources per success = 100% value.",
     exclusions: "Configurations excluded from the subscription chart", evidence: "Subscription evidence and dates", rawTokens: "Published total Tokens", rawCost: "Published total API cost", tokenFields: "Token field semantics", missingVersion: "Agent build not published upstream", offpeak: "GLM all-off-peak estimate / attempt", monthly: "GLM monthly-plan estimate / attempt", rawInput: "Raw uncached_input_tokens", rawCache: "Raw cached_input_tokens", rawOutput: "Raw output_tokens",
     rawWarning: "Some fields named uncached_input_tokens arithmetically include cache. Charts use the published total_tokens, not a new three-field sum. GLM's cache split is explicitly modeled.",
     statuses: {missing_or_unreliable_benchmark_cost: "Missing or unreliable run cost", exact_checkpoint_no_longer_supported_by_current_plan: "Exact old checkpoint no longer offered by current plan", plan_credit_formula_known_benchmark_components_missing: "Plan formula known; benchmark token categories missing", official_request_quota_but_benchmark_model_request_count_missing: "Official request allowance known; model-request count missing", applicable_plan_conversion_unavailable: "Applicable plan, no credible conversion denominator", cursor_models_pool_not_api_pool_quota: "Cursor Models pool cannot inherit the API-pool allowance"},
@@ -105,7 +105,7 @@ export class TerminalBenchView {
         <p class="tb-note" data-tb="versionPolicy"></p><p class="tb-error" id="tb-error" role="status"></p>
       </section>
       <section id="tb-charts" class="section page-shell"><div class="section-heading"><div><span class="eyebrow" data-tb="charts"></span><h2 data-tb="upperLeft"></h2></div><p data-tb="chartHint"></p></div><p class="tb-empty" id="tb-no-usage" hidden data-tb="noUsage"></p>
-      ${METRICS.map((metric, i) => `<article class="chart-card" id="tb-card-${metric}"><div class="chart-heading"><span class="chart-number">0${i + 1}</span><div><h3 data-tb="${metric}"></h3><p data-tb="${metric}Lead"></p></div><a class="text-link" id="tb-image-${metric}" target="_blank" rel="noreferrer" data-tb="images"></a></div><div class="tb-frontier-controls"><span class="tb-frontier-key" data-tb="frontier"></span><label><input type="checkbox" id="tb-frontier-toggle-${metric}" checked><span data-tb="showFrontier"></span></label></div><div id="tb-chart-${metric}"></div><section class="tb-frontier-list"><div class="tb-frontier-heading"><h4 data-tb="frontierList"></h4><span id="tb-frontier-count-${metric}"></span><a id="tb-frontier-csv-${metric}" target="_blank" rel="noreferrer" data-tb="frontierCsv"></a></div><p class="tb-note" data-tb="frontierHint"></p><div class="table-wrap tb-table-wrap"><table class="tb-table tb-frontier-table" id="tb-frontier-table-${metric}"></table></div></section></article>`).join("")}</section>
+      ${METRICS.map((metric, i) => `<article class="chart-card" id="tb-card-${metric}"><div class="chart-heading"><span class="chart-number">0${i + 1}</span><div><h3 data-tb="${metric}"></h3><p data-tb="${metric}Lead"></p></div><a class="text-link" id="tb-image-${metric}" target="_blank" rel="noreferrer" data-tb="images"></a></div><div class="tb-frontier-controls"><span class="tb-frontier-key" data-tb="${metric === "token" ? "tokenFrontier" : "costFrontier"}"></span><label><input type="checkbox" id="tb-frontier-toggle-${metric}" checked><span data-tb="showFrontier"></span></label></div><div id="tb-chart-${metric}"></div><section class="tb-frontier-list"><div class="tb-frontier-heading"><h4 data-tb="frontierList"></h4><span id="tb-frontier-count-${metric}"></span><a id="tb-frontier-csv-${metric}" target="_blank" rel="noreferrer" data-tb="frontierCsv"></a></div><p class="tb-note" data-tb="${metric === "token" ? "tokenFrontierHint" : "costFrontierHint"}"></p><div class="table-wrap tb-table-wrap"><table class="tb-table tb-frontier-table" id="tb-frontier-table-${metric}"></table></div></section></article>`).join("")}</section>
       <section id="tb-rankings" class="section page-shell"><div class="section-heading"><h2 data-tb="rankings"></h2><a class="text-link" id="tb-csv" data-tb="csv"></a></div>
         <div class="tb-filters"><label><span data-tb="metric"></span><select id="tb-metric"></select></label><label><span data-tb="provider"></span><select id="tb-provider"></select></label><label><span data-tb="agent"></span><select id="tb-agent"></select></label><label><span data-tb="scoreMin"></span><input id="tb-min" type="number" min="0" max="100" step="0.1" value="0"></label><label><span data-tb="scoreMax"></span><input id="tb-max" type="number" min="0" max="100" step="0.1" value="100"></label><button class="button secondary" type="button" id="tb-clear" data-tb="clear"></button></div>
         <p class="tb-note" id="tb-ranking-hint"></p><p class="tb-note" data-tb="percentage"></p><p class="tb-result-count" id="tb-result-count" role="status"></p>
@@ -213,7 +213,7 @@ export class TerminalBenchView {
       const displayValue = value => metric === "token" ? `${Number(value).toFixed(3)}M` : usd(value);
       const name = row => `${row.base_model} · ${this.effort(row)} · ${row.agent}`;
       chart.update(rows, {metric: `terminal-${metric}`, dataRevision: `${this.version.id}:${this.snapshot.id}`, xKey, yDomain: [0, 100], showConfidenceIntervals: true,
-        showParetoFrontier: this.el(`tb-frontier-toggle-${metric}`).checked, paretoLabel: t.frontier,
+        showParetoFrontier: this.el(`tb-frontier-toggle-${metric}`).checked, paretoLabel: t[metric === "token" ? "tokenFrontier" : "costFrontier"],
         onFilteredRows: (filtered, frontier) => this.renderFrontierList(metric, frontier),
         providerControlLabel: t.provider, allProvidersLabel: t.allProviders, modelScopeControlLabel: t.agent, allModelsScopeLabel: t.allAgents, scopeMode: "field", scopeField: "agent",
         zoomInLabel: t.zoomIn, zoomOutLabel: t.zoomOut, resetLabel: t.reset, interactionHint: t.interact, readoutHint: t.readout,
@@ -275,7 +275,7 @@ export class TerminalBenchView {
     this.el("tb-exclusions").innerHTML = `<ul>${excluded.map(row => `<li><strong>${escape(row.base_model)} · ${escape(row.agent)} · ${escape(this.effort(row))}</strong> — ${escape(t.statuses[row.access_rule] || row.access_rule)}</li>`).join("")}</ul>`;
     const rules = [...new Set(this.payload.rows.filter(row => row.access_kind === "subscription_estimate").map(row => row.access_rule))];
     const policies = Object.values(this.payload.access_policy).filter(value => typeof value === "object" && value !== null && rules.includes(value.id));
-    this.el("tb-evidence").innerHTML = policies.map(rule => `<article><h3>${escape(rule.plan)}</h3><p>${escape(rule.evidence_date)} · ${escape(t[rule.confidence])}${rule.api_value_ratio ? ` · API-value ratio ${rule.api_value_ratio}×` : ""}</p><p>${escape(rule.assumptions)}</p>${rule.sources.map(source => `<a href="${escape(source)}" target="_blank" rel="noreferrer">${escape(new URL(source).hostname)}</a>`).join(" · ")}</article>`).join("");
+    this.el("tb-evidence").innerHTML = policies.map(rule => `<article><h3>${escape(rule.plan)}</h3><p>${escape(rule.evidence_date)} · ${escape(t[rule.confidence])}${rule.api_value_ratio ? ` · API-value ratio ${rule.api_value_ratio}×` : ""}</p><p>${escape(this.language === "zh-CN" ? rule.assumptions_zh || rule.assumptions : rule.assumptions)}</p>${rule.sources.map(source => `<a href="${escape(source)}" target="_blank" rel="noreferrer">${escape(new URL(source).hostname)}</a>`).join(" · ")}</article>`).join("");
     this.el("tb-downloads").innerHTML = `<a href="${escape(this.snapshot.release_url)}" target="_blank" rel="noreferrer">${t.download}</a><ul>${(this.payload.exports[this.language] || []).filter(name => name.endsWith(".png")).map(name => `<li><a href="${escape(`${this.snapshot.chart_base}/${this.language}/${name}`)}" target="_blank" rel="noreferrer">${escape(name)}</a></li>`).join("")}</ul>`;
     this.el("tb-sources").innerHTML = `<a href="${escape(this.payload.owner_url)}" target="_blank" rel="noreferrer">Terminal-Bench ${escape(this.version.id)}</a><a href="https://www.tbench.ai/news/terminal-bench-4-0" target="_blank" rel="noreferrer">Terminal-Bench 4.0 · ${t.method}</a><a href="${escape(this.snapshot.data_url)}" target="_blank" rel="noreferrer">JSON / CSV / SHA-256</a>`;
   }

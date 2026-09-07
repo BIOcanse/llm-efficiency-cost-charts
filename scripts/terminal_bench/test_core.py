@@ -16,6 +16,32 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 class MeasurementTests(unittest.TestCase):
+    def test_quota_review_snapshot(self):
+        directory = ROOT / "data/terminal-bench/4.0/2026-09-07"
+        source = json.loads((directory / "source.json").read_text(encoding="utf-8"))
+        policy = json.loads((directory / "access_policy.json").read_text(encoding="utf-8"))
+        published = json.loads((ROOT / "site/data/terminal-bench/4.0/2026-09-07.json").read_text(encoding="utf-8"))
+        self.assertEqual(hashlib.sha256((directory / "leaderboard.raw.json").read_bytes()).hexdigest(), source["source_sha256"])
+        self.assertEqual(policy, json.loads((ROOT / "scripts/terminal_bench/access-policy-2026-09-07.json").read_text(encoding="utf-8")))
+        rows, _ = derive(normalized_rows(source["response"], "4.0"), policy)
+        self.assertEqual(rows, published["rows"])
+        self.assertEqual(policy["as_of_utc"], "2026-09-07")
+        for key, ratio in [("codex", 70), ("claude", 40), ("fable", 20)]:
+            self.assertEqual(policy[key]["api_value_ratio"], ratio)
+            self.assertEqual(policy[key]["confidence"], "low")
+            self.assertEqual(policy[key]["evidence_date"], "2026-06-10")
+            self.assertEqual(policy[key]["evidence_date_kind"], "source_publication")
+            self.assertEqual(policy[key]["measurement_window"], "not_disclosed")
+            self.assertEqual(policy[key]["terms_checked_at"], "2026-09-07")
+        change = policy["claude"]["announced_weekly_change"]
+        self.assertFalse(change["applied"])
+        self.assertEqual(change["effective_date_pt"], "2026-09-14")
+        self.assertAlmostEqual(change["current_multiplier_of_pre_promotion_standard"] / change["announced_multiplier_of_pre_promotion_standard"], 1.2)
+        for metric in FRONTIER_KEYS:
+            self.assertEqual(published["frontiers"][metric], [row["id"] for row in frontier_rows(rows, metric)])
+        previous = json.loads((ROOT / "site/data/terminal-bench/4.0/2026-09-05.json").read_text(encoding="utf-8"))
+        self.assertEqual(previous["access_policy"]["codex"]["confidence"], "medium")
+
     def test_frontier_ties_and_missing(self):
         points = [("a", 0, 10), ("b", 0, 10), ("c", 1, 10), ("d", 1, 20), ("e", 2, 19), ("f", 3, 30), ("g", None, 100), ("h", math.nan, 100), ("i", -1, 100), ("j", 0, None)]
         rows = [{"id": name, "api_per_attempt": x, "score": y} for name, x, y in points]

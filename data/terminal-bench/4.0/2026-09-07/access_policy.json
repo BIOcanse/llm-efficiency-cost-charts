@@ -1,0 +1,111 @@
+{
+  "as_of_utc": "2026-09-07",
+  "weeks_per_month": 4.333333333333333,
+  "method": "Full utilization of official allowances or dated historical measurements. Review dates do not replace measurement dates. Historical benchmark API costs retain evaluated pricing.",
+  "codex": {
+    "id": "codex_historical_full_use_70x",
+    "plan": "ChatGPT Pro 20x · $200/mo",
+    "monthly_usd": 200,
+    "api_value_ratio": 70,
+    "confidence": "low",
+    "evidence_date": "2026-06-10",
+    "rates_checked_at": "2026-09-07",
+    "terms_checked_at": "2026-09-07",
+    "assumptions": "Historical $14,000 monthly API equivalent reported in June; exact measurement dates are undisclosed. Not a September quota measurement. Standard short-context model rates still imply 25 credits/API dollar; included weekly credits remain unpublished. Recent cap-decline reports lack a comparable full-week Pro 20x denominator. Retain the historical estimate with low current-applicability confidence. Excludes one-time resets; Fast mode, long context, cache writes and shared non-model charges may differ.",
+    "assumptions_zh": "沿用 6 月报道的每月 $14,000 API 等价值；实际测量窗口未披露，当前适用置信度低。标准短上下文仍为每 API 美元 25 积分，但官方未公布套餐每周包含多少积分。近期额度下降反馈尚不足以确定 Pro 20x 的新周额度；一次性重置不计入。Fast、长上下文、缓存写入和其他共享消耗可能不同。",
+    "sources": [
+      "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-spike-as-subscriptions-hit-pricing-wall-firms-turn-towards-chinese-llms-open-source-models-to-extend-budget",
+      "https://learn.chatgpt.com/docs/pricing",
+      "https://developers.openai.com/api/docs/pricing",
+      "https://community.openai.com/t/codex-rate-limits-discussion-thread/1378553/487",
+      "https://github.com/openai/codex/issues/38367",
+      "https://github.com/openai/codex/issues/43222"
+    ],
+    "evidence_date_kind": "source_publication",
+    "measurement_window": "not_disclosed"
+  },
+  "claude": {
+    "id": "claude_historical_full_use_40x",
+    "plan": "Claude Max 20x · $200/mo",
+    "monthly_usd": 200,
+    "api_value_ratio": 40,
+    "confidence": "low",
+    "evidence_date": "2026-06-10",
+    "terms_checked_at": "2026-09-07",
+    "assumptions": "Retain the 40x historical estimate reported in June ($8,000 monthly API equivalent). Publication falls during the +50% promotion, but exact measurement dates are undisclosed; no extra promotion multiplier or removal is justified. The promotion runs through September 13, 11:59 PM PT. A permanent +25% Claude Code standard-weekly increase is announced for September 14 and is not yet applied. April ccmeter calibration is not same-regime corroboration. Current applicability and cross-model metering remain low-confidence.",
+    "assumptions_zh": "保留 6 月报道的 40 倍历史估值（每月 $8,000 API 等价值）。报道发表于 +50% 活动期间，但实际测量窗口未披露，不额外叠加或扣除活动倍率。活动延长至 9 月 13 日 23:59 PT；9 月 14 日起 Claude Code 标准周额度永久 +25%，本快照尚不应用。4 月 ccmeter 实测不能作为同条件佐证。当前适用性和跨模型内部计量置信度低。",
+    "announced_weekly_change": {
+      "effective_date_pt": "2026-09-14",
+      "current_multiplier_of_pre_promotion_standard": 1.5,
+      "announced_multiplier_of_pre_promotion_standard": 1.25,
+      "applied": false,
+      "source": "https://x.com/ClaudeDevs/status/2093742321473065266"
+    },
+    "sources": [
+      "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-spike-as-subscriptions-hit-pricing-wall-firms-turn-towards-chinese-llms-open-source-models-to-extend-budget",
+      "https://claude.com/pricing",
+      "https://support.claude.com/en/articles/15910845-claude-code-may-august-2026-weekly-limits-promotion",
+      "https://x.com/ClaudeDevs/status/2093742321473065266"
+    ],
+    "evidence_date_kind": "source_publication",
+    "measurement_window": "not_disclosed"
+  },
+  "fable": {
+    "id": "fable_historical_40x_times_shared_cap_50pct",
+    "plan": "Claude Max 20x · Fable 50% cap",
+    "monthly_usd": 200,
+    "api_value_ratio": 20,
+    "confidence": "low",
+    "evidence_date": "2026-06-10",
+    "terms_checked_at": "2026-09-07",
+    "assumptions": "Historical 40x regular allowance × official 50% shared-weekly-pool Fable cap. This is a modeled scenario, not a measured Fable quota. The cap is not an additional pool. September cache-heavy Fable 5.1/Opus 5 comparisons challenge a universal API-dollar-to-allowance factor but do not establish a replacement full-week denominator.",
+    "assumptions_zh": "历史 40 倍折算再乘 Fable 的 50% 共享周额度上限，属于建模估算，不是 Fable 额度实测，也不是额外增加一半额度。近期高缓存实测显示不能直接假设各模型按相同 API 美元价值消耗套餐，但仍缺少可替换的新周额度。",
+    "sources": [
+      "https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan",
+      "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-spike-as-subscriptions-hit-pricing-wall-firms-turn-towards-chinese-llms-open-source-models-to-extend-budget",
+      "https://github.com/ww-w-ai/super-token-saver/blob/431b87fd3174cf79a5b4cd791a5e280e481ec8e9/guides/fable-5-1-vs-opus-5-cost-analysis.md"
+    ],
+    "evidence_date_kind": "source_publication",
+    "measurement_window": "not_disclosed"
+  },
+  "glm": {
+    "id": "glm53_max_weighted_credits_inclusive_input_scenario",
+    "plan": "GLM Max · $1,411.20/year · standard credits",
+    "monthly_usd": 117.6,
+    "annual_payment_usd": 1411.2,
+    "month_to_month_usd": 168,
+    "weekly_credits": 140000,
+    "five_hour_credits": 28000,
+    "credits_per_10000_tokens": [
+      6.9,
+      1.7,
+      24
+    ],
+    "confidence": "low",
+    "evidence_date": "2026-09-07",
+    "terms_checked_at": "2026-09-07",
+    "assumptions": "Official Max allowance remains 140,000 credits/week and 28,000/5h. GLM-5.3 weights remain input/cache/output 6.9/1.7/24 per 10,000 Tokens. Current V3 product-1f179d lists annual prepayment $1,411.20 ($117.60/month); month-to-month $168. Input/cache split uses an arithmetic-residual interpretation of an inconsistent upstream field. Standard-rate scenario; all-off-peak half-rate appears separately. Benchmark MCP charges are unavailable.",
+    "assumptions_zh": "Max 仍为每周 140,000 积分、每 5 小时 28,000 积分；GLM-5.3 输入／缓存／输出每万 Token 分别消耗 6.9／1.7／24 积分。当前年付标价 $1,411.20，折合 $117.60/月；月付 $168。该图采用标准时段，非高峰半价另列。评测输入／缓存拆分依赖残差假设，未公布的 MCP 消耗不计，因此折算置信度低。",
+    "sources": [
+      "https://docs.z.ai/devpack/overview",
+      "https://docs.z.ai/devpack/tool/claude",
+      "https://z.ai/subscribe",
+      "https://static.bigmodel.cn/z-ai-website/_next/static/chunks/8519-b0eeed0c70db38cb.js"
+    ]
+  },
+  "cursor_api_pool": {
+    "id": "cursor_third_party_api_pool_2x",
+    "plan": "Cursor Ultra · other-model API pool",
+    "monthly_usd": 200,
+    "api_value_ratio": 2,
+    "confidence": "low",
+    "evidence_date": "2026-06-15",
+    "terms_checked_at": "2026-09-07",
+    "assumptions": "Historical $400 other-model API pool / $200 subscription. Current documentation confirms separate first-party and other-model pools but does not state an absolute $400 included allowance. Excludes Composer and Cursor Grok first-party pools.",
+    "assumptions_zh": "沿用 6 月的 $400 第三方模型 API 池／$200 月费估值。当前文档确认自有模型池与其他模型池分开，但未明确写出 $400 配额；Composer 与 Cursor Grok 不套用该折算。",
+    "sources": [
+      "https://forum.cursor.com/t/how-much-usage-is-available-on-the-200-subscription/163309/5",
+      "https://cursor.com/docs/models-and-pricing"
+    ]
+  }
+}

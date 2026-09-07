@@ -1,5 +1,30 @@
 # Terminal-Bench data and website contract
 
+## Copy and quota review, 2026-09-07
+
+The cost charts call the upper-left line the **cost-performance frontier**
+(性价比前沿). The Token chart calls it the **Token-efficiency frontier**.
+The visible explanation states the useful comparison, not the implementation:
+outside the frontier, another measured configuration offers at least as much
+success for no more cost or Tokens, with an improvement in one measure.
+The mathematical membership rule is unchanged. Do not repeat statistical
+warnings, step-interpolation notes, filter behavior, or raw-field diagnostics
+beside every figure. Keep only essential units and scope in the main view;
+retain evidence, assumptions and exact rules in Method/Details and the guide.
+
+Recheck current official plan pricing, allowances and model-specific caps, plus
+the strongest dated empirical conversion evidence. A price or credit rate is
+not an included weekly allowance. Retain a historical estimate when no better
+supported replacement exists, and preserve its measurement date. Record the
+review date separately. Do not invent a change merely to make the snapshot
+appear fresh. TB4 receives a new dated snapshot after review; frozen versions,
+previous TB4 data and their published figures stay unchanged.
+
+Implementation uses the existing `terminal-bench.js` copy, shared interactive
+renderer, `render.py` figure text, dated access-policy file, and snapshot
+builder. Update the current bilingual guides, README entry and Release. No
+new dashboard runtime or changes to axes, filters, palettes or model identity.
+
 Decision date: 2026-09-05. This supersedes the current-site recommendation and
 AA-first requirements. Existing AA snapshots remain historical records.
 

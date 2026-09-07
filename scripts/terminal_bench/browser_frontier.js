@@ -20,7 +20,7 @@ async (page) => {
           collision: Number(document.querySelector(`#tb-chart-${metric} svg`).dataset.labelCollisions),
           steps: document.querySelector(`#tb-chart-${metric} .interactive-pareto-line`).getAttribute("d"),
         })));
-        const payload = await page.evaluate(async v => (await fetch(`data/terminal-bench/${v}/2026-09-05.json`)).json(), version);
+        const payload = await page.evaluate(async v => (await fetch(`data/terminal-bench/${v}/${document.querySelector("#tb-snapshot").value}.json`)).json(), version);
         check(values.every((item, i) => item.count === counts[i] && item.ids.length === counts[i] && JSON.stringify(item.ids) === JSON.stringify(payload.frontiers[item.metric])), `${width}/${language}/TB${version} list and line match saved frontier`);
         check(values.every(item => item.collision === 0 && item.steps.length > 0), `${width}/${language}/TB${version} step lines and labels`);
       }

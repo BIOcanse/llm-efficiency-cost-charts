@@ -144,18 +144,18 @@ def scatter(payload: dict, metric: str, language: str, destination: Path, fronti
     subtitle = "左上更好  |  点＝模型＋Agent＋思考档位  |  竖线＝官方 95% 区间" if zh else "Upper left is better  |  Point = model + agent + effort  |  Whiskers = owner-reported 95% interval"
     figure.text(0.055, 0.91, subtitle, fontsize=12, color="#536476")
     if frontier:
-        figure.text(0.055, 0.875, "深色虚线＝左上前沿（斩杀线） · 按点值计算，不代表统计显著；阶梯不是模型插值。" if zh else "Dark dashed steps = upper-left Pareto frontier · Point estimates, not statistical significance or model interpolation.", fontsize=10, color="#27374b")
+        frontier_name = ("Token 效率前沿" if zh else "Token-efficiency frontier") if metric == "token" else ("性价比前沿" if zh else "Cost-performance frontier")
+        figure.text(0.055, 0.875, ("深色虚线＝" if zh else "Dark dashed line = ") + frontier_name, fontsize=10, color="#27374b")
     if metric == "subscription":
         caveat = "套餐为跑满额度的折算估计，含历史实测与建模；并非当前固定配额。GLM 为年付、标准时段。" if zh else "Subscriptions are full-use estimates, not guaranteed current quotas. Historical calibration/modeling; GLM annual commitment, standard credits."
     elif metric == "api":
-        caveat = "采用该次运行公布的总成本，不替换供应商、不按新价静默重算。失败尝试计入成本。" if zh else "Published cost of the evaluated run; no provider substitution or silent repricing. Failed attempts count toward spending."
+        caveat = "采用评测公布的实际 API 成本，包含失败尝试。" if zh else "Reported API spending, including failed attempts."
     else:
         caveat = "采用官方总 Token，包含缓存输入与输出，不重复加思考 Token；参数规模和 Agent 配置影响效率。" if zh else "Published total Tokens, including cached input and output; no double counting of reasoning. Scale and agent settings affect efficiency."
     figure.text(0.055, 0.083, caveat, fontsize=10, color="#536476")
     trials = sorted({row["trials"] for row in rows if row["trials"]})
     source = f"Source: tbench.ai/?version={payload['snapshot']['benchmark_version']}  |  {payload['snapshot']['retrieved_at_utc']}  |  {len(rows)} configurations · trials/run: {', '.join(map(str, trials))}"
     figure.text(0.055, 0.048, source, fontsize=9, color="#657487")
-    figure.text(0.055, 0.024, "各版本独立比较；Agent 版本缺失时仅连接同名系统，不代表构建版本已核实。" if zh else "Compare within one benchmark version. Effort curves link named systems; omitted agent builds remain unverified.", fontsize=8.5, color="#657487")
     return save(figure, destination, stem), metrics
 
 
@@ -171,9 +171,9 @@ def table_pages(payload: dict, metric: str, language: str, destination: Path) ->
         figure = plt.figure(figsize=(24, 13.5), dpi=200, facecolor="#fafbf9")
         title = titles[metric][0 if zh else 1]
         figure.text(0.045, 0.947, f"{payload['benchmark']} · {title}  {page + 1}/{count}", fontsize=23, weight="bold", color="#182435")
-        lead = "按每个成功任务的平均消耗排序，失败尝试也计入。并非反复重试必然成功。" if zh else "Ranked by average resources per success, including failed attempts. This is not a guarantee that retries solve every task."
+        lead = "按每个成功任务的平均消耗排序，失败尝试也计入。" if zh else "Ranked by average resources per success, including failed attempts."
         if metric == "success":
-            lead = "该版缺少可核实的消耗汇总，仅保留成功率；本项目冻结快照，不代表上游停止修订。" if zh else "No verifiable aggregate consumption for this version. Frozen project snapshot; upstream may still revise its leaderboard."
+            lead = "该版缺少消耗数据，仅列成功率。" if zh else "Consumption data is unavailable; success rates only."
         figure.text(0.045, 0.909, lead, fontsize=11, color="#536476")
         columns = [(0.045, "排名" if zh else "Rank"), (0.083, "模型 / Agent / 档位" if zh else "Model / agent / effort"), (0.46, "成功率 · 95% 区间" if zh else "Success · 95% interval")]
         if metric != "success":
@@ -254,8 +254,8 @@ def frontier_table(payload: dict, language: str, destination: Path) -> tuple[lis
     for page in range(pages):
         chunk = entries[page * page_size:(page + 1) * page_size]
         figure = plt.figure(figsize=(24, 13.5), dpi=200, facecolor="#fafbf9")
-        figure.text(.045, .947, f"{payload['benchmark']} · " + ("左上前沿配置列表" if zh else "Upper-left frontier configurations") + f"  {page+1}/{pages}", fontsize=23, weight="bold", color="#182435")
-        figure.text(.045, .901, "三指标分别计算，按每次尝试消耗递增排列；同坐标配置全部保留。" if zh else "Three independent frontiers, ordered by resources per attempt. Equal-coordinate configurations are all retained.", fontsize=12, color="#536476")
+        figure.text(.045, .947, f"{payload['benchmark']} · " + ("性价比与 Token 效率前沿" if zh else "Cost-performance and Token-efficiency frontiers") + f"  {page+1}/{pages}", fontsize=23, weight="bold", color="#182435")
+        figure.text(.045, .901, "套餐 / API / Token，分别按每次尝试消耗递增排列。" if zh else "Subscription / API / Tokens, each ordered by resources per attempt.", fontsize=12, color="#536476")
         columns = [(.045, "指标" if zh else "Metric"), (.125, "模型 / 档位 / Agent" if zh else "Model / effort / agent"), (.505, "成功率 · 95% 区间" if zh else "Success · 95% interval"), (.69, "消耗 / 尝试" if zh else "Usage / attempt"), (.84, "消耗 / 成功任务" if zh else "Usage / success"), (.94, "尝试数" if zh else "Attempts")]
         for x, value in columns:
             figure.text(x, .85, value, fontsize=10, weight="bold", color="#536476", ha="right" if x >= .69 else "left")
@@ -277,7 +277,7 @@ def frontier_table(payload: dict, language: str, destination: Path) -> tuple[lis
                 figure.text(x, y, value, fontsize=11, color="#27374b", ha="right")
         if not entries:
             figure.text(.125, .68, "套餐、API、Token：均无可核实的消耗汇总，无法计算左上前沿。\n成功率排名已单独保留；缺失数据不按零处理。" if zh else "Subscription / API / Tokens: verifiable consumption is unavailable.\nNo frontier can be computed. Success-rate rankings remain in separate exports.", fontsize=18, color="#536476", linespacing=1.8)
-        figure.text(.045, .086, "没有其他配置同时做到消耗不高、成功率不低，且至少一项更好。按点值计算，不代表统计显著。" if zh else "No other configuration uses no more resources and achieves no less success, with one strict improvement. Point estimates, not statistical significance.", fontsize=10, color="#536476")
+        figure.text(.045, .086, "前沿外配置均有消耗不高、成功率不低的更优替代项。" if zh else "Outside each frontier, a better alternative achieves at least as much success for no more resources.", fontsize=10, color="#536476")
         figure.text(.045, .057, "套餐为充分使用额度的估算；不同版本独立计算。Token 单位：百万。" if zh else "Subscriptions assume full utilization of estimated allowances. Versions remain separate. Token unit: millions.", fontsize=9, color="#657487")
         figure.text(.045, .03, f"Source: Terminal-Bench · {payload['snapshot']['retrieved_at_utc']}", fontsize=9, color="#657487", url=payload["owner_url"])
         figure.canvas.draw()

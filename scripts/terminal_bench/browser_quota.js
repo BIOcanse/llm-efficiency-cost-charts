@@ -1,0 +1,34 @@
+async (page) => {
+  const checks = [];
+  const check = (condition, message) => {if (!condition) throw new Error(message); checks.push(message);};
+  await page.locator('[data-scenario="terminal"][role="tab"]').click();
+  await page.locator('[data-language="zh-CN"]').click();
+  await page.locator("#tb-version").selectOption("4.0");
+  await page.waitForFunction(() => !document.querySelector("#tb-snapshot").disabled && document.querySelector("#tb-version").value === "4.0");
+  check(await page.locator("#tb-snapshot").inputValue() === "2026-09-07", "Newest snapshot selected");
+  check(await page.locator("#tb-snapshot option").count() === 2, "Previous TB4 snapshot retained");
+  check((await page.locator("#tb-time").textContent()).startsWith("2026-09-07 "), "New capture time shown in UTC");
+  check((await page.locator("#tb-card-subscription .tb-frontier-key").textContent()) === "性价比前沿", "Cost frontier named for economic comparison");
+  check((await page.locator("#tb-card-token .tb-frontier-key").textContent()) === "Token 效率前沿", "Token frontier stays separate from prices");
+  check((await page.locator("#tb-card-subscription .tb-frontier-list .tb-note").textContent()) === "只看成功率与成本，前沿之外的配置没有经济优势。", "Concise conditional cost-performance explanation");
+  check(await page.locator('[data-i18n="heroCopy"]').isHidden(), "Empty introductory copy takes no space");
+  const current = await page.evaluate(async () => (await fetch("data/terminal-bench/4.0/2026-09-07.json")).json());
+  check(current.access_policy.codex.confidence === "low" && current.access_policy.claude.confidence === "low", "Historical estimates carry current low confidence");
+  check(!current.access_policy.claude.announced_weekly_change.applied && current.access_policy.claude.api_value_ratio === 40, "Future allowance change not applied early");
+  check((await page.locator("#tb-evidence").textContent()).includes("9 月 14 日"), "Announced change available in Chinese evidence");
+  await page.locator("#tb-snapshot").selectOption("2026-09-05");
+  await page.waitForFunction(() => !document.querySelector("#tb-snapshot").disabled && document.querySelector("#tb-time").textContent.startsWith("2026-09-05 "));
+  check((await page.locator("#tb-image-subscription").getAttribute("href")).includes("/2026-09-05/"), "Old snapshot retains its figures");
+  const old = await page.evaluate(async () => (await fetch("data/terminal-bench/4.0/2026-09-05.json")).json());
+  check(old.access_policy.codex.confidence === "medium" && old.access_policy.as_of_utc === "2026-09-05", "Historical policy not rewritten");
+  await page.locator("#tb-snapshot").selectOption("2026-09-07");
+  await page.waitForFunction(() => !document.querySelector("#tb-snapshot").disabled && document.querySelector("#tb-time").textContent.startsWith("2026-09-07 "));
+  await page.locator('[data-language="en"]').click();
+  check((await page.locator("#tb-card-subscription .tb-frontier-key").textContent()) === "Cost-performance frontier", "English cost frontier translates in place");
+  check((await page.locator("#tb-evidence").textContent()).includes("September 14"), "English evidence translates in place");
+  check(await page.locator("#tb-snapshot").inputValue() === "2026-09-07", "Language switch retains new snapshot");
+  await page.locator('[data-language="zh-CN"]').click();
+  await page.evaluate(() => scrollTo(0, 0));
+  await page.screenshot({path: ".playwright-cli/tb-quota-zh.png"});
+  return {checks, checked: checks.length};
+}

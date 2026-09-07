@@ -7,6 +7,25 @@
       "status": "active",
       "snapshots": [
         {
+          "id": "2026-09-07",
+          "benchmark_version": "4.0",
+          "status": "active",
+          "retrieved_at_utc": "2026-09-07T19:52:25.141924Z",
+          "built_at_utc": "2026-09-07T20:01:09Z",
+          "payload": "data/terminal-bench/4.0/2026-09-07.json",
+          "release_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/tag/terminal-bench-2026-09-07",
+          "data_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/tree/main/data/terminal-bench/4.0/2026-09-07",
+          "ranking_base": "https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/rankings/terminal-bench/4.0/2026-09-07",
+          "chart_base": "https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/terminal-bench/4.0/2026-09-07",
+          "task_count": 66,
+          "counts": {
+            "token": 18,
+            "api": 18,
+            "subscription": 16
+          },
+          "configurations": 18
+        },
+        {
           "id": "2026-09-05",
           "benchmark_version": "4.0",
           "status": "active",
@@ -26,7 +45,7 @@
           "configurations": 18
         }
       ],
-      "current_snapshot": "2026-09-05"
+      "current_snapshot": "2026-09-07"
     },
     {
       "id": "3.0",

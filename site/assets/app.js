@@ -1,7 +1,7 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260907-frontiers-1";
-import { TerminalBenchView } from "./terminal-bench.js?v=20260907-frontiers-1";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260907-quota-copy-1";
+import { TerminalBenchView } from "./terminal-bench.js?v=20260907-quota-copy-1";
 
-const ASSET_REVISION = "20260907-frontiers-1";
+const ASSET_REVISION = "20260907-quota-copy-1";
 const terminalBench = new TerminalBenchView(document.getElementById("terminal-panel"));
 
 const translations = {
