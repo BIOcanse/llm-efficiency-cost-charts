@@ -19,6 +19,11 @@
   "missing_agent_version": 18,
   "missing_trials": 0,
   "trial_count_discrepancies": [],
+  "frontier_counts": {
+    "subscription": 5,
+    "api": 5,
+    "token": 4
+  },
   "static_layouts": {
     "zh-CN": {
       "subscription": {
@@ -59,6 +64,49 @@
           "table": "token",
           "page": 1,
           "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "subscription_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 16,
+        "frontier_ids": [
+          "51c6d76e-5baa-48c1-97b3-88656c620eef",
+          "b3ad58f3-b311-4d4d-875b-3158cf0309d6",
+          "f3c3d5a6-6424-4acb-bfcc-615c3f79f6dd",
+          "3475050c-bf5e-4261-a3f6-0af5350af13f",
+          "5c537be4-7fc3-449b-8bfc-ceb9061c2535"
+        ]
+      },
+      "api_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 18,
+        "frontier_ids": [
+          "51c6d76e-5baa-48c1-97b3-88656c620eef",
+          "b3ad58f3-b311-4d4d-875b-3158cf0309d6",
+          "f3c3d5a6-6424-4acb-bfcc-615c3f79f6dd",
+          "3475050c-bf5e-4261-a3f6-0af5350af13f",
+          "5c537be4-7fc3-449b-8bfc-ceb9061c2535"
+        ]
+      },
+      "token_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 18,
+        "frontier_ids": [
+          "b3ad58f3-b311-4d4d-875b-3158cf0309d6",
+          "f3c3d5a6-6424-4acb-bfcc-615c3f79f6dd",
+          "16db8ad5-84aa-4588-b660-1ce68c0d45e2",
+          "5c537be4-7fc3-449b-8bfc-ceb9061c2535"
+        ]
+      },
+      "frontier_list": [
+        {
+          "page": 1,
+          "rows": 14,
           "text_collisions": 0,
           "out_of_bounds": 0
         }
@@ -103,6 +151,49 @@
           "table": "token",
           "page": 1,
           "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "subscription_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 16,
+        "frontier_ids": [
+          "51c6d76e-5baa-48c1-97b3-88656c620eef",
+          "b3ad58f3-b311-4d4d-875b-3158cf0309d6",
+          "f3c3d5a6-6424-4acb-bfcc-615c3f79f6dd",
+          "3475050c-bf5e-4261-a3f6-0af5350af13f",
+          "5c537be4-7fc3-449b-8bfc-ceb9061c2535"
+        ]
+      },
+      "api_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 18,
+        "frontier_ids": [
+          "51c6d76e-5baa-48c1-97b3-88656c620eef",
+          "b3ad58f3-b311-4d4d-875b-3158cf0309d6",
+          "f3c3d5a6-6424-4acb-bfcc-615c3f79f6dd",
+          "3475050c-bf5e-4261-a3f6-0af5350af13f",
+          "5c537be4-7fc3-449b-8bfc-ceb9061c2535"
+        ]
+      },
+      "token_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 18,
+        "frontier_ids": [
+          "b3ad58f3-b311-4d4d-875b-3158cf0309d6",
+          "f3c3d5a6-6424-4acb-bfcc-615c3f79f6dd",
+          "16db8ad5-84aa-4588-b660-1ce68c0d45e2",
+          "5c537be4-7fc3-449b-8bfc-ceb9061c2535"
+        ]
+      },
+      "frontier_list": [
+        {
+          "page": 1,
+          "rows": 14,
           "text_collisions": 0,
           "out_of_bounds": 0
         }

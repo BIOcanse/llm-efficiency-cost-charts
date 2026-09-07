@@ -21,6 +21,11 @@
   "missing_agent_version": 12,
   "missing_trials": 0,
   "trial_count_discrepancies": [],
+  "frontier_counts": {
+    "subscription": 4,
+    "api": 4,
+    "token": 5
+  },
   "static_layouts": {
     "zh-CN": {
       "subscription": {
@@ -61,6 +66,48 @@
           "table": "token",
           "page": 1,
           "rows": 12,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "subscription_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 7,
+        "frontier_ids": [
+          "5b10f961-312a-48ae-83d9-d5ce4de60a0e",
+          "9e11b624-6922-4ac8-a26f-c38146b957d9",
+          "b8d9ccae-23a2-485e-b9f1-a7654c79c560",
+          "b26434fb-f08b-4f95-bcc5-ce0c7310e047"
+        ]
+      },
+      "api_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 11,
+        "frontier_ids": [
+          "5b10f961-312a-48ae-83d9-d5ce4de60a0e",
+          "d5152814-6bf2-473f-be57-b1908ed480a9",
+          "b8d9ccae-23a2-485e-b9f1-a7654c79c560",
+          "b26434fb-f08b-4f95-bcc5-ce0c7310e047"
+        ]
+      },
+      "token_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 12,
+        "frontier_ids": [
+          "e660765d-7b96-48f7-97ed-3c2abe17dbb5",
+          "61adb66e-1cf1-4194-b68d-703554d21193",
+          "b8ed61a2-838a-495f-8d24-3ebffb9be16b",
+          "b8d9ccae-23a2-485e-b9f1-a7654c79c560",
+          "b26434fb-f08b-4f95-bcc5-ce0c7310e047"
+        ]
+      },
+      "frontier_list": [
+        {
+          "page": 1,
+          "rows": 13,
           "text_collisions": 0,
           "out_of_bounds": 0
         }
@@ -105,6 +152,48 @@
           "table": "token",
           "page": 1,
           "rows": 12,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "subscription_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 7,
+        "frontier_ids": [
+          "5b10f961-312a-48ae-83d9-d5ce4de60a0e",
+          "9e11b624-6922-4ac8-a26f-c38146b957d9",
+          "b8d9ccae-23a2-485e-b9f1-a7654c79c560",
+          "b26434fb-f08b-4f95-bcc5-ce0c7310e047"
+        ]
+      },
+      "api_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 11,
+        "frontier_ids": [
+          "5b10f961-312a-48ae-83d9-d5ce4de60a0e",
+          "d5152814-6bf2-473f-be57-b1908ed480a9",
+          "b8d9ccae-23a2-485e-b9f1-a7654c79c560",
+          "b26434fb-f08b-4f95-bcc5-ce0c7310e047"
+        ]
+      },
+      "token_frontier": {
+        "label_collisions": 0,
+        "out_of_bounds_labels": 0,
+        "labels": 12,
+        "frontier_ids": [
+          "e660765d-7b96-48f7-97ed-3c2abe17dbb5",
+          "61adb66e-1cf1-4194-b68d-703554d21193",
+          "b8ed61a2-838a-495f-8d24-3ebffb9be16b",
+          "b8d9ccae-23a2-485e-b9f1-a7654c79c560",
+          "b26434fb-f08b-4f95-bcc5-ce0c7310e047"
+        ]
+      },
+      "frontier_list": [
+        {
+          "page": 1,
+          "rows": 13,
           "text_collisions": 0,
           "out_of_bounds": 0
         }

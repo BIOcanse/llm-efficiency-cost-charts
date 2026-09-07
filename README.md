@@ -20,5 +20,8 @@ dated Releases.
 不设主观推荐。套餐与 API 排名支持成功率区间筛选，列出每次尝试与每个成功任务的平均成本。<br>
 No subjective model picks. Filter cost rankings by success rate and inspect average cost per attempt and per successful task.
 
+每个版本分别列出套餐、API、Token 的左上前沿（斩杀线）与配置名单。<br>
+Each version includes separate subscription, API and Token Pareto frontiers and configuration lists.
+
 AA 原有图表与快照保留在网页存档分页；不同测试集版本不混排。<br>
 Existing AA charts and snapshots remain in the site's archive views. Benchmark versions are never pooled into one ranking.

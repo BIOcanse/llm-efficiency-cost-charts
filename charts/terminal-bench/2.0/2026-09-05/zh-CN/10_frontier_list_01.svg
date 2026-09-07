@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1728pt" height="972pt" viewBox="0 0 1728 972" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-07T14:00:35.260344</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 972 
+L 1728 972 
+L 1728 0 
+L 0 0 
+z
+" style="fill: #fafbf9"/>
+  </g>
+  <g id="text_1">
+   <text style="font-weight: 700; font-size: 23px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #182435" x="77.76" y="51.516" transform="rotate(-0 77.76 51.516)">Terminal-Bench 2.0 · 左上前沿配置列表  1/1</text>
+  </g>
+  <g id="text_2">
+   <text style="font-size: 12px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="96.228" transform="rotate(-0 77.76 96.228)">三指标分别计算，按每次尝试消耗递增排列；同坐标配置全部保留。</text>
+  </g>
+  <g id="text_3">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="145.8" transform="rotate(-0 77.76 145.8)">指标</text>
+  </g>
+  <g id="text_4">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="216" y="145.8" transform="rotate(-0 216 145.8)">模型 / 档位 / Agent</text>
+  </g>
+  <g id="text_5">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="872.64" y="145.8" transform="rotate(-0 872.64 145.8)">成功率 · 95% 区间</text>
+  </g>
+  <g id="text_6">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #536476" x="1192.32" y="145.8" transform="rotate(-0 1192.32 145.8)">消耗 / 尝试</text>
+  </g>
+  <g id="text_7">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #536476" x="1451.52" y="145.8" transform="rotate(-0 1451.52 145.8)">消耗 / 成功任务</text>
+  </g>
+  <g id="text_8">
+   <text style="font-weight: 700; font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #536476" x="1624.32" y="145.8" transform="rotate(-0 1624.32 145.8)">尝试数</text>
+  </g>
+  <g id="text_9">
+   <text style="font-size: 18px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #536476" transform="translate(216 276.553828)">套餐、API、Token：均无可核实的消耗汇总，无法计算左上前沿。</text>
+   <text style="font-size: 18px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; fill: #536476" transform="translate(216 311.04)">成功率排名已单独保留；缺失数据不按零处理。</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #536476" x="77.76" y="888.408" transform="rotate(-0 77.76 888.408)">没有其他配置同时做到消耗不高、成功率不低，且至少一项更好。按点值计算，不代表统计显著。</text>
+  </g>
+  <g id="text_11">
+   <text style="font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="77.76" y="916.596" transform="rotate(-0 77.76 916.596)">套餐为充分使用额度的估算；不同版本独立计算。Token 单位：百万。</text>
+  </g>
+  <g id="text_12">
+   <a xlink:href="https://www.tbench.ai/?version=2.0" target="_blank">
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei', 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #657487" x="77.76" y="942.84" transform="rotate(-0 77.76 942.84)">Source: Terminal-Bench · 2026-09-05T06:33:25.251610Z</text>
+   </a>
+  </g>
+ </g>
+</svg>

@@ -14,6 +14,11 @@
   "missing_agent_version": 62,
   "missing_trials": 62,
   "trial_count_discrepancies": [],
+  "frontier_counts": {
+    "subscription": 0,
+    "api": 0,
+    "token": 0
+  },
   "static_layouts": {
     "zh-CN": {
       "success": [
@@ -35,6 +40,14 @@
           "table": "success",
           "page": 3,
           "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "frontier_list": [
+        {
+          "page": 1,
+          "rows": 0,
           "text_collisions": 0,
           "out_of_bounds": 0
         }
@@ -60,6 +73,14 @@
           "table": "success",
           "page": 3,
           "rows": 18,
+          "text_collisions": 0,
+          "out_of_bounds": 0
+        }
+      ],
+      "frontier_list": [
+        {
+          "page": 1,
+          "rows": 0,
           "text_collisions": 0,
           "out_of_bounds": 0
         }

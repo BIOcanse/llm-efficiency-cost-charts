@@ -18,6 +18,7 @@ VERSIONS = {
     "1.0": {"tasks": 80, "status": "frozen", "dataset": "terminal-bench-core==0.1.1", "dataset_commit": "91e10457b5410f16c44364da1a34cb6de8c488a5"},
 }
 EFFORT_ORDER = {"none": 0, "minimal": 1, "low": 2, "medium": 3, "high": 4, "xhigh": 5, "max": 6, "ultra": 7}
+FRONTIER_KEYS = {"subscription": "subscription_per_attempt", "api": "api_per_attempt", "token": "token_per_attempt"}
 OWNER_API = "https://ofhuhcpkvzjlejydnvyd.supabase.co/functions/v1/leaderboard-read"
 OWNER_REVISION = "130be8458294043b33bbde1c765f3180f5ba96fb"
 
@@ -227,3 +228,23 @@ def ranked(rows: list[dict], metric: str) -> list[dict]:
     best, worst = candidates[0][key], candidates[-1][key]
     return [{**row, "rank": index + 1, "relative_cost_percent": row[key] / worst * 100 if worst else 100,
              "relative_value_percent": best / row[key] * 100 if row[key] else 100} for index, row in enumerate(candidates)]
+
+
+def frontier_rows(rows: list[dict], metric: str) -> list[dict]:
+    """Exact weak-cost/strong-success frontier; preserve equal-coordinate ties."""
+    key = FRONTIER_KEYS[metric]
+    ordered = sorted((row for row in rows if isinstance(row.get(key), (int, float))
+                      and not isinstance(row[key], bool) and math.isfinite(row[key]) and row[key] >= 0
+                      and isinstance(row.get("score"), (int, float)) and math.isfinite(row["score"])
+                      and row.get("data_scope") != "partial"),
+                     key=lambda row: (row[key], -row["score"]))
+    frontier = []
+    best = -math.inf
+    last_coordinate = None
+    for row in ordered:
+        coordinate = (row[key], row["score"])
+        if row["score"] > best or coordinate == last_coordinate:
+            frontier.append(row)
+            best = row["score"]
+            last_coordinate = coordinate
+    return frontier

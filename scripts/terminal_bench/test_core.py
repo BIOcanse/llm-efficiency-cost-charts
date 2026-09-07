@@ -3,18 +3,32 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import random
 import unittest
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
-from core import component_semantics, derive, normalized_rows, ranked
+from core import component_semantics, derive, normalized_rows, ranked, frontier_rows, FRONTIER_KEYS
 from build_snapshot import adapt_legacy_one, build, import_source
 
 ROOT = Path(__file__).resolve().parents[2]
 
 
 class MeasurementTests(unittest.TestCase):
+    def test_frontier_ties_and_missing(self):
+        points = [("a", 0, 10), ("b", 0, 10), ("c", 1, 10), ("d", 1, 20), ("e", 2, 19), ("f", 3, 30), ("g", None, 100), ("h", math.nan, 100), ("i", -1, 100), ("j", 0, None)]
+        rows = [{"id": name, "api_per_attempt": x, "score": y} for name, x, y in points]
+        self.assertEqual([row["id"] for row in frontier_rows(rows, "api")], ["a", "b", "d", "f"])
+        self.assertEqual(frontier_rows([], "api"), [])
+
+    def test_frontier_against_independent_pairs(self):
+        rng = random.Random(270907)
+        for _ in range(100):
+            rows = [{"id": str(i), "api_per_attempt": rng.randrange(10), "score": rng.randrange(10)} for i in range(25)]
+            expected = [row for row in rows if not any(other["api_per_attempt"] <= row["api_per_attempt"] and other["score"] >= row["score"] and (other["api_per_attempt"] < row["api_per_attempt"] or other["score"] > row["score"]) for other in rows)]
+            self.assertEqual({row["id"] for row in frontier_rows(rows, "api")}, {row["id"] for row in expected})
+
     def test_inclusive_and_disjoint_input(self):
         inclusive = {"total_tokens": 110, "uncached_input_tokens": 100, "cached_input_tokens": 90, "output_tokens": 10}
         self.assertEqual(component_semantics(inclusive), "named_uncached_field_includes_cache_arithmetically")
@@ -108,6 +122,12 @@ class MeasurementTests(unittest.TestCase):
                 self.assertEqual(tuple(validation["counts"][key] for key in ("token", "api", "subscription")), counts)
                 published = json.loads((ROOT / f"site/data/terminal-bench/{version}/2026-09-05.json").read_text(encoding="utf-8"))
                 self.assertEqual(rows, published["rows"])
+                for metric, key in FRONTIER_KEYS.items():
+                    selected = frontier_rows(rows, metric)
+                    self.assertEqual(published["frontiers"][metric], [row["id"] for row in selected])
+                    eligible = [row for row in rows if row[key] is not None]
+                    oracle = [row for row in eligible if not any(other[key] <= row[key] and other["score"] >= row["score"] and (other[key] < row[key] or other["score"] > row["score"]) for other in eligible)]
+                    self.assertEqual({row["id"] for row in selected}, {row["id"] for row in oracle})
                 for row in rows:
                     if row["token_per_attempt"] is not None:
                         self.assertTrue(math.isclose(row["token_per_attempt"] * row["trials"], row["total_tokens"], rel_tol=1e-12))

@@ -14,7 +14,7 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-from core import OWNER_API, OWNER_REVISION, VERSIONS, derive, normalized_rows, ranked, owner_url
+from core import OWNER_API, OWNER_REVISION, VERSIONS, derive, normalized_rows, ranked, owner_url, frontier_rows, FRONTIER_KEYS
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = "https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/"
@@ -93,7 +93,7 @@ def import_source(version: str, snapshot: str, evidence_dir: Path | None) -> dic
     return envelope
 
 
-def build(version: str, snapshot: str, evidence_dir: Path | None, render: bool, access_policy: Path | None = None) -> dict:
+def build(version: str, snapshot: str, evidence_dir: Path | None, render: bool, access_policy: Path | None = None, render_frontier: bool = False, release_tag: str | None = None) -> dict:
     data_dir = ROOT / "data" / "terminal-bench" / version / snapshot
     policy_path = data_dir / "access_policy.json"
     if not policy_path.exists():
@@ -117,17 +117,28 @@ def build(version: str, snapshot: str, evidence_dir: Path | None, render: bool, 
         "retrieved_at_utc": source["retrieved_at_utc"],
         "built_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "payload": f"data/terminal-bench/{version}/{snapshot}.json",
-        "release_url": f"{REPO}releases/tag/terminal-bench-{snapshot}",
+        "release_url": f"{REPO}releases/tag/{release_tag or ('terminal-bench-' + snapshot)}",
         "data_url": f"{REPO}tree/main/data/terminal-bench/{version}/{snapshot}",
         "ranking_base": RAW + rank_relative, "chart_base": RAW + chart_relative,
         "task_count": VERSIONS[version]["tasks"], "counts": validation["counts"], "configurations": len(rows),
     }
     prior_payload = ROOT / "site" / metadata["payload"]
+    if prior_payload.exists() and not release_tag:
+        metadata["release_url"] = json.loads(prior_payload.read_text(encoding="utf-8"))["snapshot"]["release_url"]
     payload = {"schema_version": 1, "benchmark": f"Terminal-Bench {version}", "snapshot": metadata,
                "counts": validation["counts"], "rows": rows, "access_policy": policy,
                "validation": validation, "source_sha256": source["source_sha256"],
                "owner_url": owner_url(version),
                "dataset": VERSIONS[version], "exports": {}}
+    frontiers = {metric: frontier_rows(rows, metric) for metric in FRONTIER_KEYS}
+    payload["frontiers"] = {metric: [row["id"] for row in selected] for metric, selected in frontiers.items()}
+    validation["frontier_counts"] = {metric: len(selected) for metric, selected in frontiers.items()}
+    combined = []
+    for metric, selected in frontiers.items():
+        selected_rows = [{"frontier_metric": metric, "frontier_order": index+1, **row} for index, row in enumerate(selected)]
+        write_csv(ROOT / rank_relative / f"{metric}_frontier.csv", selected_rows)
+        combined.extend(selected_rows)
+    write_csv(ROOT / rank_relative / "frontier_list.csv", combined)
     write_csv(data_dir / "results.csv", rows)
     write_csv(data_dir / "subscription_costs.csv", [row for row in rows])
     atomic_json(data_dir / "validation.json", validation)
@@ -145,6 +156,13 @@ def build(version: str, snapshot: str, evidence_dir: Path | None, render: bool, 
             payload["exports"] = previous.get("exports", {})
             if "static_layouts" in previous["validation"]:
                 validation["static_layouts"] = previous["validation"]["static_layouts"]
+    if render or render_frontier:
+        from render import render_frontiers
+        exports, layouts = render_frontiers(payload, ROOT / chart_relative)
+        for locale, names in exports.items():
+            previous_names = payload["exports"].get(locale, [])
+            payload["exports"][locale] = [name for name in previous_names if not name.startswith(("07_", "08_", "09_", "10_"))] + names
+            validation.setdefault("static_layouts", {}).setdefault(locale, {}).update(layouts[locale])
     atomic_json(data_dir / "validation.json", validation)
     atomic_json(prior_payload, payload)
     print(json.dumps({"version": version, **validation}, ensure_ascii=False), flush=True)
@@ -158,13 +176,15 @@ def main() -> None:
     parser.add_argument("--evidence-dir", type=Path)
     parser.add_argument("--access-policy", type=Path, help="Audited dated policy; required for new snapshots")
     parser.add_argument("--render", action="store_true")
+    parser.add_argument("--render-frontiers", action="store_true", help="Add frontier exports without redrawing original figures")
+    parser.add_argument("--release-tag", help="Release for this analysis edition; preserves the data snapshot date")
     args = parser.parse_args()
     datetime.strptime(args.snapshot, "%Y-%m-%d")
     manifest_path = ROOT / "site/data/terminal-bench.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {"schema_version": 1, "current_version": "4.0", "versions": []}
     by_version = {item["id"]: item for item in manifest["versions"]}
     for version in args.versions:
-        metadata = build(version, args.snapshot, args.evidence_dir, args.render, args.access_policy)
+        metadata = build(version, args.snapshot, args.evidence_dir, args.render, args.access_policy, args.render_frontiers, args.release_tag)
         entry = by_version.get(version, {"id": version, "status": VERSIONS[version]["status"], "snapshots": []})
         entry["snapshots"] = [item for item in entry["snapshots"] if item["id"] != args.snapshot] + [metadata]
         entry["snapshots"].sort(key=lambda item: item["id"], reverse=True)

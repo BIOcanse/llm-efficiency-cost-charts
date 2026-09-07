@@ -6,9 +6,9 @@
     "benchmark_version": "2.0",
     "status": "frozen",
     "retrieved_at_utc": "2026-09-05T06:33:25.251610Z",
-    "built_at_utc": "2026-09-05T07:26:51Z",
+    "built_at_utc": "2026-09-07T19:00:34Z",
     "payload": "data/terminal-bench/2.0/2026-09-05.json",
-    "release_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/tag/terminal-bench-2026-09-05",
+    "release_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/releases/tag/terminal-bench-frontiers-2026-09-07",
     "data_url": "https://github.com/BIOcanse/llm-efficiency-cost-charts/tree/main/data/terminal-bench/2.0/2026-09-05",
     "ranking_base": "https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/rankings/terminal-bench/2.0/2026-09-05",
     "chart_base": "https://raw.githubusercontent.com/BIOcanse/llm-efficiency-cost-charts/main/charts/terminal-bench/2.0/2026-09-05",
@@ -7949,6 +7949,11 @@
     "missing_agent_version": 49,
     "missing_trials": 142,
     "trial_count_discrepancies": [],
+    "frontier_counts": {
+      "subscription": 0,
+      "api": 0,
+      "token": 0
+    },
     "static_layouts": {
       "zh-CN": {
         "success": [
@@ -7998,6 +8003,14 @@
             "table": "success",
             "page": 7,
             "rows": 10,
+            "text_collisions": 0,
+            "out_of_bounds": 0
+          }
+        ],
+        "frontier_list": [
+          {
+            "page": 1,
+            "rows": 0,
             "text_collisions": 0,
             "out_of_bounds": 0
           }
@@ -8054,6 +8067,14 @@
             "text_collisions": 0,
             "out_of_bounds": 0
           }
+        ],
+        "frontier_list": [
+          {
+            "page": 1,
+            "rows": 0,
+            "text_collisions": 0,
+            "out_of_bounds": 0
+          }
         ]
       }
     }
@@ -8082,7 +8103,9 @@
       "00_success_ranking_06.png",
       "00_success_ranking_06.svg",
       "00_success_ranking_07.png",
-      "00_success_ranking_07.svg"
+      "00_success_ranking_07.svg",
+      "10_frontier_list_01.png",
+      "10_frontier_list_01.svg"
     ],
     "en": [
       "00_success_ranking_01.png",
@@ -8098,7 +8121,14 @@
       "00_success_ranking_06.png",
       "00_success_ranking_06.svg",
       "00_success_ranking_07.png",
-      "00_success_ranking_07.svg"
+      "00_success_ranking_07.svg",
+      "10_frontier_list_01.png",
+      "10_frontier_list_01.svg"
     ]
+  },
+  "frontiers": {
+    "subscription": [],
+    "api": [],
+    "token": []
   }
 }

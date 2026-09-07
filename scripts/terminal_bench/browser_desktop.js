@@ -17,7 +17,7 @@ async (page) => {
   }
   await page.locator("#tb-version").selectOption("4.0");
   await page.waitForFunction(() => document.querySelector('[data-i18n="snapshotLabel"]').textContent === "Terminal-Bench 4.0");
-  const table = await page.locator(".tb-table").evaluate(element => {
+  const table = await page.locator("#tb-rankings .tb-table").evaluate(element => {
     const luminance = rgb => rgb.map(value => value / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((sum, value, i) => sum + value * [.2126, .7152, .0722][i], 0);
     const colors = [...element.querySelectorAll("tbody td")].map(node => getComputedStyle(node).color);
     const minimumContrast = Math.min(...colors.map(color => 1.05 / (luminance(color.match(/[\d.]+/g).slice(0, 3).map(Number)) + .05)));
@@ -40,7 +40,7 @@ async (page) => {
   await page.locator("#tb-version").selectOption("2.1");
   await page.waitForFunction(() => document.querySelector('[data-i18n="snapshotLabel"]').textContent === "Terminal-Bench 2.1");
   await page.locator("#tb-metric").selectOption("api");
-  await page.locator('[data-result-id="fdb8393b-5b29-4645-b784-84f52cf31722"]').click();
+  await page.locator('#tb-table-body [data-result-id="fdb8393b-5b29-4645-b784-84f52cf31722"]').click();
   const detail = await page.locator("#tb-detail-content").textContent();
   check(detail.includes("metrics.n_trials = 447; associations = 445"), "Trial-count discrepancy is visible");
   await page.keyboard.press("Escape");

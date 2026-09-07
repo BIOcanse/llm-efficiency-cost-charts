@@ -133,6 +133,49 @@ the frozen 3.0, 2.1, 2.0, or 1.0 captures.
 - Confidence intervals and full labels remain readable without overlaps.
 - Release contents, UTC timestamps, archive links and live deployment agree.
 
+## Upper-left frontier, 2026-09-07
+
+The requested "斩杀线" is the observed Pareto frontier, separately for
+subscription USD/attempt, API USD/attempt, and Tokens/attempt against success
+rate. A configuration is on it when no other eligible configuration costs
+less or the same and succeeds more or the same, with at least one strict
+improvement. Equal-coordinate ties all remain in the list. Missing/non-finite
+consumption is excluded, not zero. Compare the published unrounded coordinates;
+this is not a statistical-significance test or a subjective recommendation.
+
+Chart contract: retain each existing full scatter and named-system curves;
+overlay a dark dashed, step-shaped frontier with outlined member points. The
+steps represent the best observed success at or below a consumption budget,
+not interpolation or a new model. Begin at the cheapest frontier point, end at
+the highest-success point, and do not extend invented coordinates. This keeps
+every nondominated point, not just a convex hull or a ratio-based top-N.
+Show an exact lookup list below each interactive chart, in increasing
+consumption order, with model, effort, agent, success interval, actual
+consumption and applicable subscription confidence. Chart provider/agent
+filters recalculate both the line and its adjacent list; zoom only changes the
+view. The frontier overlay can be switched off without changing the data.
+
+Delivery stays in the user-selected existing GitHub Pages application and
+Matplotlib PNG/SVG exports. No replacement dashboard runtime or hosting system.
+The existing model palette is retained; the frontier is distinguished by a
+neutral dashed stroke and point outlines, not another model color. Static
+figures remain 4800×2700 with linear axes from zero and success from 0–100%.
+Label avoidance includes frontier segments. Validate at 1920px and 1440px.
+
+Add frontier exports and a combined frontier list for every saved TB version
+and snapshot. Preserve original images, raw observations, quota evidence and
+capture times; an analytical/display supplement is not a new data snapshot.
+TB1/TB2 lists explicitly state that all three frontiers are unavailable because
+consumption is missing. AA archives are outside this TB-version supplement.
+
+Implementation: `core.py` owns the export calculation; `interactive-scatter.js`
+shares one equivalent frontier function between the overlay and live list.
+`render.py` creates additional frontier plots/list pages; `build_snapshot.py`
+provides a frontier-only export mode. Tests compare both implementations with
+an independent pairwise oracle, ties, missing/zero values and each saved set.
+Release supplements retain the original snapshot date and a separate release
+date; older Release assets remain unchanged.
+
 ## Source audit, 2026-09-05
 
 The owner's public Harbor leaderboard-read API supplies 18 TB4, 12 TB3,

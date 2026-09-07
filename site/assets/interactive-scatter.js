@@ -71,21 +71,23 @@ function groupByModel(rows) {
   return groups;
 }
 
-function paretoKeys(rows, xKey) {
+export function paretoRows(rows, xKey) {
   const ordered = rows
-    .filter((row) => row.data_scope !== "partial")
+    .filter((row) => row.data_scope !== "partial" && Number.isFinite(row[xKey]) && row[xKey] >= 0 && Number.isFinite(row.score))
     .sort(
     (left, right) =>
       Number(left[xKey]) - Number(right[xKey]) ||
       Number(right.score) - Number(left.score),
   );
-  const result = new Set();
+  const result = [];
   let bestScore = Number.NEGATIVE_INFINITY;
+  let lastX = null;
   ordered.forEach((row) => {
     const score = Number(row.score);
-    if (score > bestScore) {
-      result.add(rowKey(row));
+    if (score > bestScore || (row[xKey] === lastX && score === bestScore)) {
+      result.push(row);
       bestScore = score;
+      lastX = row[xKey];
     }
   });
   return result;
@@ -423,7 +425,7 @@ export class InteractiveScatterChart {
 
   calculateBounds() {
     if (!this.data.length) {
-      return { xMin: 0, xMax: 1, yMin: 0, yMax: 1 };
+      return { xMin: 0, xMax: 1, yMin: this.config.yDomain?.[0] ?? 0, yMax: this.config.yDomain?.[1] ?? 1 };
     }
     const xValues = this.data.map((row) => Number(row[this.config.xKey]));
     const yValues = this.data.map((row) => Number(row.score));
@@ -432,7 +434,7 @@ export class InteractiveScatterChart {
     const yMaximum = Math.max(...yValues);
     return {
       xMin: 0,
-      xMax: xMaximum * 1.045,
+      xMax: xMaximum > 0 ? xMaximum * 1.045 : 1,
       yMin: this.config.yDomain?.[0] ?? Math.max(0, yMinimum - 2),
       yMax: this.config.yDomain?.[1] ?? Math.min(100, yMaximum + 2),
     };
@@ -524,7 +526,8 @@ export class InteractiveScatterChart {
       return Boolean(row.frontier_position);
     });
     this.groups = groupByModel(this.data);
-    this.frontier = paretoKeys(this.data, this.config.xKey);
+    this.frontierRows = paretoRows(this.data, this.config.xKey);
+    this.frontier = new Set(this.frontierRows.map(rowKey));
     this.fullBounds = this.calculateBounds();
     if (resetView || !this.view) {
       this.view = { ...this.fullBounds };
@@ -535,6 +538,7 @@ export class InteractiveScatterChart {
     this.pinnedRow = null;
     this.hideTooltip();
     this.render();
+    this.config.onFilteredRows?.(this.data, this.frontierRows);
   }
 
   resetView() {
@@ -593,7 +597,7 @@ export class InteractiveScatterChart {
   }
 
   render() {
-    if (!this.config || !this.data.length) {
+    if (!this.config) {
       return;
     }
     const width = Math.max(1180, Math.round(this.plot.clientWidth || 1320));
@@ -750,6 +754,25 @@ export class InteractiveScatterChart {
       marks.append(line);
     });
 
+    this.frontierSegments = [];
+    if (this.config.showParetoFrontier) {
+      this.frontierRows.slice(1).forEach((row, index) => {
+        const previous = this.frontierRows[index];
+        const x1 = scaleX(previous[this.config.xKey]), y1 = scaleY(previous.score);
+        const x2 = scaleX(row[this.config.xKey]), y2 = scaleY(row.score);
+        if (x1 === x2 && y1 === y2) return;
+        this.frontierSegments.push({x1, y1, x2, y2: y1}, {x1: x2, y1, x2, y2});
+      });
+      const frontierPath = svgElement("path", {
+        class: "interactive-pareto-line", fill: "none", stroke: "#172033",
+        "stroke-width": 2, "stroke-dasharray": "7 5", "pointer-events": "none",
+        d: this.frontierSegments.map(s => `M ${s.x1} ${s.y1} L ${s.x2} ${s.y2}`).join(" "),
+        "aria-label": this.config.paretoLabel || "Pareto frontier",
+      });
+      marks.append(frontierPath);
+    }
+    this.svg.dataset.frontierCount = String(this.frontierRows.length);
+
     this.pointElements = [];
     this.data.forEach((row) => {
       const key = rowKey(row);
@@ -849,7 +872,7 @@ export class InteractiveScatterChart {
           point.y >= plot.top &&
           point.y <= plot.top + plot.height,
       );
-    const lineSegments = [];
+    const lineSegments = [...this.frontierSegments];
     if (this.config.showConfidenceIntervals) {
       this.data.forEach((row) => {
         if (row.ci95_low != null && row.ci95_high != null) {

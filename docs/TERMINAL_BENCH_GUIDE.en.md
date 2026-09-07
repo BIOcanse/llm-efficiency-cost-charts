@@ -8,6 +8,8 @@ Chart 2: API cost versus success. Cost per attempt = published total run cost / 
 
 Chart 3: Token consumption versus success. Published total Tokens / attempts, including cached input and billed reasoning/answer output without double-counting. Some raw input field names are inconsistent; preserve their original values and use the published total unchanged.
 
+Upper-left Pareto frontier: no other configuration uses no more resources and achieves no less success, with at least one strict improvement. Each metric and benchmark version has its own list of model + agent + effort configurations and measured values. Equal-coordinate ties are retained. Lists follow each chart's provider and agent filters; zooming does not change membership. Dashed steps show observed budget limits, not interpolation between models. Membership based on point estimates does not establish statistically significant superiority. Versions 2.0 and 1.0 lack the consumption data needed to calculate a frontier.
+
 Cost rankings use average cost per successful task: total cost / successes, including failed attempts. Where success counts are absent, use the published success rate. Provider, agent and success-rate filters recalculate rankings: the highest cost is 100% for relative cost; the lowest resources per success is 100% for value. This workload ratio is not a promise that unlimited retries solve every task.
 
 Token efficiency and price are separate metrics. At similar success on the same tasks, fewer Tokens mean higher efficiency. Comparable parameter scale, agent setup and budgets make the result more informative about technical efficiency. Model scale itself affects Token efficiency; not every difference is attributable to architecture.

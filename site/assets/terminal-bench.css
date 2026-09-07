@@ -45,3 +45,14 @@
 #tb-detail p a { overflow-wrap: anywhere; font-size: 13px; color: #315e89; }
 .tb-dialog-close { float: right; }
 .interactive-confidence-interval { opacity: 0.65; }
+.tb-frontier-controls, .tb-frontier-heading { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.tb-frontier-controls { margin: 12px 0 18px; color: #26364a; font-size: 13px; }
+.tb-frontier-controls label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.tb-frontier-controls input { width: 17px; height: 17px; accent-color: #26364a; }
+.tb-frontier-key::before { content: ""; display: inline-block; width: 38px; border-top: 2px dashed #172033; margin-right: 10px; vertical-align: middle; }
+.tb-frontier-list { margin-top: 26px; }
+.tb-frontier-heading h4 { margin: 0; font-size: 18px; }
+.tb-frontier-heading span { color: #526476; font-size: 13px; }
+.tb-frontier-heading a { margin-left: auto; color: #315778; font-size: 13px; }
+.tb-frontier-table { min-width: 1120px; }
+.tb-frontier-table .tb-frontier-access { white-space: normal; max-width: 250px; }

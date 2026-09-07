@@ -1,11 +1,14 @@
-import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260905-terminal-bench-1";
+import { InteractiveScatterChart } from "./interactive-scatter.js?v=20260907-frontiers-1";
 
-const REVISION = "20260905-terminal-bench-1";
+const REVISION = "20260907-frontiers-1";
 const text = {
   "zh-CN": {
     title: "编码 Agent：任务成本与 Token 效率", lead: "套餐折算与 API 成本分别比较。成功率和实际任务消耗，放在一起看。",
     active: "持续更新", frozen: "最终快照 · 已冻结", version: "测试集版本", snapshot: "数据快照", captured: "采集时间（UTC）",
     charts: "三项对比", rankings: "数据与性价比排名", method: "计算口径与来源", upperLeft: "左上更好",
+    frontier: "左上前沿（斩杀线）", showFrontier: "显示前沿线", frontierList: "前沿配置列表", frontierCsv: "完整前沿 CSV",
+    frontierHint: "没有其他配置同时做到消耗不高、成功率不低，并至少一项更好。按图中点值计算，不代表统计显著；虚线只表示已观测到的预算边界，不是模型插值。名单随上方厂商与 Agent 筛选更新。",
+    frontierOrder: "按消耗从低到高排列", frontierCount: "个前沿配置", frontierMissing: "缺少可核实的消耗数据，无法计算该版本的三项前沿；成功率排名仍保留。",
     chartHint: "点＝模型＋Agent＋思考档位；竖线为官方 95% 区间。不同测试集版本不混排。",
     subscription: "套餐折算成本", api: "API 成本", token: "Token 消耗", success: "成功率",
     subscriptionLead: "跑满适用套餐额度后的估算成本。没有适用套餐的配置保留 API 价格。",
@@ -38,6 +41,9 @@ const text = {
     title: "Coding agents: task cost and Token efficiency", lead: "Subscription-equivalent and API costs, compared separately against task success and measured resource use.",
     active: "Actively updated", frozen: "Final snapshot · frozen", version: "Benchmark version", snapshot: "Data snapshot", captured: "Captured (UTC)",
     charts: "Three comparisons", rankings: "Data and cost-performance rankings", method: "Method and sources", upperLeft: "Upper left is better",
+    frontier: "Upper-left Pareto frontier", showFrontier: "Show frontier", frontierList: "Frontier configurations", frontierCsv: "Full frontier CSV",
+    frontierHint: "No other configuration uses no more resources and achieves no less success, with at least one strict improvement. Based on point estimates, not statistical significance. Dashed steps show observed budget limits, not model interpolation. The list follows the provider and agent filters above.",
+    frontierOrder: "Ordered from lowest to highest consumption", frontierCount: "frontier configurations", frontierMissing: "Verifiable consumption is missing, so all three frontiers are unavailable for this version. Success-rate rankings remain available.",
     chartHint: "Point = model + agent + effort; whiskers show the owner's 95% interval. Benchmark versions remain separate.",
     subscription: "Subscription-equivalent cost", api: "API cost", token: "Token consumption", success: "Success rate",
     subscriptionLead: "Estimated cost at full use of an applicable plan. API prices remain only where no applicable plan exists.",
@@ -69,7 +75,6 @@ const EFFORT_ZH = {low: "低", medium: "中", high: "高", xhigh: "超高", max:
 const METRICS = ["subscription", "api", "token"];
 const X_KEYS = {subscription: "subscription_per_attempt", api: "api_per_attempt", token: "total_tokens_million"};
 const RANK_KEYS = {subscription: "subscription_per_success", api: "api_per_success", token: "tokens_per_success"};
-const STEMS = {subscription: "01_subscription", api: "02_api", token: "03_token"};
 const escape = (value) => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
 const usd = (value) => value == null ? "—" : `$${Number(value).toFixed(value < 0.001 ? 6 : 4)}`;
 const millions = (value) => value == null ? "—" : `${(value / 1e6).toFixed(3)}M`;
@@ -100,7 +105,7 @@ export class TerminalBenchView {
         <p class="tb-note" data-tb="versionPolicy"></p><p class="tb-error" id="tb-error" role="status"></p>
       </section>
       <section id="tb-charts" class="section page-shell"><div class="section-heading"><div><span class="eyebrow" data-tb="charts"></span><h2 data-tb="upperLeft"></h2></div><p data-tb="chartHint"></p></div><p class="tb-empty" id="tb-no-usage" hidden data-tb="noUsage"></p>
-      ${METRICS.map((metric, i) => `<article class="chart-card" id="tb-card-${metric}"><div class="chart-heading"><span class="chart-number">0${i + 1}</span><div><h3 data-tb="${metric}"></h3><p data-tb="${metric}Lead"></p></div><a class="text-link" id="tb-image-${metric}" target="_blank" rel="noreferrer" data-tb="images"></a></div><div id="tb-chart-${metric}"></div></article>`).join("")}</section>
+      ${METRICS.map((metric, i) => `<article class="chart-card" id="tb-card-${metric}"><div class="chart-heading"><span class="chart-number">0${i + 1}</span><div><h3 data-tb="${metric}"></h3><p data-tb="${metric}Lead"></p></div><a class="text-link" id="tb-image-${metric}" target="_blank" rel="noreferrer" data-tb="images"></a></div><div class="tb-frontier-controls"><span class="tb-frontier-key" data-tb="frontier"></span><label><input type="checkbox" id="tb-frontier-toggle-${metric}" checked><span data-tb="showFrontier"></span></label></div><div id="tb-chart-${metric}"></div><section class="tb-frontier-list"><div class="tb-frontier-heading"><h4 data-tb="frontierList"></h4><span id="tb-frontier-count-${metric}"></span><a id="tb-frontier-csv-${metric}" target="_blank" rel="noreferrer" data-tb="frontierCsv"></a></div><p class="tb-note" data-tb="frontierHint"></p><div class="table-wrap tb-table-wrap"><table class="tb-table tb-frontier-table" id="tb-frontier-table-${metric}"></table></div></section></article>`).join("")}</section>
       <section id="tb-rankings" class="section page-shell"><div class="section-heading"><h2 data-tb="rankings"></h2><a class="text-link" id="tb-csv" data-tb="csv"></a></div>
         <div class="tb-filters"><label><span data-tb="metric"></span><select id="tb-metric"></select></label><label><span data-tb="provider"></span><select id="tb-provider"></select></label><label><span data-tb="agent"></span><select id="tb-agent"></select></label><label><span data-tb="scoreMin"></span><input id="tb-min" type="number" min="0" max="100" step="0.1" value="0"></label><label><span data-tb="scoreMax"></span><input id="tb-max" type="number" min="0" max="100" step="0.1" value="100"></label><button class="button secondary" type="button" id="tb-clear" data-tb="clear"></button></div>
         <p class="tb-note" id="tb-ranking-hint"></p><p class="tb-note" data-tb="percentage"></p><p class="tb-result-count" id="tb-result-count" role="status"></p>
@@ -120,6 +125,7 @@ export class TerminalBenchView {
       this.el(id).addEventListener("input", event => {this.filters[key] = ["minimum", "maximum"].includes(key) ? Number(event.target.value) : event.target.value; this.renderRanking();});
     }
     this.el("tb-clear").addEventListener("click", () => {this.filters = {provider: "", agent: "", minimum: 0, maximum: 100}; this.renderFilters(); this.renderRanking();});
+    for (const metric of METRICS) this.el(`tb-frontier-toggle-${metric}`).addEventListener("change", () => this.renderCharts());
     this.el("tb-detail").querySelector("button").addEventListener("click", () => this.el("tb-detail").close());
     this.el("tb-detail").addEventListener("click", event => {if (event.target === this.el("tb-detail")) this.el("tb-detail").close();});
   }
@@ -179,6 +185,7 @@ export class TerminalBenchView {
     this.el("tb-state").dataset.state = this.version.status;
     this.el("tb-source-data").href = this.snapshot.data_url;
     this.el("tb-no-usage").hidden = Object.values(this.payload.counts).some(Boolean);
+    if (!this.el("tb-no-usage").hidden) this.el("tb-no-usage").textContent = this.t.frontierMissing;
     this.renderFilters(); this.renderRanking(); this.renderCharts(); this.renderEvidence();
   }
   renderFilters() {
@@ -197,13 +204,17 @@ export class TerminalBenchView {
       const rows = this.payload.rows.filter(row => row[X_KEYS[metric]] != null);
       this.el(`tb-card-${metric}`).hidden = !rows.length;
       if (!rows.length) continue;
-      this.el(`tb-image-${metric}`).href = `${this.snapshot.chart_base}/${this.language}/${STEMS[metric]}.png`;
+      const frontierStem = {subscription: "07_subscription_frontier", api: "08_api_frontier", token: "09_token_frontier"}[metric];
+      this.el(`tb-image-${metric}`).href = `${this.snapshot.chart_base}/${this.language}/${frontierStem}.png`;
+      this.el(`tb-frontier-csv-${metric}`).href = `${this.snapshot.ranking_base}/${metric}_frontier.csv`;
       let chart = this.charts.get(metric);
       if (!chart) {chart = new InteractiveScatterChart(this.el(`tb-chart-${metric}`)); this.charts.set(metric, chart);}
       const t = this.t, xKey = X_KEYS[metric];
       const displayValue = value => metric === "token" ? `${Number(value).toFixed(3)}M` : usd(value);
       const name = row => `${row.base_model} · ${this.effort(row)} · ${row.agent}`;
       chart.update(rows, {metric: `terminal-${metric}`, dataRevision: `${this.version.id}:${this.snapshot.id}`, xKey, yDomain: [0, 100], showConfidenceIntervals: true,
+        showParetoFrontier: this.el(`tb-frontier-toggle-${metric}`).checked, paretoLabel: t.frontier,
+        onFilteredRows: (filtered, frontier) => this.renderFrontierList(metric, frontier),
         providerControlLabel: t.provider, allProvidersLabel: t.allProviders, modelScopeControlLabel: t.agent, allModelsScopeLabel: t.allAgents, scopeMode: "field", scopeField: "agent",
         zoomInLabel: t.zoomIn, zoomOutLabel: t.zoomOut, resetLabel: t.reset, interactionHint: t.interact, readoutHint: t.readout,
         xAxisLabel: t[`${metric}Axis`], yAxisLabel: t.yAxis, accessibleTitle: `${this.payload.benchmark}: ${t[metric]}`, accessibleDescription: t.chartHint,
@@ -213,6 +224,13 @@ export class TerminalBenchView {
         pointAriaLabel: row => `${name(row)}: ${this.rate(row)}, ${displayValue(row[xKey])}`,
       });
     }
+  }
+  renderFrontierList(metric, rows) {
+    const t = this.t, format = metric === "token" ? millions : usd;
+    this.el(`tb-frontier-count-${metric}`).textContent = `${rows.length} ${t.frontierCount} · ${t.frontierOrder}`;
+    const headers = [t.model, t.agent, t.rate, t.attempt, t.resolved, t.trials, ...(metric === "subscription" ? [t.access, t.confidence] : []), t.details];
+    this.el(`tb-frontier-table-${metric}`).innerHTML = `<thead><tr>${headers.map(value => `<th>${escape(value)}</th>`).join("")}</tr></thead><tbody>${rows.map(row => `<tr data-frontier-id="${escape(row.id)}"><td class="tb-model"><strong>${escape(row.base_model)}</strong><span class="tb-effort">${escape(this.effort(row))}</span></td><td>${escape(row.agent)}</td><td>${this.rate(row)}</td><td>${format(metric === "token" ? row.token_per_attempt : row[X_KEYS[metric]])}</td><td>${format(row[RANK_KEYS[metric]])}</td><td>${row.trials ?? "—"}</td>${metric === "subscription" ? `<td class="tb-frontier-access">${escape(row.access_label)}</td><td>${escape(t[row.access_confidence] || row.access_confidence)}</td>` : ""}<td><button class="tb-detail-button" type="button" data-result-id="${escape(row.id)}">${t.details}</button></td></tr>`).join("") || `<tr><td colspan="${headers.length}">${t.empty}</td></tr>`}</tbody>`;
+    this.el(`tb-frontier-table-${metric}`).querySelectorAll("[data-result-id]").forEach(button => button.addEventListener("click", () => this.showDetails(button.dataset.resultId)));
   }
   rate(row) {return `${row.score.toFixed(2)}%${row.ci95_half_width == null ? "" : ` ± ${row.ci95_half_width.toFixed(2)}`}`;}
   duration(row) {return row.avg_trial_duration_sec == null ? "—" : `${(row.avg_trial_duration_sec / 60).toFixed(1)} min`;}
